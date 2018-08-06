@@ -1,0 +1,44 @@
+{
+    "name": "anilistbot",
+    "version": "1.0.0",
+    "description": "A new code base to Anilist bot in Telegram.",
+    "main": "./dist/main.js",
+    "scripts": {
+        "bot": "node dist/main.js",
+        "test": "snyk test && npm run jest",
+        "jest": "jest --config jest.config.json --ci --runInBand --detectOpenHandles --forceExit",
+        "watch": "tsc --watch",
+        "build": "tsc",
+        "start": "npm run build && npm run bot"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Fazendaaa/AnilistBot.git"
+    },
+    "author": "https://github.com/Fazendaaa/",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Fazendaaa/AnilistBot/issues"
+    },
+    "homepage": "https://github.com/Fazendaaa/AnilistBot#readme",
+    "devDependencies": {
+        "@types/dotenv": "^4.0.3",
+        "@types/jest": "^23.1.5",
+        "@types/mongoose": "^5.2.0",
+        "@types/node": "^10.5.2",
+        "codecov": "^3.0.4",
+        "jest": "^23.4.2",
+        "snyk": "^1.90.0",
+        "ts-jest": "^23.0.0",
+        "tslint": "^5.10.0",
+        "tslint-microsoft-contrib": "^5.0.3",
+        "typescript": "^2.9.2"
+    },
+    "dependencies": {
+        "dotenv": "^6.0.0",
+        "endeavor": "^2.0.0",
+        "mongoose": "^5.2.2",
+        "telegraf": "^3.21.2",
+        "telegraf-i18n": "^6.1.1"
+    }
+}
