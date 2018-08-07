@@ -1,0 +1,16 @@
+ci
+coverage
+docs
+node_modules
+src
+.gitignore
+.snyk
+.travis.yml
+jest.config.json
+index.md
+LICENSE
+package-lock.json
+README.md
+tsconfig.json
+tslint.json
+webpack.config.ts

@@ -1,19 +1,16 @@
 {
-    "name": "AnilistBot",
-    "globals": {
-        "ts-jest": {
-            "enableTsDiagnostics": true
-        }
-    },
+    "bail": true,
+    "expand": true,
     "verbose": true,
+    "useStderr": true,
+    "forceExit": true,
+    "name": "AnilistBot",
+    "logHeapUsage": true,
+    "collectCoverage": true,
+    "testRegex": "(./ci/__tests__/.*| (\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "transform": {
         "^.+\\.tsx?$": "ts-jest"
     },
-    "coveragePathIgnorePatterns": [
-        "./node_modules/",
-        "./dist/"
-    ],
-    "testRegex": "(./ci/__tests__/.*| (\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
         "ts",
         "tsx",
@@ -22,15 +19,18 @@
         "json",
         "node"
     ],
-    "collectCoverage": true,
-    "useStderr": true,
-    "forceExit": true,
+    "coveragePathIgnorePatterns": [
+        "./node_modules/",
+        "./dist/"
+    ],
     "coverageReporters": [
         "json",
         "lcov",
         "text"
     ],
-    "expand": true,
-    "logHeapUsage": true,
-    "bail": true
+    "globals": {
+        "ts-jest": {
+            "enableTsDiagnostics": true
+        }
+    }
 }
