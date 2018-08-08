@@ -1,0 +1,42 @@
+start:
+  "*Olá*, _${from.username}!_\n\n\
+  Eu sou AnilistBot, o seu bot the pesquisas sobre o mundo dos animes. Porém, eu posso fazer muito mais, para saber apenas clique em /more!"
+
+isAdult:
+  "Conteúdo adulto"
+
+finished:
+  "Finalizado"
+
+releasing:
+  "Em andamento"
+
+notYetReleased:
+  "Não lançando ainda"
+
+cancelled:
+  "Cancelado"
+
+episodes:
+  "*Episódios*: _${episodes}_"
+
+chapters:
+  "*Capítulos*: _${chapters}_"
+
+volumes:
+  "*Volumes*: _${volumes}_"
+
+content:
+  "[‍](${image})*${native}*\n\
+  *${english}*\n\
+  *${romaji}*\n\
+  ${isAdult}\
+  *Temporada*: _${season}_\n\
+  *Início*: _${startDate}_\n\
+  *Final*: _${endDate}_\n\
+  *Status*: _${status}_\n\
+  *Tipo*: _${format}_\n\
+  *Média de aprovação*: _${popularity}_\n\
+  ${episodes}\
+  ${chapters}\
+  ${volumes}"
