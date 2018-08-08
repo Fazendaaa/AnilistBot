@@ -3,8 +3,8 @@ import { join } from 'path';
 import telegraf from 'telegraf';
 import telegrafI18n from 'telegraf-i18n';
 import { searchContent } from './lib/anilist/inline/search';
-import { BotContext } from '.';
-import { sanitize } from './lib/utils/parse';
+import { BotContext } from './index';
+import { sanitize } from './lib/telegram/utils/parse';
 import { toInlineArticle } from './lib/telegram/inline';
 
 config();
@@ -19,6 +19,7 @@ const i18n = new telegrafI18n({
 });
 
 bot.startPolling();
+
 bot.use(telegraf.log());
 bot.use(i18n.middleware());
 

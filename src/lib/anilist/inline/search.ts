@@ -1,9 +1,9 @@
 import { fetchData } from 'endeavor';
 import content from '../queries/inline/content.gql';
-import { QueryPageContent } from '../queries/inline/inline';
+import { QueryPageContent } from '../utils/queries/inline/inline';
 import { I18n } from 'telegraf-i18n';
 import { MinimumInline } from '../../telegram/inline';
-import { filterTitle } from '../../utils/parse';
+import { filterTitle } from '../utils/parse';
 
 interface SearchContext {
     query: string;
