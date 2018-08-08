@@ -5,6 +5,7 @@
     "main": "./dist/main.js",
     "scripts": {
         "build": "webpack",
+        "ts": "tsc --watch",
         "watch": "webpack --watch",
         "bot": "node dist/main.js",
         "test": "snyk test && npm run jest",

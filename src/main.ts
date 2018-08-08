@@ -2,7 +2,10 @@ import { config } from 'dotenv';
 import { join } from 'path';
 import telegraf from 'telegraf';
 import telegrafI18n from 'telegraf-i18n';
-import { fetchAnime } from './lib/anilist/search';
+import { searchContent } from './lib/anilist/inline/search';
+import { BotContext } from '.';
+import { sanitize } from './lib/utils/parse';
+import { toInlineArticle } from './lib/telegram/inline';
 
 config();
 
@@ -19,8 +22,14 @@ bot.startPolling();
 bot.use(telegraf.log());
 bot.use(i18n.middleware());
 
-bot.start(({ replyWithMarkdown }) => {
-    fetchAnime().then(console.log);
+bot.catch(console.error);
 
-    replyWithMarkdown('Lorem.');
+bot.start(({ i18n, replyWithMarkdown }: BotContext) => replyWithMarkdown(i18n.t('start')));
+
+bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: BotContext) => {
+    const query = sanitize({ message: inlineQuery.query });
+    const searched = await searchContent({ query, translation: i18n });
+    const results = toInlineArticle(searched);
+
+    answerInlineQuery(results);
 });
