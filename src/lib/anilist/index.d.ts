@@ -1,3 +1,6 @@
+type MediaType = 'ANIME' |
+                 'MANGA'
+
 type MediaRankType = 'RATED' |
                      'POPULAR'
 

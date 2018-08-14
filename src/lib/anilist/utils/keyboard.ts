@@ -1,25 +1,22 @@
 import { InlineKeyboardMarkup } from 'telegram-typings';
 import { I18n } from 'telegraf-i18n';
-import { MediaFormat } from '..';
+import { MediaType } from '..';
 const markup = require('telegraf').Markup;
 
 interface KeyboardContext {
     id: number;
-    format: MediaFormat;
+    type: MediaType;
     translation: I18n;
 }
 
-export const inlineKeyboard = ({ id, translation, format }: KeyboardContext): InlineKeyboardMarkup => {
-    let list = markup.callbackButton(translation.t('buttonWatchlist'), `watchlist/${id}`);
-    
-    if ('MANGA' === format || 'ONE_SHOT' === format) {
-        list = markup.callbackButton(translation.t('buttonReadlist'), `readlist/${id}`);
-    }                                 
+export const inlineKeyboard = ({ id, translation, type }: KeyboardContext): InlineKeyboardMarkup => {
+    const list = ('ANIME' === type) ? markup.callbackButton(translation.t('buttonWatchlist'), `list/${id}/watch`)
+                                    : markup.callbackButton(translation.t('buttonReadlist'), `list/${id}/read`);
 
     return markup.inlineKeyboard([
-        markup.callbackButton(translation.t('buttonDescription'), `description/${id}`),
-        markup.callbackButton(translation.t('buttonGenres'), `genres/${id}`),
-        markup.callbackButton(translation.t('buttonUsers'), `users/${id}`),
+        markup.callbackButton(translation.t('buttonDescription'), `description/${id}/${type}`),
+        markup.callbackButton(translation.t('buttonGenres'), `genres/${id}/${type}`),
+        markup.callbackButton(translation.t('buttonUsers'), `users/${id}/${type}`),
         list
     ]);
 };

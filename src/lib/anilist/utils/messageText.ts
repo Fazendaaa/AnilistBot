@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { MediaPageInline } from '../queries/inline/inline';
+import { MediaPageInline } from '../queries/inline';
 import { I18n } from 'telegraf-i18n';
 import { isAdultPreview, formatPreview, statusPreview, volumesPreview, episodesPreview, chaptersPreview, imagePreview, seasonPreview, averagePreview, allTitlePreview } from './preview';
 

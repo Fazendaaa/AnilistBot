@@ -3,9 +3,11 @@ import { join } from 'path';
 import telegraf from 'telegraf';
 import telegrafI18n from 'telegraf-i18n';
 import { searchInline } from './lib/anilist/inline/search';
-import { BotContext } from './index';
+import { BotContext } from '.';
 import { sanitize } from './lib/telegram/utils/parse';
 import { toInlineArticle } from './lib/telegram/inline';
+import { handleCallback, CallbackFiled } from './lib/anilist/callback/handle';
+import { MediaType } from './lib/anilist';
 
 config();
 
@@ -36,4 +38,14 @@ bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: BotConte
     const results = toInlineArticle(searched);
 
     answerInlineQuery(results, { next_offset });
+});
+
+bot.on('callback_query', async ({ i18n, callbackQuery, answerCbQuery }: BotContext) => {
+    const data = callbackQuery.data.split('/');
+    const id = parseInt(data[1], 10);
+    const type = <MediaType> data[2];
+    const field = <CallbackFiled> data[0];
+    const response = await handleCallback({ id, type, field, translation: i18n });
+
+    return await answerCbQuery(response, true);
 });

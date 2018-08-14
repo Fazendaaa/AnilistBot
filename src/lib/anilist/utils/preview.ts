@@ -1,5 +1,5 @@
 import { I18n } from 'telegraf-i18n';
-import { CoverImage, MediaStatus, MediaFormat, MediaTitle, MediaSeason } from '../index';
+import { CoverImage, MediaStatus, MediaFormat, MediaTitle, MediaSeason } from '..';
 
 interface AdultContext {
     isAdult: boolean,

@@ -1,6 +1,6 @@
 import { fetchData } from 'endeavor';
 import inline from '../queries/inline/inline.gql';
-import { QueryPageInline } from '../queries/inline/inline';
+import { QueryPageInline } from '../queries/inline';
 import { I18n } from 'telegraf-i18n';
 import { MinimumInline } from '../../telegram/inline';
 import { inlineMessage } from '../utils/messageText';
@@ -25,7 +25,7 @@ export const searchInline = async ({ query, translation, page, perPage }: Search
             title: titlePreview(data.title),
             message_text: inlineMessage({ data, translation }),
             description: formatPreview({ format: data.format, translation }),
-            reply_markup: inlineKeyboard({ id: data.id, translation, format: data.format }),
+            reply_markup: inlineKeyboard({ id: data.id, translation, type: data.type }),
             thumb_url: imagePreview({ coverImage: data.coverImage, bannerImage: data.bannerImage, isInline: true })
         };
     });
