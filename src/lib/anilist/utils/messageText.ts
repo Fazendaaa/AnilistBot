@@ -1,16 +1,16 @@
 import moment from 'moment';
-import { MediaPageContent } from '../utils/queries/inline/inline';
+import { MediaPageInline } from '../queries/inline/inline';
 import { I18n } from 'telegraf-i18n';
 import { isAdultPreview, formatPreview, statusPreview, volumesPreview, episodesPreview, chaptersPreview, imagePreview, seasonPreview, averagePreview, allTitlePreview } from './preview';
 
-interface ContentMessage {
+interface InlineMessage {
     translation: I18n;
-    data: MediaPageContent;
+    data: MediaPageInline;
 }
 
 const dateFormat = 'MMMM Do YYYY';
 
-export const contentMessage = ({ data, translation }: ContentMessage): string => translation.t('content', {
+export const inlineMessage = ({ data, translation }: InlineMessage): string => translation.t('inline', {
     siteUrl: data.siteUrl,
     endDate: moment(data.endDate).format(dateFormat),
     startDate: moment(data.startDate).format(dateFormat),

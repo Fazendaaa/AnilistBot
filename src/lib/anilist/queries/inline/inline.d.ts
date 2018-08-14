@@ -1,6 +1,6 @@
-import { MediaTitle, CoverImage, FuzzyDateInt, MediaFormat, MediaStatus, MediaTrailer, MediaSource, AiringSchedule, MediaRanking, MediaExternalLink } from '../../../index';
+import { MediaTitle, CoverImage, FuzzyDateInt, MediaFormat, MediaStatus, MediaTrailer, MediaSource, AiringSchedule, MediaRanking, MediaExternalLink } from '../../index';
 
-interface MediaPageContent {
+interface MediaPageInline {
     id: number;
     season: string;
     volumes: number;
@@ -13,7 +13,6 @@ interface MediaPageContent {
     status: MediaStatus;
     format: MediaFormat;
     source: MediaSource;
-    description: string;
     bannerImage: string;
     averageScore: number;
     genres: Array<string>;
@@ -28,13 +27,13 @@ interface MediaPageContent {
 }
 
 interface Page {
-    media: Array<MediaPageContent>;
+    media: Array<MediaPageInline>;
 }
 
 interface Data {
     Page: Page;
 }
 
-export interface QueryPageContent {
+export interface QueryPageInline {
     data: Data;
 }

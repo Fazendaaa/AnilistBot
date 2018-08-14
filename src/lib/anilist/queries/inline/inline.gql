@@ -13,7 +13,6 @@ query ($search: String, $page: Int, $perPage: Int) {
       		duration
       		episodes
       		chapters
-            description
             bannerImage
       		averageScore
             countryOfOrigin

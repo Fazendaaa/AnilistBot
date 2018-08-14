@@ -18,34 +18,34 @@ cancelled:
   "Cancelled"
 
 tv:
-  "TV"
+  "📺 TV"
 
 OVA:
-  "OVA"
+  "💿 OVA"
 
 ONA:
-  "ONA"
+  "💻 ONA"
 
 music:
-  "Music"
+  "🎵 Music"
 
 manga:
-  "Manga"
+  "📖 Manga"
 
 novel:
-  "Novel"
+  "📚 Novel"
 
 movie:
-  "Movie"
+  "🎥 Movie"
 
 special:
-  "Special"
+  "📼 Special"
 
 tvShort:
-  "Tv Short"
+  "🏮 Tv Short"
 
 oneShot:
-  "One Shot"
+  "📜 One Shot"
 
 english:
   "🇬🇧 *${english}*\n"
@@ -74,7 +74,7 @@ chapters:
 volumes:
   "*Volumes*: _${volumes}_\n"
 
-content:
+inline:
   "[‍](${image})${native}\
   ${english}\
   ${romaji}\

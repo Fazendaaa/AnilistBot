@@ -59,12 +59,20 @@ interface AllTitleResponse {
     english: string;
 }
 
+export const seasonPreview = ({ season, translation }: SeasonContext): string => {
+    return (null !== season) ? translation.t('season', { season }) : '';
+};
+
 export const isAdultPreview = ({ isAdult, translation }: AdultContext): string => {
     return (true === isAdult) ? translation.t('isAdult') : '';
 };
 
 export const volumesPreview = ({ volumes, translation }: VolumesContext): string => {
     return (null !== volumes) ? translation.t('volumes', { volumes }) : '';
+};
+
+export const averagePreview = ({ average, translation }: AverageContext): string => {
+    return (null !== average) ? translation.t('average', { average }) : '';
 };
 
 export const episodesPreview = ({ episodes, translation }: EpisodesContext): string => {
@@ -75,14 +83,6 @@ export const chaptersPreview = ({ chapters, translation }: ChaptersContext): str
     return (null !== chapters) ? translation.t('chapters', { chapters }) : '';
 };
 
-export const seasonPreview = ({ season, translation }: SeasonContext): string => {
-    return (null !== season) ? translation.t('season', { season }) : '';
-};
-
-export const averagePreview = ({ average, translation }: AverageContext): string => {
-    return (null !== average) ? translation.t('average', { average }) : '';
-};
-
 export const titlePreview = ({ english, native, romaji }: MediaTitle): string => {
     if (null !== english) {
         return english;
@@ -91,32 +91,6 @@ export const titlePreview = ({ english, native, romaji }: MediaTitle): string =>
     }
 
     return romaji;
-};
-
-export const allTitlePreview = ({ title, translation, countryOfOrigin }: AllTitleContext): AllTitleResponse => {
-    let native = '';
-
-    if (null !== title.native && 'JP' === countryOfOrigin) {
-        native = translation.t('japan', { japan: title.native });
-    } if (null !== title.native && 'CN' === countryOfOrigin) {
-        native = translation.t('chinese', { chinese: title.native });
-    }
-
-    return {
-        native,
-        romaji: (null !== title.romaji) ? translation.t('romaji', { romaji: title.romaji }) : '',
-        english: (null !== title.english) ? translation.t('english', { english: title.english }) : ''
-    };
-};
-
-export const imagePreview = ({ coverImage, bannerImage, isInline = false }: ImageContext): string => {
-    if (null !== bannerImage && false === isInline) {
-        return bannerImage;
-    } if (null !== coverImage.large) {
-        return coverImage.large;
-    }
-
-    return coverImage.medium;
 };
 
 export const statusPreview = ({ status, translation }: StatusContext): string => {
@@ -153,4 +127,30 @@ export const formatPreview = ({ format, translation }: FormatContext): string =>
     }
 
     return translation.t('oneShot');
+};
+
+export const imagePreview = ({ coverImage, bannerImage, isInline = false }: ImageContext): string => {
+    if (null !== bannerImage && false === isInline) {
+        return bannerImage;
+    } if (null !== coverImage.large) {
+        return coverImage.large;
+    }
+
+    return coverImage.medium;
+};
+
+export const allTitlePreview = ({ title, translation, countryOfOrigin }: AllTitleContext): AllTitleResponse => {
+    let native = '';
+
+    if (null !== title.native && 'JP' === countryOfOrigin) {
+        native = translation.t('japan', { japan: title.native });
+    } if (null !== title.native && 'CN' === countryOfOrigin) {
+        native = translation.t('chinese', { chinese: title.native });
+    }
+
+    return {
+        native,
+        romaji: (null !== title.romaji) ? translation.t('romaji', { romaji: title.romaji }) : '',
+        english: (null !== title.english) ? translation.t('english', { english: title.english }) : ''
+    };
 };

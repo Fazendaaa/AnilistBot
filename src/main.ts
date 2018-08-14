@@ -2,7 +2,7 @@ import { config } from 'dotenv';
 import { join } from 'path';
 import telegraf from 'telegraf';
 import telegrafI18n from 'telegraf-i18n';
-import { searchContent } from './lib/anilist/inline/search';
+import { searchInline } from './lib/anilist/inline/search';
 import { BotContext } from './index';
 import { sanitize } from './lib/telegram/utils/parse';
 import { toInlineArticle } from './lib/telegram/inline';
@@ -28,9 +28,12 @@ bot.catch(console.error);
 bot.start(({ i18n, replyWithMarkdown }: BotContext) => replyWithMarkdown(i18n.t('start')));
 
 bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: BotContext) => {
+    const pageLimit = 20;
+    const offset = parseInt(inlineQuery.offset, 10) || 0;
+    const next_offset = (offset + pageLimit).toString();
     const query = sanitize({ message: inlineQuery.query });
-    const searched = await searchContent({ query, translation: i18n });
+    const searched = await searchInline({ query, page: offset, perPage: pageLimit, translation: i18n });
     const results = toInlineArticle(searched);
 
-    answerInlineQuery(results);
+    answerInlineQuery(results, { next_offset });
 });
