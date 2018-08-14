@@ -1,8 +1,7 @@
-import { MediaTitle, CoverImage, FuzzyDateInt, MediaFormat, MediaStatus, MediaTrailer, MediaSource, AiringSchedule, MediaRanking, MediaExternalLink } from '../../index';
+import { MediaTitle, CoverImage, FuzzyDateInt, MediaFormat, MediaStatus, MediaTrailer, MediaSource, AiringSchedule, MediaRanking, MediaExternalLink, MediaSeason } from '../../index';
 
 interface MediaPageInline {
     id: number;
-    season: string;
     volumes: number;
     siteUrl: string;
     duration: number;
@@ -10,6 +9,7 @@ interface MediaPageInline {
     chapters: number;
     isAdult: boolean;
     title: MediaTitle;
+    season: MediaSeason;
     status: MediaStatus;
     format: MediaFormat;
     source: MediaSource;

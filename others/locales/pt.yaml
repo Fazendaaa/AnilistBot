@@ -2,9 +2,6 @@ start:
   "*Olá*, _${from.username}!_\n\n\
   Eu sou AnilistBot, o seu bot the pesquisas sobre o mundo dos animes. Porém, eu posso fazer muito mais, para saber apenas clique em /more!"
 
-isAdult:
-  "Conteúdo adulto"
-
 finished:
   "Finalizado"
 
@@ -16,6 +13,36 @@ notYetReleased:
 
 cancelled:
   "Cancelado"
+
+fall:
+  "Inverno"
+
+spring:
+  "Primavera"
+
+summer:
+  "Verão"
+
+winter:
+  "Inverno"
+
+buttonDescription:
+  "Descrição"
+
+buttonGenres:
+  "Gêneros"
+
+buttonUsers:
+  "Usuários"
+
+buttonWatchlist:
+  "Lista de Assistir"
+
+buttonReadlist:
+  "Lista de Leitura"
+
+isAdult:
+  "⚠️ Conteúdo adulto"
 
 tv:
   "📺 TV"
@@ -57,32 +84,32 @@ japan:
   "🇯🇵 *${japan}*\n"
 
 romaji:
-  "🇺🇳 *${romaji}*\n"
+  "🔰 *${romaji}*\n"
 
 season:
-  "*Temporada*: _${season}_\n"
+  "- *Temporada*: _${season}_\n"
 
 average:
-  "*Média de aprovação*: _${average}_\n"
+  "- *Média de aprovação*: _${average}_\n"
 
 episodes:
-  "*Episódios*: _${episodes}_\n"
+  "- *Episódios*: _${episodes}_\n"
 
 chapters:
-  "*Capítulos*: _${chapters}_\n"
+  "- *Capítulos*: _${chapters}_\n"
 
 volumes:
-  "*Volumes*: _${volumes}_\n"
+  "- *Volumes*: _${volumes}_\n"
 
 inline:
   "[‍](${image})${native}\
   ${english}\
   ${romaji}\
   ${isAdult}\
-  *Início*: _${startDate}_\n\
-  *Final*: _${endDate}_\n\
-  *Status*: _${status}_\n\
-  *Tipo*: _${format}_\n\
+  - *Formato*: _${format}_\n\
+  - *Início*: _${startDate}_\n\
+  - *Final*: _${endDate}_\n\
+  - *Status*: _${status}_\n\
   ${average}\
   ${season}\
   ${episodes}\

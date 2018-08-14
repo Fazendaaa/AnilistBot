@@ -1,10 +1,10 @@
 type MediaRankType = 'RATED' |
                      'POPULAR'
 
-type MediaSeason = 'WINTER' |
+type MediaSeason = 'FALL' |
+                   'WINTER' |
                    'SPRING' |
-                   'SUMMER' |
-                   'FALL'
+                   'SUMMER'
 
 type MediaStatus = 'FINISHED' |
                    'RELEASING' |

@@ -1,5 +1,5 @@
 import { I18n } from 'telegraf-i18n';
-import { CoverImage, MediaStatus, MediaFormat, MediaTitle } from '../index';
+import { CoverImage, MediaStatus, MediaFormat, MediaTitle, MediaSeason } from '../index';
 
 interface AdultContext {
     isAdult: boolean,
@@ -38,8 +38,8 @@ interface EpisodesContext {
 }
 
 interface SeasonContext {
-    season: string;
     translation: I18n;
+    season: MediaSeason;
 }
 
 interface AverageContext {
@@ -59,10 +59,6 @@ interface AllTitleResponse {
     english: string;
 }
 
-export const seasonPreview = ({ season, translation }: SeasonContext): string => {
-    return (null !== season) ? translation.t('season', { season }) : '';
-};
-
 export const isAdultPreview = ({ isAdult, translation }: AdultContext): string => {
     return (true === isAdult) ? translation.t('isAdult') : '';
 };
@@ -81,6 +77,20 @@ export const episodesPreview = ({ episodes, translation }: EpisodesContext): str
 
 export const chaptersPreview = ({ chapters, translation }: ChaptersContext): string => {
     return (null !== chapters) ? translation.t('chapters', { chapters }) : '';
+};
+
+export const seasonPreview = ({ season, translation }: SeasonContext): string => {
+    if ('FALL' === season) {
+        return translation.t('season', { season: translation.t('fall') });
+    } if ('SPRING' === season) {
+        return translation.t('season', { season: translation.t('spring') });
+    } if ('SUMMER' === season) {
+        return translation.t('season', { season: translation.t('summer') });
+    } if ('WINTER' === season) {
+        return translation.t('season', { season: translation.t('winter') });
+    }
+
+    return '';
 };
 
 export const titlePreview = ({ english, native, romaji }: MediaTitle): string => {
@@ -141,16 +151,19 @@ export const imagePreview = ({ coverImage, bannerImage, isInline = false }: Imag
 
 export const allTitlePreview = ({ title, translation, countryOfOrigin }: AllTitleContext): AllTitleResponse => {
     let native = '';
+    let romaji = '';
 
-    if (null !== title.native && 'JP' === countryOfOrigin) {
+    if ('JP' === countryOfOrigin) {
         native = translation.t('japan', { japan: title.native });
-    } if (null !== title.native && 'CN' === countryOfOrigin) {
+    } if ('CN' === countryOfOrigin) {
         native = translation.t('chinese', { chinese: title.native });
+    } if (null !== title.romaji && title.romaji !== title.english) {
+        romaji = translation.t('romaji', { romaji: title.romaji });
     }
 
     return {
         native,
-        romaji: (null !== title.romaji) ? translation.t('romaji', { romaji: title.romaji }) : '',
+        romaji,
         english: (null !== title.english) ? translation.t('english', { english: title.english }) : ''
     };
 };

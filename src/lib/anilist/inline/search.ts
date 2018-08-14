@@ -5,6 +5,7 @@ import { I18n } from 'telegraf-i18n';
 import { MinimumInline } from '../../telegram/inline';
 import { inlineMessage } from '../utils/messageText';
 import { imagePreview, titlePreview, formatPreview } from '../utils/preview';
+import { inlineKeyboard } from '../utils/keyboard';
 
 interface SearchContext {
     page: number;
@@ -16,11 +17,7 @@ interface SearchContext {
 export const searchInline = async ({ query, translation, page, perPage }: SearchContext): Promise<Array<MinimumInline>> => {
     const searched = <QueryPageInline> await fetchData({
         query: inline,
-        variables: {
-            page,
-            perPage,
-            search: ('' === query) ? null : query
-        }
+        variables: { page, perPage, search: ('' === query) ? null : query }
     });
 
     return searched.data.Page.media.map(data => {
@@ -28,6 +25,7 @@ export const searchInline = async ({ query, translation, page, perPage }: Search
             title: titlePreview(data.title),
             message_text: inlineMessage({ data, translation }),
             description: formatPreview({ format: data.format, translation }),
+            reply_markup: inlineKeyboard({ id: data.id, translation, format: data.format }),
             thumb_url: imagePreview({ coverImage: data.coverImage, bannerImage: data.bannerImage, isInline: true })
         };
     });
