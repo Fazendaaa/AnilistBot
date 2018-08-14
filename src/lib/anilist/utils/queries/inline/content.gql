@@ -6,22 +6,38 @@ query ($search: String, $page: Int, $perPage: Int) {
       		format
       		status
       		genres
-            isAdult
+            source
       		volumes
+            isAdult
+            siteUrl
       		duration
       		episodes
       		chapters
-      		popularity
+            description
+            bannerImage
       		averageScore
+            countryOfOrigin
+            trailer {
+                id
+                site
+            }            
             coverImage {
                 large
                 medium
             }
-        	title {
-                native
-                romaji
-                english
-        	}
+      		externalLinks {
+      		    id
+                url
+      		}
+            nextAiringEpisode {
+      		    id
+                timeUntilAiring
+      		}
+      		rankings {
+                id
+                rank
+                type
+      		}
       		startDate {
                 day
                 year
@@ -32,6 +48,11 @@ query ($search: String, $page: Int, $perPage: Int) {
                 year
                 month
             }
+        	title {
+                native
+                romaji
+                english
+        	}
         }
   	}
 }

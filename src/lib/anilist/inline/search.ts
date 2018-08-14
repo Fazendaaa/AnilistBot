@@ -3,8 +3,9 @@ import content from '../utils/queries/inline/content.gql';
 import { QueryPageContent } from '../utils/queries/inline/inline';
 import { I18n } from 'telegraf-i18n';
 import { MinimumInline } from '../../telegram/inline';
-import { filterTitle } from '../utils/parse';
 import { contentMessage } from '../utils/messageText';
+import { contentDescription } from '../utils/description';
+import { imagePreview, titlePreview } from '../utils/preview';
 
 interface SearchContext {
     query: string;
@@ -17,16 +18,16 @@ export const searchContent = async ({ query, translation }: SearchContext): Prom
         variables: {
             page: 0,
             perPage: 20,
-            search: ('' === query) ?  null : query
+            search: ('' === query) ? null : query
         }
     });
 
     return searched.data.Page.media.map(data => {
         return {
-            title: filterTitle(data.title),
-            thumb_url: data.coverImage.medium,
-            description: data.season,
-            message_text: contentMessage({ data, translation })
+            title: titlePreview(data.title),
+            message_text: contentMessage({ data, translation }),
+            description: contentDescription({ season: data.season, description: data.description }),
+            thumb_url: imagePreview({ coverImage: data.coverImage, bannerImage: data.bannerImage, isInline: true })
         };
-    }); 
+    });
 };

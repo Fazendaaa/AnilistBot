@@ -17,26 +17,75 @@ notYetReleased:
 cancelled:
   "Cancelled"
 
+tv:
+  "TV"
+
+OVA:
+  "OVA"
+
+ONA:
+  "ONA"
+
+music:
+  "Music"
+
+manga:
+  "Manga"
+
+novel:
+  "Novel"
+
+movie:
+  "Movie"
+
+special:
+  "Special"
+
+tvShort:
+  "Tv Short"
+
+oneShot:
+  "One Shot"
+
+english:
+  "🇬🇧 *${english}*\n"
+
+chinese:
+  "🇨🇳 *${chinese}*\n"
+
+japan:
+  "🇯🇵 *${japan}*\n"
+
+romaji:
+  "🇺🇳 *${romaji}*\n"
+
+season:
+  "*Season*: _${season}_\n"
+
+average:
+  "*Average*: _${average}_\n"
+
 episodes:
-  "*Episodes*: _${episodes}_"
+  "*Episodes*: _${episodes}_\n"
 
 chapters:
-  "*Chapters*: _${chapters}_"
+  "*Chapters*: _${chapters}_\n"
 
 volumes:
-  "*Volumes*: _${volumes}_"
+  "*Volumes*: _${volumes}_\n"
 
 content:
-  "[‍](${image})*${native}*\n\
-  *${english}*\n\
-  *${romaji}*\n\
+  "[‍](${image})${native}\
+  ${english}\
+  ${romaji}\
   ${isAdult}\
-  *Season*: _${season}_\n\
   *Start*: _${startDate}_\n\
   *End*: _${endDate}_\n\
   *Status*: _${status}_\n\
   *Content type*: _${format}_\n\
-  *Avarage*: _${popularity}_\n\
+  ${average}\
+  ${season}\
   ${episodes}\
   ${chapters}\
-  ${volumes}"
+  ${volumes}\
+  [see more](${siteUrl})"
