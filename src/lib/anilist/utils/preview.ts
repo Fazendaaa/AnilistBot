@@ -1,63 +1,5 @@
-import { I18n } from 'telegraf-i18n';
-import { CoverImage, MediaStatus, MediaFormat, MediaTitle, MediaSeason } from '..';
-
-interface AdultContext {
-    isAdult: boolean,
-    translation: I18n;
-}
-
-interface ImageContext {
-    isInline?: boolean;
-    bannerImage: string;
-    coverImage: CoverImage;
-}
-
-interface StatusContext {
-    translation: I18n;
-    status: MediaStatus;
-}
-
-interface VolumesContext {
-    volumes: number;
-    translation: I18n;
-}
-
-interface ChaptersContext {
-    chapters: number;
-    translation: I18n;
-}
-
-interface FormatContext {
-    translation: I18n;
-    format: MediaFormat;
-}
-
-interface EpisodesContext {
-    episodes: number;
-    translation: I18n;
-}
-
-interface SeasonContext {
-    translation: I18n;
-    season: MediaSeason;
-}
-
-interface AverageContext {
-    average: number;
-    translation: I18n;
-}
-
-interface AllTitleContext {
-    title: MediaTitle;
-    translation: I18n;
-    countryOfOrigin: string;
-}
-
-interface AllTitleResponse {
-    romaji: string;
-    native: string;
-    english: string;
-}
+import { AdultContext, VolumesContext, AverageContext, EpisodesContext, ChaptersContext, SeasonContext, StatusContext, FormatContext, ImageContext, AllTitleContext, AllTitleResponse, RakingContext, TrailerContext } from '.';
+import { MediaTitle } from '..';
 
 export const isAdultPreview = ({ isAdult, translation }: AdultContext): string => {
     return (true === isAdult) ? translation.t('isAdult') : '';
@@ -166,4 +108,24 @@ export const allTitlePreview = ({ title, translation, countryOfOrigin }: AllTitl
         romaji,
         english: (null !== title.english) ? translation.t('english', { english: title.english }) : ''
     };
+};
+
+export const rankingPreview = ({ rankings, translation }: RakingContext): string => {
+    if (null !== rankings && 0 < rankings.length) {
+        const best = rankings.sort((a, b) => a.rank - b.rank)[0];
+        const type = translation.t(best.type.toLowerCase());
+
+        return translation.t('ranking', { type, ranking: best.rank });
+    }
+
+    return '';
+};
+
+export const trailerPreview = ({ trailer, translation }: TrailerContext): string => {
+    if (null !== trailer) {
+        // assuming that ALL of the videos are coming from YouTube, need to handle other cases.
+        return translation.t('trailer', { trailer: `${trailer.site}.com/watch?v=${trailer.id}`});
+    }
+
+    return '';
 };

@@ -20,9 +20,9 @@ interface MediaPageInline {
     endDate: FuzzyDateInt;
     trailer: MediaTrailer;
     coverImage: CoverImage;
-    rankings: MediaRanking;
     startDate: FuzzyDateInt;
     countryOfOrigin: string;
+    rankings: Array<MediaRanking>;
     externalLinks: MediaExternalLink;
     nextAiringEpisode: AiringSchedule;
 }

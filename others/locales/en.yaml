@@ -26,6 +26,12 @@ summer:
 winter:
   "Winter"
 
+rated:
+  "Rated"
+
+poular:
+  "Popular"
+
 buttonDescription:
   "Description"
 
@@ -42,7 +48,7 @@ buttonReadlist:
   "Readlist"
 
 isAdult:
-  "⚠️ Adult content"
+  "⚠️ Adult content\n"
 
 tv:
   "📺 TV"
@@ -90,7 +96,7 @@ season:
   "- *Season*: _${season}_\n"
 
 average:
-  "- *Average*: _${average}_\n"
+  "- *Average*: _${average}_%\n"
 
 episodes:
   "- *Episodes*: _${episodes}_\n"
@@ -101,11 +107,18 @@ chapters:
 volumes:
   "- *Volumes*: _${volumes}_\n"
 
+ranking:
+  "- *Ranking*: _#${ranking} in ${type}_\n"
+
+trailer:
+  "[Trailer](${trailer})\n"
+
 inline:
   "[‍](${image})${native}\
   ${english}\
   ${romaji}\
   ${isAdult}\
+  ${trailer}\
   - *Content type*: _${format}_\n\
   - *Start*: _${startDate}_\n\
   - *End*: _${endDate}_\n\
@@ -115,4 +128,5 @@ inline:
   ${episodes}\
   ${chapters}\
   ${volumes}\
+  ${ranking}\
   [see more](${siteUrl})"

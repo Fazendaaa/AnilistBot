@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { MediaPageInline } from '../queries/inline';
 import { I18n } from 'telegraf-i18n';
-import { isAdultPreview, formatPreview, statusPreview, volumesPreview, episodesPreview, chaptersPreview, imagePreview, seasonPreview, averagePreview, allTitlePreview } from './preview';
+import { isAdultPreview, formatPreview, statusPreview, volumesPreview, episodesPreview, chaptersPreview, imagePreview, seasonPreview, averagePreview, allTitlePreview, rankingPreview, trailerPreview } from './preview';
 
 interface InlineMessage {
     translation: I18n;
@@ -17,6 +17,8 @@ export const inlineMessage = ({ data, translation }: InlineMessage): string => t
     status: statusPreview({ status: data.status, translation }),
     isAdult: isAdultPreview({ isAdult: data.isAdult, translation }),
     volumes: volumesPreview({ volumes: data.volumes, translation }),
+    trailer: trailerPreview({ trailer: data.trailer, translation }),
+    ranking: rankingPreview({ rankings: data.rankings, translation }),
     episodes: episodesPreview({ episodes: data.episodes, translation }),
     chapters: chaptersPreview({ chapters: data.chapters, translation }),
     average: averagePreview({ average: data.averageScore, translation }),

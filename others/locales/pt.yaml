@@ -14,6 +14,12 @@ notYetReleased:
 cancelled:
   "Cancelado"
 
+rated:
+  "Avaliações"
+
+poular:
+  "Popular"
+
 fall:
   "Inverno"
 
@@ -42,7 +48,7 @@ buttonReadlist:
   "Lista de Leitura"
 
 isAdult:
-  "⚠️ Conteúdo adulto"
+  "⚠️ Conteúdo adulto\n"
 
 tv:
   "📺 TV"
@@ -90,7 +96,7 @@ season:
   "- *Temporada*: _${season}_\n"
 
 average:
-  "- *Média de aprovação*: _${average}_\n"
+  "- *Média de aprovação*: _${average}_%\n"
 
 episodes:
   "- *Episódios*: _${episodes}_\n"
@@ -101,11 +107,18 @@ chapters:
 volumes:
   "- *Volumes*: _${volumes}_\n"
 
+ranking:
+  "- *Ranking*: _#${ranking} em ${type}_\n"
+
+trailer:
+  "[Trailer](${trailer})\n"
+
 inline:
   "[‍](${image})${native}\
   ${english}\
   ${romaji}\
   ${isAdult}\
+  ${trailer}\
   - *Formato*: _${format}_\n\
   - *Início*: _${startDate}_\n\
   - *Final*: _${endDate}_\n\
@@ -115,4 +128,5 @@ inline:
   ${episodes}\
   ${chapters}\
   ${volumes}\
+  ${ranking}\
   [veja mais](${siteUrl})"
