@@ -1,11 +1,23 @@
-interface MediaDescription {
+interface Description {
     description: string;
 }
 
-interface MediaResponse {
-    Media: MediaDescription;
+interface MediaDescription {
+    Media: Description;
 }
 
-export interface CallbackResponse {
-    data: MediaResponse;
+interface Genres {
+    genres: Array<string>;
+}
+
+interface MediaGenres {
+    Media: Genres;
+}
+
+export interface CallbackDescription {
+    data: MediaDescription;
+}
+
+export interface CallbackGenres {
+    data: MediaGenres;
 }

@@ -16,7 +16,6 @@ export const inlineKeyboard = ({ id, translation, type }: KeyboardContext): Inli
     return markup.inlineKeyboard([
         markup.callbackButton(translation.t('buttonDescription'), `description/${id}/${type}`),
         markup.callbackButton(translation.t('buttonGenres'), `genres/${id}/${type}`),
-        markup.callbackButton(translation.t('buttonUsers'), `users/${id}/${type}`),
         list
     ]);
 };
