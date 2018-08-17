@@ -1,5 +1,8 @@
-import { AdultContext, VolumesContext, AverageContext, EpisodesContext, ChaptersContext, SeasonContext, StatusContext, FormatContext, ImageContext, AllTitleContext, AllTitleResponse, RakingContext, TrailerContext } from '.';
+import moment from 'moment';
+import { AdultContext, VolumesContext, AverageContext, EpisodesContext, ChaptersContext, SeasonContext, StatusContext, FormatContext, ImageContext, AllTitleContext, AllTitleResponse, RakingContext, TrailerContext, SourceContext, DurationContext, DateContext } from '.';
 import { MediaTitle } from '..';
+
+const dateFormat = 'MMMM Do YYYY';
 
 export const isAdultPreview = ({ isAdult, translation }: AdultContext): string => {
     return (true === isAdult) ? translation.t('isAdult') : '';
@@ -21,15 +24,26 @@ export const chaptersPreview = ({ chapters, translation }: ChaptersContext): str
     return (null !== chapters) ? translation.t('chapters', { chapters }) : '';
 };
 
-export const seasonPreview = ({ season, translation }: SeasonContext): string => {
-    if ('FALL' === season) {
-        return translation.t('season', { season: translation.t('fall') });
-    } if ('SPRING' === season) {
-        return translation.t('season', { season: translation.t('spring') });
-    } if ('SUMMER' === season) {
-        return translation.t('season', { season: translation.t('summer') });
-    } if ('WINTER' === season) {
-        return translation.t('season', { season: translation.t('winter') });
+export const durationPreview = ({ duration, translation }: DurationContext): string => {
+    return (null !== duration) ? translation.t('duration', { duration }) : '';
+};
+
+export const startDatePreview = ({ date, translation }: DateContext): string => {
+    return (null !== date) ?
+           translation.t('startDate', { startDate: moment(date).locale(translation.locale()).format(dateFormat) }) :
+           '';
+};
+
+export const endDatePreview = ({ date, translation }: DateContext): string => {
+    return (null !== date) ?
+           translation.t('endDate', { endDate: moment(date).locale(translation.locale()).format(dateFormat) }) :
+           '';
+};
+
+export const trailerPreview = ({ trailer, translation }: TrailerContext): string => {
+    if (null !== trailer) {
+        // assuming that ALL of the videos are coming from YouTube, need to handle other cases.
+        return translation.t('trailer', { trailer: `${trailer.site}.com/watch?v=${trailer.id}` });
     }
 
     return '';
@@ -45,20 +59,100 @@ export const titlePreview = ({ english, native, romaji }: MediaTitle): string =>
     return romaji;
 };
 
-export const statusPreview = ({ status, translation }: StatusContext): string => {
-    if ('FINISHED' === status) {
-        return translation.t('finished');
-    } if ('RELEASING' === status) {
-        return translation.t('releasing');
-    } if ('NOT_YET_RELEASED' === status) {
-        return translation.t('notYetReleased');
+export const imagePreview = ({ coverImage, bannerImage, isInline = false }: ImageContext): string => {
+    if (null !== bannerImage && false === isInline) {
+        return bannerImage;
+    } if (null !== coverImage.large) {
+        return coverImage.large;
     }
 
-    return translation.t('cancelled');
+    return coverImage.medium;
+};
+
+export const rankingPreview = ({ rankings, translation }: RakingContext): string => {
+    if (null !== rankings && 0 < rankings.length) {
+        const best = rankings.sort((a, b) => a.rank - b.rank)[0];
+        const type = translation.t(best.type.toLowerCase());
+
+        return translation.t('ranking', { type, ranking: best.rank });
+    }
+
+    return '';
+};
+
+export const seasonPreview = ({ season, translation }: SeasonContext): string => {
+    let kind = translation.t('winter');
+
+    if (null === season) {
+        return '';
+    } if ('FALL' === season) {
+        kind = translation.t('fall');
+    } if ('SPRING' === season) {
+        kind = translation.t('spring');
+    } if ('SUMMER' === season) {
+        kind = translation.t('summer');
+    }
+
+    return translation.t('season', { season: kind });
+};
+
+export const statusPreview = ({ status, translation }: StatusContext): string => {
+    let kind = translation.t('cancelled');
+
+    if (null === status) {
+        return '';
+    } if ('FINISHED' === status) {
+        kind = translation.t('finished');
+    } if ('RELEASING' === status) {
+        kind = translation.t('releasing');
+    } if ('NOT_YET_RELEASED' === status) {
+        kind = translation.t('notYetReleased');
+    }
+
+    return translation.t('status', { status: kind });
+};
+
+export const allTitlePreview = ({ title, translation, countryOfOrigin }: AllTitleContext): AllTitleResponse => {
+    let native = '';
+    let romaji = '';
+
+    if (null !== title.native && 'JP' === countryOfOrigin) {
+        native = translation.t('japan', { japan: title.native });
+    } if (null !== title.native && 'CN' === countryOfOrigin) {
+        native = translation.t('chinese', { chinese: title.native });
+    } if (null !== title.romaji && title.romaji !== title.english) {
+        romaji = translation.t('romaji', { romaji: title.romaji });
+    }
+
+    return {
+        native,
+        romaji,
+        english: (null !== title.english) ? translation.t('english', { english: title.english }) : ''
+    };
+};
+
+export const sourcePreview = ({ source, translation }: SourceContext): string => {
+    if (null === source) {
+        return '';
+    } if ('MANGA' === source) {
+        return translation.t('manga');
+    } if ('OTHER' === source) {
+        return translation.t('other');
+    } if ('ORIGINAL' === source) {
+        return translation.t('original');
+    } if ('VIDEO_GAME' === source) {
+        return translation.t('videoGame');
+    } if ('LIGHT_NOVEL' === source) {
+        return translation.t('lightNovel');
+    }
+
+    return translation.t('visualNovel');
 };
 
 export const formatPreview = ({ format, translation }: FormatContext): string => {
-    if ('TV' === format) {
+    if (null === format) {
+        return '';
+    } if ('TV' === format) {
         return translation.t('tv');
     } if ('OVA' === format) {
         return translation.t('OVA');
@@ -79,53 +173,4 @@ export const formatPreview = ({ format, translation }: FormatContext): string =>
     }
 
     return translation.t('oneShot');
-};
-
-export const imagePreview = ({ coverImage, bannerImage, isInline = false }: ImageContext): string => {
-    if (null !== bannerImage && false === isInline) {
-        return bannerImage;
-    } if (null !== coverImage.large) {
-        return coverImage.large;
-    }
-
-    return coverImage.medium;
-};
-
-export const allTitlePreview = ({ title, translation, countryOfOrigin }: AllTitleContext): AllTitleResponse => {
-    let native = '';
-    let romaji = '';
-
-    if ('JP' === countryOfOrigin) {
-        native = translation.t('japan', { japan: title.native });
-    } if ('CN' === countryOfOrigin) {
-        native = translation.t('chinese', { chinese: title.native });
-    } if (null !== title.romaji && title.romaji !== title.english) {
-        romaji = translation.t('romaji', { romaji: title.romaji });
-    }
-
-    return {
-        native,
-        romaji,
-        english: (null !== title.english) ? translation.t('english', { english: title.english }) : ''
-    };
-};
-
-export const rankingPreview = ({ rankings, translation }: RakingContext): string => {
-    if (null !== rankings && 0 < rankings.length) {
-        const best = rankings.sort((a, b) => a.rank - b.rank)[0];
-        const type = translation.t(best.type.toLowerCase());
-
-        return translation.t('ranking', { type, ranking: best.rank });
-    }
-
-    return '';
-};
-
-export const trailerPreview = ({ trailer, translation }: TrailerContext): string => {
-    if (null !== trailer) {
-        // assuming that ALL of the videos are coming from YouTube, need to handle other cases.
-        return translation.t('trailer', { trailer: `${trailer.site}.com/watch?v=${trailer.id}`});
-    }
-
-    return '';
 };

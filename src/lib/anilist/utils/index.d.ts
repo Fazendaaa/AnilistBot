@@ -1,5 +1,5 @@
 import { I18n } from 'telegraf-i18n';
-import { CoverImage, MediaStatus, MediaFormat, MediaTitle, MediaSeason, MediaRanking, MediaTrailer } from '..';
+import { CoverImage, MediaStatus, MediaFormat, MediaTitle, MediaSeason, MediaRanking, MediaTrailer, MediaSource, FuzzyDateInt } from '..';
 
 export interface AdultContext {
     isAdult: boolean,
@@ -67,4 +67,19 @@ export interface RakingContext {
 export interface TrailerContext {
     translation: I18n;
     trailer: MediaTrailer;
+}
+
+export interface SourceContext {
+    translation: I18n;
+    source: MediaSource;
+}
+
+export interface DurationContext {
+    duration: number;
+    translation: I18n;
+}
+
+export interface DateContext {
+    date: FuzzyDateInt;
+    translation: I18n;
 }

@@ -51,34 +51,49 @@ isAdult:
   "⚠️ Adult content\n"
 
 tv:
-  "📺 TV"
+  "📺 TV\n"
 
 OVA:
-  "💿 OVA"
+  "💿 OVA\n"
 
 ONA:
-  "💻 ONA"
+  "💻 ONA\n"
 
 music:
-  "🎵 Music"
+  "🎵 Music\n"
 
 manga:
-  "📖 Manga"
+  "📖 Manga\n"
 
 novel:
-  "📚 Novel"
+  "📚 Novel\n"
 
 movie:
-  "🎥 Movie"
+  "🎥 Movie\n"
 
 special:
-  "📼 Special"
+  "📼 Special\n"
 
 tvShort:
-  "🏮 Tv Short"
+  "🏮 Tv Short\n"
 
 oneShot:
-  "📜 One Shot"
+  "📜 One Shot\n"
+
+other:
+  "❓ Other\n"
+
+original:
+  "🌟 Original\n"
+
+videoGame:
+  "🎮 Video Game\n"
+
+lightNovel:
+  "🔲 Light Novel\n"
+
+visualNovel:
+  "🔳 Visual Novel\n"
 
 english:
   "🇬🇧 *${english}*\n"
@@ -92,6 +107,15 @@ japan:
 romaji:
   "🔰 *${romaji}*\n"
 
+startDate:
+  "- *Start*: _${startDate}_\n"
+
+endDate:
+  "- *End*: _${endDate}_\n"
+
+status:
+  "- *Status*: _${status}_\n"
+
 season:
   "- *Season*: _${season}_\n"
 
@@ -100,6 +124,9 @@ average:
 
 episodes:
   "- *Episodes*: _${episodes}_\n"
+
+duration:
+  "- *Duration*: _${duration}_\n"
 
 chapters:
   "- *Chapters*: _${chapters}_\n"
@@ -119,13 +146,16 @@ inline:
   ${romaji}\
   ${isAdult}\
   ${trailer}\
-  - *Content type*: _${format}_\n\
-  - *Start*: _${startDate}_\n\
-  - *End*: _${endDate}_\n\
-  - *Status*: _${status}_\n\
+  ${format}\
+  ${source}\
+  ${startDate}\
+  ${endDate}\
+  ${status}\
   ${average}\
   ${season}\
   ${episodes}\
+  ${duration}\
+  ${volumes}\
   ${chapters}\
   ${volumes}\
   ${ranking}\
