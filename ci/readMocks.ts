@@ -22,8 +22,6 @@ export const readMock = ({ toTest, location }: MockInfo): Array<BaseMock> => {
     const idioms = ['en-us', 'pt-br'];
     const basePath = join(__dirname, '__mocks__/', location);
 
-    console.log(toTest, location);
-
     return idioms.reduce((acc, locale) => {
         const file = `${basePath}/${locale}/${toTest}.json`;
 

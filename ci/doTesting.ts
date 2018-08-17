@@ -3,6 +3,7 @@ import { BaseMock, readMock } from './readMocks';
 const telegarfi18n = require('telegraf-i18n');
 
 interface ToBeTested {
+    name: string;
     toTest: Function;
     location: string;
     translation?: boolean;
@@ -52,10 +53,8 @@ const localeTesting = ({ locale, mocks, ...remaining }: LocaleToBeTested): void 
     describe(locale, () => mocks.map(input => doTheTest({ locale, mocks, ...remaining, ...input })));
 };
 
-export const doTesting = ({ location, toTest, translation = false }: ToBeTested): void => {
-    const file = readMock({ location, toTest: toTest.name });
-
-    console.log('file', file);
+export const doTesting = ({ location, toTest, name, translation = false }: ToBeTested): void => {
+    const file = readMock({ location, toTest: name });
 
     describe(`Testing ${toTest.name}`, () => file.map(input => localeTesting({ toTest, translation, ...input })));
 };

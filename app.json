@@ -1,8 +1,8 @@
 {
     "name": "anilistbot",
-    "description": "Telegram bot that searches Podcast in iTunes store.",
+    "description": "Telegram bot that makes searches in Anilist.",
     "repository": "https://github.com/Fazendaaa/AnilistBot.git",
-    "logo": "https://github.com/Fazendaaa/AnilistBot/blob/dev/logo/podsearchbot.svg",
+    "logo": "https://github.com/Fazendaaa/AnilistBot/blob/dev/logo/logo.svg",
     "keywords": [
         "bot",
         "anime",

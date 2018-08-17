@@ -8,7 +8,6 @@
 
 [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg?longCache=true&style=for-the-badge)](https://saythanks.io/to/Fazendaaa)
 
-
 [![English README](https://img.shields.io/badge/Language-EN-blue.svg?longCache=true&style=for-the-badge)](./README.md)
 [![Portuguese README](https://img.shields.io/badge/Linguagem-PT-green.svg?longCache=true&style=for-the-badge)](./docs/readme/README_PT.md)
 
@@ -24,14 +23,21 @@
 > A new code base to Anilist bot in Telegram.
 
 ## About
+This bot helps you to send info about:
+* Animes
+* Mangas
+* Characters
+* Studios
+* Staffs
+* etc
 
+More than this it also notifies you when new episodes are released and lets you have a watch and a read list of it.
 
 ### Disclaimer
 By default all the commands are in English, but you can see if the same command is available in your language.
 
 # How to use it
 First of all, talk to [@AnilistBot](http://t.me/anilistbot).
-
 
 ## Help
 If you have any other questions about it just use it the help command:
@@ -44,11 +50,11 @@ If you have any other questions about it just use it the help command:
 You can build yourself a bot similar to this one, I've wrote a tutorial about it in my [Podesearch Bot](https://github.com/Fazendaaa/podsearch_bot) just follow the procedures listed in [BUILDING.md](https://github.com/Fazendaaa/podsearch_bot/blob/master/docs/building/BUILDING.md).
 
 # Deployment
-This bot is up and running at [Heroku](http://heroku.com/) through the Github integration, that means that each new push to the ```master``` branch means that is the code serving the bot. You can also deploy yourself this bot into Heroku through:
+This bot is up and running at [Heroku](http://heroku.com/) in a [Docker](https://www.docker.com/) container. You can also deploy yourself this bot into Heroku through:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Fazendaaa/AnilistBot)
 
-## Testing
+# Testing
 Since there's a [Travis CI](http://travis-ci.org/) integration and [Codecov](https://codecov.io/). All of the tests were written with [Jest](https://facebook.github.io/jest/).
 
 To run all tests just:
@@ -59,6 +65,11 @@ npm test
 
 If you ran into some errors related to package dependencies and want to know how to handle it, read the [Security](#security) info.
 
+## Unneeded Code
+There's a pattern to do testing based on using JSON files describing the tests to be done. That being said, the [```doTesting```](./ci/doTesting.ts) function has a unneeded argument, the name of the function to be tested.
+
+Node runs using [V8](https://github.com/v8/v8) engine, but since this project uses TS, the compiled code doesn't have the _name_ property in the anonymous function. The problem is a [known issue](https://github.com/Microsoft/TypeScript/issues/6433); the folks at [Jest](https://github.com/facebook/jest/issues/6824#event-1787524124) and [ts-jest](https://github.com/kulshekhar/ts-jest/issues/677#issuecomment-412893575) helped a lot to understand this -- once this issue is fixed there won't be this anymore.
+
 # Security
 I've added a integration with [Snyk](https://snyk.io/) to ensure that all of my dependencies have no bugs or errors reported without fixing it first before Continuos integration (CI) to ensure the Continuos Development (CD).
 
@@ -67,14 +78,22 @@ When Snyk report some errors or bugs that can be fixed, just follow the CLI comm
 
 # Build with
 * [dotenv](https://github.com/motdotla/dotenv)
+* [endeavor](https://www.npmjs.com/package/endeavor)
 * [emoji-regex](https://github.com/mathiasbynens/emoji-regex)
+* [moment](https://www.npmjs.com/package/moment)
 * [mongoose](http://mongoosejs.com/)
 * [node schedule](https://github.com/node-schedule/node-schedule)
 * [telegraf](http://telegraf.js.org/#/)
 * [telegraf-i18n](https://github.com/telegraf/telegraf-i18n)
+* [translate](https://www.npmjs.com/package/translate)
 
 # Code
 Plain and simple [Typescript](http://typescriptlang.org/) and the [Microsoft linter standards](https://github.com/Microsoft/tslint-microsoft-contrib) for it.
+
+## Webpack
+> _"JUST WHY???"_ -- everybody
+
+As the [Anilist API V2](https://github.com/AniList/ApiV2-GraphQL-Docs) was written with [GraphQL](https://graphql.org/), using it the needed queries as JS ```imports``` was a option but only with [Webpack](http://webpack.js.org/). And since this makes the code more cleaner and easier to maintain that's why it was used; that's the GREAT difference and could seen a little bit off to see this kind of decision and that's the answer.
 
 # Artwork
 I've made all the artwork for it, [Studio Ghibli](https://www.studioghibli.com.au/) was my inspiration.
@@ -82,6 +101,7 @@ I've made all the artwork for it, [Studio Ghibli](https://www.studioghibli.com.a
 <div align="center">
     <br>
     <img src="./others/img/logo/logo.png" width=100/>
+    <img src="./others/img/error/error.png" width=100/>
 </div>
 
 You can see more in the [img](./others/img) folder.
