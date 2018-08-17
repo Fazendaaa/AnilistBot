@@ -40,21 +40,21 @@ interface MediaPage {
 }
 
 interface CharactersPage {
-    readonly media: Array<Characters>;
+    readonly characters: Array<Characters>;
 }
 
-interface DataMedia {
+interface MediaData {
     readonly Page: MediaPage;
 }
 
-interface DataCharacters {
+interface CharactersData {
     readonly Page: CharactersPage;
 }
 
-export interface QueryPageMedia {
-    readonly data: DataMedia;
+export interface MediaQueryPage {
+    readonly data: MediaData;
 }
 
-export interface QueryPageCharacters {
-    readonly data: DataCharacters;
+export interface CharactersQueryPage {
+    readonly data: CharactersData;
 }
