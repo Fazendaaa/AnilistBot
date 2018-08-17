@@ -87,7 +87,7 @@ original:
   "🌟 Original\n"
 
 videoGame:
-  "🎮 Védeo Game\n"
+  "🎮 Vídeo Game\n"
 
 lightNovel:
   "🔲 Light Novel\n"
@@ -145,9 +145,9 @@ inline:
   ${english}\
   ${romaji}\
   ${isAdult}\
-  ${trailer}\
   ${format}\
   ${source}\
+  ${trailer}\
   ${startDate}\
   ${endDate}\
   ${status}\
