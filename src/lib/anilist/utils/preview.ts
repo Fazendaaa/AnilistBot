@@ -1,6 +1,5 @@
 import moment from 'moment';
-import { AdultContext, VolumesContext, AverageContext, EpisodesContext, ChaptersContext, SeasonContext, StatusContext, FormatContext, ImageContext, AllTitleContext, AllTitleResponse, RakingContext, TrailerContext, SourceContext, DurationContext, DateContext } from '.';
-import { MediaTitle } from '..';
+import { AdultContext, VolumesContext, AverageContext, EpisodesContext, ChaptersContext, SeasonContext, StatusContext, FormatContext, ImageContext, AllTitleContext, AllTitleResponse, RakingContext, TrailerContext, SourceContext, DurationContext, DateContext, TitleContext } from '.';
 
 const dateFormat = 'MMMM Do YYYY';
 
@@ -45,22 +44,24 @@ export const endDatePreview = ({ date, status, translation }: DateContext): stri
 };
 
 export const trailerPreview = ({ trailer, translation }: TrailerContext): string => {
-    if (null !== trailer) {
-        // assuming that ALL of the videos are coming from YouTube, need to handle other cases.
-        return translation.t('trailer', { trailer: `${trailer.site}.com/watch?v=${trailer.id}` });
+    if (null === trailer) {
+        return '';
     }
-
-    return '';
+    
+    // assuming that ALL of the videos are coming from YouTube, need to handle other cases.
+    return translation.t('trailer', { trailer: `${trailer.site}.com/watch?v=${trailer.id}` });
 };
 
-export const titlePreview = ({ english, native, romaji }: MediaTitle): string => {
-    if (null !== english) {
-        return english;
-    } if (null !== native) {
-        return native
+export const titlePreview = ({ title, translation }: TitleContext): string => {
+    if (null !== title.english) {
+        return title.english;
+    } if (null !== title.native) {
+        return title.native
+    } if (null !== title.romaji) {
+        return title.romaji;
     }
 
-    return romaji;
+    return translation.t('notAvailable');
 };
 
 export const imagePreview = ({ coverImage, bannerImage, isInline = false }: ImageContext): string => {
@@ -68,9 +69,11 @@ export const imagePreview = ({ coverImage, bannerImage, isInline = false }: Imag
         return bannerImage;
     } if (null !== coverImage.large) {
         return coverImage.large;
+    } if (null !== coverImage.medium) {
+        return coverImage.medium;
     }
 
-    return coverImage.medium;
+    return 'https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/error/error.png';
 };
 
 export const rankingPreview = ({ rankings, translation }: RakingContext): string => {

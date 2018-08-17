@@ -2,6 +2,9 @@ start:
   "*Olá*, _${from.username}!_\n\n\
   Eu sou AnilistBot, o seu bot the pesquisas sobre o mundo dos animes. Porém, eu posso fazer muito mais, para saber apenas clique em /more!"
 
+notAvailable:
+  "Não Diponível"
+
 finished:
   "Finalizado"
 

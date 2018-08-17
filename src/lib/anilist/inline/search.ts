@@ -22,8 +22,8 @@ export const searchInline = async ({ query, translation, page, perPage }: Search
 
     return searched.data.Page.media.map(data => {
         return {
-            title: titlePreview(data.title),
             message_text: inlineMessage({ data, translation }),
+            title: titlePreview({ title: data.title, translation}),
             description: formatPreview({ format: data.format, translation }),
             reply_markup: inlineKeyboard({ id: data.id, translation, type: data.type }),
             thumb_url: imagePreview({ coverImage: data.coverImage, bannerImage: data.bannerImage, isInline: true })

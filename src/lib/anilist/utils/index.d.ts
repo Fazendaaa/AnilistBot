@@ -84,3 +84,8 @@ export interface DateContext {
     translation: I18n;
     status: MediaStatus;
 }
+
+export interface TitleContext {
+    title: MediaTitle;
+    translation: I18n;
+}
