@@ -1,5 +1,7 @@
 import moment from 'moment';
-import { AdultContext, VolumesContext, AverageContext, EpisodesContext, ChaptersContext, SeasonContext, StatusContext, FormatContext, ImageContext, AllTitleContext, AllTitleResponse, RakingContext, TrailerContext, SourceContext, DurationContext, DateContext, TitleContext } from '.';
+import { AdultContext, VolumesContext, AverageContext, EpisodesContext, ChaptersContext, SeasonContext, StatusContext,
+FormatContext, ImageContext, AllTitleContext, AllTitleResponse, RakingContext, TrailerContext, SourceContext,
+DurationContext, DateContext, TitleContext } from '.';
 
 const dateFormat = 'MMMM Do YYYY';
 

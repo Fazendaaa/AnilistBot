@@ -1,4 +1,5 @@
-import { MediaTitle, CoverImage, FuzzyDateInt, MediaFormat, MediaStatus, MediaTrailer, MediaSource, AiringSchedule, MediaRanking, MediaExternalLink, MediaSeason, MediaType } from '../..';
+import { MediaTitle, CoverImage, FuzzyDateInt, MediaFormat, MediaStatus, MediaTrailer, MediaSource, AiringSchedule,
+MediaRanking, MediaExternalLink, MediaSeason, MediaType } from '../..';
 
 interface MediaPageInline {
     id: number;
