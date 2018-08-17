@@ -44,6 +44,7 @@
     },
     "dependencies": {
         "dotenv": "^6.0.0",
+        "emoji-regex": "^7.0.0",
         "endeavor": "^2.2.0",
         "moment": "^2.22.2",
         "mongoose": "^5.2.7",

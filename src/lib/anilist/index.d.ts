@@ -1,36 +1,36 @@
-type MediaType = 'ANIME' |
-                 'MANGA'
+export type MediaType = 'ANIME' |
+                        'MANGA'
 
-type MediaRankType = 'RATED' |
-                     'POPULAR'
+export type MediaRankType = 'RATED' |
+                            'POPULAR'
 
-type MediaSeason = 'FALL' |
-                   'WINTER' |
-                   'SPRING' |
-                   'SUMMER'
+export type MediaSeason = 'FALL' |
+                          'WINTER' |
+                          'SPRING' |
+                          'SUMMER'
 
-type MediaStatus = 'FINISHED' |
-                   'RELEASING' |
-                   'CANCELLED' |
-                   'NOT_YET_RELEASED'
+export type MediaStatus = 'FINISHED' |
+                          'RELEASING' |
+                          'CANCELLED' |
+                          'NOT_YET_RELEASED'
 
-type MediaSource = 'MANGA' |
-                   'OTHER' |
-                   'ORIGINAL' |
-                   'VIDEO_GAME' |
-                   'LIGHT_NOVEL' |
-                   'VISUAL_NOVEL'
+export type MediaSource = 'MANGA' |
+                          'OTHER' |
+                          'ORIGINAL' |
+                          'VIDEO_GAME' |
+                          'LIGHT_NOVEL' |
+                          'VISUAL_NOVEL'
 
-type MediaFormat = 'TV' |
-                   'OVA' |
-                   'ONA' |
-                   'MOVIE' |
-                   'MUSIC' |
-                   'MANGA' |
-                   'NOVEL' |
-                   'SPECIAL' |
-                   'ONE_SHOT' |
-                   'TV_SHORT'
+export type MediaFormat = 'TV' |
+                          'OVA' |
+                          'ONA' |
+                          'MOVIE' |
+                          'MUSIC' |
+                          'MANGA' |
+                          'NOVEL' |
+                          'SPECIAL' |
+                          'ONE_SHOT' |
+                          'TV_SHORT'
 
 export interface MediaTrailer {
     id: string;
@@ -85,6 +85,17 @@ export interface AiringSchedule {
     mediaIt: number;
     airingAt: number;
     timeUntilAiring: number;
+}
+
+export interface CharacterName {
+    last: string;
+    first: string;
+    native: string;
+}
+
+export interface CharacterImage {
+    large: string;
+    medium: string;
 }
 
 export interface Media {}

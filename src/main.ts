@@ -2,12 +2,12 @@ import { config } from 'dotenv';
 import { join } from 'path';
 import telegraf from 'telegraf';
 import telegrafI18n from 'telegraf-i18n';
-import { searchInline } from './lib/anilist/inline/search';
-import { BotContext } from '.';
+import { searchInline } from './lib/anilist/searches/searches';
 import { sanitize } from './lib/telegram/utils/parse';
 import { toInlineArticle } from './lib/telegram/inline';
 import { handleCallback, CallbackFiled } from './lib/anilist/callback/handle';
 import { MediaType } from './lib/anilist';
+import { BotContext } from './lib/telegram';
 
 config();
 

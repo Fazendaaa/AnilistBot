@@ -1,5 +1,5 @@
 query ($search: String, $page: Int, $perPage: Int) {
-    Page(page: $page, perPage: $perPage) {
+    Page (page: $page, perPage: $perPage) {
         media (search: $search) {
         	id
             type

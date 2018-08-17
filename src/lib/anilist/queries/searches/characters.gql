@@ -1,0 +1,17 @@
+query ($search: String, $page: Int, $perPage: Int) {
+    Page (page: $page, perPage: $perPage) {
+        characters (search: $search, sort: ID) {
+            id,
+            siteUrl,
+            image {
+                large,
+                medium
+            }
+            name {
+                first
+                last
+                native
+            }
+        }
+    }
+}

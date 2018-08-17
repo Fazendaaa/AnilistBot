@@ -1,23 +1,23 @@
 interface Description {
-    description: string;
+    readonly description: string;
 }
 
 interface MediaDescription {
-    Media: Description;
+    readonly Media: Description;
 }
 
 interface Genres {
-    genres: Array<string>;
+    readonly genres: Array<string>;
 }
 
 interface MediaGenres {
-    Media: Genres;
+    readonly Media: Genres;
 }
 
 export interface CallbackDescription {
-    data: MediaDescription;
+    readonly data: MediaDescription;
 }
 
 export interface CallbackGenres {
-    data: MediaGenres;
+    readonly data: MediaGenres;
 }

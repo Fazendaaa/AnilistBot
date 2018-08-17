@@ -9,7 +9,7 @@ interface KeyboardContext {
     translation: I18n;
 }
 
-export const inlineKeyboard = ({ id, translation, type }: KeyboardContext): InlineKeyboardMarkup => {
+export const mediaKeyboard = ({ id, translation, type }: KeyboardContext): InlineKeyboardMarkup => {
     const list = ('ANIME' === type) ? markup.callbackButton(translation.t('buttonWatchlist'), `list/${id}/watch`)
                                     : markup.callbackButton(translation.t('buttonReadlist'), `list/${id}/read`);
 

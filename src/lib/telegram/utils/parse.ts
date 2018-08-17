@@ -1,1 +1,6 @@
-export const sanitize = ({ message }: { message: string }): string => message.replace(/(?:=\(|:0|:o|: o|: 0)/, ': o');
+import { TelegramContext } from "..";
+import emojiRegex from 'emoji-regex';
+
+const createRegExp = emojiRegex();
+
+export const sanitize = ({ message }: TelegramContext): string => message.replace(createRegExp, '');

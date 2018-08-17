@@ -1,15 +1,15 @@
-import { MediaPageInline } from '../queries/inline';
+import { Media } from '../queries/searches';
 import { I18n } from 'telegraf-i18n';
 import { isAdultPreview, formatPreview, statusPreview, volumesPreview, episodesPreview, chaptersPreview, imagePreview,
 seasonPreview, averagePreview, allTitlePreview, rankingPreview, trailerPreview, sourcePreview, durationPreview,
 startDatePreview, endDatePreview } from './preview';
 
 interface InlineMessage {
+    data: Media;
     translation: I18n;
-    data: MediaPageInline;
 }
 
-export const inlineMessage = ({ data, translation }: InlineMessage): string => translation.t('inline', {
+export const mediaMessage = ({ data, translation }: InlineMessage): string => translation.t('media', {
     siteUrl: data.siteUrl,
     format: formatPreview({ format: data.format, translation}),
     source: sourcePreview({ source: data.source, translation }),

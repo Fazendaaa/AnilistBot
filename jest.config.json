@@ -20,8 +20,10 @@
         "node"
     ],
     "coveragePathIgnorePatterns": [
+        "./dist/",
         "./node_modules/",
-        "./dist/"
+        "./ci/readMocks.ts",
+        "./ci/doTesting.ts"
     ],
     "coverageReporters": [
         "json",

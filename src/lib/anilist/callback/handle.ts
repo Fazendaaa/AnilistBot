@@ -18,21 +18,21 @@ export type CallbackFiled = 'list' |
                             'description' 
 
 interface CallbackContext {
-    id: number;
-    type: MediaType;
-    translation: I18n;
-    field: CallbackFiled;
+    readonly id: number;
+    readonly type: MediaType;
+    readonly translation: I18n;
+    readonly field: CallbackFiled;
 }
 
 interface DataContext {
-    id: number;
-    type: MediaType;
-    translation: I18n;
+    readonly id: number;
+    readonly type: MediaType;
+    readonly translation: I18n;
 }
 
 interface TranslateContext {
-    message: string | Array<string>;
-    translation: I18n;
+    readonly translation: I18n;
+    readonly message: string | Array<string>;
 }
 
 const displayLimit = 120;
