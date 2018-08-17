@@ -28,16 +28,20 @@ export const durationPreview = ({ duration, translation }: DurationContext): str
     return (null !== duration) ? translation.t('duration', { duration }) : '';
 };
 
-export const startDatePreview = ({ date, translation }: DateContext): string => {
-    return (null !== date) ?
-           translation.t('startDate', { startDate: moment(date).locale(translation.locale()).format(dateFormat) }) :
-           '';
+export const startDatePreview = ({ date, status, translation }: DateContext): string => {
+    if (null === date || 'NOT_YET_RELEASED' === status) {
+        return '';
+    }
+
+    return translation.t('startDate', { startDate: moment(date).locale(translation.locale()).format(dateFormat) });
 };
 
-export const endDatePreview = ({ date, translation }: DateContext): string => {
-    return (null !== date) ?
-           translation.t('endDate', { endDate: moment(date).locale(translation.locale()).format(dateFormat) }) :
-           '';
+export const endDatePreview = ({ date, status, translation }: DateContext): string => {
+    if (null === date || 'NOT_YET_RELEASED' === status || 'RELEASING' === status) {
+        return '';
+    }
+
+    return translation.t('endDate', { endDate: moment(date).locale(translation.locale()).format(dateFormat) });
 };
 
 export const trailerPreview = ({ trailer, translation }: TrailerContext): string => {

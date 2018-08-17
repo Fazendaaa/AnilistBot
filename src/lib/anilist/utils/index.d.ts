@@ -82,4 +82,5 @@ export interface DurationContext {
 export interface DateContext {
     date: FuzzyDateInt;
     translation: I18n;
+    status: MediaStatus;
 }

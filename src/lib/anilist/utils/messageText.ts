@@ -13,16 +13,16 @@ export const inlineMessage = ({ data, translation }: InlineMessage): string => t
     source: sourcePreview({ source: data.source, translation }),
     season: seasonPreview({ season: data.season, translation }),
     status: statusPreview({ status: data.status, translation }),
-    startDate: endDatePreview({ date: data.endDate, translation }),
     isAdult: isAdultPreview({ isAdult: data.isAdult, translation }),
     volumes: volumesPreview({ volumes: data.volumes, translation }),
     trailer: trailerPreview({ trailer: data.trailer, translation }),
-    endDate: startDatePreview({ date: data.startDate, translation}),
     ranking: rankingPreview({ rankings: data.rankings, translation }),
     duration: durationPreview({ duration: data.duration, translation }),
     episodes: episodesPreview({ episodes: data.episodes, translation }),
     chapters: chaptersPreview({ chapters: data.chapters, translation }),
     average: averagePreview({ average: data.averageScore, translation }),
+    endDate: endDatePreview({ date: data.endDate, status: data.status, translation}),
     image: imagePreview({ coverImage: data.coverImage, bannerImage: data.bannerImage }),
+    startDate: startDatePreview({ date: data.endDate, status: data.status, translation }),
     ...allTitlePreview({ title: data.title, countryOfOrigin: data.countryOfOrigin, translation })
 });
