@@ -89,3 +89,19 @@ export interface TitleContext {
     title: MediaTitle;
     translation: I18n;
 }
+
+export interface DescriptionContext {
+    translation: I18n;
+    source: MediaSource; 
+    format: MediaFormat;
+}
+
+export interface KindContext {
+    translation: I18n;
+    source: MediaSource;
+    format: MediaFormat;
+}
+
+export interface KindResponse {
+    kind: string;
+}

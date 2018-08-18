@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { AdultContext, VolumesContext, AverageContext, EpisodesContext, ChaptersContext, SeasonContext, StatusContext,
 FormatContext, ImageContext, AllTitleContext, AllTitleResponse, RakingContext, TrailerContext, SourceContext,
-DurationContext, DateContext, TitleContext } from '.';
+DurationContext, DateContext, TitleContext, KindResponse, KindContext } from '.';
 
 const dateFormat = 'MMMM Do YYYY';
 
@@ -182,4 +182,22 @@ export const formatPreview = ({ format, translation }: FormatContext): string =>
     }
 
     return translation.t('oneShot');
+};
+
+export const kindPreview = ({ format, source, translation }: KindContext): KindResponse => {
+    const first = formatPreview({ format, translation });
+    const second = sourcePreview({ source, translation });
+    let kind = '';
+
+    if ('' !== first) {
+        kind += first;
+    } if ('' !== second) {
+        kind += translation.t('from') + second;
+    } if ('' !== kind) {
+        kind += '\n';
+    }
+
+    return {
+        kind
+    };
 };

@@ -35,68 +35,56 @@ rated:
 poular:
   "Popular"
 
-buttonDescription:
-  "Description"
+tv:
+  "📺 TV"
 
-buttonGenres:
-  "Genres"
+OVA:
+  "💿 OVA"
 
-buttonUsers:
-  "Users"
+ONA:
+  "💻 ONA"
 
-buttonWatchlist:
-  "Watchlist"
+music:
+  "🎵 Music"
 
-buttonReadlist:
-  "Readlist"
+manga:
+  "📖 Manga"
+
+novel:
+  "📚 Novel"
+
+movie:
+  "🎥 Movie"
+
+special:
+  "📼 Special"
+
+tvShort:
+  "🏮 Tv Short"
+
+oneShot:
+  "📜 One Shot"
+
+other:
+  "❓ Other"
+
+original:
+  "🌟 Original"
+
+videoGame:
+  "🎮 Video Game"
+
+from:
+  " from "
 
 isAdult:
   "⚠️ Adult content\n"
 
-tv:
-  "📺 TV\n"
-
-OVA:
-  "💿 OVA\n"
-
-ONA:
-  "💻 ONA\n"
-
-music:
-  "🎵 Music\n"
-
-manga:
-  "📖 Manga\n"
-
-novel:
-  "📚 Novel\n"
-
-movie:
-  "🎥 Movie\n"
-
-special:
-  "📼 Special\n"
-
-tvShort:
-  "🏮 Tv Short\n"
-
-oneShot:
-  "📜 One Shot\n"
-
-other:
-  "❓ Other\n"
-
-original:
-  "🌟 Original\n"
-
-videoGame:
-  "🎮 Video Game\n"
-
 lightNovel:
-  "🔲 Light Novel\n"
+  "🔲 Light Novel"
 
 visualNovel:
-  "🔳 Visual Novel\n"
+  "🔳 Visual Novel"
 
 english:
   "🇬🇧 *${english}*\n"
@@ -148,8 +136,7 @@ media:
   ${english}\
   ${romaji}\
   ${isAdult}\
-  ${format}\
-  ${source}\
+  ${kind}\
   ${trailer}\
   ${startDate}\
   ${endDate}\
@@ -163,3 +150,24 @@ media:
   ${volumes}\
   ${ranking}\
   [see more](${siteUrl})"
+
+fmt:
+  "Format: "
+
+src:
+  "Source: "
+
+buttonDescription:
+  "Description"
+
+buttonGenres:
+  "Genres"
+
+buttonUsers:
+  "Users"
+
+buttonWatchlist:
+  "Watchlist"
+
+buttonReadlist:
+  "Readlist"

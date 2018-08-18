@@ -35,68 +35,56 @@ summer:
 winter:
   "Inverno"
 
-buttonDescription:
-  "Descrição"
+tv:
+  "📺 TV"
 
-buttonGenres:
-  "Gêneros"
+OVA:
+  "💿 OVA"
 
-buttonUsers:
-  "Usuários"
+ONA:
+  "💻 ONA"
 
-buttonWatchlist:
-  "Lista de Assistir"
+music:
+  "🎵 Música"
 
-buttonReadlist:
-  "Lista de Leitura"
+manga:
+  "📖 Mangá"
+
+novel:
+  "📚 Romance"
+
+movie:
+  "🎥 Filme"
+
+special:
+  "📼 Especial"
+
+tvShort:
+  "🏮 Curta de Tv"
+
+oneShot:
+  "📜 Episódio único"
+
+other:
+  "❓ Outros"
+
+original:
+  "🌟 Original"
+
+videoGame:
+  "🎮 Vídeo Game"
+
+from:
+  " vindo de um(a) "
 
 isAdult:
   "⚠️ Conteúdo adulto\n"
 
-tv:
-  "📺 TV\n"
-
-OVA:
-  "💿 OVA\n"
-
-ONA:
-  "💻 ONA\n"
-
-music:
-  "🎵 Música\n"
-
-manga:
-  "📖 Mangá\n"
-
-novel:
-  "📚 Romance\n"
-
-movie:
-  "🎥 Filme\n"
-
-special:
-  "📼 Especial\n"
-
-tvShort:
-  "🏮 Curta de Tv\n"
-
-oneShot:
-  "📜 Episódio único\n"
-
-other:
-  "❓ Outros\n"
-
-original:
-  "🌟 Original\n"
-
-videoGame:
-  "🎮 Vídeo Game\n"
-
 lightNovel:
-  "🔲 Light Novel\n"
+  "🔲 Light Novel"
 
 visualNovel:
-  "🔳 Visual Novel\n"
+  "🔳 Visual Novel"
 
 english:
   "🇬🇧 *${english}*\n"
@@ -148,8 +136,7 @@ media:
   ${english}\
   ${romaji}\
   ${isAdult}\
-  ${format}\
-  ${source}\
+  ${kind}\
   ${trailer}\
   ${startDate}\
   ${endDate}\
@@ -163,3 +150,24 @@ media:
   ${volumes}\
   ${ranking}\
   [veja mais](${siteUrl})"
+
+fmt:
+  "Formato: "
+
+src:
+  "Origem: "
+
+buttonDescription:
+  "Descrição"
+
+buttonGenres:
+  "Gêneros"
+
+buttonUsers:
+  "Usuários"
+
+buttonWatchlist:
+  "Lista de Assistir"
+
+buttonReadlist:
+  "Lista de Leitura"

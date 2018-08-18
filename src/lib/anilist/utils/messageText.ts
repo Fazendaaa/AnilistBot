@@ -1,8 +1,8 @@
 import { Media } from '../queries/searches';
 import { I18n } from 'telegraf-i18n';
-import { isAdultPreview, formatPreview, statusPreview, volumesPreview, episodesPreview, chaptersPreview, imagePreview,
-seasonPreview, averagePreview, allTitlePreview, rankingPreview, trailerPreview, sourcePreview, durationPreview,
-startDatePreview, endDatePreview } from './preview';
+import { isAdultPreview, statusPreview, volumesPreview, episodesPreview, chaptersPreview, imagePreview, seasonPreview,
+averagePreview, allTitlePreview, rankingPreview, trailerPreview, durationPreview, startDatePreview, endDatePreview,
+kindPreview } from './preview';
 
 interface InlineMessage {
     data: Media;
@@ -11,8 +11,6 @@ interface InlineMessage {
 
 export const mediaMessage = ({ data, translation }: InlineMessage): string => translation.t('media', {
     siteUrl: data.siteUrl,
-    format: formatPreview({ format: data.format, translation}),
-    source: sourcePreview({ source: data.source, translation }),
     season: seasonPreview({ season: data.season, translation }),
     status: statusPreview({ status: data.status, translation }),
     isAdult: isAdultPreview({ isAdult: data.isAdult, translation }),
@@ -23,8 +21,9 @@ export const mediaMessage = ({ data, translation }: InlineMessage): string => tr
     episodes: episodesPreview({ episodes: data.episodes, translation }),
     chapters: chaptersPreview({ chapters: data.chapters, translation }),
     average: averagePreview({ average: data.averageScore, translation }),
+    ...kindPreview({ format: data.format, source: data.source, translation }),
     endDate: endDatePreview({ date: data.endDate, status: data.status, translation}),
     image: imagePreview({ coverImage: data.coverImage, bannerImage: data.bannerImage }),
-    startDate: startDatePreview({ date: data.endDate, status: data.status, translation }),
+    startDate: startDatePreview({ date: data.startDate, status: data.status, translation }),
     ...allTitlePreview({ title: data.title, countryOfOrigin: data.countryOfOrigin, translation })
 });
