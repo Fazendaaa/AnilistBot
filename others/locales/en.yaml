@@ -35,6 +35,9 @@ rated:
 poular:
   "Popular"
 
+character:
+  "🙂 Character"
+
 tv:
   "📺 TV"
 
@@ -110,8 +113,8 @@ status:
 season:
   "- *Season*: _${season}_\n"
 
-average:
-  "- *Average*: _${average}_%\n"
+averageScore:
+  "- *Average*: _${averageScore}_%\n"
 
 episodes:
   "- *Episodes*: _${episodes}_\n"
@@ -130,6 +133,12 @@ ranking:
 
 trailer:
   "[Trailer](${trailer})\n"
+
+fmt:
+  "Format: "
+
+src:
+  "Source: "
 
 media:
   "[‍](${image})${native}\
@@ -151,11 +160,21 @@ media:
   ${ranking}\
   [see more](${siteUrl})"
 
-fmt:
-  "Format: "
+native:
+  "- *Native*: _${native}_\n"
 
-src:
-  "Source: "
+name:
+  "- *Name*: _${name}_\n"
+
+alternative:
+  "- *Also known as*:\n\
+  ${alternative}"
+
+characters:
+  "[‍](${image})${native}\
+  ${name}\
+  ${alternative}\
+  [see more](${siteUrl})"
 
 buttonDescription:
   "Description"

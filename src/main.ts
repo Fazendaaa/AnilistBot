@@ -5,7 +5,8 @@ import telegrafI18n from 'telegraf-i18n';
 import { searchAll } from './lib/anilist/searches/searches';
 import { sanitize } from './lib/telegram/utils/parse';
 import { toInlineArticle } from './lib/telegram/inline';
-import { handleCallback, CallbackFiled } from './lib/anilist/callback/handle';
+import { CallbackFiled } from './lib/anilist/callback/';
+import { handleCallback } from './lib/anilist/callback/handle';
 import { MediaType } from './lib/anilist';
 import { BotContext } from './lib/telegram';
 

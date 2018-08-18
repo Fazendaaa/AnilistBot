@@ -11,6 +11,7 @@ query ($search: String, $page: Int, $perPage: Int) {
                 first
                 last
                 native
+                alternative
             }
         }
     }

@@ -3,11 +3,12 @@ import media from '../queries/searches/media.gql';
 import characters from '../queries/searches/characters.gql';
 import { CharactersQueryPage, MediaQueryPage } from '../queries/searches';
 import { MinimumInline } from '../../telegram/inline';
-import { mediaMessage } from '../utils/messageText';
-import { imagePreview, titlePreview } from '../utils/preview';
-import { mediaKeyboard } from '../utils/keyboard';
+import { mediaMessage, characterMessage } from '../parse/messageText';
+import { mediaKeyboard, characterKeyboard } from '../parse/keyboard';
 import { SearchContext } from '.';
-import { descriptionMedia } from '../utils/description';
+import { mediaDescription, characterDescription } from '../parse/description';
+import { mediaThumbUrl, characterThumbUrl } from '../parse/thumbUrl';
+import { nameTitle, mediaTitle } from '../parse/title';
 
 export const searchCharacters = async ({ query, translation, page, perPage }: SearchContext): Promise<Array<MinimumInline>> => {
     const searched = <CharactersQueryPage> await fetchData({
@@ -15,12 +16,15 @@ export const searchCharacters = async ({ query, translation, page, perPage }: Se
         variables: { page, perPage, search: ('' === query) ? null : query }
     });
 
-    return searched.data.Page.characters.map(data => {
+    return searched.data.Page.characters.map(characters => {
+        const { id, name, image } = characters;
+
         return {
-            title: data.name.first,
-            thumb_url: data.image.medium,
-            description: data.name.first,
-            message_text: data.name.first
+            thumb_url: characterThumbUrl(image),
+            title: nameTitle({ name, translation }),
+            description: characterDescription({ translation }),
+            message_text: characterMessage({ characters, translation }),
+            reply_markup: characterKeyboard({ id, translation, type: 'CHARACTER' })
         };
     });
 };
@@ -31,15 +35,15 @@ export const searchMedia = async ({ query, translation, page, perPage }: SearchC
         variables: { page, perPage, search: ('' === query) ? null : query }
     });
 
-    return searched.data.Page.media.map(data => {
-        const { title, format, id, coverImage, bannerImage, type, source } = data;
+    return searched.data.Page.media.map(media => {
+        const { title, format, id, coverImage, bannerImage, type, source } = media;
 
         return {
-            title: titlePreview({ title, translation }),
-            message_text: mediaMessage({ data, translation }),
+            title: mediaTitle({ title, translation }),
+            message_text: mediaMessage({ media, translation }),
+            thumb_url: mediaThumbUrl({ coverImage, bannerImage }),
             reply_markup: mediaKeyboard({ id, type, translation }),
-            description: descriptionMedia({ format, source, translation }),
-            thumb_url: imagePreview({ coverImage, bannerImage, isInline: true })
+            description: mediaDescription({ format, source, translation })
         };
     });
 };

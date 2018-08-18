@@ -32,70 +32,77 @@ export type MediaFormat = 'TV' |
                           'ONE_SHOT' |
                           'TV_SHORT'
 
+export type AllTypes = 'ANIME' |
+                       'MANGA' |
+                       'STAFF' |
+                       'STUDIO' |
+                       'CHARACTER'
+
 export interface MediaTrailer {
-    id: string;
-    site: string;
+    readonly id: string;
+    readonly site: string;
 }
 
 export interface CoverImage {
-    large: string;
-    medium: string;
+    readonly large: string;
+    readonly medium: string;
 }
 
 export interface MediaTitle {
-    native: string;
-    romaji: string;
-    english: string;
+    readonly native: string;
+    readonly romaji: string;
+    readonly english: string;
 }
 
 export interface FuzzyDateInt {
-    day: number;
-    year: number;
-    month: number;
+    readonly day: number;
+    readonly year: number;
+    readonly month: number;
 }
 
 export interface MediaExternalLink {
-    id: number;
-    url: string;
-    site: string;
+    readonly id: number;
+    readonly url: string;
+    readonly site: string;
 }
 
 export interface MediaRanking {
-    id: number;
-    rank: number;
-    year: number;
-    context: string;
-    allTime: boolean;
-    type: MediaRankType;
-    format: MediaFormat;
-    season: MediaSeason;
+    readonly id: number;
+    readonly rank: number;
+    readonly year: number;
+    readonly context: string;
+    readonly allTime: boolean;
+    readonly type: MediaRankType;
+    readonly format: MediaFormat;
+    readonly season: MediaSeason;
 }
 
 export interface MediaStreamingEpisode {
-    url: string;
-    site: string;
-    title: string;
-    thumbnail: string;
+    readonly url: string;
+    readonly site: string;
+    readonly title: string;
+    readonly thumbnail: string;
 }
 
 export interface AiringSchedule {
-    id: number;
-    media: Media;
-    episode: number;
-    mediaIt: number;
-    airingAt: number;
-    timeUntilAiring: number;
+    readonly id: number;
+    readonly media: Media;
+    readonly episode: number;
+    readonly mediaIt: number;
+    readonly airingAt: number;
+    readonly timeUntilAiring: number;
 }
 
 export interface CharacterName {
-    last: string;
-    first: string;
-    native: string;
+    readonly last: string;
+    readonly first: string;
+    readonly native: string;
+    readonly alternative: Array<string>;
 }
 
 export interface CharacterImage {
-    large: string;
-    medium: string;
+    readonly large: string;
+    readonly medium: string;
 }
 
 export interface Media {}

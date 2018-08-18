@@ -35,6 +35,9 @@ summer:
 winter:
   "Inverno"
 
+character:
+  "🙂 Personagem"
+
 tv:
   "📺 TV"
 
@@ -110,8 +113,8 @@ status:
 season:
   "- *Temporada*: _${season}_\n"
 
-average:
-  "- *Média de aprovação*: _${average}_%\n"
+averageScore:
+  "- *Média de aprovação*: _${averageScore}_%\n"
 
 episodes:
   "- *Episódios*: _${episodes}_\n"
@@ -130,6 +133,12 @@ ranking:
 
 trailer:
   "[Trailer](${trailer})\n"
+
+fmt:
+  "Formato: "
+
+src:
+  "Origem: "
 
 media:
   "[‍](${image})${native}\
@@ -151,11 +160,21 @@ media:
   ${ranking}\
   [veja mais](${siteUrl})"
 
-fmt:
-  "Formato: "
+native:
+  "- *Nativo*: _${native}_\n"
 
-src:
-  "Origem: "
+name:
+  "- *Nome*: _${name}_\n"
+
+alternative:
+  "- *Também conhecido como*:\n\
+  ${alternative}"
+
+characters:
+  "[‍](${image})${native}\
+  ${name}\
+  ${alternative}\
+  [see more](${siteUrl})"
 
 buttonDescription:
   "Descrição"

@@ -1,39 +1,16 @@
-import { MediaType } from '..';
-import { I18n } from 'telegraf-i18n';
+import { config } from 'dotenv';
 import { fetchData } from 'endeavor';
+import translate from 'translate';
 import animeGenres from '../queries/callback/genres/anime.gql';
 import mangaGenres from '../queries/callback/genres/manga.gql';
 import animeDescription from '../queries/callback/description/anime.gql';
 import mangaDescription from '../queries/callback/description/manga.gql';
 import { CallbackDescription, CallbackGenres } from '../queries/callback';
-import translate from 'translate';
-import { config } from 'dotenv';
+import { TranslateContext, DataContext, CallbackContext } from '.';
 
 config();
 
 translate.key = process.env.GOOGLE_KEY;
-
-export type CallbackFiled = 'list' |
-                            'genres' |
-                            'description' 
-
-interface CallbackContext {
-    readonly id: number;
-    readonly type: MediaType;
-    readonly translation: I18n;
-    readonly field: CallbackFiled;
-}
-
-interface DataContext {
-    readonly id: number;
-    readonly type: MediaType;
-    readonly translation: I18n;
-}
-
-interface TranslateContext {
-    readonly translation: I18n;
-    readonly message: string | Array<string>;
-}
 
 const displayLimit = 120;
 

@@ -1,11 +1,11 @@
 import { InlineKeyboardMarkup } from 'telegram-typings';
 import { I18n } from 'telegraf-i18n';
-import { MediaType } from '..';
+import { AllTypes } from '..';
 const markup = require('telegraf').Markup;
 
 interface KeyboardContext {
     id: number;
-    type: MediaType;
+    type: AllTypes;
     translation: I18n;
 }
 
@@ -17,5 +17,11 @@ export const mediaKeyboard = ({ id, translation, type }: KeyboardContext): Inlin
         markup.callbackButton(translation.t('buttonDescription'), `description/${id}/${type}`),
         markup.callbackButton(translation.t('buttonGenres'), `genres/${id}/${type}`),
         list
+    ]);
+};
+
+export const characterKeyboard = ({ id, translation, type }: KeyboardContext): InlineKeyboardMarkup => {
+    return markup.inlineKeyboard([
+        markup.callbackButton(translation.t('buttonDescription'), `description/${id}/${type}`)
     ]);
 };
