@@ -1,8 +1,8 @@
 import { mediaSeason, mediaStatus, mediaKind, mediaImage, mediaIsAdult, mediaVolumes, mediaTrailer, mediaRanking,
 mediaDuration, mediaEpisodes, mediaChapters, mediaAverage, mediaEndDate, mediaAllTitle, mediaStartDate
-} from '../formatting/media';
+} from './formatting/media';
 import { MediaMessage, CharacterMessage } from '.';
-import { charactersImage, charactersAllNames } from '../formatting/characters';
+import { charactersImage, charactersAllNames } from './formatting/characters';
 
 export const mediaMessage = ({ media, translation }: MediaMessage): string => {
     const { siteUrl, season, status, isAdult, volumes, trailer, rankings, duration, episodes, chapters, averageScore,

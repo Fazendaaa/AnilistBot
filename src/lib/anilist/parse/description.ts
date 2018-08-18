@@ -1,5 +1,5 @@
 import { MediaDescriptionContext, CharacterDescriptionContext } from '.';
-import { mediaFormat, mediaSource } from '../formatting/media';
+import { mediaFormat, mediaSource } from './formatting/media';
 
 export const mediaDescription = ({ format, source, translation }: MediaDescriptionContext): string => {
     let response = '';

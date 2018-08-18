@@ -1,5 +1,5 @@
-import { errorPng } from '../utils/common';
-import { CharacterImage } from '..';
+import { errorPng } from '../../utils/common';
+import { CharacterImage } from '../..';
 import { CharactersNameResponse, CharactersNameContext } from '.';
 
 const joining = (input: Array<string>): string => input.reduce((acc, cur) => acc + `\t\t • _${cur}_\n`, '');
