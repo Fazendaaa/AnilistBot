@@ -2,7 +2,7 @@ import moment from 'moment';
 import { AdultContext, VolumesContext, AverageContext, EpisodesContext, ChaptersContext, SeasonContext, StatusContext,
 FormatContext, MediaImageContext, AllTitleContext, AllTitleResponse, RakingContext, TrailerContext, SourceContext,
 DurationContext, KindResponse, KindContext, StartDateContext, EndDateContext } from '.';
-import { errorPng } from '../../utils/common';
+import { errorPng } from '../../../utils/common';
 
 const dateFormat = 'MMMM Do YYYY';
 

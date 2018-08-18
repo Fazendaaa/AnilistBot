@@ -1,6 +1,6 @@
 import { ImageContext } from '.';
-import { CharacterImage } from '..';
-import { errorPng } from '../utils/common';
+import { CharacterImage } from '../..';
+import { errorPng } from '../../utils/common';
 
 export const mediaThumbUrl = ({ coverImage, bannerImage }: ImageContext): string => {
     if (null !== coverImage.medium) {

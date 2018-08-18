@@ -1,6 +1,6 @@
 import { I18n } from 'telegraf-i18n';
-import { Media, Characters } from '../queries/searches';
-import { CoverImage, MediaFormat, MediaTitle, MediaSource, CharacterName } from '..';
+import { Media, Characters } from '../../queries/searches';
+import { CoverImage, MediaFormat, MediaTitle, MediaSource, CharacterName } from '../..';
 
 interface MediaMessage {
     readonly media: Media;

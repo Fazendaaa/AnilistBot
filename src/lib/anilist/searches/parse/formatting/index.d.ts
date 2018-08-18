@@ -1,7 +1,7 @@
 import { I18n } from 'telegraf-i18n';
-import { Media, Characters } from '../../queries/searches';
+import { Media, Characters } from '../../../queries/searches';
 import { CoverImage, MediaStatus, MediaFormat, MediaTitle, MediaSeason, MediaRanking, MediaTrailer, MediaSource,
-FuzzyDateInt, CharacterName } from '../..';
+FuzzyDateInt, CharacterName } from '../../..';
 
 interface CharacterMessage {
     readonly translation: I18n;

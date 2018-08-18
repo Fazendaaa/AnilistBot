@@ -1,8 +1,8 @@
-import { mediaMessage, characterMessage } from '../parse/messageText';
-import { mediaKeyboard, characterKeyboard } from '../parse/keyboard';
-import { mediaDescription, characterDescription } from '../parse/description';
-import { mediaThumbUrl, characterThumbUrl } from '../parse/thumbUrl';
-import { nameTitle, mediaTitle } from '../parse/title';
+import { mediaMessage, characterMessage } from './parse/messageText';
+import { mediaKeyboard, characterKeyboard } from './parse/keyboard';
+import { mediaDescription, characterDescription } from './parse/description';
+import { mediaThumbUrl, characterThumbUrl } from './parse/thumbUrl';
+import { nameTitle, mediaTitle } from './parse/title';
 import { MinimumInline } from '../../telegram/inline';
 import { CharactersContext, MediaContext } from '.';
 

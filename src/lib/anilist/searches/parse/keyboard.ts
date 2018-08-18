@@ -1,6 +1,6 @@
 import { InlineKeyboardMarkup } from 'telegram-typings';
 import { I18n } from 'telegraf-i18n';
-import { AllTypes } from '..';
+import { AllTypes } from '../..';
 const markup = require('telegraf').Markup;
 
 interface KeyboardContext {
