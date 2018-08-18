@@ -117,7 +117,7 @@ episodes:
   "- *Episódios*: _${episodes}_\n"
 
 duration:
-  "- *Duração*: _${duration}_\n"
+  "- *Duração*: _${duration} min_\n"
 
 chapters:
   "- *Capítulos*: _${chapters}_\n"

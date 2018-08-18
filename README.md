@@ -31,10 +31,13 @@ This bot helps you to send info about:
 * Staffs
 * etc
 
+All of the data about it is fetched from [Anilist](http://anilist.co/) and [Anichart](http://anichart.net/).
+
 More than this it also notifies you when new episodes are released and lets you have a watch and a read list of it.
 
-### Disclaimer
-By default all the commands are in English, but you can see if the same command is available in your language.
+## Disclaimer
+1. By default all the commands are in English, but you can see if the same command is available in your language;
+2. [JoshStar](https://github.com/joshstar) was kind to [allow](https://github.com/AniList/ApiV2-GraphQL-Docs/issues/50#event-1794658906) me to store the translated info about the content in different languages, improving the user experience.
 
 # How to use it
 First of all, talk to [@AnilistBot](http://t.me/anilistbot).
@@ -46,35 +49,16 @@ If you have any other questions about it just use it the help command:
 /help
 ```
 
+# Contributing
+Please, I'm not a native/fluent english speaker, so whether you see a variable name wrote the wrong way or even some comment where I've wrote something with the wrong "past perfect way of life" or something like that, please let me know it. Not always is just about the code, but rather making it more clear to other people to learn from it.
+
+So, whether is code or not you can help me out making this code more accessible by reading the [CONTRIBUTING.md](./docs/contributing/CONTRIBUTING.md).
+
+# TODO
+Since I will be keeping this README up to date with any major change and I don't use any versioning system to log all the fixed bugs or previous projects updates, you can still have a taste of what comes next and what is being under analysis right in the [Projects](https://github.com/Fazendaaa/AnilistBot/projects/) tab.
+
 # How does it work?
 You can build yourself a bot similar to this one, I've wrote a tutorial about it in my [Podesearch Bot](https://github.com/Fazendaaa/podsearch_bot) just follow the procedures listed in [BUILDING.md](https://github.com/Fazendaaa/podsearch_bot/blob/master/docs/building/BUILDING.md).
-
-# Deployment
-This bot is up and running at [Heroku](http://heroku.com/) in a [Docker](https://www.docker.com/) container. You can also deploy yourself this bot into Heroku through:
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Fazendaaa/AnilistBot)
-
-# Testing
-Since there's a [Travis CI](http://travis-ci.org/) integration and [Codecov](https://codecov.io/). All of the tests were written with [Jest](https://facebook.github.io/jest/).
-
-To run all tests just:
-
-```bash
-npm test
-```
-
-If you ran into some errors related to package dependencies and want to know how to handle it, read the [Security](#security) info.
-
-## Unneeded Code
-There's a pattern to do testing based on using JSON files describing the tests to be done. That being said, the [```doTesting```](./ci/doTesting.ts) function has a unneeded argument, the name of the function to be tested.
-
-Node runs using [V8](https://github.com/v8/v8) engine, but since this project uses TS, the compiled code doesn't have the _name_ property in the anonymous function. The problem is a [known issue](https://github.com/Microsoft/TypeScript/issues/6433); the folks at [Jest](https://github.com/facebook/jest/issues/6824#event-1787524124) and [ts-jest](https://github.com/kulshekhar/ts-jest/issues/677#issuecomment-412893575) helped a lot to understand this -- once this issue is fixed there won't be this anymore.
-
-# Security
-I've added a integration with [Snyk](https://snyk.io/) to ensure that all of my dependencies have no bugs or errors reported without fixing it first before Continuos integration (CI) to ensure the Continuos Development (CD).
-
-## Errors/Bugs in Dependencies
-When Snyk report some errors or bugs that can be fixed, just follow the CLI command to fix them before running -- more info at their [docs](https://github.com/snyk/snyk#cli).
 
 # Build with
 * [dotenv](https://github.com/motdotla/dotenv)
@@ -106,16 +90,35 @@ I've made all the artwork for it, [Studio Ghibli](https://www.studioghibli.com.a
 
 You can see more in the [img](./others/img) folder.
 
-# Contributing
-Please, I'm not a native/fluent english speaker, so whether you see a variable name wrote the wrong way or even some comment where I've wrote something with the wrong "past perfect way of life" or something like that, please let me know it. Not always is just about the code, but rather making it more clear to other people to learn from it.
+# Testing
+Since there's a [Travis CI](http://travis-ci.org/) integration and [Codecov](https://codecov.io/). All of the tests were written with [Jest](https://facebook.github.io/jest/).
 
-So, whether is code or not you can help me out making this code more accessible by reading the [CONTRIBUTING.md](./docs/contributing/CONTRIBUTING.md). 
+To run all tests just:
+
+```bash
+npm test
+```
+
+If you ran into some errors related to package dependencies and want to know how to handle it, read the [Security](#security) info.
+
+## Unneeded Code
+There's a pattern to do testing based on using JSON files describing the tests to be done. That being said, the [```doTesting```](./ci/doTesting.ts) function has a unneeded argument, the name of the function to be tested.
+
+Node runs using [V8](https://github.com/v8/v8) engine, but since this project uses TS, the compiled code doesn't have the _name_ property in the anonymous function. The problem is a [known issue](https://github.com/Microsoft/TypeScript/issues/6433); the folks at [Jest](https://github.com/facebook/jest/issues/6824#event-1787524124) and [ts-jest](https://github.com/kulshekhar/ts-jest/issues/677#issuecomment-412893575) helped a lot to understand this -- once this issue is fixed there won't be this anymore.
+
+# Security
+I've added a integration with [Snyk](https://snyk.io/) to ensure that all of my dependencies have no bugs or errors reported without fixing it first before Continuos integration (CI) to ensure the Continuos Development (CD).
+
+## Errors/Bugs in Dependencies
+When Snyk report some errors or bugs that can be fixed, just follow the CLI command to fix them before running -- more info at their [docs](https://github.com/snyk/snyk#cli).
+
+# Deployment
+This bot is up and running at [Heroku](http://heroku.com/) in a [Docker](https://www.docker.com/) container. You can also deploy yourself this bot into Heroku through:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Fazendaaa/AnilistBot)
 
 # Versioning
 I would love to say that [SemVer](https://semver.org/) or anything like that is used but, in my personal experience, this kind of approach doesn't work very well with me, the guy who could be committing in this project for two weeks in a roll and leave it for almost one year with no simple ```npm update```. So, no versioning system is used. 
-
-# TODO
-Since I will be keeping this README up to date with any major change and I don't use any versioning system to log all the fixed bugs or previous projects updates, you can still have a taste of what comes next and what is being under analysis right in the [Projects](https://github.com/Fazendaaa/AnilistBot/projects/) tab.
 
 # Authors
 * Only [me](https://github.com/Fazendaaa) for now.

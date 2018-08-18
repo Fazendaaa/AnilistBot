@@ -479,6 +479,16 @@
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="ccccccccccccccc" />
     </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath957">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m -780.01336,-1180.4403 440.95908,453.75715 c -1.18721,41.43012 -14.40987,110.8306 -37.80182,174.5502 -21.58346,58.79325 -48.51474,107.63644 -85.35894,150.01457 -96.73289,119.16092 -205.64682,171.31119 -292.58472,195.97202 -147.28047,41.77761 -284.13074,16.81929 -384.79944,-24.27143 l 36.2238,-886.03291 z"
+         id="path959"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccscsccc" />
+    </clipPath>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -487,9 +497,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.091301748"
-     inkscape:cx="-6040.4735"
-     inkscape:cy="3488.7093"
+     inkscape:zoom="0.064560085"
+     inkscape:cx="-7637.3912"
+     inkscape:cy="2384.0434"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -517,13 +527,23 @@
      inkscape:groupmode="layer"
      id="layer1">
     <g
-       id="g1228">
+       id="g1042"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <circle
          r="573.41913"
          cy="-757.52264"
          cx="-911.55945"
          id="path815"
          style="opacity:1;fill:#bc4243;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         clip-path="url(#clipPath957)"
+         y="-1470.719"
+         x="-1434.4604"
+         height="1475.031"
+         width="1338.8297"
+         id="rect930"
+         style="opacity:0.2;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <g
          id="g1207">
         <g
