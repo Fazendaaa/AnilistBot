@@ -1,5 +1,5 @@
 import { MediaTitle, CoverImage, FuzzyDateInt, MediaFormat, MediaStatus, MediaTrailer, MediaSource, AiringSchedule,
-MediaRanking, MediaExternalLink, MediaSeason, MediaType, CharacterName, CharacterImage } from '../..';
+MediaRanking, MediaExternalLink, MediaSeason, MediaType, CharacterName, CharacterImage, StaffName, StaffLanguage, StaffImage } from '../..';
 
 interface Media {
     readonly id: number;
@@ -35,12 +35,34 @@ interface Characters {
     readonly image: CharacterImage;
 }
 
+interface Studios {
+    readonly id: number;
+    readonly name: string;
+    readonly siteUrl: string;
+}
+
+interface Staff {
+    readonly id: number;
+    readonly name: StaffName;
+    readonly siteUrl: string;
+    readonly image: StaffImage;
+    readonly language: StaffLanguage;
+}
+
 interface MediaPage {
     readonly media: Array<Media>;
 }
 
 interface CharactersPage {
     readonly characters: Array<Characters>;
+}
+
+interface StudiosPage {
+    readonly studios: Array<Studios>;
+}
+
+interface StaffPage {
+    readonly staff: Array<Staff>;
 }
 
 interface MediaData {
@@ -51,10 +73,26 @@ interface CharactersData {
     readonly Page: CharactersPage;
 }
 
+interface StudiosData {
+    readonly Page: StudiosPage;
+}
+
+interface StaffData {
+    readonly Page: StaffPage;
+}
+
 export interface MediaQueryPage {
     readonly data: MediaData;
 }
 
 export interface CharactersQueryPage {
     readonly data: CharactersData;
+}
+
+export interface StudiosQueryPage {
+    readonly data: StudiosData;
+}
+
+export interface StaffQueryPage {
+    readonly data: StaffData;
 }

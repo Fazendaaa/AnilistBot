@@ -1,17 +1,17 @@
 query ($search: String, $page: Int, $perPage: Int) {
     Page (page: $page, perPage: $perPage) {
-        characters (search: $search, sort: ID) {
-            id
+        staff (search: $search, sort: ID) {
+            id,
+            language
             siteUrl
             image {
-                large
                 medium
+                large
             }
             name {
                 first
                 last
                 native
-                alternative
             }
         }
     }

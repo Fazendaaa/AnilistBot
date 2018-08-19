@@ -4,7 +4,15 @@ import { mediaDescription, characterDescription } from './parse/description';
 import { mediaThumbUrl, characterThumbUrl } from './parse/thumbUrl';
 import { nameTitle, mediaTitle } from './parse/title';
 import { MinimumInline } from '../../telegram/inline';
-import { CharactersContext, MediaContext } from '.';
+import { CharactersContext, MediaContext, StudiosContext, StaffContext } from '.';
+
+export const staffInfo = ({ staff, translation }: StaffContext): MinimumInline => {
+    return null;
+};
+
+export const studiosInfo = ({ studios, translation }: StudiosContext): MinimumInline => {
+    return null;
+};
 
 export const charactersInfo = ({ characters, translation }: CharactersContext): MinimumInline => {
     const { id, name, image } = characters;

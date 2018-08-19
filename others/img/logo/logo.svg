@@ -374,9 +374,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.12912017"
-     inkscape:cx="-7368.2517"
-     inkscape:cy="327.14335"
+     inkscape:zoom="0.064560085"
+     inkscape:cx="-11065.685"
+     inkscape:cy="-774.82089"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -404,26 +404,26 @@
      inkscape:groupmode="layer"
      id="layer1">
     <g
-       id="g1764"
-       transform="matrix(2.43683,0,0,2.43683,2313.5612,-366.78783)"
+       id="g940"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96">
       <circle
-         r="235.31355"
-         cy="255.27573"
+         r="573.41913"
+         cy="255.27571"
          cx="-1610.1843"
          id="path815"
          style="opacity:1;fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <rect
+         transform="matrix(2.43683,0,0,2.43683,2313.5612,-366.78783)"
          clip-path="url(#clipPath1743)"
          y="-21.768995"
          x="-1873.4923"
          height="563.64154"
          width="569.43732"
          id="rect1591"
-         style="opacity:0.38000004;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="opacity:0.2;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <g
-         transform="translate(-557.12127,217.3425)"
+         transform="matrix(2.43683,0,0,2.43683,955.95138,162.83889)"
          id="g1589">
         <ellipse
            style="opacity:1;fill:#7f6860;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"

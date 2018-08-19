@@ -38,6 +38,17 @@ export type AllTypes = 'ANIME' |
                        'STUDIO' |
                        'CHARACTER'
 
+export type StaffLanguage = 'KOREAN' |
+                            'FRENCH' |
+                            'GERMAN' |
+                            'HEBREW' |
+                            'ENGLISH' |
+                            'ITALIAN' |
+                            'SPANISH' |
+                            'JAPANESE' |
+                            'HUNGARIAN' |
+                            'PORTUGUESE'
+
 export interface MediaTrailer {
     readonly id: string;
     readonly site: string;
@@ -86,7 +97,6 @@ export interface MediaStreamingEpisode {
 
 export interface AiringSchedule {
     readonly id: number;
-    readonly media: Media;
     readonly episode: number;
     readonly mediaIt: number;
     readonly airingAt: number;
@@ -105,4 +115,13 @@ export interface CharacterImage {
     readonly medium: string;
 }
 
-export interface Media {}
+export interface StaffName {
+    readonly last: string;
+    readonly first: string;
+    readonly native: string;
+}
+
+export interface StaffImage {
+    readonly large: string;
+    readonly medium: string;
+}
