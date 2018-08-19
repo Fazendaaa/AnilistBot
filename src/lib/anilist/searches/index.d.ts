@@ -1,9 +1,17 @@
 import { I18n } from 'telegraf-i18n';
 import { Characters, Media, Studios, Staff } from '../queries/searches';
+import { DocumentNode } from 'graphql';
+
+export interface AnilistContext {
+    readonly page: number;
+    readonly search: string;
+    readonly perPage: number;
+    readonly query: DocumentNode;
+}
 
 export interface SearchContext {
     readonly page: number;
-    readonly query: string;
+    readonly search: string;
     readonly perPage: number;
     readonly translation: I18n;
 }

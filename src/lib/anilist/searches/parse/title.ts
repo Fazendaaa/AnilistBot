@@ -1,4 +1,4 @@
-import { NameContext, TitleContext } from '.';
+import { TitleContext, StaffNameContext, CharactersNameContext, StudiosNameContext } from '.';
 
 export const mediaTitle = ({ title, translation }: TitleContext): string => {
     if (null !== title.english) {
@@ -12,13 +12,33 @@ export const mediaTitle = ({ title, translation }: TitleContext): string => {
     return translation.t('notAvailable');
 };
 
-export const nameTitle = ({ name, translation }: NameContext): string => {
+export const charactersTitle = ({ name, translation }: CharactersNameContext): string => {
     if (null !== name.first) {
         return name.first;
     } if (null !== name.last) {
         return name.last;
     } if (null !== name.native) {
         return name.native;
+    }
+
+    return translation.t('notAvailable');
+};
+
+export const staffTitle = ({ name, translation }: StaffNameContext): string => {
+    if (null !== name.first) {
+        return name.first;
+    } if (null !== name.last) {
+        return name.last;
+    } if (null !== name.native) {
+        return name.native;
+    }
+
+    return translation.t('notAvailable');
+};
+
+export const studiosTitle = ({ name, translation }: StudiosNameContext): string => {
+    if (null !== name) {
+        return name;
     }
 
     return translation.t('notAvailable');

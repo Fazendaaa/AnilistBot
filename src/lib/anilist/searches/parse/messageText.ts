@@ -4,6 +4,8 @@ mediaNextAiringEpisode, mediaExternalLinks } from './formatting/media';
 import { MediaMessage, CharacterMessage, StudioMessage, StaffMessage } from '.';
 import { charactersImage, charactersAllNames } from './formatting/characters';
 import { missingPng } from '../../utils/common';
+import { staffImage, staffAllNames } from './formatting/staff';
+import { studiosName } from './formatting/studios';
 
 export const mediaMessage = ({ media, translation }: MediaMessage): string => {
     const { siteUrl, season, status, isAdult, volumes, trailer, rankings, duration, episodes, chapters, averageScore,
@@ -46,18 +48,18 @@ export const studiosMessage = ({ studios, translation }: StudioMessage): string 
     const { siteUrl, name } = studios;
 
     return translation.t('studios', {
-        name,
         siteUrl,
-        image: missingPng
+        image: missingPng,
+        name: studiosName({ name, translation })
     });
 };
 
 export const staffMessage = ({ staff, translation }: StaffMessage): string => {
-    const { siteUrl, name } = staff;
+    const { siteUrl, name, image } = staff;
 
     return translation.t('staffMask', {
         siteUrl,
-        name: name.first,
-        image: missingPng
+        image: staffImage(image),
+        ...staffAllNames({ name, translation })
     });
 };

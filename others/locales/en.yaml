@@ -205,11 +205,12 @@ characters:
 
 studios:
   "[‍](${image})${name}\n\
-  [see more](${siteUrl})"
+  \n[see more](${siteUrl})"
 
 staffMask:
-  "[‍](${image})${name}\n\
-  [see more](${siteUrl})"
+  "[‍](${image})${name}\
+  ${native}\
+  \n[see more](${siteUrl})"
 
 buttonDescription:
   "Description"

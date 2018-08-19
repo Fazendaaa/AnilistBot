@@ -31,11 +31,11 @@ bot.catch(console.error);
 bot.start(({ i18n, replyWithMarkdown }: BotContext) => replyWithMarkdown(i18n.t('start')));
 
 bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: BotContext) => {
-    const pageLimit = 20;
-    const offset = parseInt(inlineQuery.offset, 10) || 0;
-    const next_offset = (offset + pageLimit).toString();
-    const query = sanitize({ message: inlineQuery.query });
-    const searched = await allSearch({ query, page: offset, perPage: pageLimit, translation: i18n });
+    const perPage = 20;
+    const page = parseInt(inlineQuery.offset, 10) || 0;
+    const next_offset = (page + perPage).toString();
+    const search = sanitize({ message: inlineQuery.query });
+    const searched = await allSearch({ search, page, perPage, translation: i18n });
     const results = toInlineArticle(searched);
 
     answerInlineQuery(results, { next_offset });

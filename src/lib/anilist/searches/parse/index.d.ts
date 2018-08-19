@@ -1,6 +1,6 @@
 import { I18n } from 'telegraf-i18n';
 import { Media, Characters, Studios, Staff } from '../../queries/searches';
-import { CoverImage, MediaFormat, MediaTitle, MediaSource, CharacterName, AiringSchedule } from '../..';
+import { CoverImage, MediaFormat, MediaTitle, MediaSource, CharacterName, AiringSchedule, StaffName } from '../..';
 
 export interface MediaMessage {
     readonly media: Media;
@@ -52,7 +52,22 @@ export interface StaffDescriptionContext {
     readonly translation: I18n;
 }
 
-export interface NameContext {
+export interface CharactersNameContext {
     readonly translation: I18n;
     readonly name: CharacterName;
+}
+
+export interface StaffNameContext {
+    readonly name: StaffName;
+    readonly translation: I18n;
+}
+
+export interface StaffNameResponse {
+    readonly name: string;
+    readonly native: string;
+}
+
+export interface StudiosNameContext {
+    readonly name: string;
+    readonly translation: I18n;
 }
