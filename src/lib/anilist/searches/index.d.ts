@@ -1,5 +1,5 @@
 import { I18n } from 'telegraf-i18n';
-import { Characters, Media, Studios, Staff } from '../queries/searches';
+import { Characters, Media, Studios, Staff } from './queries';
 import { DocumentNode } from 'graphql';
 
 export interface AnilistContext {

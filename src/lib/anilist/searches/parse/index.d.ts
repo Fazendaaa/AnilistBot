@@ -1,5 +1,5 @@
 import { I18n } from 'telegraf-i18n';
-import { Media, Characters, Studios, Staff } from '../../queries/searches';
+import { Media, Characters, Studios, Staff } from '../queries';
 import { CoverImage, MediaFormat, MediaTitle, MediaSource, CharacterName, AiringSchedule, StaffName } from '../..';
 
 export interface MediaMessage {

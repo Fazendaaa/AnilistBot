@@ -5,8 +5,8 @@ import telegrafI18n from 'telegraf-i18n';
 import { allSearch } from './lib/anilist/searches/searches';
 import { sanitize } from './lib/telegram/utils/parse';
 import { toInlineArticle } from './lib/telegram/inline';
-import { CallbackFiled } from './lib/anilist/callback/';
-import { handleCallback } from './lib/anilist/callback/handle';
+import { RequestsFiled } from './lib/anilist/requests/';
+import { handleRequests } from './lib/anilist/requests/handle';
 import { MediaType } from './lib/anilist';
 import { BotContext } from './lib/telegram';
 
@@ -45,8 +45,8 @@ bot.on('callback_query', async ({ i18n, callbackQuery, answerCbQuery }: BotConte
     const data = callbackQuery.data.split('/');
     const id = parseInt(data[1], 10);
     const type = <MediaType> data[2];
-    const field = <CallbackFiled> data[0];
-    const response = await handleCallback({ id, type, field, translation: i18n });
+    const field = <RequestsFiled> data[0];
+    const response = await handleRequests({ id, type, field, translation: i18n });
 
     return await answerCbQuery(response, true);
 });

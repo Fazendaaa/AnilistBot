@@ -86,6 +86,7 @@ I've made all the artwork for it, [Studio Ghibli](https://www.studioghibli.com.a
     <br>
     <img src="./others/img/logo/logo.png" width=100/>
     <img src="./others/img/error/error.png" width=100/>
+    <img src="./others/img/missing/missing.png" width=100/>
 </div>
 
 You can see more in the [img](./others/img) folder.

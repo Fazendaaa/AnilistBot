@@ -1,5 +1,5 @@
 import { I18n } from 'telegraf-i18n';
-import { Media, Characters } from '../../../queries/searches';
+import { Media, Characters } from '../../queries';
 import { CoverImage, MediaStatus, MediaFormat, MediaTitle, MediaSeason, MediaRanking, MediaTrailer, MediaSource,
 FuzzyDateInt, CharacterName, AiringSchedule, MediaExternalLink, StaffName } from '../../..';
 

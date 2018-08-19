@@ -14,10 +14,10 @@ interface MediaGenres {
     readonly Media: Genres;
 }
 
-export interface CallbackDescription {
+export interface RequestsDescription {
     readonly data: MediaDescription;
 }
 
-export interface CallbackGenres {
+export interface RequestsGenres {
     readonly data: MediaGenres;
 }

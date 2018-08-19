@@ -4,7 +4,7 @@ import staff from '../queries/searches/staff.gql';
 import studio from '../queries/searches/studio.gql';
 import characters from '../queries/searches/characters.gql';
 import { CharactersQueryPage, MediaQueryPage, Characters, Media, StudiosQueryPage, Studios, StaffQueryPage,
-Staff } from '../queries/searches';
+Staff } from './queries';
 import { MinimumInline } from '../../telegram/inline';
 import { SearchContext, AnilistContext } from '.';
 import { charactersInfo, mediaInfo, studiosInfo, staffInfo } from './info';
