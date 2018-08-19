@@ -80,6 +80,15 @@ videoGame:
 from:
   " vindo de um(a) "
 
+day:
+  "dia"
+
+days:
+  "dias"
+
+officialSite:
+  "Site Oficial"
+
 isAdult:
   "⚠️ Conteúdo adulto\n"
 
@@ -110,6 +119,9 @@ endDate:
 status:
   "- *Status*: _${status}_\n"
 
+nextAiringEpisode:
+  "- *Contagem regressiva pro próximo episódio*: _${timeUntilAiring}_\n"
+
 season:
   "- *Temporada*: _${season}_\n"
 
@@ -120,7 +132,7 @@ episodes:
   "- *Episódios*: _${episodes}_\n"
 
 duration:
-  "- *Duração*: _${duration} min_\n"
+  "- *Duração*: _${duration}_\n"
 
 chapters:
   "- *Capítulos*: _${chapters}_\n"
@@ -131,8 +143,15 @@ volumes:
 ranking:
   "- *Ranking*: _#${ranking} em ${type}_\n"
 
+externalLinks:
+  "- *Links externos*:\n\
+  ${externalLinks}\n"
+
 trailer:
-  "[Trailer](${trailer})\n"
+  "🍿 [Trailer](${trailer})\n"
+
+countdown:
+  "Contagem regressiva: "
 
 fmt:
   "Formato: "
@@ -150,6 +169,7 @@ media:
   ${startDate}\
   ${endDate}\
   ${status}\
+  ${nextAiringEpisode}\
   ${average}\
   ${season}\
   ${episodes}\
@@ -158,6 +178,7 @@ media:
   ${chapters}\
   ${volumes}\
   ${ranking}\
+  ${externalLinks}\
   [veja mais](${siteUrl})"
 
 native:
@@ -168,7 +189,7 @@ name:
 
 alternative:
   "- *Também conhecido como*:\n\
-  ${alternative}"
+  ${alternative}\n"
 
 characters:
   "[‍](${image})${native}\

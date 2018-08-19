@@ -1,11 +1,13 @@
 import { MediaDescriptionContext, CharacterDescriptionContext } from '.';
-import { mediaFormat, mediaSource } from './formatting/media';
+import { mediaFormat, mediaSource, toNextAiring } from './formatting/media';
 
-export const mediaDescription = ({ format, source, translation }: MediaDescriptionContext): string => {
+export const mediaDescription = ({ title, format, source, nextAiringEpisode, translation }: MediaDescriptionContext): string => {
     let response = '';
 
-    if (null === format && null === source) {
-        return translation.t('notAvailable');
+    if (null === title.english && null !== title.romaji) {
+        response += title.romaji + '\n';
+    } if (null !== nextAiringEpisode && null !== nextAiringEpisode.timeUntilAiring) {
+        response += translation.t('countdown') + toNextAiring({ nextAiringEpisode, translation }) + '\n';
     } if (null !== format) {
         response += translation.t('fmt') + mediaFormat({ format, translation }) + '\n';
     } if (null !== source) {

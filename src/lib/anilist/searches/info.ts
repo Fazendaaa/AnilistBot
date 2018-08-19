@@ -19,13 +19,13 @@ export const charactersInfo = ({ characters, translation }: CharactersContext): 
 };
 
 export const mediaInfo = ({ media, translation }: MediaContext): MinimumInline  => {
-    const { id, title, format, coverImage, bannerImage, type, source } = media;
+    const { id, title, format, coverImage, bannerImage, type, source, nextAiringEpisode } = media;
 
     return {
         title: mediaTitle({ title, translation }),
         message_text: mediaMessage({ media, translation }),
         thumb_url: mediaThumbUrl({ coverImage, bannerImage }),
         reply_markup: mediaKeyboard({ id, type, translation }),
-        description: mediaDescription({ format, source, translation })
+        description: mediaDescription({ title, format, source, nextAiringEpisode, translation })
     };
 };

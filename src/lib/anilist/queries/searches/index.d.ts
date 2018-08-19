@@ -24,8 +24,8 @@ interface Media {
     readonly startDate: FuzzyDateInt;
     readonly countryOfOrigin: string;
     readonly rankings: Array<MediaRanking>;
-    readonly externalLinks: MediaExternalLink;
     readonly nextAiringEpisode: AiringSchedule;
+    readonly externalLinks: Array<MediaExternalLink>;
 }
 
 interface Characters {

@@ -25,10 +25,6 @@ query ($search: String, $page: Int, $perPage: Int) {
                 large
                 medium
             }
-      		externalLinks {
-      		    id
-                url
-      		}
             nextAiringEpisode {
       		    id
                 timeUntilAiring
@@ -53,6 +49,11 @@ query ($search: String, $page: Int, $perPage: Int) {
                 romaji
                 english
         	}
+            externalLinks {
+                id
+                url
+                site
+            }
         }
   	}
 }

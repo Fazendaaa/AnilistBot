@@ -1,10 +1,58 @@
 import moment from 'moment';
 import { AdultContext, VolumesContext, AverageContext, EpisodesContext, ChaptersContext, SeasonContext, StatusContext,
 FormatContext, MediaImageContext, AllTitleContext, AllTitleResponse, RakingContext, TrailerContext, SourceContext,
-DurationContext, KindResponse, KindContext, StartDateContext, EndDateContext } from '.';
+DurationContext, KindContext, StartDateContext, EndDateContext, NextAiringEpisodeContext, ExternalLinksContext
+} from '.';
 import { errorPng } from '../../../utils/common';
+import { I18n } from 'telegraf-i18n';
+import { MediaExternalLink } from '../../..';
 
 const dateFormat = 'MMMM Do YYYY';
+
+const toDuration = (input: number): string => {
+    if (60 < input) {
+        const hour = Math.trunc(input / 60);
+        const min = input % 60;
+
+        return `${hour}h${min}min`;
+    }
+    
+    return `${input}min`;
+};
+
+const __parsingLinks = (translation: I18n, acc, { site, url }: MediaExternalLink): string => {
+    let name = site;
+
+    if ('Official Site' === site) {
+        name = translation.t('officialSite');
+    }
+
+    return acc + `\t\t • [${name}](${url})\n`;
+};
+
+const parsingLinks = ({ externalLinks, translation }: ExternalLinksContext): string => {
+    const curriedParsingLinks = ((acc: string, cur: MediaExternalLink) => __parsingLinks(translation, acc, cur));
+
+    return externalLinks.reduce(curriedParsingLinks, '');
+};
+
+export const toNextAiring = ({ nextAiringEpisode, translation }: NextAiringEpisodeContext): string => {
+    const { timeUntilAiring } = nextAiringEpisode;
+    const oneHour = 60 * 60;
+    const oneDay = 24 * oneHour;
+    const min = timeUntilAiring % 60;
+    const hour = timeUntilAiring % oneHour;
+
+    if (oneDay < timeUntilAiring) {
+        const days = timeUntilAiring % oneDay;
+
+        return `${days}${(1 === days) ? translation.t('day') : translation.t('days')} - ${hour}h${min}min`;
+    } if (oneHour < timeUntilAiring) {
+        return `${hour}h${min}min`;
+    }
+
+    return `${timeUntilAiring}min`;
+};
 
 export const mediaIsAdult = ({ isAdult, translation }: AdultContext): string => {
     return (true === isAdult) ? translation.t('isAdult') : '';
@@ -27,7 +75,23 @@ export const mediaChapters = ({ chapters, translation }: ChaptersContext): strin
 };
 
 export const mediaDuration = ({ duration, translation }: DurationContext): string => {
-    return (null !== duration) ? translation.t('duration', { duration }) : '';
+    return (null !== duration) ? translation.t('duration', { duration: toDuration(duration) }) : '';
+};
+
+export const mediaNextAiringEpisode = ({ nextAiringEpisode, translation }: NextAiringEpisodeContext): string => {
+    if (null === nextAiringEpisode || null === nextAiringEpisode.timeUntilAiring) {
+        return   '';
+    }
+    
+    return translation.t('nextAiringEpisode', { timeUntilAiring: toNextAiring({ nextAiringEpisode, translation }) });
+};
+
+export const mediaExternalLinks = ({ externalLinks, translation }: ExternalLinksContext): string => {
+    if (null === externalLinks) {
+        return '';
+    }
+
+    return translation.t('externalLinks', { externalLinks: parsingLinks({ externalLinks, translation }) });
 };
 
 export const mediaStartDate = ({ startDate, status, translation }: StartDateContext): string => {
@@ -173,7 +237,7 @@ export const mediaFormat = ({ format, translation }: FormatContext): string => {
     return translation.t('oneShot');
 };
 
-export const mediaKind = ({ format, source, translation }: KindContext): KindResponse => {
+export const mediaKind = ({ format, source, translation }: KindContext): string => {
     const first = mediaFormat({ format, translation });
     const second = mediaSource({ source, translation });
     let kind = '';
@@ -186,7 +250,5 @@ export const mediaKind = ({ format, source, translation }: KindContext): KindRes
         kind += '\n';
     }
 
-    return {
-        kind
-    };
+    return kind;
 };
