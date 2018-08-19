@@ -1,8 +1,9 @@
 import { mediaSeason, mediaStatus, mediaKind, mediaImage, mediaIsAdult, mediaVolumes, mediaTrailer, mediaRanking,
 mediaDuration, mediaEpisodes, mediaChapters, mediaAverage, mediaEndDate, mediaAllTitle, mediaStartDate,
 mediaNextAiringEpisode, mediaExternalLinks } from './formatting/media';
-import { MediaMessage, CharacterMessage } from '.';
+import { MediaMessage, CharacterMessage, StudioMessage, StaffMessage } from '.';
 import { charactersImage, charactersAllNames } from './formatting/characters';
+import { missingPng } from '../../utils/common';
 
 export const mediaMessage = ({ media, translation }: MediaMessage): string => {
     const { siteUrl, season, status, isAdult, volumes, trailer, rankings, duration, episodes, chapters, averageScore,
@@ -31,12 +32,32 @@ export const mediaMessage = ({ media, translation }: MediaMessage): string => {
     });
 };
 
-export const characterMessage = ({ characters, translation }: CharacterMessage): string => {
+export const charactersMessage = ({ characters, translation }: CharacterMessage): string => {
     const { siteUrl, image, name } = characters;
 
     return translation.t('characters', {
         siteUrl,
         image: charactersImage(image),
         ...charactersAllNames({ name, translation })
+    });
+};
+
+export const studiosMessage = ({ studios, translation }: StudioMessage): string => {
+    const { siteUrl, name } = studios;
+
+    return translation.t('studios', {
+        name,
+        siteUrl,
+        image: missingPng
+    });
+};
+
+export const staffMessage = ({ staff, translation }: StaffMessage): string => {
+    const { siteUrl, name } = staff;
+
+    return translation.t('staffMask', {
+        siteUrl,
+        name: name.first,
+        image: missingPng
     });
 };

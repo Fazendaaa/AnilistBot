@@ -1,15 +1,25 @@
 import { I18n } from 'telegraf-i18n';
-import { Media, Characters } from '../../queries/searches';
+import { Media, Characters, Studios, Staff } from '../../queries/searches';
 import { CoverImage, MediaFormat, MediaTitle, MediaSource, CharacterName, AiringSchedule } from '../..';
 
-interface MediaMessage {
+export interface MediaMessage {
     readonly media: Media;
     readonly translation: I18n;
 }
 
-interface CharacterMessage {
+export interface CharacterMessage {
     readonly translation: I18n;
     readonly characters: Characters;
+}
+
+export interface StudioMessage {
+    readonly studios: Studios;
+    readonly translation: I18n;
+}
+
+export interface StaffMessage {
+    readonly staff: Staff;
+    readonly translation: I18n;
 }
 
 export interface ImageContext {
@@ -31,6 +41,14 @@ export interface MediaDescriptionContext {
 }
 
 export interface CharacterDescriptionContext {
+    readonly translation: I18n;
+}
+
+export interface StudiosDescriptionContext {
+    readonly translation: I18n;
+}
+
+export interface StaffDescriptionContext {
     readonly translation: I18n;
 }
 

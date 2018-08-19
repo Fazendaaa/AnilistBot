@@ -20,7 +20,13 @@ export const mediaKeyboard = ({ id, translation, type }: KeyboardContext): Inlin
     ]);
 };
 
-export const characterKeyboard = ({ id, translation, type }: KeyboardContext): InlineKeyboardMarkup => {
+export const charactersKeyboard = ({ id, translation, type }: KeyboardContext): InlineKeyboardMarkup => {
+    return markup.inlineKeyboard([
+        markup.callbackButton(translation.t('buttonDescription'), `description/${id}/${type}`)
+    ]);
+};
+
+export const staffKeyboard = ({ id, translation, type }: KeyboardContext): InlineKeyboardMarkup => {
     return markup.inlineKeyboard([
         markup.callbackButton(translation.t('buttonDescription'), `description/${id}/${type}`)
     ]);

@@ -35,8 +35,14 @@ rated:
 poular:
   "Popular"
 
+studio:
+  "🏛️ Studio"
+
+staff:
+  "😀 Staff"
+
 character:
-  "🙂 Character"
+  "👺 Character"
 
 tv:
   "📺 TV"
@@ -195,7 +201,15 @@ characters:
   "[‍](${image})${native}\
   ${name}\
   ${alternative}\
-  [see more](${siteUrl})\n"
+  [see more](${siteUrl})"
+
+studios:
+  "[‍](${image})${name}\n\
+  [see more](${siteUrl})"
+
+staffMask:
+  "[‍](${image})${name}\n\
+  [see more](${siteUrl})"
 
 buttonDescription:
   "Description"

@@ -1,4 +1,4 @@
-import { MediaDescriptionContext, CharacterDescriptionContext } from '.';
+import { MediaDescriptionContext, CharacterDescriptionContext, StudiosDescriptionContext, StaffDescriptionContext } from '.';
 import { mediaFormat, mediaSource, toNextAiring } from './formatting/media';
 
 export const mediaDescription = ({ title, format, source, nextAiringEpisode, translation }: MediaDescriptionContext): string => {
@@ -17,6 +17,14 @@ export const mediaDescription = ({ title, format, source, nextAiringEpisode, tra
     return response;
 };
 
-export const characterDescription = ({ translation }: CharacterDescriptionContext): string => {
+export const charactersDescription = ({ translation }: CharacterDescriptionContext): string => {
     return translation.t('fmt') + translation.t('character');
+};
+
+export const studiosDescription = ({ translation }: StudiosDescriptionContext): string => {
+    return translation.t('fmt') + translation.t('studio');
+};
+
+export const staffDescription = ({ translation }: StaffDescriptionContext): string => {
+    return translation.t('fmt') + translation.t('staff');
 };

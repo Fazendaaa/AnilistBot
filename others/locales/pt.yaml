@@ -17,12 +17,6 @@ notYetReleased:
 cancelled:
   "Cancelado"
 
-rated:
-  "Avaliações"
-
-poular:
-  "Popular"
-
 fall:
   "Inverno"
 
@@ -35,8 +29,20 @@ summer:
 winter:
   "Inverno"
 
+rated:
+  "Avaliações"
+
+poular:
+  "Popular"
+
+studio:
+  "🏛️ Estúdio"
+
+staff:
+  "😀 Funcionário"
+
 character:
-  "🙂 Personagem"
+  "👺 Personagem"
 
 tv:
   "📺 TV"
@@ -195,7 +201,15 @@ characters:
   "[‍](${image})${native}\
   ${name}\
   ${alternative}\
-  [see more](${siteUrl})"
+  [veja mais](${siteUrl})"
+
+studios:
+  "[‍](${image})${name}\n\
+  [veja mais](${siteUrl})"
+
+staffMask:
+  "[‍](${image})${name}\n\
+  [veja mais](${siteUrl})"
 
 buttonDescription:
   "Descrição"

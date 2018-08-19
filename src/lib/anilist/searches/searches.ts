@@ -49,9 +49,13 @@ const mediaSearch = async ({ query, translation, page, perPage }: SearchContext)
     return searched.data.Page.media.map(curriedMediaInfo);
 };
 
-export const allSearch = async ({ query, translation, page, perPage }: SearchContext): Promise<Array<MinimumInline>> => [
-    ...await mediaSearch({ query, translation, page, perPage }),
-    ...await staffSearch({ query, translation, page, perPage }),
-    ...await studiosSearch({ query, translation, page, perPage }),
-    ...await charactersSearch({ query, translation, page, perPage })
-];
+export const allSearch = async ({ query, translation, page, perPage }: SearchContext): Promise<Array<MinimumInline>> => {
+    const divided = Math.trunc(perPage / 4);
+
+    return [
+        ...await mediaSearch({ query, translation, page, perPage: divided }),
+        ...await staffSearch({ query, translation, page, perPage: divided }),
+        ...await studiosSearch({ query, translation, page, perPage: divided }),
+        ...await charactersSearch({ query, translation, page, perPage: divided })
+    ];
+};
