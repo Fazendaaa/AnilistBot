@@ -120,7 +120,7 @@ status:
   "- *Status*: _${status}_\n"
 
 nextAiringEpisode:
-  "- *Contagem regressiva pro próximo episódio*: _${timeUntilAiring}_\n"
+  "- *Próximo episódio em*: _${timeUntilAiring}_\n"
 
 season:
   "- *Temporada*: _${season}_\n"

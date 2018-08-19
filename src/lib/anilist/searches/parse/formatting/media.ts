@@ -40,18 +40,18 @@ export const toNextAiring = ({ nextAiringEpisode, translation }: NextAiringEpiso
     const { timeUntilAiring } = nextAiringEpisode;
     const oneHour = 60 * 60;
     const oneDay = 24 * oneHour;
-    const min = timeUntilAiring % 60;
-    const hour = timeUntilAiring % oneHour;
+    const min = Math.trunc(timeUntilAiring / 60);
+    const hour = Math.trunc(min / 60);
 
     if (oneDay < timeUntilAiring) {
-        const days = timeUntilAiring % oneDay;
+        const days = Math.trunc(hour / 24);
 
-        return `${days}${(1 === days) ? translation.t('day') : translation.t('days')} - ${hour}h${min}min`;
+        return `${days}${(1 === days) ? translation.t('day') : translation.t('days')} - ${hour % 24}h${min % 60}min`;
     } if (oneHour < timeUntilAiring) {
-        return `${hour}h${min}min`;
+        return `${hour % 24}h${min % 60}min`;
     }
 
-    return `${timeUntilAiring}min`;
+    return `${min % 60}min`;
 };
 
 export const mediaIsAdult = ({ isAdult, translation }: AdultContext): string => {

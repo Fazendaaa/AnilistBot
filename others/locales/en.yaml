@@ -120,7 +120,7 @@ status:
   "- *Status*: _${status}_\n"
 
 nextAiringEpisode:
-  "- *Countdown to next episode*: _${timeUntilAiring}_\n"
+  "- *Next episode in*: _${timeUntilAiring}_\n"
 
 season:
   "- *Season*: _${season}_\n"
