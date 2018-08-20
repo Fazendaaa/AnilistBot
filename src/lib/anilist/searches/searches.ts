@@ -1,8 +1,8 @@
 import { fetchData } from 'endeavor';
-import media from '../queries/searches/media.gql';
-import staff from '../queries/searches/staff.gql';
-import studio from '../queries/searches/studio.gql';
-import characters from '../queries/searches/characters.gql';
+import media from './queries/media.gql';
+import staff from './queries/staff.gql';
+import studio from './queries/studio.gql';
+import characters from './queries/characters.gql';
 import { CharactersQueryPage, MediaQueryPage, Characters, Media, StudiosQueryPage, Studios, StaffQueryPage,
 Staff } from './queries';
 import { MinimumInline } from '../../telegram/inline';

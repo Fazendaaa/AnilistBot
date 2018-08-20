@@ -1,7 +1,9 @@
-export const fetchTranslationGenres = (): string => {
+import { FetchTranslationContext, NewTranslationContext } from '.';
+
+export const fetchGenresTranslation = async ({ id, to, type }: FetchTranslationContext): Promise<string> => {
     return '';
 };
 
-export const newTranslationGenres = (): string => {
+export const newGenresTranslation = async ({ id, to, type, message }: NewTranslationContext): Promise<string> => {
     return '';
 };
