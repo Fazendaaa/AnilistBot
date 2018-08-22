@@ -62,9 +62,9 @@ You can build yourself a bot similar to this one, I've wrote a tutorial about it
 
 # Build with
 * [dotenv](https://github.com/motdotla/dotenv)
-* [endeavor](https://www.npmjs.com/package/endeavor)
+* [endeavor](https://github.com/Fazendaaa/endeavor)
 * [emoji-regex](https://github.com/mathiasbynens/emoji-regex)
-* [moment](https://www.npmjs.com/package/moment)
+* [moment](http://momentjs.com/)
 * [mongoose](http://mongoosejs.com/)
 * [node schedule](https://github.com/node-schedule/node-schedule)
 * [telegraf](http://telegraf.js.org/#/)

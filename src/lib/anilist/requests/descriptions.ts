@@ -11,10 +11,11 @@ export const fetchDescription = async ({ id, type, translation }: DataContext): 
         variables: { id }
     });
     const message = fetch.data.Media.description;
+    const to = translation.locale().split('-')[0];
 
-    if (translation.locale().includes('en')) {
+    if ('en' === to) {
         return message;
     }
 
-    return await translateDescription({ id, type, message, translation });
+    return await translateDescription({ id, to, type, message });
 };

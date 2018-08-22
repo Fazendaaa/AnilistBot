@@ -1,45 +1,39 @@
 import { config } from 'dotenv';
 import translate from 'translate';
 import { TranslateDescriptionContext, TranslateGenresContext } from '..';
-import { AnilistTranslationContext } from '.';
+import { fetchGenresTranslation, newGenresTranslation } from '../../../database/translations/genres';
+import { fetchDescriptionTranslation, newDescriptionTranslation } from '../../../database/translations/descriptions';
 
 config();
 
 translate.key = process.env.GOOGLE_KEY;
-// const text = await translate(message, { from: 'en', to });
 
-const verifyAnime = async ({ id, to, message }: AnilistTranslationContext): Promise<string> => {
-    return 'foo';
-};
+export const translateDescription = async ({ id, to, type, message }: TranslateDescriptionContext): Promise<string> => {
+    const description = await fetchDescriptionTranslation({ id, to, type });
 
-const verifyManga = async ({ id, to, message }: AnilistTranslationContext): Promise<string> => {
-    return 'foo';
-};
+    if ('' === description) {
+        const text = await translate(message, { from: 'en', to });
 
-const verifyCharacter = async ({ id, to, message }: AnilistTranslationContext): Promise<string> => {
-    return 'foo';
-};
+        newDescriptionTranslation({ message: text, id, to, type });
 
-const verifyStaff = async ({ id, to, message }: AnilistTranslationContext): Promise<string> => {
-    return 'foo';
-};
-
-export const translateDescription = async ({ id, type, message, translation }: TranslateDescriptionContext): Promise<string> => {
-    const to = translation.locale().split('-')[0];
-
-    if ('ANIME' === type) {
-        return verifyAnime({ id, to, message });
-    } if ('MANGA' === type) {
-        return verifyManga({ id, to, message });
-    } if ('CHARACTER' === type) {
-        return verifyCharacter({ id, to, message });
+        return text;
     }
 
-    return verifyStaff({ id, to, message });
+    return description;
 };
 
-export const translateGenres = async ({ id, message, translation }: TranslateGenresContext): Promise<string> => {
-    const to = translation.locale().split('-')[0];
+export const translateGenres = async ({ id, to, type, message }: TranslateGenresContext): Promise<string> => {
+    const genres = await fetchGenresTranslation({ id, to, type });
 
-    return '';
+    console.log('GENRES: ', genres);
+
+    if ('' === genres) {
+        const text = await translate(message, { from: 'en', to });
+
+        newGenresTranslation({ message: text, id, to, type });
+
+        return text;
+    }
+
+    return genres;
 };

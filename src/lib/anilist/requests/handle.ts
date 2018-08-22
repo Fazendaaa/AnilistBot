@@ -5,11 +5,11 @@ import { fetchGenres } from './genres';
 export const handleRequests = async ({ id, type, field, translation }: RequestsContext): Promise<string> => {
     let message;
 
-    if ('description' === field) {
+    if ('DESCRIPTION' === field) {
         message = await fetchDescription({ id, type, translation });
-    } if ('genres' === field) {
+    } if ('GENRES' === field) {
         message = await fetchGenres({ id, type, translation });
-    } if ('list' === field) {
+    } if ('LIST' === field) {
         message = translation.t('notAvailable');
     }
 

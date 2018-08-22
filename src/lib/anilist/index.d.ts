@@ -32,12 +32,6 @@ export type MediaFormat = 'TV' |
                           'ONE_SHOT' |
                           'TV_SHORT'
 
-export type AllTypes = 'ANIME' |
-                       'MANGA' |
-                       'STAFF' |
-                       'STUDIO' |
-                       'CHARACTER'
-
 export type StaffLanguage = 'KOREAN' |
                             'FRENCH' |
                             'GERMAN' |

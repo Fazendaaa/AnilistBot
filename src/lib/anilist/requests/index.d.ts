@@ -1,32 +1,41 @@
-import { AllTypes } from '..';
 import { I18n } from 'telegraf-i18n';
+import { MediaType } from '..';
 
-export type RequestsFiled = 'list' |
-                            'genres' |
-                            'description'
+export type AllRequests = 'READ' |
+                          'ANIME' |
+                          'WATCH' |
+                          'MANGA' |
+                          'STAFF' |
+                          'STUDIO' |
+                          'CHARACTER'
+
+export type RequestsFiled = 'LIST' |
+                            'GENRES' |
+                            'DESCRIPTION'
 
 export interface RequestsContext {
     readonly id: number;
-    readonly type: AllTypes;
+    readonly type: AllRequests;
     readonly translation: I18n;
     readonly field: RequestsFiled;
 }
 
 export interface DataContext {
     readonly id: number;
-    readonly type: AllTypes;
+    readonly type: AllRequests;
     readonly translation: I18n;
 }
 
 export interface TranslateDescriptionContext {
     readonly id: number;
-    readonly type: AllTypes;
+    readonly to: string;
     readonly message: string;
-    readonly translation: I18n;
+    readonly type: AllRequests;
 }
 
 export interface TranslateGenresContext {
     readonly id: number;
-    readonly translation: I18n;
+    readonly to: string;
+    readonly type: MediaType;
     readonly message: Array<string>;
 }

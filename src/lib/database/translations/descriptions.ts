@@ -1,19 +1,6 @@
 import { FetchTranslationContext, NewTranslationContext, Language, Translation } from '.';
 import { animeDescription, mangaDescription, characterDescription, staffDescription } from './model';
-
-const fetchLanguage = (to: string, response: Language): string => {
-    if (null !== response[to] && undefined !== response[to]) {
-        return response[to].message;
-    }
-
-    return '';
-};
-
-const addTranslation = (to: string, message: string, response: Translation): Promise<boolean> => {
-    response.languages[to] = message;
-
-    return response.save().then(() => true).catch(() => false);
-};
+import { fetchLanguage, addTranslation } from './utils';
 
 export const fetchDescriptionTranslation = async ({ id, to, type }: FetchTranslationContext): Promise<string> => {
     const curriedFetchLanguage = ((response: Language) => fetchLanguage(to, response));

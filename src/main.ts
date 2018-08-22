@@ -13,7 +13,7 @@ import { BotContext } from './lib/telegram';
 
 config();
 
-const bot = new telegraf(<string>process.env.BOT_KEY);
+const bot = new telegraf(<string> process.env.BOT_KEY);
 const i18n = new telegrafI18n({
     useSession: true,
     allowMissing: true,
@@ -58,8 +58,8 @@ bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: BotConte
 
 bot.on('callback_query', async ({ i18n, callbackQuery, answerCbQuery }: BotContext) => {
     const data = callbackQuery.data.split('/');
-    const id = parseInt(data[1], 10);
-    const type = <MediaType> data[2];
+    const id = parseInt(data[2], 10);
+    const type = <MediaType> data[1];
     const field = <RequestsFiled> data[0];
     const response = await handleRequests({ id, type, field, translation: i18n });
 
