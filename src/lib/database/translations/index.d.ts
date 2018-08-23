@@ -20,6 +20,7 @@ export interface Language extends Document {
 }
 
 export interface Translation extends Document {
+    date: Date;
     readonly _id: number;
     readonly languages: Language;
 }
