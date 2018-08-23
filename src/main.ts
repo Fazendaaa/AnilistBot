@@ -22,9 +22,9 @@ const i18n = new telegrafI18n({
     directory: join(__dirname, '../others/locales')
 });
 
-let dbStatus = false;
+connect(<string> process.env.MONGODB_URI);
 
-connect(process.env.MONGODB_URI);
+let dbStatus = false;
 
 connection.on('open', () => {
     // https://stackoverflow.com/a/51918795/7092954

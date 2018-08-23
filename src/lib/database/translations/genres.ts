@@ -4,12 +4,12 @@ import { addTranslation, fetchTranslation } from './utils';
 
 export const fetchGenresTranslation = ({ id, to, type }: FetchTranslationContext): Promise<string> => {
     const curriedFetchLanguage = ((data: Translation) => fetchTranslation(to, data));
-
+    
     if ('ANIME' === type) {
-        return animeGenres.findById({ _id: id }).then(curriedFetchLanguage).catch(() => '');
+        return animeGenres.findById(id).then(curriedFetchLanguage).catch(() => '');
     }
 
-    return mangaGenres.findById({ _id: id }).then(curriedFetchLanguage).catch(() => '');
+    return mangaGenres.findById(id).then(curriedFetchLanguage).catch(() => '');
 };
 
 export const newGenresTranslation = async ({ id, to, type, message }: NewTranslationContext): Promise<boolean> => {
@@ -17,8 +17,8 @@ export const newGenresTranslation = async ({ id, to, type, message }: NewTransla
     const curriedAddTranslation = ((response: Translation) => addTranslation(to, message, response));
 
     if ('ANIME' === type) {
-        return animeGenres.findByIdAndUpdate({ _id: id }, {}, options).then(curriedAddTranslation).catch(() => false);
+        return animeGenres.findByIdAndUpdate(id, {}, options).then(curriedAddTranslation).catch(() => false);
     }
 
-    return mangaGenres.findByIdAndUpdate({ _id: id }, {}, options).then(curriedAddTranslation).catch(() => false);
+    return mangaGenres.findByIdAndUpdate(id, {}, options).then(curriedAddTranslation).catch(() => false);
 };

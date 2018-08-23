@@ -4,7 +4,10 @@ const { Mixed } = Types;
 
 const commonSchema = {
     _id: Number,
-    languages: { type: Mixed, default: {} }
+    languages: {
+        type: Mixed,
+        default: {}
+    }
 };
 
 export const animeGenresSchema = new Schema(commonSchema);

@@ -10,6 +10,6 @@ export const fetchTranslation = (to: string, response: Translation): string => {
 
 export const addTranslation = (to: string, message: string, response: Translation): Promise<boolean> => {
     response.languages[to] = message;
-    
+
     return response.save().then(() => true).catch(() => false);            
 };
