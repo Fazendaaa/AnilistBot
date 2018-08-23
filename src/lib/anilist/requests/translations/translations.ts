@@ -25,12 +25,10 @@ export const translateDescription = async ({ id, to, type, message }: TranslateD
 export const translateGenres = async ({ id, to, type, message }: TranslateGenresContext): Promise<string> => {
     const genres = await fetchGenresTranslation({ id, to, type });
 
-    console.log('GENRES: ', genres);
-
     if ('' === genres) {
         const text = await translate(message, { from: 'en', to });
 
-        newGenresTranslation({ message: text, id, to, type });
+        await newGenresTranslation({ message: text, id, to, type });
 
         return text;
     }

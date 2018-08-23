@@ -1,6 +1,6 @@
 import { config } from 'dotenv';
 import { join } from 'path';
-import { connect, connection } from 'mongoose';
+import { connect, connection, set } from 'mongoose';
 import telegraf from 'telegraf';
 import telegrafI18n from 'telegraf-i18n';
 import { allSearch } from './lib/anilist/searches/searches';
@@ -27,12 +27,18 @@ let dbStatus = false;
 connect(process.env.MONGODB_URI);
 
 connection.on('open', () => {
+    // https://stackoverflow.com/a/51918795/7092954
+    set('useCreateIndex', true);
+    set('useFindAndModify', false);
+
     console.log('DB connected.');
+
     dbStatus = true;
 });
 
 connection.on('error', () => {
     console.error.bind(console, 'connection error:');
+
     dbStatus = false;
 });
 
