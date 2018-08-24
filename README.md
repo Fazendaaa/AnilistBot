@@ -13,17 +13,17 @@
 
 [![Build Status](https://img.shields.io/travis/Fazendaaa/AnilistBot.svg?style=flat-square)](https://travis-ci.org/Fazendaaa/AnilistBot)
 [![codecov](https://img.shields.io/codecov/c/github/Fazendaaa/AnilistBot.svg?style=flat-square)](https://codecov.io/gh/Fazendaaa/AnilistBot)
-[![Coverage Badge](https://img.shields.io/codacy/grade/ce230276b4284f47a91e0ab6ef644736.svg?style=flat-square)](https://www.codacy.com/app/Fazendaaa/AnilistBot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Fazendaaa/AnilistBot&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://img.shields.io/codacy/grade/39abaa6b730941728b1e553e73e10b1e.svg?style=flat-square)](https://www.codacy.com/project/Fazendaaa/AnilistBot/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Fazendaaa/AnilistBot&amp;utm_campaign=Badge_Grade_Dashboard)
 [![Dependencies](https://david-dm.org/Fazendaaa/AnilistBot.svg?style=flat-square)](https://codeclimate.com/github/Fazendaaa/AnilistBot/master/package.json)
-[![Known Vulnerabilities](https://snyk.io/test/github/fazendaaa/podsearch_bot/badge.svg?targetFile=package.json)](https://snyk.io/test/github/fazendaaa/podsearch_bot?targetFile=package.json)
-[![Maintainability](https://api.codeclimate.com/v1/badges/3183be464438842a30b3/maintainability)](https://codeclimate.com/github/Fazendaaa/AnilistBot/maintainability)
+[![Known Vulnerabilities](https://snyk.io/test/github/Fazendaaa/AnilistBot/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Fazendaaa/AnilistBot?targetFile=package.json)
+[![Maintainability](https://api.codeclimate.com/v1/badges/48f94edc03d7949040bb/maintainability)](https://codeclimate.com/github/Fazendaaa/AnilistBot/maintainability)
 
 </div>
 
 > A new code base to Anilist bot in Telegram.
 
 ## About
-This bot helps you to send info about:
+This bot helps you to send info in your [Telegram](https://telegram.org/) chats about:
 * Animes
 * Mangas
 * Characters
@@ -31,16 +31,29 @@ This bot helps you to send info about:
 * Staffs
 * etc
 
-All of the data about it is fetched from [Anilist](http://anilist.co/) and [Anichart](http://anichart.net/).
+More than this it also notifies you when new episodes are released and lets you have a:
+* Watchlist
+* Readlist
+* Countdown from new episodes
+* Anime and manga filters in your lists
 
-More than this it also notifies you when new episodes are released and lets you have a watch and a read list of it.
+All of the data about it is fetched from [Anilist](http://anilist.co/) & [Anichart](http://anichart.net/).
 
 ## Disclaimer
 1. By default all the commands are in English, but you can see if the same command is available in your language;
-2. [JoshStar](https://github.com/joshstar) was kind to [allow](https://github.com/AniList/ApiV2-GraphQL-Docs/issues/50#event-1794658906) me to store the translated info about the content in different languages, improving the user experience.
+2. [JoshStar](https://github.com/joshstar) was kind to [allow](https://github.com/AniList/ApiV2-GraphQL-Docs/issues/50#event-1794658906) me to store the translated info about the content in different languages, improving the user experience;
+3. This project is a new implementation, the old code base is [here](https://github.com/Fazendaaa/Anilist-bot).
 
 # How to use it
 First of all, talk to [@AnilistBot](http://t.me/anilistbot).
+
+## Inline Searches
+
+## Command Searches
+
+## Readlist & Watchlist
+
+## Countdown
 
 ## Help
 If you have any other questions about it just use it the help command:
@@ -77,7 +90,7 @@ Plain and simple [Typescript](http://typescriptlang.org/) and the [Microsoft lin
 ## Webpack
 > _"JUST WHY???"_ -- everybody
 
-As the [Anilist API V2](https://github.com/AniList/ApiV2-GraphQL-Docs) was written with [GraphQL](https://graphql.org/), using it the needed queries as JS ```imports``` was a option but only with [Webpack](http://webpack.js.org/). And since this makes the code more cleaner and easier to maintain that's why it was used; that's the GREAT difference and could seen a little bit off to see this kind of decision and that's the answer.
+As the [Anilist API V2](https://github.com/AniList/ApiV2-GraphQL-Docs) was written with [GraphQL](https://graphql.org/), as I was using it, the needed queries as JS ```imports``` was a option but only with [Webpack](http://webpack.js.org/) and the [webpack-graphql-loader](https://github.com/samsarahq/graphql-loader). And since this makes the code more cleaner and easier to maintain that's why it was used; that's the GREAT difference and could seen a little bit off to see this kind of decision and that's the answer.
 
 # Artwork
 I've made all the artwork for it, [Studio Ghibli](https://www.studioghibli.com.au/) was my inspiration.
@@ -92,7 +105,7 @@ I've made all the artwork for it, [Studio Ghibli](https://www.studioghibli.com.a
 You can see more in the [img](./others/img) folder.
 
 # Testing
-Since there's a [Travis CI](http://travis-ci.org/) integration and [Codecov](https://codecov.io/). All of the tests were written with [Jest](https://facebook.github.io/jest/).
+Since there's a [Travis CI](http://travis-ci.org/) integration and [Codecov](https://codecov.io/). All of the tests were written with [Jest](https://facebook.github.io/jest/) with the help of [ts-jest](https://github.com/kulshekhar/ts-jest).
 
 To run all tests just:
 
@@ -108,7 +121,7 @@ There's a pattern to do testing based on using JSON files describing the tests t
 Node runs using [V8](https://github.com/v8/v8) engine, but since this project uses TS, the compiled code doesn't have the _name_ property in the anonymous function. The problem is a [known issue](https://github.com/Microsoft/TypeScript/issues/6433); the folks at [Jest](https://github.com/facebook/jest/issues/6824#event-1787524124) and [ts-jest](https://github.com/kulshekhar/ts-jest/issues/677#issuecomment-412893575) helped a lot to understand this -- once this issue is fixed there won't be this anymore.
 
 # Security
-I've added a integration with [Snyk](https://snyk.io/) to ensure that all of my dependencies have no bugs or errors reported without fixing it first before Continuos integration (CI) to ensure the Continuos Development (CD).
+I've added a integration with [Snyk](https://snyk.io/) to ensure the Continuos Development (CD).
 
 ## Errors/Bugs in Dependencies
 When Snyk report some errors or bugs that can be fixed, just follow the CLI command to fix them before running -- more info at their [docs](https://github.com/snyk/snyk#cli).
