@@ -1,5 +1,6 @@
 import { MediaTitle, CoverImage, FuzzyDateInt, MediaFormat, MediaStatus, MediaTrailer, MediaSource, AiringSchedule,
-MediaRanking, MediaExternalLink, MediaSeason, MediaType, CharacterName, CharacterImage, StaffName, StaffLanguage, StaffImage } from '../..';
+MediaRanking, MediaExternalLink, MediaSeason, MediaType, CharacterName, CharacterImage, StaffName, StaffLanguage,
+StaffImage, StudioConnection } from '../..';
 
 interface Media {
     readonly id: number;
@@ -23,6 +24,7 @@ interface Media {
     readonly coverImage: CoverImage;
     readonly startDate: FuzzyDateInt;
     readonly countryOfOrigin: string;
+    readonly studios: StudioConnection;
     readonly rankings: Array<MediaRanking>;
     readonly nextAiringEpisode: AiringSchedule;
     readonly externalLinks: Array<MediaExternalLink>;

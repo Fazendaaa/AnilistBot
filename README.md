@@ -69,7 +69,7 @@ You can build yourself a bot similar to this one, I've wrote a tutorial about it
 * [node schedule](https://github.com/node-schedule/node-schedule)
 * [telegraf](http://telegraf.js.org/#/)
 * [telegraf-i18n](https://github.com/telegraf/telegraf-i18n)
-* [translate](https://www.npmjs.com/package/translate)
+* [translate](https://github.com/franciscop/translate)
 
 # Code
 Plain and simple [Typescript](http://typescriptlang.org/) and the [Microsoft linter standards](https://github.com/Microsoft/tslint-microsoft-contrib) for it.

@@ -1,4 +1,4 @@
-import { TelegramContext } from "..";
+import { TelegramContext } from '..';
 import emojiRegex from 'emoji-regex';
 
 const createRegExp = emojiRegex();

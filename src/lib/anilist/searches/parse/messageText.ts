@@ -1,6 +1,6 @@
 import { mediaSeason, mediaStatus, mediaKind, mediaImage, mediaIsAdult, mediaVolumes, mediaTrailer, mediaRanking,
 mediaDuration, mediaEpisodes, mediaChapters, mediaAverage, mediaEndDate, mediaAllTitle, mediaStartDate,
-mediaNextAiringEpisode, mediaExternalLinks } from './formatting/media';
+mediaNextAiringEpisode, mediaExternalLinks, mediaStudios } from './formatting/media';
 import { MediaMessage, CharacterMessage, StudioMessage, StaffMessage } from '.';
 import { charactersImage, charactersAllNames } from './formatting/characters';
 import { missingPng } from '../../utils/common';
@@ -10,7 +10,7 @@ import { studiosName } from './formatting/studios';
 export const mediaMessage = ({ media, translation }: MediaMessage): string => {
     const { siteUrl, season, status, isAdult, volumes, trailer, rankings, duration, episodes, chapters, averageScore,
     format, source, startDate, endDate, coverImage, bannerImage, title, countryOfOrigin, nextAiringEpisode,
-    externalLinks } = media;
+    externalLinks, studios } = media;
 
     return translation.t('media', {
         siteUrl,
@@ -20,6 +20,7 @@ export const mediaMessage = ({ media, translation }: MediaMessage): string => {
         isAdult: mediaIsAdult({ isAdult, translation }),
         volumes: mediaVolumes({ volumes, translation }),
         trailer: mediaTrailer({ trailer, translation }),
+        studios: mediaStudios({ studios, translation }),
         kind: mediaKind({ format, source, translation }),
         ranking: mediaRanking({ rankings, translation }),
         duration: mediaDuration({ duration, translation }),

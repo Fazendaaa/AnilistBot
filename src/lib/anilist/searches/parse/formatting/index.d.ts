@@ -1,7 +1,7 @@
 import { I18n } from 'telegraf-i18n';
 import { Media, Characters } from '../../queries';
 import { CoverImage, MediaStatus, MediaFormat, MediaTitle, MediaSeason, MediaRanking, MediaTrailer, MediaSource,
-FuzzyDateInt, CharacterName, AiringSchedule, MediaExternalLink, StaffName } from '../../..';
+FuzzyDateInt, CharacterName, AiringSchedule, MediaExternalLink, StaffName, StudioConnection } from '../../..';
 
 export interface CharacterMessage {
     readonly translation: I18n;
@@ -132,4 +132,9 @@ export interface StaffNameContext {
 export interface StudiosNameContext {
     readonly name: string;
     readonly translation: I18n;
+}
+
+export interface StudiosContext {
+    readonly translation: I18n;
+    readonly studios: StudioConnection;
 }

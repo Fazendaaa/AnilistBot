@@ -149,9 +149,13 @@ volumes:
 ranking:
   "- *Ranking*: _#${ranking} em ${type}_\n"
 
+studiosLinks:
+  "- *Estúdios*:\n\
+  ${studios}"
+
 externalLinks:
   "- *Links externos*:\n\
-  ${externalLinks}\n"
+  ${externalLinks}"
 
 trailer:
   "🍿 [Trailer](${trailer})\n"
@@ -184,8 +188,9 @@ media:
   ${chapters}\
   ${volumes}\
   ${ranking}\
+  ${studios}\
   ${externalLinks}\
-  [veja mais](${siteUrl})"
+  \n[veja mais](${siteUrl})"
 
 native:
   "- *Nativo*: _${native}_\n"

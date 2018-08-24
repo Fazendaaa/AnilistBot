@@ -119,3 +119,31 @@ export interface StaffImage {
     readonly large: string;
     readonly medium: string;
 }
+
+export interface Studio {
+    readonly id: number;
+    readonly name: string;
+    readonly siteUrl: string;
+    readonly isFavourite: boolean;
+}
+
+export interface StudioEdge {
+    readonly id: number;
+    readonly node: Studio;
+    readonly isMain: boolean;
+    readonly favouriteOrder: number;
+}
+
+export interface PageInfo {
+    readonly total: number;
+    readonly perPage: number;
+    readonly lastPage: number;
+    readonly currentPage: number;
+    readonly hasNextPage: boolean;
+}
+
+export interface StudioConnection {
+    readonly nodes: Array<Studio>;
+    readonly edges: Array<StudioEdge>;
+    readonly pageInfo: PageInfo;
+}

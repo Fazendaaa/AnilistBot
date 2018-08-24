@@ -54,6 +54,12 @@ query ($search: String, $page: Int, $perPage: Int) {
                 url
                 site
             }
+            studios {
+                nodes {
+      		        name
+                    siteUrl
+                }
+            }
         }
   	}
 }

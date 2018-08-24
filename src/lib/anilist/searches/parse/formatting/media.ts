@@ -1,11 +1,11 @@
 import moment from 'moment';
 import { AdultContext, VolumesContext, AverageContext, EpisodesContext, ChaptersContext, SeasonContext, StatusContext,
 FormatContext, MediaImageContext, AllTitleContext, AllTitleResponse, RakingContext, TrailerContext, SourceContext,
-DurationContext, KindContext, StartDateContext, EndDateContext, NextAiringEpisodeContext, ExternalLinksContext
-} from '.';
+DurationContext, KindContext, StartDateContext, EndDateContext, NextAiringEpisodeContext, ExternalLinksContext,
+StudiosContext } from '.';
 import { errorPng } from '../../../utils/common';
 import { I18n } from 'telegraf-i18n';
-import { MediaExternalLink } from '../../..';
+import { MediaExternalLink, StudioConnection } from '../../..';
 
 const dateFormat = 'MMMM Do YYYY';
 
@@ -35,6 +35,12 @@ const parsingLinks = ({ externalLinks, translation }: ExternalLinksContext): str
 
     return externalLinks.reduce(curriedParsingLinks, '');
 };
+
+const parsingStudios = ({ nodes }: StudioConnection): string => nodes.reduce((acc, cur) => {
+    const { name, siteUrl } = cur;
+
+    return acc + `\t\t • [${name}](${siteUrl})\n`
+}, '');
 
 export const toNextAiring = ({ nextAiringEpisode, translation }: NextAiringEpisodeContext): string => {
     const { timeUntilAiring } = nextAiringEpisode;
@@ -78,6 +84,14 @@ export const mediaDuration = ({ duration, translation }: DurationContext): strin
     return (null !== duration) ? translation.t('duration', { duration: toDuration(duration) }) : '';
 };
 
+export const mediaStudios = ({ studios, translation }: StudiosContext): string => {
+    if (null === studios || null === studios.nodes || 0 === studios.nodes.length) {
+        return '';
+    }
+    
+    return translation.t('studiosLinks', { studios: parsingStudios(studios) })
+};
+
 export const mediaNextAiringEpisode = ({ nextAiringEpisode, translation }: NextAiringEpisodeContext): string => {
     if (null === nextAiringEpisode || null === nextAiringEpisode.timeUntilAiring) {
         return   '';
@@ -87,7 +101,7 @@ export const mediaNextAiringEpisode = ({ nextAiringEpisode, translation }: NextA
 };
 
 export const mediaExternalLinks = ({ externalLinks, translation }: ExternalLinksContext): string => {
-    if (null === externalLinks) {
+    if (null === externalLinks || 0 === externalLinks.length) {
         return '';
     }
 
