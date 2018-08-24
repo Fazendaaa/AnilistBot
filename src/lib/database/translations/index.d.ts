@@ -15,12 +15,11 @@ export interface NewTranslationContext {
 }
 
 export interface Language extends Document {
-    readonly to: string;
-    readonly message: string;
+    date: Date;
+    message: string;
 }
 
 export interface Translation extends Document {
-    date: Date;
+    languages: Object;
     readonly _id: number;
-    readonly languages: Language;
 }

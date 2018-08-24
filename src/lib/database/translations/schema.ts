@@ -4,7 +4,6 @@ const { Mixed } = Types;
 
 const commonSchema = {
     _id: Number,
-    added: Date,
     languages: {
         type: Mixed,
         default: {}

@@ -13,7 +13,7 @@ export const fetchGenresTranslation = ({ id, to, type }: FetchTranslationContext
 };
 
 export const newGenresTranslation = async ({ id, to, type, message }: NewTranslationContext): Promise<boolean> => {
-    const options = { upsert: true, new: true, setDefaultsOnInsert: true };
+    const options = { upsert: true, new: true, runValidators: true, setDefaultsOnInsert: true };
     const curriedAddTranslation = ((response: Translation) => addTranslation(to, message, response));
 
     if ('ANIME' === type) {

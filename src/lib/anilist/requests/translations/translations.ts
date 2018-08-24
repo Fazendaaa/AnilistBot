@@ -28,7 +28,7 @@ export const translateGenres = async ({ id, to, type, message }: TranslateGenres
     if ('' === genres) {
         const text = await translate(message, { from: 'en', to });
 
-        await newGenresTranslation({ message: text, id, to, type });
+        newGenresTranslation({ message: text, id, to, type });
 
         return text;
     }
