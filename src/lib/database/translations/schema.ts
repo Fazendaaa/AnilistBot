@@ -1,11 +1,10 @@
 import { Schema } from 'mongoose';
-const { Types } = Schema;
-const { Mixed } = Types;
 
 const commonSchema = {
     _id: Number,
     languages: {
-        type: Mixed,
+        type: Map,
+        of: String,
         default: {}
     }
 };

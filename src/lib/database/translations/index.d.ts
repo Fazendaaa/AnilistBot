@@ -14,12 +14,7 @@ export interface NewTranslationContext {
     readonly type: AllRequests;
 }
 
-export interface Language extends Document {
-    date: Date;
-    message: string;
-}
-
 export interface Translation extends Document {
-    languages: Object;
+    languages: any;
     readonly _id: number;
 }
