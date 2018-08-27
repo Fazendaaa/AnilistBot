@@ -2,7 +2,7 @@ import { ReplyKeyboardMarkup } from 'telegram-typings';
 import { fetchDescription } from '../anilist/requests/descriptions';
 import { fetchGenres } from '../anilist/requests/genres';
 import { RequestsContext, CallbackKeyboardContext } from '.';
-import { guideMenu, readlistMenu, userMenu, watchlistMenu, countdownMenu } from './formatting/menu';
+import { handleMenu } from './formatting/menu';
 import { userKeyboard, guideKeyboard, readlistKeyboard, watchlistKeyboard, countdownKeyboard } from './keyboard';
 
 const truncateMessage = (input: string): string => {
@@ -18,27 +18,19 @@ export const handleCallback = async ({ id, type, field, translation }: RequestsC
         return fetchDescription({ id, type, translation }).then(truncateMessage);
     } if ('LIST' === field) {
         return translation.t('notAvailable');
-    } if ('MENU' === field) {
-        return userMenu({ translation });
-    } if ('GUIDE' === field) {
-        return guideMenu({ translation });
-    } if ('READLIST' === field) {
-        return readlistMenu({ translation });
-    } if ('WATCHLIST' === field) {
-        return watchlistMenu({ translation });
-    }
+    } 
 
-    return countdownMenu({ translation });
+    return handleMenu({ type, translation });
 };
 
-export const callbackKeyboard = ({ field, translation }: CallbackKeyboardContext): ReplyKeyboardMarkup => {
-    if ('MENU' === field) {
+export const callbackKeyboard = ({ type, translation }: CallbackKeyboardContext): ReplyKeyboardMarkup => {
+    if ('USER' === type) {
         return userKeyboard({ translation });
-    } if ('GUIDE' === field) {
+    } if ('GUIDE' === type) {
         return guideKeyboard({ translation });
-    } if ('READLIST' === field) {
+    } if ('READLIST' === type) {
         return readlistKeyboard({ translation });
-    } if ('WATCHLIST' === field) {
+    } if ('WATCHLIST' === type) {
         return watchlistKeyboard({ translation });
     }
 

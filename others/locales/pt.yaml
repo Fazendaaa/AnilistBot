@@ -12,7 +12,7 @@ menuGreetings:
   "Olá de novo, _${from.username}_."
 
 menuOptions:
-  "📕 *MENU*\n\n\
+  "📕\t*MENU*\n\n\
   *Usuário*: _informações sobre noficações_\n\
   *Regressiva*: _quanto tempo falta para os próximos episódios_\n\
   *Lista de Assistir*: _animes salvos_\n\
@@ -30,6 +30,39 @@ helpOptions:
   Para receber as notificações, basta apenas adicionar o anime na sua lista de assistindo após pesquisar sobre ele, há um botão disso em cada anime pesquisado.\n\n\
   Tem mais alguma dúvida?\n\n\
   Aperte o botão _Menu_ para ver mais opções no guia para outras informações e configurações sobre este bot."
+
+userOptions:
+  "🤩 *USUÁRIO*\n\n\
+  - *Notificações*: _${notifications}_ \n\
+  - *Horário para notificações*: _${time}_"
+
+guideOptions:
+  "🗺️ *GUIA*\n\n\
+  Como pesquisar:\n\n\
+  ``` @ANILISTbot Pokemon```\n\n\
+  /anime _nome do anime_\n\
+  /manga _nome do mangá_\n\
+  /character _nome do personagem_\n\
+  /staff _nome do produtor_\n\
+  /studio _nome do estúdio_\n\n\
+  *Lista de assistir/Lista de Leitura*\n\n\
+  Para ver mais informções sobre os seus animes/mangás, basta apenas pressionar o botão de _Maiores Informações_.\n\n\
+  *Notificações*\n\n\
+  Notificações são ativas por padrão para todos os animes que estão saindo. Se você gostaria de desativar isso, abra as opções _Usuário_ e clique no botão _Notificações_.\n\
+  Se você gostaria de desativar ou ativar para animes específicos, abra a sua lista de assistir e clique no botão sobre informações.\n\
+  Ou mesmo se desejar ver notificações apenas em um momento específico do dia, clique em _Horário_ na opções do _Usuário_."
+
+aboutOptions:
+  "⚙️ *SOBRE*"
+
+readlistOptions:
+  "🔖 *TODOS*"
+
+watchlistOptions:
+  "🎭 *TODOS*"
+
+countdownOptions:
+  "⏲️ *CONTAGEM REGRESSIVA*"
 
 userButton:
   "Usuário"

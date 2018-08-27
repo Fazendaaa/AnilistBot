@@ -2,20 +2,21 @@ import { I18n } from "telegraf-i18n";
 import { ContextMessageUpdate } from "telegraf";
 
 export type AllRequests = 'READ' |
+                          'USER' |
+                          'GUIDE' |
                           'ANIME' |
                           'WATCH' |
                           'MANGA' |
                           'STAFF' |
                           'STUDIO' |
-                          'CHARACTER'
+                          'READLIST' |
+                          'CHARACTER' |
+                          'COUNTDOWN' |
+                          'WATCHLIST'
 
 export type RequestsFiled = 'LIST' |
                             'MENU' |
-                            'GUIDE' |
                             'GENRES' |
-                            'READLIST' |
-                            'COUNTDOWN' |
-                            'WATCHLIST' |
                             'DESCRIPTION'
 
 export interface BotContext extends ContextMessageUpdate {
@@ -40,5 +41,5 @@ export interface RequestsContext {
 
 export interface CallbackKeyboardContext {
     readonly translation: I18n;
-    readonly field: RequestsFiled;
+    readonly type: AllRequests;
 }

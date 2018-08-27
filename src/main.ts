@@ -70,7 +70,10 @@ bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCb
     const response = await handleCallback({ id, type, field, translation: i18n });
 
     if (isEditable(field)) {
-        return await editMessageText(response, { reply_markup: callbackKeyboard({ field, translation: i18n }) });
+        return await editMessageText(response, {
+            parse_mode: 'Markdown',
+            reply_markup: callbackKeyboard({ type, translation: i18n })
+        });
     }
 
     return await answerCbQuery(response, true);

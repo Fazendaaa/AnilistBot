@@ -12,7 +12,7 @@ menuGreetings:
   "Hello again, _${from.username}_."
 
 menuOptions:
-  "📕 *MENU*\n\n\
+  "📕\t*MENU*\n\n\
   *User*: _info about all notifications_\n\
   *Countdown*: _episodes time for ariring_\n\
   *Watchlist*: _saved animes_\n\
@@ -30,6 +30,39 @@ helpOptions:
   To recive notifications, just add the anime in your watchlist after searching for it, there's a button for that in the searched content.\n\n\
   Any other questions?\n\n\
   Press _Menu_ and see the guide info for more informations and settings about this bot."
+
+userOptions:
+  "🤩 *USER*\n\n\
+  - *Notifications*: _${notifications}_ \n\
+  - *Time for notifications*: _${time}_"
+
+guideOptions:
+  "🗺️ *GUIDE*\n\n\
+  Search features:\n\n\
+  ``` @ANILISTbot Pokemon```\n\n\
+  /anime _anime name_\n\
+  /manga _manga name_\n\
+  /character _character name_\n\
+  /staff _staff name_\n\
+  /studio _studio name_\n\n\
+  *Watchlist/Readlist*\n\n\
+  To see more info about your anime/manga just presse _More Info_ button.\n\n\
+  *Notifications*\n\n\
+  Notifications are enabled for all airing animes by default. If you want to disable it open _User_ tab then click in _Notify_.\n\
+  If you want to disable or enable specifc animes, open it watchlist and then click more info.\n\
+  Or event if want set a time of the day for recive all notifications, click in _Time_ in _User_ tab."
+
+aboutOptions:
+  "⚙️ *ABOUT*"
+
+readlistOptions:
+  "🔖 *ALL*"
+
+watchlistOptions:
+  "🎭 *ALL*"
+
+countdownOptions:
+  "⏲️ *COUNTDOWN*"
 
 userButton:
   "User"
