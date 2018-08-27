@@ -6,6 +6,8 @@ import { DataContext } from '.';
 import { translateGenres } from './translations/translations';
 import { MediaType } from '..';
 
+const parseGenres = (input: string): string => input.split(/\s*,\s*/).reduce((acc, cur) => acc + `• ${cur}\n`, '');
+
 export const fetchGenres = async ({ id, type, translation }: DataContext): Promise<string> => {
     const fetch = <RequestsGenres> await fetchData({
         query: ('ANIME' === type) ? anime : manga,
@@ -15,8 +17,8 @@ export const fetchGenres = async ({ id, type, translation }: DataContext): Promi
     const to = translation.locale().split('-')[0];
 
     if ('en' === to) {
-        return message.join('\n*');
+        return parseGenres(message.join(','));
     }
 
-    return await translateGenres({ type: <MediaType> type, to, id, message });
+    return await translateGenres({ type: <MediaType> type, to, id, message }).then(parseGenres);
 };
