@@ -70,6 +70,8 @@ bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCb
     const response = await handleCallback({ id, type, field, translation: i18n });
 
     if (isEditable(field)) {
+        await answerCbQuery(i18n.t('loading'));
+
         return await editMessageText(response, {
             parse_mode: 'Markdown',
             reply_markup: callbackKeyboard({ type, translation: i18n })
@@ -92,4 +94,6 @@ bot.on('text', async ({ i18n, message, replyWithMarkdown }: BotContext) => {
     } if (i18n.t('help') === text.toLowerCase()) {
         return await replyWithMarkdown(i18n.t('helpOptions'));
     }
+
+    return i18n.t('notAvailable');
 });

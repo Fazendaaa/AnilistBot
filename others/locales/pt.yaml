@@ -8,6 +8,9 @@ menu:
 help:
   "ajuda"
 
+loading:
+  "Carregando..."
+
 menuGreetings:
   "Olá de novo, _${from.username}_."
 
@@ -32,9 +35,17 @@ helpOptions:
   Aperte o botão _Menu_ para ver mais opções no guia para outras informações e configurações sobre este bot."
 
 userOptions:
-  "🤩 *USUÁRIO*\n\n\
+  "😀 *USUÁRIO*\n\n\
   - *Notificações*: _${notifications}_ \n\
   - *Horário para notificações*: _${time}_"
+
+notifyOptions:
+  "✉️ *NOTIFICAÇÕES*\n\n\
+  Você gostaria mesmo de desativar *TODAS* as notificações dos episódios dos animes que estão saindo?"
+
+timeOptions:
+  "⏰ *HORÁRIO*\n\n\
+  Mude aqui o horário das suas notificações."
 
 guideOptions:
   "🗺️ *GUIA*\n\n\
@@ -54,22 +65,47 @@ guideOptions:
 
 aboutOptions:
   "⚙️ *SOBRE*\n\n\
-  Notícias sobre o bot são informadas no seu [canal](https://t.me/ANILISTbotchannel).\n\n\
-  [‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/logo/logo.png)Veja mais sobre mim:\n\
+  [‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/logo/logo.png)Notícias sobre o bot são informadas no seu [canal](https://t.me/ANILISTbotchannel).\n\n\
+  Veja mais sobre mim:\n\
   🤖 [My website](https://fazendaaa.github.io/AnilistBot) — Minha história.\n\
-  ⭐ [Github](https://github.com/Fazendaaa/AnilistBot) — Dê uma estrelinha neste projeto, É DE GRAÇA!!!\n\n\
+  ⭐ [Github](https://github.com/Fazendaaa/AnilistBot) — Dê uma estrelinha neste projeto, É DE GRAÇA!!!\n\
+  😀 [Site do meu criador](http://fazendaaa.me) — Veja outros bots.\n\n\
   Ou até mesmo considere suportar o meu criador:\n\
   📅 [Patreon](https://www.patreon.com/Fazenda/overview) — Assinatura.\n\
   ☕ [Buy me a coffee](https://www.buymeacoffee.com/Fazenda) — Uma doação pontual.\n\
-  😀 [Site do meu criador](http://fazendaaa.me) — Veja outros bots.\n\n\
+  ❓ [Por que contribuir?](https://fazendaaa.github.io/AnilistBot#authors) — Leia sobre o porquê você faz a diferença.\n\n\
   *Tens alguma sugestão, erros para reportar ou até mesmo requerir uma tradução para que eu possa funcionar na sua linguagem nativa?*\n\n\
   Sinta-se a vontade para dizer ao meu criador: @farmy."
 
 readlistOptions:
   "🔖 *TODOS*"
 
+soonMangaOptions:
+  "🔖 *EM BREVE*"
+
+publishingMangaOptions:
+  "🔖 *EM LANÇAMENTO*"
+
+completedMangaOptions:
+  "🔖 *COMPLETOS*"
+
+cancelledMangaOptions:
+  "🔖 *CANCELADOS*"
+
 watchlistOptions:
   "🎭 *TODOS*"
+
+soonAnimeOptions:
+  "🎭 *EM BREVE*"
+
+airingAnimeOptions:
+  "🎭 *EM LANÇAMENTO*"
+
+completedAnimeOptions:
+  "🎭 *COMPLETOS*"
+
+cancelledAnimeOptions:
+  "🎭 *CANCELADOS*"
 
 countdownOptions:
   "⏲️ *CONTAGEM REGRESSIVA*"
@@ -82,6 +118,9 @@ notifyButton:
 
 timeButton:
   "Horas"
+
+allButton:
+  "Todos"
 
 airingButton:
   "Saindo"

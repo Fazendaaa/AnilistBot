@@ -3,16 +3,34 @@ import { ContextMessageUpdate } from "telegraf";
 
 export type AllRequests = 'READ' |
                           'USER' |
+                          'TIME' |
                           'GUIDE' |
                           'ANIME' |
                           'WATCH' |
                           'MANGA' |
                           'STAFF' |
+                          'ABOUT' |
                           'STUDIO' |
+                          'NOTIFY' |
                           'READLIST' |
                           'CHARACTER' |
                           'COUNTDOWN' |
-                          'WATCHLIST'
+                          'WATCHLIST' |
+                          'BACK-MENU' |
+                          'BACK-USER' |
+                          'ALL-ANIME' |
+                          'ALL-MANGA' |
+                          'BACK-GUIDE' |
+                          'SOON-ANIME' |
+                          'SOON-MANGA' |
+                          'AIRING-ANIME' |
+                          'CANCELLED-ANIME' |
+                          'CANCELLED-MANGA' |
+                          'COMPLETED-ANIME' |
+                          'COMPLETED-MANGA' |
+                          'MORE-INFO-ANIME' |
+                          'MORE-INFO-MANGA' |
+                          'PUBLISHING-MANGA'
 
 export type RequestsFiled = 'LIST' |
                             'MENU' |

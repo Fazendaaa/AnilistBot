@@ -151,6 +151,13 @@ I would love to say that [SemVer](https://semver.org/) or anything like that is 
 # Authors
 * Only [me](https://github.com/Fazendaaa) for now.
 
+This bot actually uses three paid services:
+1. [Heroku](http://heroku.com/)
+2. [mLab](https://mlab.com/)
+3. [Google Translate](https://translate.google.com/)
+
+All of your support actually makes a difference to help me maintain this project up and running. I really would love if anyone who uses it could support it helping one time with any value that think it worth it or even supporting it each month with one dollar through my Patreon. And this would allow me to improve this project more and more, adding a ton of features that I've planned.
+
 Consider buy me a coffee:
 
 [![Buy Me a Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/Fazenda)
