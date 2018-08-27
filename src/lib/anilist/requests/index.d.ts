@@ -1,24 +1,6 @@
 import { I18n } from 'telegraf-i18n';
 import { MediaType } from '..';
-
-export type AllRequests = 'READ' |
-                          'ANIME' |
-                          'WATCH' |
-                          'MANGA' |
-                          'STAFF' |
-                          'STUDIO' |
-                          'CHARACTER'
-
-export type RequestsFiled = 'LIST' |
-                            'GENRES' |
-                            'DESCRIPTION'
-
-export interface RequestsContext {
-    readonly id: number;
-    readonly type: AllRequests;
-    readonly translation: I18n;
-    readonly field: RequestsFiled;
-}
+import { AllRequests, RequestsFiled } from '../../telegram';
 
 export interface DataContext {
     readonly id: number;

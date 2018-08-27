@@ -1,6 +1,13 @@
 import { I18n } from 'telegraf-i18n';
+import { AllRequests } from '../../requests';
 import { Media, Characters, Studios, Staff } from '../queries';
 import { CoverImage, MediaFormat, MediaTitle, MediaSource, CharacterName, AiringSchedule, StaffName } from '../..';
+
+interface KeyboardContext {
+    readonly id: number;
+    readonly type: AllRequests;
+    readonly translation: I18n;
+}
 
 export interface MediaMessage {
     readonly media: Media;

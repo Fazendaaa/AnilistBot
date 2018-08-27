@@ -1,13 +1,6 @@
 import { InlineKeyboardMarkup } from 'telegram-typings';
-import { I18n } from 'telegraf-i18n';
-import { AllRequests } from '../../requests';
+import { KeyboardContext } from '.';
 const markup = require('telegraf').Markup;
-
-interface KeyboardContext {
-    id: number;
-    type: AllRequests;
-    translation: I18n;
-}
 
 export const mediaKeyboard = ({ id, translation, type }: KeyboardContext): InlineKeyboardMarkup => {
     const list = ('ANIME' === type) ? markup.callbackButton(translation.t('buttonWatchlist'), `LIST/WATCH/${id}`)

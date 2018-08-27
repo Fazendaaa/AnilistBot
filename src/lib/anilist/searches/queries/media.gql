@@ -27,6 +27,7 @@ query ($search: String, $page: Int, $perPage: Int) {
             }
             nextAiringEpisode {
       		    id
+                episode
                 timeUntilAiring
       		}
       		rankings {

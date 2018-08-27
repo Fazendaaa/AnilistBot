@@ -94,10 +94,13 @@ export const mediaStudios = ({ studios, translation }: StudiosContext): string =
 
 export const mediaNextAiringEpisode = ({ nextAiringEpisode, translation }: NextAiringEpisodeContext): string => {
     if (null === nextAiringEpisode || null === nextAiringEpisode.timeUntilAiring) {
-        return   '';
+        return '';
     }
     
-    return translation.t('nextAiringEpisode', { timeUntilAiring: toNextAiring({ nextAiringEpisode, translation }) });
+    return translation.t('nextAiringEpisode', {
+        episode: nextAiringEpisode.episode,
+        timeUntilAiring: toNextAiring({ nextAiringEpisode, translation })
+    });
 };
 
 export const mediaExternalLinks = ({ externalLinks, translation }: ExternalLinksContext): string => {

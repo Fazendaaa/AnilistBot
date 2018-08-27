@@ -2,6 +2,50 @@ start:
   "*Olá*, _${from.username}!_\n\n\
   Eu sou AnilistBot, o seu bot the pesquisas sobre o mundo dos animes. Porém, eu posso fazer muito mais, para saber apenas clique em /more!"
 
+menu:
+  "menu"
+
+help:
+  "ajuda"
+
+menuGreetings:
+  "Olá de novo, _${from.username}_."
+
+menuOptions:
+  "📕 *MENU*\n\n\
+  *Usuário*: _informações sobre noficações_\n\
+  *Regressiva*: _quanto tempo falta para os próximos episódios_\n\
+  *Lista de Assistir*: _animes salvos_\n\
+  *Lista de Leitura*: _mangás salvos_\n\n\
+  Outros comandos em guia."
+
+helpOptions:
+  "Como posso lhe ajudar hoje, _${from.username}_?\n\n\
+  Vamos fazer um exemplo, digite em QUALQUER conversa o seguinte e clique no resultado desejado:\n\n\
+  ``` @ANILISTbot Pokemon```\n\n\
+  Este bot tem funções especiais para você:\n\
+  - *Notificações quando saírem novos episódios*\n\
+  - *Contagem regressiva dos episódios*\n\
+  - *Sua própria lista de mangás e animes*\n\n\
+  Para receber as notificações, basta apenas adicionar o anime na sua lista de assistindo após pesquisar sobre ele, há um botão disso em cada anime pesquisado.\n\n\
+  Tem mais alguma dúvida?\n\n\
+  Aperte o botão _Menu_ para ver mais opções no guia para outras informações e configurações sobre este bot."
+
+userButton:
+  "Usuário"
+
+countdownButton:
+  "Regressiva"
+
+guideButton:
+  "Guia"
+
+watchlistButton:
+  "Lista de Assistir"
+
+readlistButton:
+  "Lista de Leitura"
+
 notAvailable:
   "Não Diponível"
 
@@ -126,7 +170,7 @@ status:
   "- *Status*: _${status}_\n"
 
 nextAiringEpisode:
-  "- *Próximo episódio em*: _${timeUntilAiring}_\n"
+  "- *Próximo episódio em*: _${timeUntilAiring}_ - _episódio: ${episode}_\n"
 
 season:
   "- *Temporada*: _${season}_\n"

@@ -2,6 +2,50 @@ start:
   "*Welcome*, _${from.username}!_\n\n\
   I'm AnilistBot, your search bot about the anime world. But I can do so much more, to know about it just click in /more!"
 
+menu:
+  "menu"
+
+help:
+  "help"
+
+menuGreetings:
+  "Hello again, _${from.username}_."
+
+menuOptions:
+  "📕 *MENU*\n\n\
+  *User*: _info about all notifications_\n\
+  *Countdown*: _episodes time for ariring_\n\
+  *Watchlist*: _saved animes_\n\
+  *Readlist*: _saved mangas_\n\n\
+  Other commands in guide."
+
+helpOptions:
+  "How can I be helpful to you today, _${from.username}_?\n\n\
+  Let's us try an exemple, type the following in ANY chat then click in the desired result:\n\n\
+  ``` @ANILISTbot Pokemon```\n\n\
+  This bot has special features for you:\n\
+  - *Notifications when new episodes releases*\n\
+  - *Countdown for episodes*\n\
+  - *Your own watchlist and readlist*\n\n\
+  To recive notifications, just add the anime in your watchlist after searching for it, there's a button for that in the searched content.\n\n\
+  Any other questions?\n\n\
+  Press _Menu_ and see the guide info for more informations and settings about this bot."
+
+userButton:
+  "User"
+
+countdownButton:
+  "Countdown"
+
+guideButton:
+  "Guide"
+
+watchlistButton:
+  "Watchlist"
+
+readlistButton:
+  "Readlist"
+
 notAvailable:
   "Not Available"
 
@@ -126,7 +170,7 @@ status:
   "- *Status*: _${status}_\n"
 
 nextAiringEpisode:
-  "- *Next episode in*: _${timeUntilAiring}_\n"
+  "- *Next episode in*: _${timeUntilAiring}_ - _episode: ${episode}_\n"
 
 season:
   "- *Season*: _${season}_\n"
