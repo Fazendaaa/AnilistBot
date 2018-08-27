@@ -53,7 +53,17 @@ guideOptions:
   Ou mesmo se desejar ver notificações apenas em um momento específico do dia, clique em _Horário_ na opções do _Usuário_."
 
 aboutOptions:
-  "⚙️ *SOBRE*"
+  "⚙️ *SOBRE*\n\n\
+  Notícias sobre o bot são informadas no seu [canal](https://t.me/ANILISTbotchannel).\n\n\
+  [‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/logo/logo.png)Veja mais sobre mim:\n\
+  🤖 [My website](https://fazendaaa.github.io/AnilistBot) — Minha história.\n\
+  ⭐ [Github](https://github.com/Fazendaaa/AnilistBot) — Dê uma estrelinha neste projeto, É DE GRAÇA!!!\n\n\
+  Ou até mesmo considere suportar o meu criador:\n\
+  📅 [Patreon](https://www.patreon.com/Fazenda/overview) — Assinatura.\n\
+  ☕ [Buy me a coffee](https://www.buymeacoffee.com/Fazenda) — Uma doação pontual.\n\
+  😀 [Site do meu criador](http://fazendaaa.me) — Veja outros bots.\n\n\
+  *Tens alguma sugestão, erros para reportar ou até mesmo requerir uma tradução para que eu possa funcionar na sua linguagem nativa?*\n\n\
+  Sinta-se a vontade para dizer ao meu criador: @farmy."
 
 readlistOptions:
   "🔖 *TODOS*"
@@ -63,6 +73,33 @@ watchlistOptions:
 
 countdownOptions:
   "⏲️ *CONTAGEM REGRESSIVA*"
+
+backButton:
+  "<"
+
+notifyButton:
+  "Notificações"
+
+timeButton:
+  "Horas"
+
+airingButton:
+  "Saindo"
+
+soonButton:
+  "Em Breve"
+
+completedButton:
+  "Completos"
+
+cancelledButton:
+  "Cancelados"
+
+publishingButton:
+  "Publicando"
+
+moreInfoButton:
+  "Mais informações"
 
 userButton:
   "Usuário"
@@ -78,6 +115,9 @@ watchlistButton:
 
 readlistButton:
   "Lista de Leitura"
+
+aboutButton:
+  "Sobre"
 
 notAvailable:
   "Não Diponível"

@@ -53,7 +53,17 @@ guideOptions:
   Or event if want set a time of the day for recive all notifications, click in _Time_ in _User_ tab."
 
 aboutOptions:
-  "⚙️ *ABOUT*"
+  "⚙️ *ABOUT*\n\n\
+  Bot news are released in it's [channel](https://t.me/ANILISTbotchannel).\n\n\
+  [‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/logo/logo.png)See more about me at:\n\
+  🤖 [My website](https://fazendaaa.github.io/AnilistBot) — The history behind me.\n\
+  ⭐ [Github](https://github.com/Fazendaaa/AnilistBot) — Star this project, IT'S FREE!!!\n\n\
+  Or even consider it supporting my creator:\n\
+  📅 [Patreon](https://www.patreon.com/Fazenda/overview) — Subscription.\n\
+  ☕ [Buy me a coffee](https://www.buymeacoffee.com/Fazenda) — One time only.\n\
+  😀 [Creator's website](http://fazendaaa.me) — Check it out some other bots.\n\n\
+  *Has any suggestions, errors to report it or even request a my translation so I can work in your native language?*\n\n\
+  Feel free to tell to my creator: @farmy."
 
 readlistOptions:
   "🔖 *ALL*"
@@ -63,6 +73,33 @@ watchlistOptions:
 
 countdownOptions:
   "⏲️ *COUNTDOWN*"
+
+backButton:
+  "<"
+
+notifyButton:
+  "Notifications"
+
+timeButton:
+  "Time"
+
+airingButton:
+  "Airing"
+
+soonButton:
+  "Soon"
+
+completedButton:
+  "Completed"
+
+cancelledButton:
+  "Cancelled"
+
+publishingButton:
+  "Publishing"
+
+moreInfoButton:
+  "More Info"
 
 userButton:
   "User"
@@ -78,6 +115,9 @@ watchlistButton:
 
 readlistButton:
   "Readlist"
+
+aboutButton:
+  "About"
 
 notAvailable:
   "Not Available"

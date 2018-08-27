@@ -40,9 +40,23 @@ More than this it also notifies you when new episodes are released and lets you 
 All of the data about it is fetched from [Anilist](http://anilist.co/) & [Anichart](http://anichart.net/).
 
 ## Disclaimer
-1. By default all the commands are in English, but you can see if the same command is available in your language;
-2. [JoshStar](https://github.com/joshstar) was kind to [allow](https://github.com/AniList/ApiV2-GraphQL-Docs/issues/50#event-1794658906) me to store the translated info about the content in different languages, improving the user experience;
-3. This project is a new implementation, the old code base is [here](https://github.com/Fazendaaa/Anilist-bot).
+1. [JoshStar](https://github.com/joshstar) was kind to [allow](https://github.com/AniList/ApiV2-GraphQL-Docs/issues/50#event-1794658906) me to store the translated info about the content in different languages, improving the user experience;
+2. This project is a new implementation, the old code base is [here](https://github.com/Fazendaaa/Anilist-bot).
+
+## Supported languages:
+By default all the commands are in English, but you can see if the same command is available in your language. Only English and Portuguese had some kind of review, the others are automatic translation from [Google Translate](https://translate.google.com/).
+
+* [English](./others/locales/en.yaml)
+* [Portuguese - Brazil](./others/locales/pt.yaml)
+* [Indonesian](./others/locales/id.yaml)
+* [Dutch](./others/locales/nl.yaml)
+* [Spanish](./others/locales/es.yaml)
+* [Italian](./others/locales/it.yaml)
+* [German](./others/locales/de.yaml)
+* [French](./others/locales/fr.yaml)
+* [Russian](./others/locales/ru.yaml)
+* [Chinese](./others/locales/zh.yaml)
+* [Japanese](./others/locales/jp.yaml)
 
 # How to use it
 First of all, talk to [@AnilistBot](http://t.me/anilistbot).
