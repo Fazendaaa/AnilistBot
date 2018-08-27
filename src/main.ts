@@ -59,7 +59,7 @@ bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: BotConte
     const searched = await allSearch({ search, page, perPage, translation: i18n });
     const results = toInlineArticle(searched);
 
-    return await answerInlineQuery(results, { next_offset });
+    return answerInlineQuery(results, { next_offset });
 });
 
 bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCbQuery }: BotContext) => {
@@ -72,13 +72,13 @@ bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCb
     if (isEditable(field)) {
         await answerCbQuery(i18n.t('loading'));
 
-        return await editMessageText(response, {
+        return editMessageText(response, {
             parse_mode: 'Markdown',
             reply_markup: callbackKeyboard({ type, translation: i18n })
         });
     }
 
-    return await answerCbQuery(response, true);
+    return answerCbQuery(response, true);
 });
 
 bot.on('text', async ({ i18n, message, replyWithMarkdown }: BotContext) => {
@@ -90,9 +90,9 @@ bot.on('text', async ({ i18n, message, replyWithMarkdown }: BotContext) => {
     } if (i18n.t('menu') === text.toLowerCase()) {
         await replyWithMarkdown(i18n.t('menuGreetings'));
 
-        return await replyWithMarkdown(i18n.t('menuOptions'), { reply_markup: menuKeyboard({ translation: i18n }) });
+        return replyWithMarkdown(i18n.t('menuOptions'), { reply_markup: menuKeyboard({ translation: i18n }) });
     } if (i18n.t('help') === text.toLowerCase()) {
-        return await replyWithMarkdown(i18n.t('helpOptions'));
+        return replyWithMarkdown(i18n.t('helpOptions'));
     }
 
     return i18n.t('notAvailable');

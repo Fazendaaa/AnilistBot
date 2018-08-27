@@ -17,5 +17,5 @@ export const fetchDescription = async ({ id, type, translation }: DataContext): 
         return message;
     }
 
-    return await translateDescription({ id, to, type, message });
+    return translateDescription({ id, to, type, message });
 };

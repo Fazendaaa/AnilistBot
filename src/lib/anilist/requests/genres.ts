@@ -20,5 +20,5 @@ export const fetchGenres = async ({ id, type, translation }: DataContext): Promi
         return parseGenres(message.join(','));
     }
 
-    return await translateGenres({ type: <MediaType> type, to, id, message }).then(parseGenres);
+    return translateGenres({ type: <MediaType> type, to, id, message }).then(parseGenres);
 };
