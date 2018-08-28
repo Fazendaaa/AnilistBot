@@ -1,13 +1,13 @@
 import { fetchData } from 'endeavor';
-import mangaDescription from './queries/description/manga.gql';
-import animeDescription from './queries/description/anime.gql';
-import { RequestsDescription } from './queries';
 import { DataContext } from '.';
+import { RequestsDescription } from './queries';
+import animeDescription from './queries/description/anime.gql';
+import mangaDescription from './queries/description/manga.gql';
 import { translateDescription } from './translations/translations';
 
-export const fetchDescription = async ({ id, type, translation }: DataContext): Promise<string> => {
+export const fetchDescription = async ({ id, request, translation }: DataContext): Promise<string> => {
     const fetch = <RequestsDescription> await fetchData({
-        query: ('ANIME' === type) ? animeDescription : mangaDescription,
+        query: ('ANIME' === request) ? animeDescription : mangaDescription,
         variables: { id }
     });
     const message = fetch.data.Media.description;
@@ -17,5 +17,5 @@ export const fetchDescription = async ({ id, type, translation }: DataContext): 
         return message;
     }
 
-    return translateDescription({ id, to, type, message });
+    return translateDescription({ id, to, request, message });
 };

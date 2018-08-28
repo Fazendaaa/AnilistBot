@@ -1,6 +1,6 @@
+import { StaffNameContext, StaffNameResponse } from '..';
 import { StaffImage } from '../../..';
 import { errorPng } from '../../../utils/common';
-import { StaffNameContext, StaffNameResponse } from '..';
 
 const isEmpty = (input: string): boolean => {
     const matched = input.match(/\s*/gm)[0];
@@ -15,9 +15,9 @@ export const staffAllNames = ({ name, translation }: StaffNameContext): StaffNam
     if (null !== first) {
         complete += first;
     } if (null !== last) {
-        complete += ' ' + last;
+        complete += ` ${last}`;
     }
-    
+
     return {
         name: ('' !== complete) ? translation.t('name', { name: complete }) : '',
         native: (null !== native && true !== isEmpty(native)) ? translation.t('native', { native }) : ''

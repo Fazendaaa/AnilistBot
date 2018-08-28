@@ -1,10 +1,10 @@
-import { TitleContext, StaffNameContext, CharactersNameContext, StudiosNameContext } from '.';
+import { CharactersNameContext, StaffNameContext, StudiosNameContext, TitleContext } from '.';
 
 export const mediaTitle = ({ title, translation }: TitleContext): string => {
     if (null !== title.english) {
         return title.english;
     } if (null !== title.native) {
-        return title.native
+        return title.native;
     } if (null !== title.romaji) {
         return title.romaji;
     }

@@ -3,5 +3,5 @@ import { AllRequests } from '..';
 
 export interface MenuContext {
     readonly translation: I18n;
-    readonly type: AllRequests;
+    readonly request: AllRequests;
 }

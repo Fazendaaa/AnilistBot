@@ -52,12 +52,12 @@ export interface KeyboardContext {
 
 export interface RequestsContext {
     readonly id: number;
-    readonly type: AllRequests;
     readonly translation: I18n;
+    readonly request: AllRequests;
     readonly field: RequestsFiled;
 }
 
 export interface CallbackKeyboardContext {
     readonly translation: I18n;
-    readonly type: AllRequests;
+    readonly request: AllRequests;
 }

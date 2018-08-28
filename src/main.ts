@@ -1,20 +1,20 @@
 import { config } from 'dotenv';
-import { join } from 'path';
 import { connect, connection, set } from 'mongoose';
+import { join } from 'path';
 import telegraf from 'telegraf';
 import telegrafI18n from 'telegraf-i18n';
 import { allSearch } from './lib/anilist/searches/searches';
-import { sanitize } from './lib/telegram/utils/parse';
+import { AllRequests, BotContext, RequestsFiled } from './lib/telegram';
+import { callbackKeyboard, handleCallback } from './lib/telegram/callback';
 import { toInlineArticle } from './lib/telegram/inline';
-import { handleCallback, callbackKeyboard } from './lib/telegram/callback';
-import { BotContext, RequestsFiled, AllRequests } from './lib/telegram';
 import { menuKeyboard } from './lib/telegram/keyboard';
 import { isEditable } from './lib/telegram/utils/edit';
+import { sanitize } from './lib/telegram/utils/parse';
 
 config();
 
 const bot = new telegraf(<string> process.env.BOT_KEY);
-const i18n = new telegrafI18n({
+const internationalization = new telegrafI18n({
     useSession: true,
     allowMissing: true,
     defaultLanguage: 'en',
@@ -45,7 +45,7 @@ connection.on('error', () => {
 bot.startPolling();
 
 bot.use(telegraf.log());
-bot.use(i18n.middleware());
+bot.use(internationalization.middleware());
 
 bot.catch(console.error);
 
@@ -65,16 +65,16 @@ bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: BotConte
 bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCbQuery }: BotContext) => {
     const data = callbackQuery.data.split('/');
     const id = parseInt(data[2], 10);
-    const type = <AllRequests> data[1];
     const field = <RequestsFiled> data[0];
-    const response = await handleCallback({ id, type, field, translation: i18n });
+    const request = <AllRequests> data[1];
+    const response = await handleCallback({ id, request, field, translation: i18n });
 
     if (isEditable(field)) {
         await answerCbQuery(i18n.t('loading'));
 
         return editMessageText(response, {
             parse_mode: 'Markdown',
-            reply_markup: callbackKeyboard({ type, translation: i18n })
+            reply_markup: callbackKeyboard({ request, translation: i18n })
         });
     }
 

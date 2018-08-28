@@ -1,6 +1,6 @@
 import { model } from 'mongoose';
-import { animeGenresSchema, mangaGenresSchema, animeDescriptionSchema, mangaDescriptionSchema, staffDescriptionSchema,
-characterDescriptionSchema } from './schema';
+import { animeDescriptionSchema, animeGenresSchema, characterDescriptionSchema, mangaDescriptionSchema,
+mangaGenresSchema, staffDescriptionSchema } from './schema';
 
 export const animeGenres = model('animeGenres', animeGenresSchema);
 

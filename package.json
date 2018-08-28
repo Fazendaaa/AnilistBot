@@ -34,6 +34,7 @@
         "mime": "^2.3.1",
         "snyk": "^1.93.0",
         "superagent": "^3.8.3",
+        "telegram-typings": "^4.0.0-beta",
         "ts-jest": "^23.1.4",
         "ts-loader": "^4.5.0",
         "ts-node": "^7.0.1",

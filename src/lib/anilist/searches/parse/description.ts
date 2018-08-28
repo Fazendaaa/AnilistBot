@@ -1,17 +1,17 @@
-import { MediaDescriptionContext, CharacterDescriptionContext, StudiosDescriptionContext, StaffDescriptionContext } from '.';
+import { CharacterDescriptionContext, MediaDescriptionContext, StaffDescriptionContext, StudiosDescriptionContext } from '.';
 import { mediaFormat, mediaSource, toNextAiring } from './formatting/media';
 
 export const mediaDescription = ({ title, format, source, nextAiringEpisode, translation }: MediaDescriptionContext): string => {
     let response = '';
 
     if (null === title.english && null !== title.romaji) {
-        response += title.romaji + '\n';
+        response += `${title.romaji}\n`;
     } if (null !== nextAiringEpisode && null !== nextAiringEpisode.timeUntilAiring) {
-        response += translation.t('countdown') + toNextAiring({ nextAiringEpisode, translation }) + '\n';
+        response += `${translation.t('countdown')}${toNextAiring({ nextAiringEpisode, translation })}\n`;
     } if (null !== format) {
-        response += translation.t('fmt') + mediaFormat({ format, translation }) + '\n';
+        response += `${translation.t('fmt')}${mediaFormat({ format, translation })}\n`;
     } if (null !== source) {
-        response += translation.t('src') + mediaSource({ source, translation });
+        response += `${translation.t('src')}${mediaSource({ source, translation })}`;
     }
 
     return response;

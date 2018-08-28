@@ -1,16 +1,16 @@
 import { fetchData } from 'endeavor';
+import { DataContext } from '.';
+import { MediaType } from '..';
+import { RequestsGenres } from './queries';
 import anime from './queries/genres/anime.gql';
 import manga from './queries/genres/manga.gql';
-import { RequestsGenres } from './queries';
-import { DataContext } from '.';
 import { translateGenres } from './translations/translations';
-import { MediaType } from '..';
 
-const parseGenres = (input: string): string => input.split(/\s*,\s*/).reduce((acc, cur) => acc + `• ${cur}\n`, '');
+const parseGenres = (input: string): string => input.split(/\s*,\s*/).reduce((acc, cur) => `${acc} • ${cur}\n`, '');
 
-export const fetchGenres = async ({ id, type, translation }: DataContext): Promise<string> => {
+export const fetchGenres = async ({ id, request, translation }: DataContext): Promise<string> => {
     const fetch = <RequestsGenres> await fetchData({
-        query: ('ANIME' === type) ? anime : manga,
+        query: ('ANIME' === request) ? anime : manga,
         variables: { id }
     });
     const message = fetch.data.Media.genres;
@@ -20,5 +20,5 @@ export const fetchGenres = async ({ id, type, translation }: DataContext): Promi
         return parseGenres(message.join(','));
     }
 
-    return translateGenres({ type: <MediaType> type, to, id, message }).then(parseGenres);
+    return translateGenres({ request: <MediaType> request, to, id, message }).then(parseGenres);
 };

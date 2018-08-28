@@ -1,30 +1,30 @@
 import { FetchTranslationContext, NewTranslationContext, Translation } from '.';
-import { animeDescription, mangaDescription, characterDescription, staffDescription } from './model';
+import { animeDescription, characterDescription, mangaDescription, staffDescription } from './model';
 import { addTranslation, fetchTranslation } from './utils';
 
-export const fetchDescriptionTranslation = async ({ id, to, type }: FetchTranslationContext): Promise<string> => {
+export const fetchDescriptionTranslation = async ({ id, to, request }: FetchTranslationContext): Promise<string> => {
     const curriedFetchLanguage = ((response: Translation) => fetchTranslation(to, response));
 
-    if ('ANIME' === type) {
+    if ('ANIME' === request) {
         return animeDescription.findById(id).then(curriedFetchLanguage).catch(() => '');
-    } if ('MANGA' === type) {
+    } if ('MANGA' === request) {
         return mangaDescription.findById(id).then(curriedFetchLanguage).catch(() => '');
-    } if ('CHARACTER' === type) {
+    } if ('CHARACTER' === request) {
         return characterDescription.findById(id).then(curriedFetchLanguage).catch(() => '');
     }
 
     return staffDescription.findById(id).then(curriedFetchLanguage).catch(() => '');
 };
 
-export const newDescriptionTranslation = async ({ id, to, type, message }: NewTranslationContext): Promise<boolean> => {
+export const newDescriptionTranslation = async ({ id, to, request, message }: NewTranslationContext): Promise<boolean> => {
     const options = { upsert: true, new: true, setDefaultsOnInsert: true };
     const curriedAddTranslation = ((response: Translation) => addTranslation(to, message, response));
 
-    if ('ANIME' === type) {
+    if ('ANIME' === request) {
         return animeDescription.findByIdAndUpdate(id, {}, options).then(curriedAddTranslation).catch(() => false);
-    } if ('MANGA' === type) {
+    } if ('MANGA' === request) {
         return mangaDescription.findByIdAndUpdate(id, {}, options).then(curriedAddTranslation).catch(() => false);
-    } if ('CHARACTER' === type) {
+    } if ('CHARACTER' === request) {
         return characterDescription.findByIdAndUpdate(id, {}, options).then(curriedAddTranslation).catch(() => false);
     }
 

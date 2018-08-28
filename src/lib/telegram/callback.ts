@@ -1,63 +1,65 @@
 import { ReplyKeyboardMarkup } from 'telegram-typings';
+import { CallbackKeyboardContext, RequestsContext } from '.';
 import { fetchDescription } from '../anilist/requests/descriptions';
 import { fetchGenres } from '../anilist/requests/genres';
-import { RequestsContext, CallbackKeyboardContext } from '.';
 import { handleMenu } from './formatting/menu';
-import { userKeyboard, guideKeyboard, readlistKeyboard, watchlistKeyboard, countdownKeyboard,
-menuKeyboard, aboutKeyboard, notifyKeyboard, timeKeyboard, publishingMangaKeyboard, soonMangaKeyboard, completedMangaKeyboard, cancelledMangaKeyboard, airingAnimeKeyboard, soonAnimeKeyboard, completedAnimeKeyboard, cancelledAnimeKeyboard } from './keyboard';
+import { aboutKeyboard, airingAnimeKeyboard, cancelledAnimeKeyboard, cancelledMangaKeyboard, completedAnimeKeyboard,
+completedMangaKeyboard, countdownKeyboard, guideKeyboard, menuKeyboard, notifyKeyboard, publishingMangaKeyboard,
+readlistKeyboard, soonAnimeKeyboard,  soonMangaKeyboard, timeKeyboard, userKeyboard, watchlistKeyboard
+} from './keyboard';
 
 const truncateMessage = (input: string): string => {
     const max = 196;
 
-    return (max < input.length) ? input.substring(0, max) + '...' : input;
+    return (max < input.length) ? `${input.substring(0, max)}...` : input;
 };
 
-export const handleCallback = async ({ id, type, field, translation }: RequestsContext): Promise<string> => {
+export const handleCallback = async ({ id, request, field, translation }: RequestsContext): Promise<string> => {
     if ('GENRES' === field) {
-        return fetchGenres({ id, type, translation }).then(truncateMessage);
+        return fetchGenres({ id, request, translation }).then(truncateMessage);
     } if ('DESCRIPTION' === field) {
-        return fetchDescription({ id, type, translation }).then(truncateMessage);
+        return fetchDescription({ id, request, translation }).then(truncateMessage);
     } if ('LIST' === field) {
         return translation.t('notAvailable');
-    } 
+    }
 
-    return handleMenu({ type, translation });
+    return handleMenu({ request, translation });
 };
 
-export const callbackKeyboard = ({ type, translation }: CallbackKeyboardContext): ReplyKeyboardMarkup => {
-    if ('TIME' === type) {
+export const callbackKeyboard = ({ request, translation }: CallbackKeyboardContext): ReplyKeyboardMarkup => {
+    if ('TIME' === request) {
         return timeKeyboard({ translation });
-    } if ('ABOUT' === type) {
+    } if ('ABOUT' === request) {
         return aboutKeyboard({ translation });
-    } if ('NOTIFY' === type) {
+    } if ('NOTIFY' === request) {
         return notifyKeyboard({ translation });
-    } if ('COUNTDOWN' === type) {
+    } if ('COUNTDOWN' === request) {
         return countdownKeyboard({ translation });
-    } if ('SOON-MANGA' === type) {
+    } if ('SOON-MANGA' === request) {
         return soonMangaKeyboard({ translation });
-    } if ('SOON-ANIME' === type) {
+    } if ('SOON-ANIME' === request) {
         return soonAnimeKeyboard({ translation });
-    } if ('AIRING-ANIME' === type ) {
+    } if ('AIRING-ANIME' === request) {
         return airingAnimeKeyboard({ translation });
-    } if ('COMPLETED-MANGA' === type) {
+    } if ('COMPLETED-MANGA' === request) {
         return completedMangaKeyboard({ translation });
-    } if ('CANCELLED-MANGA' === type) {
+    } if ('CANCELLED-MANGA' === request) {
         return cancelledMangaKeyboard({ translation });
-    } if ('COMPLETED-ANIME' === type) {
+    } if ('COMPLETED-ANIME' === request) {
         return completedAnimeKeyboard({ translation });
-    } if ('CANCELLED-ANIME' === type) {
+    } if ('CANCELLED-ANIME' === request) {
         return cancelledAnimeKeyboard({ translation });
-    } if ('PUBLISHING-MANGA' === type) {
+    } if ('PUBLISHING-MANGA' === request) {
         return publishingMangaKeyboard({ translation });
-    } if ('USER' === type || 'BACK-USER' === type) {
+    } if ('USER' === request || 'BACK-USER' === request) {
         return userKeyboard({ translation });
-    } if ('GUIDE' === type || 'BACK-GUIDE' === type) {
+    } if ('GUIDE' === request || 'BACK-GUIDE' === request) {
         return guideKeyboard({ translation });
-    } if ('READLIST' === type || 'ALL-MANGA' === type || 'MORE-INFO-MANGA' === type) {
+    } if ('READLIST' === request || 'ALL-MANGA' === request || 'MORE-INFO-MANGA' === request) {
         return readlistKeyboard({ translation });
-    } if ('WATCHLIST' === type || 'ALL-ANIME' === type || 'MORE-INFO-ANIME' === type) {
+    } if ('WATCHLIST' === request || 'ALL-ANIME' === request || 'MORE-INFO-ANIME' === request) {
         return watchlistKeyboard({ translation });
-    } 
+    }
 
     return menuKeyboard({ translation });
 };

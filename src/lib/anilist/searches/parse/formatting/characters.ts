@@ -1,8 +1,8 @@
-import { errorPng } from '../../../utils/common';
+import { CharactersNameContext, CharactersNameResponse } from '.';
 import { CharacterImage } from '../../..';
-import { CharactersNameResponse, CharactersNameContext } from '.';
+import { errorPng } from '../../../utils/common';
 
-const joining = (input: Array<string>): string => input.reduce((acc, cur) => acc + `\t\t • _${cur}_\n`, '');
+const joining = (input: string[]): string => input.reduce((acc, cur) => `${acc}\t\t • _${cur}_\n`, '');
 
 export const charactersImage = ({ medium, large }: CharacterImage): string => {
     if (null !== large) {
@@ -18,11 +18,11 @@ export const charactersAllNames = ({ name, translation }: CharactersNameContext)
     const { native, first, last, alternative } = name;
     let complete = '';
     let aka = false;
-    
+
     if (null !== first) {
         complete += first;
     } if (null !== last) {
-        complete += ' ' + last;
+        complete += ` ${last}`;
     } if (null !== alternative && '' !== alternative[0]) {
         aka = true;
     }

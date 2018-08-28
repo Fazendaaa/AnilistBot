@@ -1,10 +1,10 @@
-import { mediaSeason, mediaStatus, mediaKind, mediaImage, mediaIsAdult, mediaVolumes, mediaTrailer, mediaRanking,
-mediaDuration, mediaEpisodes, mediaChapters, mediaAverage, mediaEndDate, mediaAllTitle, mediaStartDate,
-mediaNextAiringEpisode, mediaExternalLinks, mediaStudios } from './formatting/media';
-import { MediaMessage, CharacterMessage, StudioMessage, StaffMessage } from '.';
-import { charactersImage, charactersAllNames } from './formatting/characters';
+import { CharacterMessage, MediaMessage, StaffMessage, StudioMessage } from '.';
 import { missingPng } from '../../utils/common';
-import { staffImage, staffAllNames } from './formatting/staff';
+import { charactersAllNames, charactersImage } from './formatting/characters';
+import { mediaAllTitle, mediaAverage, mediaChapters, mediaDuration, mediaEndDate, mediaEpisodes, mediaExternalLinks,
+mediaImage, mediaIsAdult, mediaKind, mediaNextAiringEpisode, mediaRanking, mediaSeason, mediaStartDate, mediaStatus,
+mediaStudios, mediaTrailer, mediaVolumes } from './formatting/media';
+import { staffAllNames, staffImage } from './formatting/staff';
 import { studiosName } from './formatting/studios';
 
 export const mediaMessage = ({ media, translation }: MediaMessage): string => {

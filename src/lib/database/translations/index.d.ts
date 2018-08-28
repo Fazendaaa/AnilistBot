@@ -1,17 +1,17 @@
 import { Document } from 'mongoose';
-import { AllRequests } from '../../anilist/requests';
+import { AllRequests } from '../../telegram';
 
 export interface FetchTranslationContext {
     readonly id: number;
     readonly to: string;
-    readonly type: AllRequests;
+    readonly request: AllRequests;
 }
 
 export interface NewTranslationContext {
     readonly id: number;
     readonly to: string;
     readonly message: string;
-    readonly type: AllRequests;
+    readonly request: AllRequests;
 }
 
 export interface Translation extends Document {

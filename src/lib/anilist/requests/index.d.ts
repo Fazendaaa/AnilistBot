@@ -4,20 +4,20 @@ import { AllRequests, RequestsFiled } from '../../telegram';
 
 export interface DataContext {
     readonly id: number;
-    readonly type: AllRequests;
     readonly translation: I18n;
+    readonly request: AllRequests;
 }
 
 export interface TranslateDescriptionContext {
     readonly id: number;
     readonly to: string;
     readonly message: string;
-    readonly type: AllRequests;
+    readonly request: AllRequests;
 }
 
 export interface TranslateGenresContext {
     readonly id: number;
     readonly to: string;
-    readonly type: MediaType;
+    readonly request: MediaType;
     readonly message: Array<string>;
 }

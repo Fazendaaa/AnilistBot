@@ -1,11 +1,11 @@
 import moment from 'moment';
-import { AdultContext, VolumesContext, AverageContext, EpisodesContext, ChaptersContext, SeasonContext, StatusContext,
-FormatContext, MediaImageContext, AllTitleContext, AllTitleResponse, RakingContext, TrailerContext, SourceContext,
-DurationContext, KindContext, StartDateContext, EndDateContext, NextAiringEpisodeContext, ExternalLinksContext,
-StudiosContext } from '.';
-import { errorPng } from '../../../utils/common';
 import { I18n } from 'telegraf-i18n';
+import { AdultContext, AllTitleContext, AllTitleResponse, AverageContext, ChaptersContext, DurationContext,
+EndDateContext, EpisodesContext, ExternalLinksContext, FormatContext, KindContext, MediaImageContext,
+NextAiringEpisodeContext, RakingContext, SeasonContext, SourceContext, StartDateContext, StatusContext, StudiosContext,
+TrailerContext, VolumesContext } from '.';
 import { MediaExternalLink, StudioConnection } from '../../..';
+import { errorPng } from '../../../utils/common';
 
 const dateFormat = 'MMMM Do YYYY';
 
@@ -16,7 +16,7 @@ const toDuration = (input: number): string => {
 
         return `${hour}h${min}min`;
     }
-    
+
     return `${input}min`;
 };
 
@@ -27,7 +27,7 @@ const __parsingLinks = (translation: I18n, acc, { site, url }: MediaExternalLink
         name = translation.t('officialSite');
     }
 
-    return acc + `\t\t • [${name}](${url})\n`;
+    return `${acc}\t\t • [${name}](${url})\n`;
 };
 
 const parsingLinks = ({ externalLinks, translation }: ExternalLinksContext): string => {
@@ -39,7 +39,7 @@ const parsingLinks = ({ externalLinks, translation }: ExternalLinksContext): str
 const parsingStudios = ({ nodes }: StudioConnection): string => nodes.reduce((acc, cur) => {
     const { name, siteUrl } = cur;
 
-    return acc + `\t\t • [${name}](${siteUrl})\n`
+    return `${acc}\t\t • [${name}](${siteUrl})\n`;
 }, '');
 
 export const toNextAiring = ({ nextAiringEpisode, translation }: NextAiringEpisodeContext): string => {
@@ -88,15 +88,15 @@ export const mediaStudios = ({ studios, translation }: StudiosContext): string =
     if (null === studios || null === studios.nodes || 0 === studios.nodes.length) {
         return '';
     }
-    
-    return translation.t('studiosLinks', { studios: parsingStudios(studios) })
+
+    return translation.t('studiosLinks', { studios: parsingStudios(studios) });
 };
 
 export const mediaNextAiringEpisode = ({ nextAiringEpisode, translation }: NextAiringEpisodeContext): string => {
     if (null === nextAiringEpisode || null === nextAiringEpisode.timeUntilAiring) {
         return '';
     }
-    
+
     return translation.t('nextAiringEpisode', {
         episode: nextAiringEpisode.episode,
         timeUntilAiring: toNextAiring({ nextAiringEpisode, translation })
@@ -131,7 +131,7 @@ export const mediaTrailer = ({ trailer, translation }: TrailerContext): string =
     if (null === trailer) {
         return '';
     }
-    
+
     // assuming that ALL of the videos are coming from YouTube, need to handle other cases.
     return translation.t('trailer', { trailer: `${trailer.site}.com/watch?v=${trailer.id}` });
 };
