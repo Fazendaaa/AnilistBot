@@ -1,8 +1,8 @@
 import { config } from 'dotenv';
-import { connect, connection, set } from 'mongoose';
+import { connect, set } from 'mongoose';
 import { join } from 'path';
-import telegraf from 'telegraf';
-import telegrafI18n from 'telegraf-i18n';
+import Telegraf from 'telegraf';
+import I18n from 'telegraf-i18n';
 import { allSearch } from './lib/anilist/searches/searches';
 import { AllRequests, BotContext, RequestsFiled } from './lib/telegram';
 import { callbackKeyboard, handleCallback } from './lib/telegram/callback';
@@ -13,8 +13,8 @@ import { sanitize } from './lib/telegram/utils/parse';
 
 config();
 
-const bot = new telegraf(<string> process.env.BOT_KEY);
-const internationalization = new telegrafI18n({
+const bot = new Telegraf(process.env.BOT_KEY);
+const internationalization = new I18n({
     useSession: true,
     allowMissing: true,
     defaultLanguage: 'en',
@@ -22,11 +22,9 @@ const internationalization = new telegrafI18n({
     directory: join(__dirname, '../others/locales')
 });
 
-connect(<string> process.env.MONGODB_URI);
-
 let dbStatus = false;
 
-connection.on('open', () => {
+connect(process.env.MONGODB_URI).then(() => {
     // https://stackoverflow.com/a/51918795/7092954
     set('useCreateIndex', true);
     set('useFindAndModify', false);
@@ -34,17 +32,15 @@ connection.on('open', () => {
     console.log('DB connected.');
 
     dbStatus = true;
-});
-
-connection.on('error', () => {
-    console.error.bind(console, 'connection error:');
+}).catch(err => {
+    console.error(err);
 
     dbStatus = false;
 });
 
 bot.startPolling();
 
-bot.use(telegraf.log());
+bot.use(Telegraf.log());
 bot.use(internationalization.middleware());
 
 bot.catch(console.error);

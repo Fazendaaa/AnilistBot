@@ -23,7 +23,7 @@ module.exports = {
             {
                 test: /\.mjs$/,
                 include: /node_modules/,
-                type: "javascript/auto",
+                type: 'javascript/auto'
             },
             {
                 test: /\.tsx?$/,

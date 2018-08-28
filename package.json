@@ -8,6 +8,7 @@
         "bot": "node dist/main.js",
         "test": "snyk test && npm run jest",
         "start": "npm run build && npm run bot",
+        "lint": "tslint --config tslint.json --project .",
         "jest": "jest --config jest.config.json --ci --runInBand --detectOpenHandles --forceExit --no-cache"
     },
     "repository": {

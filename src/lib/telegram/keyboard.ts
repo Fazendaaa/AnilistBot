@@ -4,31 +4,31 @@ import { KeyboardContext } from '.';
 
 export const countdownKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMarkup => {
     return Markup.inlineKeyboard([
-        Markup.callbackButton(translation.t('backButton'), 'MENU/BACK-MENU/0')
+        Markup.callbackButton(translation.t('backButton'), 'MENU/MENU-BACK/0')
     ]);
 };
 
 export const aboutKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMarkup => {
     return Markup.inlineKeyboard([
-        Markup.callbackButton(translation.t('backButton'), 'MENU/BACK-GUIDE/0')
+        Markup.callbackButton(translation.t('backButton'), 'MENU/GUIDE-BACK/0')
     ]);
 };
 
 export const notifyKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMarkup => {
     return Markup.inlineKeyboard([
-        Markup.callbackButton(translation.t('backButton'), 'MENU/BACK-USER/0')
+        Markup.callbackButton(translation.t('backButton'), 'MENU/USER-BACK/0')
     ]);
 };
 
 export const timeKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMarkup => {
     return Markup.inlineKeyboard([
-        Markup.callbackButton(translation.t('backButton'), 'MENU/BACK-USER/0')
+        Markup.callbackButton(translation.t('backButton'), 'MENU/USER-BACK/0')
     ]);
 };
 
 export const guideKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMarkup => {
     return Markup.inlineKeyboard([
-        Markup.callbackButton(translation.t('backButton'), 'MENU/BACK-MENU/0'),
+        Markup.callbackButton(translation.t('backButton'), 'MENU/MENU-BACK/0'),
         Markup.callbackButton(translation.t('aboutButton'), 'MENU/ABOUT/0')
     ]);
 };
@@ -39,7 +39,7 @@ export const userKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMar
         Markup.callbackButton(translation.t('timeButton'), 'MENU/TIME/0')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('backButton'), 'MENU/BACK-MENU/0')
+        Markup.callbackButton(translation.t('backButton'), 'MENU/MENU-BACK/0')
     ];
 
     return Markup.inlineKeyboard([ firstLine, secondLine ]);
@@ -63,16 +63,16 @@ export const menuKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMar
 // to not break the pattern.
 export const readlistKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('publishingButton'), 'MENU/PUBLISHING-MANGA/0'),
-        Markup.callbackButton(translation.t('soonButton'), 'MENU/SOON-MANGA/0'),
-        Markup.callbackButton(translation.t('completedButton'), 'MENU/COMPLETED-MANGA/0'),
-        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/CANCELLED-MANGA/0')
+        Markup.callbackButton(translation.t('publishingButton'), 'MENU/MANGA-PUBLISHING/0'),
+        Markup.callbackButton(translation.t('soonButton'), 'MENU/MANGA-SOON/0'),
+        Markup.callbackButton(translation.t('completedButton'), 'MENU/MANGA-COMPLETED/0'),
+        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/MANGA-CANCELLED/0')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MORE-INFO-MANGA/0')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MANGA-MORE-INFO/0')
     ];
     const thirdLine = [
-        Markup.callbackButton(translation.t('backButton'), 'MENU/BACK-MENU/0')
+        Markup.callbackButton(translation.t('backButton'), 'MENU/MENU-BACK/0')
     ];
 
     return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine ]);
@@ -80,16 +80,16 @@ export const readlistKeyboard = ({ translation }: KeyboardContext): ReplyKeyboar
 
 export const publishingMangaKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('allButton'), 'MENU/ALL-MANGA/0'),
-        Markup.callbackButton(translation.t('soonButton'), 'MENU/SOON-MANGA/0'),
-        Markup.callbackButton(translation.t('completedButton'), 'MENU/COMPLETED-MANGA/0'),
-        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/CANCELLED-MANGA/0')
+        Markup.callbackButton(translation.t('allButton'), 'MENU/MANGA-ALL/0'),
+        Markup.callbackButton(translation.t('soonButton'), 'MENU/MANGA-SOON/0'),
+        Markup.callbackButton(translation.t('completedButton'), 'MENU/MANGA-COMPLETED/0'),
+        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/MANGA-CANCELLED/0')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MORE-INFO-MANGA/0')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MANGA-MORE-INFO/0')
     ];
     const thirdLine = [
-        Markup.callbackButton(translation.t('backButton'), 'MENU/BACK-MENU/0')
+        Markup.callbackButton(translation.t('backButton'), 'MENU/MENU-BACK/0')
     ];
 
     return Markup.inlineKeyboard([firstLine, secondLine, thirdLine]);
@@ -97,16 +97,16 @@ export const publishingMangaKeyboard = ({ translation }: KeyboardContext): Reply
 
 export const soonMangaKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('allButton'), 'MENU/ALL-MANGA/0'),
-        Markup.callbackButton(translation.t('publishingButton'), 'MENU/PUBLISHING-MANGA/0'),
-        Markup.callbackButton(translation.t('completedButton'), 'MENU/COMPLETED-MANGA/0'),
-        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/CANCELLED-MANGA/0')
+        Markup.callbackButton(translation.t('allButton'), 'MENU/MANGA-ALL/0'),
+        Markup.callbackButton(translation.t('publishingButton'), 'MENU/MANGA-PUBLISHING/0'),
+        Markup.callbackButton(translation.t('completedButton'), 'MENU/MANGA-COMPLETED/0'),
+        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/MANGA-CANCELLED/0')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MORE-INFO-MANGA/0')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MANGA-MORE-INFO/0')
     ];
     const thirdLine = [
-        Markup.callbackButton(translation.t('backButton'), 'MENU/BACK-MENU/0')
+        Markup.callbackButton(translation.t('backButton'), 'MENU/MENU-BACK/0')
     ];
 
     return Markup.inlineKeyboard([firstLine, secondLine, thirdLine]);
@@ -114,16 +114,16 @@ export const soonMangaKeyboard = ({ translation }: KeyboardContext): ReplyKeyboa
 
 export const completedMangaKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('allButton'), 'MENU/ALL-MANGA/0'),
-        Markup.callbackButton(translation.t('soonButton'), 'MENU/SOON-MANGA/0'),
-        Markup.callbackButton(translation.t('publishingButton'), 'MENU/PUBLISHING-MANGA/0'),
-        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/CANCELLED-MANGA/0')
+        Markup.callbackButton(translation.t('allButton'), 'MENU/MANGA-ALL/0'),
+        Markup.callbackButton(translation.t('soonButton'), 'MENU/MANGA-SOON/0'),
+        Markup.callbackButton(translation.t('publishingButton'), 'MENU/MANGA-PUBLISHING/0'),
+        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/MANGA-CANCELLED/0')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MORE-INFO-MANGA/0')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MANGA-MORE-INFO/0')
     ];
     const thirdLine = [
-        Markup.callbackButton(translation.t('backButton'), 'MENU/BACK-MENU/0')
+        Markup.callbackButton(translation.t('backButton'), 'MENU/MENU-BACK/0')
     ];
 
     return Markup.inlineKeyboard([firstLine, secondLine, thirdLine]);
@@ -131,16 +131,16 @@ export const completedMangaKeyboard = ({ translation }: KeyboardContext): ReplyK
 
 export const cancelledMangaKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('allButton'), 'MENU/ALL-MANGA/0'),
-        Markup.callbackButton(translation.t('publishingButton'), 'MENU/PUBLISHING-MANGA/0'),
-        Markup.callbackButton(translation.t('soonButton'), 'MENU/SOON-MANGA/0'),
+        Markup.callbackButton(translation.t('allButton'), 'MENU/MANGA-ALL/0'),
+        Markup.callbackButton(translation.t('publishingButton'), 'MENU/MANGA-PUBLISHING/0'),
+        Markup.callbackButton(translation.t('soonButton'), 'MENU/MANGA-SOON/0'),
         Markup.callbackButton(translation.t('completedButton'), 'MENU/COMPLETED-MANGA/0')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MORE-INFO-MANGA/0')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MANGA-MORE-INFO/0')
     ];
     const thirdLine = [
-        Markup.callbackButton(translation.t('backButton'), 'MENU/BACK-MENU/0')
+        Markup.callbackButton(translation.t('backButton'), 'MENU/MENU-BACK/0')
     ];
 
     return Markup.inlineKeyboard([firstLine, secondLine, thirdLine]);
@@ -148,16 +148,16 @@ export const cancelledMangaKeyboard = ({ translation }: KeyboardContext): ReplyK
 
 export const watchlistKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('airingButton'), 'MENU/AIRING-ANIME/0'),
-        Markup.callbackButton(translation.t('soonButton'), 'MENU/SOON-ANIME/0'),
-        Markup.callbackButton(translation.t('completedButton'), 'MENU/COMPLETED-ANIME/0'),
-        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/CANCELLED-ANIME/0')
+        Markup.callbackButton(translation.t('airingButton'), 'MENU/ANIME-AIRING/0'),
+        Markup.callbackButton(translation.t('soonButton'), 'MENU/ANIME-SOON/0'),
+        Markup.callbackButton(translation.t('completedButton'), 'MENU/ANIME-COMPLETED/0'),
+        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/ANIME-CANCELLED/0')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MORE-INFO-ANIME/0')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/ANIME-MORE-INFO/0')
     ];
     const thirdLine = [
-        Markup.callbackButton(translation.t('backButton'), 'MENU/BACK-MENU/0')
+        Markup.callbackButton(translation.t('backButton'), 'MENU/MENU-BACK/0')
     ];
 
     return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine ]);
@@ -165,16 +165,16 @@ export const watchlistKeyboard = ({ translation }: KeyboardContext): ReplyKeyboa
 
 export const airingAnimeKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('allButton'), 'MENU/ALL-ANIME/0'),
-        Markup.callbackButton(translation.t('soonButton'), 'MENU/SOON-ANIME/0'),
-        Markup.callbackButton(translation.t('completedButton'), 'MENU/COMPLETED-ANIME/0'),
-        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/CANCELLED-ANIME/0')
+        Markup.callbackButton(translation.t('allButton'), 'MENU/ANIME-ALL/0'),
+        Markup.callbackButton(translation.t('soonButton'), 'MENU/ANIME-SOON/0'),
+        Markup.callbackButton(translation.t('completedButton'), 'MENU/ANIME-COMPLETED/0'),
+        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/ANIME-CANCELLED/0')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MORE-INFO-ANIME/0')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/ANIME-MORE-INFO/0')
     ];
     const thirdLine = [
-        Markup.callbackButton(translation.t('backButton'), 'MENU/BACK-MENU/0')
+        Markup.callbackButton(translation.t('backButton'), 'MENU/MENU-BACK/0')
     ];
 
     return Markup.inlineKeyboard([firstLine, secondLine, thirdLine]);
@@ -182,16 +182,16 @@ export const airingAnimeKeyboard = ({ translation }: KeyboardContext): ReplyKeyb
 
 export const soonAnimeKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('allButton'), 'MENU/ALL-ANIME/0'),
-        Markup.callbackButton(translation.t('airingButton'), 'MENU/AIRING-ANIME/0'),
-        Markup.callbackButton(translation.t('completedButton'), 'MENU/COMPLETED-ANIME/0'),
-        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/CANCELLED-ANIME/0')
+        Markup.callbackButton(translation.t('allButton'), 'MENU/ANIME-ALL/0'),
+        Markup.callbackButton(translation.t('airingButton'), 'MENU/ANIME-AIRING/0'),
+        Markup.callbackButton(translation.t('completedButton'), 'MENU/ANIME-COMPLETED/0'),
+        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/ANIME-CANCELLED/0')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MORE-INFO-ANIME/0')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/ANIME-MORE-INFO/0')
     ];
     const thirdLine = [
-        Markup.callbackButton(translation.t('backButton'), 'MENU/BACK-MENU/0')
+        Markup.callbackButton(translation.t('backButton'), 'MENU/MENU-BACK/0')
     ];
 
     return Markup.inlineKeyboard([firstLine, secondLine, thirdLine]);
@@ -199,16 +199,16 @@ export const soonAnimeKeyboard = ({ translation }: KeyboardContext): ReplyKeyboa
 
 export const completedAnimeKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('allButton'), 'MENU/ALL-ANIME/0'),
-        Markup.callbackButton(translation.t('airingButton'), 'MENU/AIRING-ANIME/0'),
-        Markup.callbackButton(translation.t('soonButton'), 'MENU/SOON-ANIME/0'),
-        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/CANCELLED-ANIME/0')
+        Markup.callbackButton(translation.t('allButton'), 'MENU/ANIME-ALL/0'),
+        Markup.callbackButton(translation.t('airingButton'), 'MENU/ANIME-AIRING/0'),
+        Markup.callbackButton(translation.t('soonButton'), 'MENU/ANIME-SOON/0'),
+        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/ANIME-CANCELLED/0')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MORE-INFO-ANIME/0')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/ANIME-MORE-INFO/0')
     ];
     const thirdLine = [
-        Markup.callbackButton(translation.t('backButton'), 'MENU/BACK-MENU/0')
+        Markup.callbackButton(translation.t('backButton'), 'MENU/MENU-BACK/0')
     ];
 
     return Markup.inlineKeyboard([firstLine, secondLine, thirdLine]);
@@ -216,16 +216,16 @@ export const completedAnimeKeyboard = ({ translation }: KeyboardContext): ReplyK
 
 export const cancelledAnimeKeyboard = ({ translation }: KeyboardContext): ReplyKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('allButton'), 'MENU/ALL-ANIME/0'),
-        Markup.callbackButton(translation.t('airingButton'), 'MENU/AIRING-ANIME/0'),
-        Markup.callbackButton(translation.t('soonButton'), 'MENU/SOON-ANIME/0'),
-        Markup.callbackButton(translation.t('completedButton'), 'MENU/COMPLETED-ANIME/0')
+        Markup.callbackButton(translation.t('allButton'), 'MENU/ANIME-ALL/0'),
+        Markup.callbackButton(translation.t('airingButton'), 'MENU/ANIME-AIRING/0'),
+        Markup.callbackButton(translation.t('soonButton'), 'MENU/ANIME-SOON/0'),
+        Markup.callbackButton(translation.t('completedButton'), 'MENU/ANIME-COMPLETED/0')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MORE-INFO-ANIME/0')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/ANIME-MORE-INFO/0')
     ];
     const thirdLine = [
-        Markup.callbackButton(translation.t('backButton'), 'MENU/BACK-MENU/0')
+        Markup.callbackButton(translation.t('backButton'), 'MENU/MENU-BACK/0')
     ];
 
     return Markup.inlineKeyboard([firstLine, secondLine, thirdLine]);

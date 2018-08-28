@@ -16,21 +16,21 @@ export type AllRequests = 'READ' |
                           'CHARACTER' |
                           'COUNTDOWN' |
                           'WATCHLIST' |
-                          'BACK-MENU' |
-                          'BACK-USER' |
-                          'ALL-ANIME' |
-                          'ALL-MANGA' |
-                          'BACK-GUIDE' |
-                          'SOON-ANIME' |
-                          'SOON-MANGA' |
-                          'AIRING-ANIME' |
-                          'CANCELLED-ANIME' |
-                          'CANCELLED-MANGA' |
-                          'COMPLETED-ANIME' |
-                          'COMPLETED-MANGA' |
-                          'MORE-INFO-ANIME' |
-                          'MORE-INFO-MANGA' |
-                          'PUBLISHING-MANGA'
+                          'MENU-BACK' |
+                          'USER-BACK' |
+                          'ANIME-ALL' |
+                          'MANGA-ALL' |
+                          'GUIDE-BACK' |
+                          'ANIME-SOON' |
+                          'MANGA-SOON' |
+                          'ANIME-AIRING' |
+                          'ANIME-CANCELLED' |
+                          'MANGA-CANCELLED' |
+                          'ANIME-COMPLETED' |
+                          'MANGA-COMPLETED' |
+                          'ANIME-MORE-INFO' |
+                          'MANGA-MORE-INFO' |
+                          'MANGA-PUBLISHING'
 
 export type RequestsFiled = 'LIST' |
                             'MENU' |

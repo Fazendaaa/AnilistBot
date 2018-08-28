@@ -151,9 +151,9 @@ export const mediaImage = ({ coverImage, bannerImage }: MediaImageContext): stri
 export const mediaRanking = ({ rankings, translation }: RakingContext): string => {
     if (null !== rankings && 0 < rankings.length) {
         const best = rankings.sort((a, b) => a.rank - b.rank)[0];
-        const type = translation.t(best.type.toLowerCase());
+        const kind = translation.t(best.type.toLowerCase());
 
-        return translation.t('ranking', { type, ranking: best.rank });
+        return translation.t('ranking', { kind, ranking: best.rank });
     }
 
     return '';

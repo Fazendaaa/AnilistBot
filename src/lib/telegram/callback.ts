@@ -14,6 +14,44 @@ const truncateMessage = (input: string): string => {
     return (max < input.length) ? `${input.substring(0, max)}...` : input;
 };
 
+const animeKeyboard = ({ request, translation }: CallbackKeyboardContext): ReplyKeyboardMarkup => {
+    if ('ANIME-SOON' === request) {
+        return soonAnimeKeyboard({ translation });
+    } if ('ANIME-AIRING' === request) {
+        return airingAnimeKeyboard({ translation });
+    } if ('ANIME-COMPLETED' === request) {
+        return completedAnimeKeyboard({ translation });
+    } if ('ANIME-CANCELLED' === request) {
+        return cancelledAnimeKeyboard({ translation });
+    }
+
+    return watchlistKeyboard({ translation });
+};
+
+const mangaKeyboard = ({ request, translation }: CallbackKeyboardContext): ReplyKeyboardMarkup => {
+    if ('MANGA-SOON' === request) {
+        return soonMangaKeyboard({ translation });
+    } if ('MANGA-COMPLETED' === request) {
+        return completedMangaKeyboard({ translation });
+    } if ('MANGA-CANCELLED' === request) {
+        return cancelledMangaKeyboard({ translation });
+    } if ('MANGA-PUBLISHING' === request) {
+        return publishingMangaKeyboard({ translation });
+    }
+
+    return readlistKeyboard({ translation });
+};
+
+const backKeyboard = ({ request, translation }: CallbackKeyboardContext): ReplyKeyboardMarkup => {
+    if ('MENU-BACK' === request) {
+        return menuKeyboard({ translation });
+    } if ('USER-BACK' === request) {
+        return userKeyboard({ translation });
+    }
+
+    return aboutKeyboard({ translation });
+};
+
 export const handleCallback = async ({ id, request, field, translation }: RequestsContext): Promise<string> => {
     if ('GENRES' === field) {
         return fetchGenres({ id, request, translation }).then(truncateMessage);
@@ -27,38 +65,30 @@ export const handleCallback = async ({ id, request, field, translation }: Reques
 };
 
 export const callbackKeyboard = ({ request, translation }: CallbackKeyboardContext): ReplyKeyboardMarkup => {
-    if ('TIME' === request) {
+    const kind = request.split('-');
+
+    if ('BACK' === kind[0]) {
+        return backKeyboard({ request, translation });
+    } if ('ANIME' === kind[0]) {
+        return animeKeyboard({ request, translation });
+    } if ('MANGA' === kind[0]) {
+        return mangaKeyboard({ request, translation });
+    } if ('TIME' === request) {
         return timeKeyboard({ translation });
+    } if ('USER' === request) {
+        return userKeyboard({ translation });
+    } if ('GUIDE' === request) {
+        return guideKeyboard({ translation });
     } if ('ABOUT' === request) {
         return aboutKeyboard({ translation });
     } if ('NOTIFY' === request) {
         return notifyKeyboard({ translation });
+    } if ('READLIST' === request) {
+        return readlistKeyboard({ translation });
+    } if ('WATCHLIST' === request) {
+        return watchlistKeyboard({ translation });
     } if ('COUNTDOWN' === request) {
         return countdownKeyboard({ translation });
-    } if ('SOON-MANGA' === request) {
-        return soonMangaKeyboard({ translation });
-    } if ('SOON-ANIME' === request) {
-        return soonAnimeKeyboard({ translation });
-    } if ('AIRING-ANIME' === request) {
-        return airingAnimeKeyboard({ translation });
-    } if ('COMPLETED-MANGA' === request) {
-        return completedMangaKeyboard({ translation });
-    } if ('CANCELLED-MANGA' === request) {
-        return cancelledMangaKeyboard({ translation });
-    } if ('COMPLETED-ANIME' === request) {
-        return completedAnimeKeyboard({ translation });
-    } if ('CANCELLED-ANIME' === request) {
-        return cancelledAnimeKeyboard({ translation });
-    } if ('PUBLISHING-MANGA' === request) {
-        return publishingMangaKeyboard({ translation });
-    } if ('USER' === request || 'BACK-USER' === request) {
-        return userKeyboard({ translation });
-    } if ('GUIDE' === request || 'BACK-GUIDE' === request) {
-        return guideKeyboard({ translation });
-    } if ('READLIST' === request || 'ALL-MANGA' === request || 'MORE-INFO-MANGA' === request) {
-        return readlistKeyboard({ translation });
-    } if ('WATCHLIST' === request || 'ALL-ANIME' === request || 'MORE-INFO-ANIME' === request) {
-        return watchlistKeyboard({ translation });
     }
 
     return menuKeyboard({ translation });

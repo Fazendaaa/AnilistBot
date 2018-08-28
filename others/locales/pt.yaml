@@ -303,7 +303,7 @@ volumes:
   "- *Volumes*: _${volumes}_\n"
 
 ranking:
-  "- *Ranking*: _#${ranking} em ${type}_\n"
+  "- *Ranking*: _#${ranking} em ${kind}_\n"
 
 studiosLinks:
   "- *Estúdios*:\n\
