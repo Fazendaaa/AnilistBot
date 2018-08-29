@@ -75,6 +75,28 @@ If you have any other questions about it just use it the help command:
 ```
 /help
 ```
+# Supporting
+
+Right now, this project has the following total lines:
+
+![Lines](https://img.shields.io/badge/dynamic/json.svg?style=for-the-badge&label=Lines&url=https%3A%2F%2Fraw.githubusercontent.com%2FFazendaaa%2FAnilistBot%2Fmaster%2Fstats.json&query=%24.TOTAL.lines&colorB=red)
+
+And bot uses three paid services:
+1. [Heroku](http://heroku.com/)
+2. [mLab](https://mlab.com/)
+3. [Google Translate](https://translate.google.com/)
+
+All of your support actually makes a difference to help me maintain this project up and running. I really would love if anyone who uses it could support it helping one time with any value that think it worth it or even supporting it each month with one dollar through my Patreon. And this would allow me to improve this project more and more, adding a ton of features that I've planned.
+
+You don't think that money is the best option to help out? It's okay, I'm open to translations request and code also! Just take a look at [Contributing](#contributing).
+
+Consider buy me a coffee:
+
+[![Buy Me a Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/Fazenda)
+
+Or even becoming a patron:
+
+[![Patreon](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/Fazenda/overview)
 
 # Contributing
 Please, I'm not a native/fluent english speaker, so whether you see a variable name wrote the wrong way or even some comment where I've wrote something with the wrong "past perfect way of life" or something like that, please let me know it. Not always is just about the code, but rather making it more clear to other people to learn from it.
@@ -150,27 +172,6 @@ I would love to say that [SemVer](https://semver.org/) or anything like that is 
 
 # Authors
 * Only [me](https://github.com/Fazendaaa) for now.
-
-# Supporting
-
-Right now, this project has the following total lines of code (loc):
-
-![Spoilers sent](https://img.shields.io/badge/dynamic/json.svg?style=for-the-badge&label=LOC&url=https%3A%2F%2Fispoiler.herokuapp.com%2Fstats.json&query=%24.total.lines&colorB=red)
-
-This bot actually uses three paid services:
-1. [Heroku](http://heroku.com/)
-2. [mLab](https://mlab.com/)
-3. [Google Translate](https://translate.google.com/)
-
-All of your support actually makes a difference to help me maintain this project up and running. I really would love if anyone who uses it could support it helping one time with any value that think it worth it or even supporting it each month with one dollar through my Patreon. And this would allow me to improve this project more and more, adding a ton of features that I've planned.
-
-Consider buy me a coffee:
-
-[![Buy Me a Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/Fazenda)
-
-Or even becoming a patron:
-
-[![Patreon](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/Fazenda/overview)
 
 # License
 Like many Open-Source Software (OSS) the MIT license is used, more about it in [LICENSE](./LICENSE).
