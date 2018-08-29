@@ -16,9 +16,9 @@ export const fetchDescriptionTranslation = async ({ id, to, request }: FetchTran
     return staffDescription.findById(id).then(curriedFetchLanguage).catch(() => '');
 };
 
-export const newDescriptionTranslation = async ({ id, to, request, message }: NewTranslationContext): Promise<boolean> => {
+export const newDescriptionTranslation = async  ({ id, to, request, message }: NewTranslationContext): Promise<boolean> => {
     const options = { upsert: true, new: true, setDefaultsOnInsert: true };
-    const curriedAddTranslation = ((response: Translation) => addTranslation(to, message, response));
+    const curriedAddTranslation = (async (response: Translation) => addTranslation(to, message, response));
 
     if ('ANIME' === request) {
         return animeDescription.findByIdAndUpdate(id, {}, options).then(curriedAddTranslation).catch(() => false);

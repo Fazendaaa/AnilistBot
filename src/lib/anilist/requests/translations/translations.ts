@@ -1,18 +1,13 @@
-import { config } from 'dotenv';
-import translate from 'translate';
 import { TranslateDescriptionContext, TranslateGenresContext } from '..';
 import { fetchDescriptionTranslation, newDescriptionTranslation } from '../../../database/translations/descriptions';
 import { fetchGenresTranslation, newGenresTranslation } from '../../../database/translations/genres';
-
-config();
-
-translate.key = process.env.GOOGLE_KEY;
+import { translate } from './utils';
 
 export const translateDescription = async ({ id, to, request, message }: TranslateDescriptionContext): Promise<string> => {
     const description = await fetchDescriptionTranslation({ id, to, request });
 
     if ('' === description) {
-        const text = await translate(message, { from: 'en', to });
+        const text = await translate({ src: 'en', message, to });
 
         newDescriptionTranslation({ message: text, id, to, request });
 
@@ -26,7 +21,7 @@ export const translateGenres = async ({ id, to, request, message }: TranslateGen
     const genres = await fetchGenresTranslation({ id, to, request });
 
     if ('' === genres) {
-        const text = await translate(message, { from: 'en', to });
+        const text = await translate({ src: 'en', message, to });
 
         newGenresTranslation({ message: text, id, to, request });
 

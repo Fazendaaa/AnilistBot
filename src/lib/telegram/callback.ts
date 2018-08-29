@@ -1,4 +1,4 @@
-import { ReplyKeyboardMarkup } from 'telegram-typings';
+import { InlineKeyboardMarkup } from 'telegram-typings';
 import { CallbackKeyboardContext, RequestsContext } from '.';
 import { fetchDescription } from '../anilist/requests/descriptions';
 import { fetchGenres } from '../anilist/requests/genres';
@@ -14,7 +14,7 @@ const truncateMessage = (input: string): string => {
     return (max < input.length) ? `${input.substring(0, max)}...` : input;
 };
 
-const animeKeyboard = ({ request, translation }: CallbackKeyboardContext): ReplyKeyboardMarkup => {
+const animeKeyboard = ({ request, translation }: CallbackKeyboardContext): InlineKeyboardMarkup => {
     if ('ANIME-SOON' === request) {
         return soonAnimeKeyboard({ translation });
     } if ('ANIME-AIRING' === request) {
@@ -28,7 +28,7 @@ const animeKeyboard = ({ request, translation }: CallbackKeyboardContext): Reply
     return watchlistKeyboard({ translation });
 };
 
-const mangaKeyboard = ({ request, translation }: CallbackKeyboardContext): ReplyKeyboardMarkup => {
+const mangaKeyboard = ({ request, translation }: CallbackKeyboardContext): InlineKeyboardMarkup => {
     if ('MANGA-SOON' === request) {
         return soonMangaKeyboard({ translation });
     } if ('MANGA-COMPLETED' === request) {
@@ -42,7 +42,7 @@ const mangaKeyboard = ({ request, translation }: CallbackKeyboardContext): Reply
     return readlistKeyboard({ translation });
 };
 
-const backKeyboard = ({ request, translation }: CallbackKeyboardContext): ReplyKeyboardMarkup => {
+const backKeyboard = ({ request, translation }: CallbackKeyboardContext): InlineKeyboardMarkup => {
     if ('MENU-BACK' === request) {
         return menuKeyboard({ translation });
     } if ('USER-BACK' === request) {
@@ -64,7 +64,7 @@ export const handleCallback = async ({ id, request, field, translation }: Reques
     return handleMenu({ request, translation });
 };
 
-export const callbackKeyboard = ({ request, translation }: CallbackKeyboardContext): ReplyKeyboardMarkup => {
+export const callbackKeyboard = ({ request, translation }: CallbackKeyboardContext): InlineKeyboardMarkup => {
     const kind = request.split('-');
 
     if ('BACK' === kind[0]) {

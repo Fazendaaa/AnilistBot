@@ -9,7 +9,7 @@ import { callbackKeyboard, handleCallback } from './lib/telegram/callback';
 import { toInlineArticle } from './lib/telegram/inline';
 import { menuKeyboard } from './lib/telegram/keyboard';
 import { isEditable } from './lib/telegram/utils/edit';
-import { sanitize } from './lib/telegram/utils/parse';
+import { fetchPage, sanitize } from './lib/telegram/utils/parse';
 
 config();
 
@@ -45,11 +45,11 @@ bot.use(internationalization.middleware());
 
 bot.catch(console.error);
 
-bot.start(({ i18n, replyWithMarkdown }: BotContext) => replyWithMarkdown(i18n.t('start')));
+bot.start(async ({ i18n, replyWithMarkdown }: BotContext) => replyWithMarkdown(i18n.t('start')));
 
 bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: BotContext) => {
     const perPage = 20;
-    const page = parseInt(inlineQuery.offset, 10) || 0;
+    const page = fetchPage(inlineQuery.offset);
     const next_offset = (page + perPage).toString();
     const search = sanitize({ message: inlineQuery.query });
     const searched = await allSearch({ search, page, perPage, translation: i18n });
