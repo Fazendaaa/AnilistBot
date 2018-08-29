@@ -151,6 +151,12 @@ I would love to say that [SemVer](https://semver.org/) or anything like that is 
 # Authors
 * Only [me](https://github.com/Fazendaaa) for now.
 
+# Supporting
+
+Right now, this project has the following total lines of code (loc):
+
+![Spoilers sent](https://img.shields.io/badge/dynamic/json.svg?style=for-the-badge&label=LOC&url=https%3A%2F%2Fispoiler.herokuapp.com%2Fstats.json&query=%24.total.lines&colorB=red)
+
 This bot actually uses three paid services:
 1. [Heroku](http://heroku.com/)
 2. [mLab](https://mlab.com/)

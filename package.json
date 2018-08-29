@@ -7,6 +7,7 @@
         "build": "webpack",
         "bot": "node dist/main.js",
         "test": "snyk test && npm run jest",
+        "counter": "linecounter >> stats.json",
         "start": "npm run build && npm run bot",
         "lint": "tslint --config tslint.json --project .",
         "jest": "jest --config jest.config.json --ci --runInBand --detectOpenHandles --forceExit --no-cache"
@@ -32,6 +33,7 @@
         "app.json": "^1.3.0",
         "codecov": "^3.0.4",
         "jest": "^23.5.0",
+        "linecounter": "^3.3.1",
         "mime": "^2.3.1",
         "snyk": "^1.93.0",
         "superagent": "^3.8.3",

@@ -1,0 +1,54 @@
+{
+    "TOTAL": {
+        "lines": 7896,
+        "files": 188
+    },
+    "PLAIN": {
+        "files": 1,
+        "lines": 13
+    },
+    ".md": {
+        "files": 3,
+        "lines": 392
+    },
+    ".json": {
+        "files": 9,
+        "lines": 192
+    },
+    ".ts": {
+        "files": 72,
+        "lines": 2447
+    },
+    ".js": {
+        "files": 38,
+        "lines": 1629
+    },
+    ".map": {
+        "files": 35,
+        "lines": 35
+    },
+    ".info": {
+        "files": 1,
+        "lines": 15
+    },
+    ".css": {
+        "files": 2,
+        "lines": 226
+    },
+    ".html": {
+        "files": 15,
+        "lines": 2026
+    },
+    ".MD": {
+        "files": 2,
+        "lines": 2
+    },
+    ".yaml": {
+        "files": 2,
+        "lines": 780
+    },
+    ".gql": {
+        "files": 8,
+        "lines": 139
+    }
+}
