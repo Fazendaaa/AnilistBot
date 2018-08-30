@@ -1,12 +1,12 @@
 import { fetchData } from 'endeavor';
-import { DataContext } from '.';
-import { RequestsDescription } from './queries';
+import { IDataContext } from '.';
+import { IRequestsDescription } from './queries';
 import anime from './queries/description/anime.gql';
 import manga from './queries/description/manga.gql';
 import { translateDescription } from './translations/translations';
 
-export const fetchDescription = async ({ id, request, translation }: DataContext): Promise<string> => {
-    const fetch = <RequestsDescription> await fetchData({
+export const fetchDescription = async ({ id, request, translation }: IDataContext): Promise<string> => {
+    const fetch = <IRequestsDescription> await fetchData({
         query: ('ANIME' === request) ? anime : manga,
         variables: { id }
     });

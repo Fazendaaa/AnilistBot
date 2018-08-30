@@ -1,14 +1,7 @@
-import { InlineKeyboardMarkup, InlineQueryResultArticle } from 'telegram-typings';
+import { InlineQueryResultArticle } from 'telegram-typings';
+import { IMinimumInline } from '.';
 
-export interface MinimumInline {
-    title: string;
-    thumb_url: string;
-    description: string;
-    message_text: string;
-    reply_markup?: InlineKeyboardMarkup;
-}
-
-export const toInlineArticle = (input: MinimumInline[]): InlineQueryResultArticle[] => {
+export const toInlineArticle = (input: IMinimumInline[]): InlineQueryResultArticle[] => {
     return input.map(({ title, thumb_url, description, message_text, reply_markup }, index) => {
         return {
             title,

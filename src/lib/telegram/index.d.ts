@@ -1,5 +1,6 @@
-import { I18n } from "telegraf-i18n";
-import { ContextMessageUpdate } from "telegraf";
+import { I18n } from 'telegraf-i18n';
+import { ContextMessageUpdate } from 'telegraf';
+import { InlineKeyboardMarkup } from 'telegram-typings';
 
 export type AllRequests = 'READ' |
                           'USER' |
@@ -37,27 +38,35 @@ export type RequestsFiled = 'LIST' |
                             'GENRES' |
                             'DESCRIPTION'
 
-export interface BotContext extends ContextMessageUpdate {
+export interface IBotContext extends ContextMessageUpdate {
     readonly i18n: I18n;
 }
 
-export interface TelegramContext {
+export interface ITelegramContext {
     readonly message: string;
     readonly translation?: I18n;
 }
 
-export interface KeyboardContext {
+export interface IKeyboardContext {
     readonly translation: I18n;
 }
 
-export interface RequestsContext {
+export interface IRequestsContext {
     readonly id: number;
     readonly translation: I18n;
     readonly request: AllRequests;
     readonly field: RequestsFiled;
 }
 
-export interface CallbackKeyboardContext {
+export interface ICallbackKeyboardContext {
     readonly translation: I18n;
     readonly request: AllRequests;
+}
+
+export interface IMinimumInline {
+    title: string;
+    thumb_url: string;
+    description: string;
+    message_text: string;
+    reply_markup?: InlineKeyboardMarkup;
 }

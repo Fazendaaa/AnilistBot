@@ -1,140 +1,140 @@
 import { I18n } from 'telegraf-i18n';
-import { Media, Characters } from '../../queries';
-import { CoverImage, MediaStatus, MediaFormat, MediaTitle, MediaSeason, MediaRanking, MediaTrailer, MediaSource,
-FuzzyDateInt, CharacterName, AiringSchedule, MediaExternalLink, StaffName, StudioConnection } from '../../..';
+import { IMedia, ICharacters } from '../../queries';
+import { ICoverImage, MediaStatus, MediaFormat, IMediaTitle, MediaSeason, IMediaRanking, IMediaTrailer, MediaSource,
+IFuzzyDateInt, ICharacterName, IAiringSchedule, IMediaExternalLink, IStaffName, IStudioConnection } from '../../..';
 
-export interface CharacterMessage {
+export interface ICharacterMessage {
     readonly translation: I18n;
-    readonly characters: Characters;
+    readonly characters: ICharacters;
 }
 
-export interface AdultContext {
+export interface IAdultContext {
     readonly isAdult: boolean,
     readonly translation: I18n;
 }
 
-export interface VolumesContext {
+export interface IVolumesContext {
     readonly volumes: number;
     readonly translation: I18n;
 }
 
-export interface AverageContext {
+export interface IAverageContext {
     readonly translation: I18n;
     readonly averageScore: number;
 }
 
-export interface EpisodesContext {
+export interface IEpisodesContext {
     readonly episodes: number;
     readonly translation: I18n;
 }
 
-export interface ChaptersContext {
+export interface IChaptersContext {
     readonly chapters: number;
     readonly translation: I18n;
 }
 
-export interface DurationContext {
+export interface IDurationContext {
     readonly duration: number;
     readonly translation: I18n;
 }
 
-export interface StartDateContext {
-    readonly startDate: FuzzyDateInt;
+export interface IStartDateContext {
+    readonly startDate: IFuzzyDateInt;
     readonly translation: I18n;
     readonly status: MediaStatus;
 }
 
-export interface EndDateContext {
-    readonly endDate: FuzzyDateInt;
+export interface IEndDateContext {
+    readonly endDate: IFuzzyDateInt;
     readonly translation: I18n;
     readonly status: MediaStatus;
 }
 
-export interface TrailerContext {
+export interface ITrailerContext {
     readonly translation: I18n;
-    readonly trailer: MediaTrailer;
+    readonly trailer: IMediaTrailer;
 }
 
-export interface MediaImageContext {
+export interface IMediaImageContext {
     readonly bannerImage: string;
-    readonly coverImage: CoverImage;
+    readonly coverImage: ICoverImage;
 }
 
-export interface RakingContext {
+export interface IRakingContext {
     readonly translation: I18n;
-    readonly rankings: Array<MediaRanking>;
+    readonly rankings: Array<IMediaRanking>;
 }
 
-export interface SeasonContext {
+export interface ISeasonContext {
     readonly translation: I18n;
     readonly season: MediaSeason;
 }
 
-export interface StatusContext {
+export interface IStatusContext {
     readonly translation: I18n;
     readonly status: MediaStatus;
 }
 
-export interface AllTitleContext {
-    readonly title: MediaTitle;
+export interface IAllTitleContext {
+    readonly title: IMediaTitle;
     readonly translation: I18n;
     readonly countryOfOrigin: string;
 }
 
-export interface AllTitleResponse {
+export interface IAllTitleResponse {
     readonly romaji: string;
     readonly native: string;
     readonly english: string;
 }
 
-export interface SourceContext {
+export interface ISourceContext {
     readonly translation: I18n;
     readonly source: MediaSource;
 }
 
-export interface FormatContext {
+export interface IFormatContext {
     readonly translation: I18n;
     readonly format: MediaFormat;
 }
 
-export interface KindContext {
+export interface IKindContext {
     readonly translation: I18n;
     readonly source: MediaSource;
     readonly format: MediaFormat;
 }
 
-export interface CharactersNameContext {
+export interface ICharactersNameContext {
     readonly translation: I18n;
-    readonly name: CharacterName;
+    readonly name: ICharacterName;
 }
 
-export interface CharactersNameResponse {
+export interface ICharactersNameResponse {
     readonly name: string;
     readonly native: string;
     readonly alternative: string;    
 }
 
-export interface NextAiringEpisodeContext {
+export interface INextAiringEpisodeContext {
     readonly translation: I18n;
-    readonly nextAiringEpisode: AiringSchedule;
+    readonly nextAiringEpisode: IAiringSchedule;
 }
 
-export interface ExternalLinksContext {
+export interface IExternalLinksContext {
     readonly translation: I18n;
-    readonly externalLinks: Array<MediaExternalLink>;
+    readonly externalLinks: Array<IMediaExternalLink>;
 }
 
-export interface StaffNameContext {
-    readonly name: StaffName;
+export interface IStaffNameContext {
+    readonly name: IStaffName;
     readonly translation: I18n;
 }
 
-export interface StudiosNameContext {
+export interface IStudiosNameContext {
     readonly name: string;
     readonly translation: I18n;
 }
 
-export interface StudiosContext {
+export interface IStudiosContext {
     readonly translation: I18n;
-    readonly studios: StudioConnection;
+    readonly studios: IStudioConnection;
 }

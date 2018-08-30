@@ -4,7 +4,7 @@ import { join } from 'path';
 import Telegraf from 'telegraf';
 import I18n from 'telegraf-i18n';
 import { allSearch } from './lib/anilist/searches/searches';
-import { AllRequests, BotContext, RequestsFiled } from './lib/telegram';
+import { AllRequests, IBotContext, RequestsFiled } from './lib/telegram';
 import { callbackKeyboard, handleCallback } from './lib/telegram/callback';
 import { toInlineArticle } from './lib/telegram/inline';
 import { menuKeyboard } from './lib/telegram/keyboard';
@@ -45,9 +45,9 @@ bot.use(internationalization.middleware());
 
 bot.catch(console.error);
 
-bot.start(async ({ i18n, replyWithMarkdown }: BotContext) => replyWithMarkdown(i18n.t('start')));
+bot.start(async ({ i18n, replyWithMarkdown }: IBotContext) => replyWithMarkdown(i18n.t('start')));
 
-bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: BotContext) => {
+bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotContext) => {
     const perPage = 20;
     const page = fetchPage(inlineQuery.offset);
     const next_offset = (page + perPage).toString();
@@ -58,7 +58,7 @@ bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: BotConte
     return answerInlineQuery(results, { next_offset });
 });
 
-bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCbQuery }: BotContext) => {
+bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCbQuery }: IBotContext) => {
     const data = callbackQuery.data.split('/');
     const id = parseInt(data[2], 10);
     const field = <RequestsFiled> data[0];
@@ -77,7 +77,7 @@ bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCb
     return answerCbQuery(response, true);
 });
 
-bot.on('text', async ({ i18n, message, replyWithMarkdown }: BotContext) => {
+bot.on('text', async ({ i18n, message, replyWithMarkdown }: IBotContext) => {
     const { text } = message;
     const { type } = message.chat;
 

@@ -1,13 +1,13 @@
-import { CharacterMessage, MediaMessage, StaffMessage, StudioMessage } from '.';
+import { ICharacterMessage, IMediaMessage, IStaffMessage, IStudioMessage } from '.';
 import { missingPng } from '../../utils/common';
 import { charactersAllNames, charactersImage } from './formatting/characters';
-import { mediaAllTitle, mediaAverage, mediaChapters, mediaDuration, mediaEndDate, mediaEpisodes, mediaExternalLinks,
-mediaImage, mediaIsAdult, mediaKind, mediaNextAiringEpisode, mediaRanking, mediaSeason, mediaStartDate, mediaStatus,
-mediaStudios, mediaTrailer, mediaVolumes } from './formatting/media';
+import { mediaAllTitle, mediaAverage, mediaChapters, mediaDuration, mediaEndDate, mediaEpisodes, mediaExternalLinks, mediaImage,
+mediaIsAdult, mediaKind, mediaNextAiringEpisode, mediaRanking, mediaSeason, mediaStartDate, mediaStatus, mediaStudios, mediaTrailer,
+mediaVolumes } from './formatting/media';
 import { staffAllNames, staffImage } from './formatting/staff';
 import { studiosName } from './formatting/studios';
 
-export const mediaMessage = ({ media, translation }: MediaMessage): string => {
+export const mediaMessage = ({ media, translation }: IMediaMessage): string => {
     const { siteUrl, season, status, isAdult, volumes, trailer, rankings, duration, episodes, chapters, averageScore,
     format, source, startDate, endDate, coverImage, bannerImage, title, countryOfOrigin, nextAiringEpisode,
     externalLinks, studios } = media;
@@ -35,7 +35,7 @@ export const mediaMessage = ({ media, translation }: MediaMessage): string => {
     });
 };
 
-export const charactersMessage = ({ characters, translation }: CharacterMessage): string => {
+export const charactersMessage = ({ characters, translation }: ICharacterMessage): string => {
     const { siteUrl, image, name } = characters;
 
     return translation.t('characters', {
@@ -45,7 +45,7 @@ export const charactersMessage = ({ characters, translation }: CharacterMessage)
     });
 };
 
-export const studiosMessage = ({ studios, translation }: StudioMessage): string => {
+export const studiosMessage = ({ studios, translation }: IStudioMessage): string => {
     const { siteUrl, name } = studios;
 
     return translation.t('studios', {
@@ -55,7 +55,7 @@ export const studiosMessage = ({ studios, translation }: StudioMessage): string 
     });
 };
 
-export const staffMessage = ({ staff, translation }: StaffMessage): string => {
+export const staffMessage = ({ staff, translation }: IStaffMessage): string => {
     const { siteUrl, name, image } = staff;
 
     return translation.t('staffMask', {

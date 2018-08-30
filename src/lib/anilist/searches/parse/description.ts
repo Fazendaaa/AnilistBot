@@ -1,7 +1,7 @@
-import { CharacterDescriptionContext, MediaDescriptionContext, StaffDescriptionContext, StudiosDescriptionContext } from '.';
+import { ICharacterDescriptionContext, IMediaDescriptionContext, IStaffDescriptionContext, IStudiosDescriptionContext } from '.';
 import { mediaFormat, mediaSource, toNextAiring } from './formatting/media';
 
-export const mediaDescription = ({ title, format, source, nextAiringEpisode, translation }: MediaDescriptionContext): string => {
+export const mediaDescription = ({ title, format, source, nextAiringEpisode, translation }: IMediaDescriptionContext): string => {
     let response = '';
 
     if (null === title.english && null !== title.romaji) {
@@ -17,14 +17,14 @@ export const mediaDescription = ({ title, format, source, nextAiringEpisode, tra
     return response;
 };
 
-export const charactersDescription = ({ translation }: CharacterDescriptionContext): string => {
+export const charactersDescription = ({ translation }: ICharacterDescriptionContext): string => {
     return translation.t('fmt') + translation.t('character');
 };
 
-export const studiosDescription = ({ translation }: StudiosDescriptionContext): string => {
+export const studiosDescription = ({ translation }: IStudiosDescriptionContext): string => {
     return translation.t('fmt') + translation.t('studio');
 };
 
-export const staffDescription = ({ translation }: StaffDescriptionContext): string => {
+export const staffDescription = ({ translation }: IStaffDescriptionContext): string => {
     return translation.t('fmt') + translation.t('staff');
 };

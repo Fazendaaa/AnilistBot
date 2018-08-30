@@ -1,5 +1,5 @@
 import { InlineKeyboardMarkup } from 'telegram-typings';
-import { CallbackKeyboardContext, RequestsContext } from '.';
+import { ICallbackKeyboardContext, IRequestsContext } from '.';
 import { fetchDescription } from '../anilist/requests/descriptions';
 import { fetchGenres } from '../anilist/requests/genres';
 import { handleMenu } from './formatting/menu';
@@ -14,7 +14,7 @@ const truncateMessage = (input: string): string => {
     return (max < input.length) ? `${input.substring(0, max)}...` : input;
 };
 
-const animeKeyboard = ({ request, translation }: CallbackKeyboardContext): InlineKeyboardMarkup => {
+const animeKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
     if ('ANIME-SOON' === request) {
         return soonAnimeKeyboard({ translation });
     } if ('ANIME-AIRING' === request) {
@@ -28,7 +28,7 @@ const animeKeyboard = ({ request, translation }: CallbackKeyboardContext): Inlin
     return watchlistKeyboard({ translation });
 };
 
-const mangaKeyboard = ({ request, translation }: CallbackKeyboardContext): InlineKeyboardMarkup => {
+const mangaKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
     if ('MANGA-SOON' === request) {
         return soonMangaKeyboard({ translation });
     } if ('MANGA-COMPLETED' === request) {
@@ -42,7 +42,7 @@ const mangaKeyboard = ({ request, translation }: CallbackKeyboardContext): Inlin
     return readlistKeyboard({ translation });
 };
 
-const backKeyboard = ({ request, translation }: CallbackKeyboardContext): InlineKeyboardMarkup => {
+const backKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
     if ('MENU-BACK' === request) {
         return menuKeyboard({ translation });
     } if ('USER-BACK' === request) {
@@ -52,7 +52,7 @@ const backKeyboard = ({ request, translation }: CallbackKeyboardContext): Inline
     return aboutKeyboard({ translation });
 };
 
-export const handleCallback = async ({ id, request, field, translation }: RequestsContext): Promise<string> => {
+export const handleCallback = async ({ id, request, field, translation }: IRequestsContext): Promise<string> => {
     if ('GENRES' === field) {
         return fetchGenres({ id, request, translation }).then(truncateMessage);
     } if ('DESCRIPTION' === field) {
@@ -64,7 +64,7 @@ export const handleCallback = async ({ id, request, field, translation }: Reques
     return handleMenu({ request, translation });
 };
 
-export const callbackKeyboard = ({ request, translation }: CallbackKeyboardContext): InlineKeyboardMarkup => {
+export const callbackKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
     const kind = request.split('-');
 
     if ('BACK' === kind[0]) {

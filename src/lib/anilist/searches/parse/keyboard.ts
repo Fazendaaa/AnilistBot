@@ -1,8 +1,8 @@
 import { Markup } from 'telegraf';
 import { InlineKeyboardMarkup } from 'telegram-typings';
-import { KeyboardContext } from '.';
+import { IKeyboardContext } from '.';
 
-export const mediaKeyboard = ({ id, translation, type }: KeyboardContext): InlineKeyboardMarkup => {
+export const mediaKeyboard = ({ id, translation, type }: IKeyboardContext): InlineKeyboardMarkup => {
     const list = ('ANIME' === type) ? Markup.callbackButton(translation.t('buttonWatchlist'), `LIST/WATCH/${id}`)
                                     : Markup.callbackButton(translation.t('buttonReadlist'), `LIST/READ/${id}`);
 
@@ -13,13 +13,13 @@ export const mediaKeyboard = ({ id, translation, type }: KeyboardContext): Inlin
     ]);
 };
 
-export const charactersKeyboard = ({ id, translation, type }: KeyboardContext): InlineKeyboardMarkup => {
+export const charactersKeyboard = ({ id, translation, type }: IKeyboardContext): InlineKeyboardMarkup => {
     return Markup.inlineKeyboard([
         Markup.callbackButton(translation.t('buttonDescription'), `DESCRIPTION/${type}/${id}`)
     ]);
 };
 
-export const staffKeyboard = ({ id, translation, type }: KeyboardContext): InlineKeyboardMarkup => {
+export const staffKeyboard = ({ id, translation, type }: IKeyboardContext): InlineKeyboardMarkup => {
     return Markup.inlineKeyboard([
         Markup.callbackButton(translation.t('buttonDescription'), `DESCRIPTION/${type}/${id}`)
     ]);

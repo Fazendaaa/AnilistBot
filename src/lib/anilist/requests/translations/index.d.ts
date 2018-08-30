@@ -6,7 +6,7 @@ export type Resolve = (translated: string) => void;
 
 export type CallbackSolve = GoogleTranslation | GoogleTranslation[];
 
-export interface Context {
+export interface IContext {
     readonly to: string;
     readonly src: string;
     readonly message: string | string[];

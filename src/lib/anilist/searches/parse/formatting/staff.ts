@@ -1,5 +1,5 @@
-import { StaffNameContext, StaffNameResponse } from '..';
-import { StaffImage } from '../../..';
+import { IStaffNameContext, IStaffNameResponse } from '..';
+import { IStaffImage } from '../../..';
 import { errorPng } from '../../../utils/common';
 
 const isEmpty = (input: string): boolean => {
@@ -8,7 +8,7 @@ const isEmpty = (input: string): boolean => {
     return input.length === matched.length;
 };
 
-export const staffAllNames = ({ name, translation }: StaffNameContext): StaffNameResponse => {
+export const staffAllNames = ({ name, translation }: IStaffNameContext): IStaffNameResponse => {
     const { native, first, last } = name;
     let complete = '';
 
@@ -24,7 +24,7 @@ export const staffAllNames = ({ name, translation }: StaffNameContext): StaffNam
     };
 };
 
-export const staffImage = ({ large, medium }: StaffImage): string => {
+export const staffImage = ({ large, medium }: IStaffImage): string => {
     if (null !== large) {
         return large;
     } if (null !== medium) {

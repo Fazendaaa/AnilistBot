@@ -1,8 +1,8 @@
-import { ImageContext } from '.';
-import { CharacterImage, StaffImage } from '../..';
+import { IImageContext } from '.';
+import { ICharacterImage, IStaffImage } from '../..';
 import { errorPng } from '../../utils/common';
 
-export const mediaThumbUrl = ({ coverImage, bannerImage }: ImageContext): string => {
+export const mediaThumbUrl = ({ coverImage, bannerImage }: IImageContext): string => {
     if (null !== coverImage.medium) {
         return coverImage.medium;
     } if (null !== coverImage.large) {
@@ -14,7 +14,7 @@ export const mediaThumbUrl = ({ coverImage, bannerImage }: ImageContext): string
     return errorPng;
 };
 
-export const charactersThumbUrl = ({ medium, large }: CharacterImage): string => {
+export const charactersThumbUrl = ({ medium, large }: ICharacterImage): string => {
     if (null !== medium) {
         return medium;
     } if (null !== large) {
@@ -24,7 +24,7 @@ export const charactersThumbUrl = ({ medium, large }: CharacterImage): string =>
     return errorPng;
 };
 
-export const staffThumbUrl = ({ medium, large }: StaffImage): string => {
+export const staffThumbUrl = ({ medium, large }: IStaffImage): string => {
     if (null !== medium) {
         return medium;
     } if (null !== large) {

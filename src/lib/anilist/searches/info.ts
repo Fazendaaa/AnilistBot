@@ -1,5 +1,5 @@
-import { CharactersContext, MediaContext, StaffContext, StudiosContext } from '.';
-import { MinimumInline } from '../../telegram/inline';
+import { ICharactersContext, IMediaContext, IStaffContext, IStudiosContext } from '.';
+import { IMinimumInline } from '../../telegram/';
 import { missingPng } from '../utils/common';
 import { charactersDescription, mediaDescription, staffDescription, studiosDescription } from './parse/description';
 import { charactersKeyboard, mediaKeyboard, staffKeyboard } from './parse/keyboard';
@@ -7,7 +7,7 @@ import { charactersMessage, mediaMessage , staffMessage, studiosMessage } from '
 import { charactersThumbUrl, mediaThumbUrl, staffThumbUrl } from './parse/thumbUrl';
 import { charactersTitle, mediaTitle, staffTitle, studiosTitle } from './parse/title';
 
-export const staffInfo = ({ staff, translation }: StaffContext): MinimumInline => {
+export const staffInfo = ({ staff, translation }: IStaffContext): IMinimumInline => {
     const { id, image, name } = staff;
 
     return {
@@ -19,7 +19,7 @@ export const staffInfo = ({ staff, translation }: StaffContext): MinimumInline =
     };
 };
 
-export const studiosInfo = ({ studios, translation }: StudiosContext): MinimumInline => {
+export const studiosInfo = ({ studios, translation }: IStudiosContext): IMinimumInline => {
     const { name } = studios;
 
     return {
@@ -30,7 +30,7 @@ export const studiosInfo = ({ studios, translation }: StudiosContext): MinimumIn
     };
 };
 
-export const charactersInfo = ({ characters, translation }: CharactersContext): MinimumInline => {
+export const charactersInfo = ({ characters, translation }: ICharactersContext): IMinimumInline => {
     const { id, name, image } = characters;
 
     return {
@@ -42,7 +42,7 @@ export const charactersInfo = ({ characters, translation }: CharactersContext): 
     };
 };
 
-export const mediaInfo = ({ media, translation }: MediaContext): MinimumInline  => {
+export const mediaInfo = ({ media, translation }: IMediaContext): IMinimumInline  => {
     const { id, title, format, coverImage, bannerImage, type, source, nextAiringEpisode } = media;
 
     return {

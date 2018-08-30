@@ -1,9 +1,9 @@
-import { TranslateDescriptionContext, TranslateGenresContext } from '..';
-import { fetchDescriptionTranslation, newDescriptionTranslation } from '../../../database/translations/descriptions';
-import { fetchGenresTranslation, newGenresTranslation } from '../../../database/translations/genres';
+import { ITranslateDescriptionContext, ITranslateGenresContext } from '..';
+import { fetchDescriptionTranslation, newDescriptionTranslation } from '../../../database/content/descriptions';
+import { fetchGenresTranslation, newGenresTranslation } from '../../../database/content/genres';
 import { translate } from './utils';
 
-export const translateDescription = async ({ id, to, request, message }: TranslateDescriptionContext): Promise<string> => {
+export const translateDescription = async ({ id, to, request, message }: ITranslateDescriptionContext): Promise<string> => {
     const description = await fetchDescriptionTranslation({ id, to, request });
 
     if ('' === description) {
@@ -17,7 +17,7 @@ export const translateDescription = async ({ id, to, request, message }: Transla
     return description;
 };
 
-export const translateGenres = async ({ id, to, request, message }: TranslateGenresContext): Promise<string> => {
+export const translateGenres = async ({ id, to, request, message }: ITranslateGenresContext): Promise<string> => {
     const genres = await fetchGenresTranslation({ id, to, request });
 
     if ('' === genres) {

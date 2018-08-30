@@ -1,6 +1,6 @@
-import { CharactersNameContext, StaffNameContext, StudiosNameContext, TitleContext } from '.';
+import { ICharactersNameContext, IStaffNameContext, IStudiosNameContext, ITitleContext } from '.';
 
-export const mediaTitle = ({ title, translation }: TitleContext): string => {
+export const mediaTitle = ({ title, translation }: ITitleContext): string => {
     if (null !== title.english) {
         return title.english;
     } if (null !== title.native) {
@@ -12,7 +12,7 @@ export const mediaTitle = ({ title, translation }: TitleContext): string => {
     return translation.t('notAvailable');
 };
 
-export const charactersTitle = ({ name, translation }: CharactersNameContext): string => {
+export const charactersTitle = ({ name, translation }: ICharactersNameContext): string => {
     if (null !== name.first) {
         return name.first;
     } if (null !== name.last) {
@@ -24,7 +24,7 @@ export const charactersTitle = ({ name, translation }: CharactersNameContext): s
     return translation.t('notAvailable');
 };
 
-export const staffTitle = ({ name, translation }: StaffNameContext): string => {
+export const staffTitle = ({ name, translation }: IStaffNameContext): string => {
     if (null !== name.first) {
         return name.first;
     } if (null !== name.last) {
@@ -36,7 +36,7 @@ export const staffTitle = ({ name, translation }: StaffNameContext): string => {
     return translation.t('notAvailable');
 };
 
-export const studiosTitle = ({ name, translation }: StudiosNameContext): string => {
+export const studiosTitle = ({ name, translation }: IStudiosNameContext): string => {
     if (null !== name) {
         return name;
     }

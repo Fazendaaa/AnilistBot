@@ -13,7 +13,6 @@
         "import-name": false,
         "variable-name": false,
         "missing-jsdoc": false,
-        "interface-name": false,
         "no-relative-imports": false,
         "no-floating-promises": false,
         "match-default-export-name": false,

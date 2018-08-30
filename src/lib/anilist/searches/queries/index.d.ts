@@ -1,8 +1,8 @@
-import { MediaTitle, CoverImage, FuzzyDateInt, MediaFormat, MediaStatus, MediaTrailer, MediaSource, AiringSchedule,
-MediaRanking, MediaExternalLink, MediaSeason, MediaType, CharacterName, CharacterImage, StaffName, StaffLanguage,
-StaffImage, StudioConnection } from '../..';
+import { IMediaTitle, ICoverImage, IFuzzyDateInt, MediaFormat, MediaStatus, IMediaTrailer, MediaSource, IAiringSchedule, IMediaRanking,
+IMediaExternalLink, MediaSeason, MediaType, ICharacterName, ICharacterImage, IStaffName, StaffLanguage, IStaffImage, IStudioConnection
+} from '../..';
 
-interface Media {
+interface IMedia {
     readonly id: number;
     readonly type: MediaType;
     readonly volumes: number;
@@ -11,7 +11,7 @@ interface Media {
     readonly episodes: number;
     readonly chapters: number;
     readonly isAdult: boolean;
-    readonly title: MediaTitle;
+    readonly title: IMediaTitle;
     readonly season: MediaSeason;
     readonly status: MediaStatus;
     readonly format: MediaFormat;
@@ -19,82 +19,82 @@ interface Media {
     readonly bannerImage: string;
     readonly averageScore: number;
     readonly genres: Array<string>;
-    readonly endDate: FuzzyDateInt;
-    readonly trailer: MediaTrailer;
-    readonly coverImage: CoverImage;
-    readonly startDate: FuzzyDateInt;
+    readonly endDate: IFuzzyDateInt;
+    readonly trailer: IMediaTrailer;
+    readonly coverImage: ICoverImage;
+    readonly startDate: IFuzzyDateInt;
     readonly countryOfOrigin: string;
-    readonly studios: StudioConnection;
-    readonly rankings: Array<MediaRanking>;
-    readonly nextAiringEpisode: AiringSchedule;
-    readonly externalLinks: Array<MediaExternalLink>;
+    readonly studios: IStudioConnection;
+    readonly rankings: Array<IMediaRanking>;
+    readonly nextAiringEpisode: IAiringSchedule;
+    readonly externalLinks: Array<IMediaExternalLink>;
 }
 
-interface Characters {
+export interface ICharacters {
     readonly id: number;
     readonly siteUrl: string;
-    readonly name: CharacterName;
-    readonly image: CharacterImage;
+    readonly name: ICharacterName;
+    readonly image: ICharacterImage;
 }
 
-interface Studios {
+export interface IStudios {
     readonly id: number;
     readonly name: string;
     readonly siteUrl: string;
 }
 
-interface Staff {
+export interface IStaff {
     readonly id: number;
-    readonly name: StaffName;
+    readonly name: IStaffName;
     readonly siteUrl: string;
-    readonly image: StaffImage;
+    readonly image: IStaffImage;
     readonly language: StaffLanguage;
 }
 
-interface MediaPage {
-    readonly media: Array<Media>;
+export interface IMediaPage {
+    readonly media: Array<IMedia>;
 }
 
-interface CharactersPage {
-    readonly characters: Array<Characters>;
+export interface ICharactersPage {
+    readonly characters: Array<ICharacters>;
 }
 
-interface StudiosPage {
-    readonly studios: Array<Studios>;
+export interface IStudiosPage {
+    readonly studios: Array<IStudios>;
 }
 
-interface StaffPage {
-    readonly staff: Array<Staff>;
+export interface IStaffPage {
+    readonly staff: Array<IStaff>;
 }
 
-interface MediaData {
-    readonly Page: MediaPage;
+export interface IMediaData {
+    readonly Page: IMediaPage;
 }
 
-interface CharactersData {
-    readonly Page: CharactersPage;
+export interface ICharactersData {
+    readonly Page: ICharactersPage;
 }
 
-interface StudiosData {
-    readonly Page: StudiosPage;
+export interface IStudiosData {
+    readonly Page: IStudiosPage;
 }
 
-interface StaffData {
-    readonly Page: StaffPage;
+export interface IStaffData {
+    readonly Page: IStaffPage;
 }
 
-export interface MediaQueryPage {
-    readonly data: MediaData;
+export interface IMediaQueryPage {
+    readonly data: IMediaData;
 }
 
-export interface CharactersQueryPage {
-    readonly data: CharactersData;
+export interface ICharactersQueryPage {
+    readonly data: ICharactersData;
 }
 
-export interface StudiosQueryPage {
-    readonly data: StudiosData;
+export interface IStudiosQueryPage {
+    readonly data: IStudiosData;
 }
 
-export interface StaffQueryPage {
-    readonly data: StaffData;
+export interface IStaffQueryPage {
+    readonly data: IStaffData;
 }

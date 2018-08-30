@@ -1,10 +1,10 @@
 import moment from 'moment';
 import { I18n } from 'telegraf-i18n';
-import { AdultContext, AllTitleContext, AllTitleResponse, AverageContext, ChaptersContext, DurationContext,
-EndDateContext, EpisodesContext, ExternalLinksContext, FormatContext, KindContext, MediaImageContext,
-NextAiringEpisodeContext, RakingContext, SeasonContext, SourceContext, StartDateContext, StatusContext, StudiosContext,
-TrailerContext, VolumesContext } from '.';
-import { MediaExternalLink, StudioConnection } from '../../..';
+import { IAdultContext, IAllTitleContext, IAllTitleResponse, IAverageContext, IChaptersContext, IDurationContext,
+IEndDateContext, IEpisodesContext, IExternalLinksContext, IFormatContext, IKindContext, IMediaImageContext,
+INextAiringEpisodeContext, IRakingContext, ISeasonContext, ISourceContext, IStartDateContext, IStatusContext, IStudiosContext,
+ITrailerContext, IVolumesContext } from '.';
+import { IMediaExternalLink, IStudioConnection } from '../../..';
 import { errorPng } from '../../../utils/common';
 
 const dateFormat = 'MMMM Do YYYY';
@@ -20,7 +20,7 @@ const toDuration = (input: number): string => {
     return `${input}min`;
 };
 
-const __parsingLinks = (translation: I18n, acc, { site, url }: MediaExternalLink): string => {
+const __parsingLinks = (translation: I18n, acc, { site, url }: IMediaExternalLink): string => {
     let name = site;
 
     if ('Official Site' === site) {
@@ -30,19 +30,19 @@ const __parsingLinks = (translation: I18n, acc, { site, url }: MediaExternalLink
     return `${acc}\t\t • [${name}](${url})\n`;
 };
 
-const parsingLinks = ({ externalLinks, translation }: ExternalLinksContext): string => {
-    const curriedParsingLinks = ((acc: string, cur: MediaExternalLink) => __parsingLinks(translation, acc, cur));
+const parsingLinks = ({ externalLinks, translation }: IExternalLinksContext): string => {
+    const curriedParsingLinks = ((acc: string, cur: IMediaExternalLink) => __parsingLinks(translation, acc, cur));
 
     return externalLinks.reduce(curriedParsingLinks, '');
 };
 
-const parsingStudios = ({ nodes }: StudioConnection): string => nodes.reduce((acc, cur) => {
+const parsingStudios = ({ nodes }: IStudioConnection): string => nodes.reduce((acc, cur) => {
     const { name, siteUrl } = cur;
 
     return `${acc}\t\t • [${name}](${siteUrl})\n`;
 }, '');
 
-export const toNextAiring = ({ nextAiringEpisode, translation }: NextAiringEpisodeContext): string => {
+export const toNextAiring = ({ nextAiringEpisode, translation }: INextAiringEpisodeContext): string => {
     const { timeUntilAiring } = nextAiringEpisode;
     const oneHour = 60 * 60;
     const oneDay = 24 * oneHour;
@@ -60,31 +60,31 @@ export const toNextAiring = ({ nextAiringEpisode, translation }: NextAiringEpiso
     return `${min % 60}min`;
 };
 
-export const mediaIsAdult = ({ isAdult, translation }: AdultContext): string => {
+export const mediaIsAdult = ({ isAdult, translation }: IAdultContext): string => {
     return (true === isAdult) ? translation.t('isAdult') : '';
 };
 
-export const mediaVolumes = ({ volumes, translation }: VolumesContext): string => {
+export const mediaVolumes = ({ volumes, translation }: IVolumesContext): string => {
     return (null !== volumes) ? translation.t('volumes', { volumes }) : '';
 };
 
-export const mediaAverage = ({ averageScore, translation }: AverageContext): string => {
+export const mediaAverage = ({ averageScore, translation }: IAverageContext): string => {
     return (null !== averageScore) ? translation.t('averageScore', { averageScore }) : '';
 };
 
-export const mediaEpisodes = ({ episodes, translation }: EpisodesContext): string => {
+export const mediaEpisodes = ({ episodes, translation }: IEpisodesContext): string => {
     return (null !== episodes) ? translation.t('episodes', { episodes }) : '';
 };
 
-export const mediaChapters = ({ chapters, translation }: ChaptersContext): string => {
+export const mediaChapters = ({ chapters, translation }: IChaptersContext): string => {
     return (null !== chapters) ? translation.t('chapters', { chapters }) : '';
 };
 
-export const mediaDuration = ({ duration, translation }: DurationContext): string => {
+export const mediaDuration = ({ duration, translation }: IDurationContext): string => {
     return (null !== duration) ? translation.t('duration', { duration: toDuration(duration) }) : '';
 };
 
-export const mediaStudios = ({ studios, translation }: StudiosContext): string => {
+export const mediaStudios = ({ studios, translation }: IStudiosContext): string => {
     if (null === studios || null === studios.nodes || 0 === studios.nodes.length) {
         return '';
     }
@@ -92,7 +92,7 @@ export const mediaStudios = ({ studios, translation }: StudiosContext): string =
     return translation.t('studiosLinks', { studios: parsingStudios(studios) });
 };
 
-export const mediaNextAiringEpisode = ({ nextAiringEpisode, translation }: NextAiringEpisodeContext): string => {
+export const mediaNextAiringEpisode = ({ nextAiringEpisode, translation }: INextAiringEpisodeContext): string => {
     if (null === nextAiringEpisode || null === nextAiringEpisode.timeUntilAiring) {
         return '';
     }
@@ -103,7 +103,7 @@ export const mediaNextAiringEpisode = ({ nextAiringEpisode, translation }: NextA
     });
 };
 
-export const mediaExternalLinks = ({ externalLinks, translation }: ExternalLinksContext): string => {
+export const mediaExternalLinks = ({ externalLinks, translation }: IExternalLinksContext): string => {
     if (null === externalLinks || 0 === externalLinks.length) {
         return '';
     }
@@ -111,7 +111,7 @@ export const mediaExternalLinks = ({ externalLinks, translation }: ExternalLinks
     return translation.t('externalLinks', { externalLinks: parsingLinks({ externalLinks, translation }) });
 };
 
-export const mediaStartDate = ({ startDate, status, translation }: StartDateContext): string => {
+export const mediaStartDate = ({ startDate, status, translation }: IStartDateContext): string => {
     if (null === startDate || 'NOT_YET_RELEASED' === status) {
         return '';
     }
@@ -119,7 +119,7 @@ export const mediaStartDate = ({ startDate, status, translation }: StartDateCont
     return translation.t('startDate', { startDate: moment(startDate).locale(translation.locale()).format(dateFormat) });
 };
 
-export const mediaEndDate = ({ endDate, status, translation }: EndDateContext): string => {
+export const mediaEndDate = ({ endDate, status, translation }: IEndDateContext): string => {
     if (null === endDate || 'NOT_YET_RELEASED' === status || 'RELEASING' === status) {
         return '';
     }
@@ -127,7 +127,7 @@ export const mediaEndDate = ({ endDate, status, translation }: EndDateContext): 
     return translation.t('endDate', { endDate: moment(endDate).locale(translation.locale()).format(dateFormat) });
 };
 
-export const mediaTrailer = ({ trailer, translation }: TrailerContext): string => {
+export const mediaTrailer = ({ trailer, translation }: ITrailerContext): string => {
     if (null === trailer) {
         return '';
     }
@@ -136,7 +136,7 @@ export const mediaTrailer = ({ trailer, translation }: TrailerContext): string =
     return translation.t('trailer', { trailer: `${trailer.site}.com/watch?v=${trailer.id}` });
 };
 
-export const mediaImage = ({ coverImage, bannerImage }: MediaImageContext): string => {
+export const mediaImage = ({ coverImage, bannerImage }: IMediaImageContext): string => {
     if (null !== bannerImage) {
         return bannerImage;
     } if (null !== coverImage.large) {
@@ -148,7 +148,7 @@ export const mediaImage = ({ coverImage, bannerImage }: MediaImageContext): stri
     return errorPng;
 };
 
-export const mediaRanking = ({ rankings, translation }: RakingContext): string => {
+export const mediaRanking = ({ rankings, translation }: IRakingContext): string => {
     if (null !== rankings && 0 < rankings.length) {
         const best = rankings.sort((a, b) => a.rank - b.rank)[0];
         const kind = translation.t(best.type.toLowerCase());
@@ -159,7 +159,7 @@ export const mediaRanking = ({ rankings, translation }: RakingContext): string =
     return '';
 };
 
-export const mediaSeason = ({ season, translation }: SeasonContext): string => {
+export const mediaSeason = ({ season, translation }: ISeasonContext): string => {
     let kind = translation.t('winter');
 
     if (null === season) {
@@ -175,7 +175,7 @@ export const mediaSeason = ({ season, translation }: SeasonContext): string => {
     return translation.t('season', { season: kind });
 };
 
-export const mediaStatus = ({ status, translation }: StatusContext): string => {
+export const mediaStatus = ({ status, translation }: IStatusContext): string => {
     let kind = translation.t('cancelled');
 
     if (null === status) {
@@ -191,7 +191,7 @@ export const mediaStatus = ({ status, translation }: StatusContext): string => {
     return translation.t('status', { status: kind });
 };
 
-export const mediaAllTitle = ({ title, translation, countryOfOrigin }: AllTitleContext): AllTitleResponse => {
+export const mediaAllTitle = ({ title, translation, countryOfOrigin }: IAllTitleContext): IAllTitleResponse => {
     let native = '';
     let romaji = '';
 
@@ -210,7 +210,7 @@ export const mediaAllTitle = ({ title, translation, countryOfOrigin }: AllTitleC
     };
 };
 
-export const mediaSource = ({ source, translation }: SourceContext): string => {
+export const mediaSource = ({ source, translation }: ISourceContext): string => {
     if (null === source) {
         return '';
     } if ('MANGA' === source) {
@@ -228,7 +228,7 @@ export const mediaSource = ({ source, translation }: SourceContext): string => {
     return translation.t('visualNovel');
 };
 
-export const mediaFormat = ({ format, translation }: FormatContext): string => {
+export const mediaFormat = ({ format, translation }: IFormatContext): string => {
     if (null === format) {
         return '';
     } if ('TV' === format) {
@@ -254,7 +254,7 @@ export const mediaFormat = ({ format, translation }: FormatContext): string => {
     return translation.t('oneShot');
 };
 
-export const mediaKind = ({ format, source, translation }: KindContext): string => {
+export const mediaKind = ({ format, source, translation }: IKindContext): string => {
     const first = mediaFormat({ format, translation });
     const second = mediaSource({ source, translation });
     let kind = '';

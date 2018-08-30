@@ -1,80 +1,80 @@
 import { I18n } from 'telegraf-i18n';
-import { Media, Characters, Studios, Staff } from '../queries';
-import { CoverImage, MediaFormat, MediaTitle, MediaSource, CharacterName, AiringSchedule, StaffName } from '../..';
+import { IMedia, ICharacters, IStudios, IStaff } from '../queries';
+import { ICoverImage, MediaFormat, IMediaTitle, MediaSource, ICharacterName, IAiringSchedule, IStaffName } from '../..';
 import { AllRequests } from '../../../telegram';
 
-interface KeyboardContext {
+interface IKeyboardContext {
     readonly id: number;
     readonly type: AllRequests;
     readonly translation: I18n;
 }
 
-export interface MediaMessage {
-    readonly media: Media;
+export interface IMediaMessage {
+    readonly media: IMedia;
     readonly translation: I18n;
 }
 
-export interface CharacterMessage {
+export interface ICharacterMessage {
     readonly translation: I18n;
-    readonly characters: Characters;
+    readonly characters: ICharacters;
 }
 
-export interface StudioMessage {
-    readonly studios: Studios;
-    readonly translation: I18n;
-}
-
-export interface StaffMessage {
-    readonly staff: Staff;
+export interface IStudioMessage {
+    readonly studios: IStudios;
     readonly translation: I18n;
 }
 
-export interface ImageContext {
+export interface IStaffMessage {
+    readonly staff: IStaff;
+    readonly translation: I18n;
+}
+
+export interface IImageContext {
     readonly bannerImage: string;
-    readonly coverImage: CoverImage;
+    readonly coverImage: ICoverImage;
 }
 
-export interface TitleContext {
-    readonly title: MediaTitle;
+export interface ITitleContext {
+    readonly title: IMediaTitle;
     readonly translation: I18n;
 }
 
-export interface MediaDescriptionContext {
-    readonly title: MediaTitle;
+export interface IMediaDescriptionContext {
+    readonly title: IMediaTitle;
     readonly translation: I18n;
     readonly source: MediaSource; 
     readonly format: MediaFormat;
-    readonly nextAiringEpisode: AiringSchedule;
+    readonly nextAiringEpisode: IAiringSchedule;
 }
 
-export interface CharacterDescriptionContext {
+export interface ICharacterDescriptionContext {
     readonly translation: I18n;
 }
 
-export interface StudiosDescriptionContext {
+export interface IStudiosDescriptionContext {
     readonly translation: I18n;
 }
 
-export interface StaffDescriptionContext {
+export interface IStaffDescriptionContext {
     readonly translation: I18n;
 }
 
-export interface CharactersNameContext {
+export interface ICharactersNameContext {
     readonly translation: I18n;
-    readonly name: CharacterName;
+    readonly name: ICharacterName;
 }
 
-export interface StaffNameContext {
-    readonly name: StaffName;
+export interface IStaffNameContext {
+    readonly name: IStaffName;
     readonly translation: I18n;
 }
 
-export interface StaffNameResponse {
+export interface IStaffNameResponse {
     readonly name: string;
     readonly native: string;
 }
 
-export interface StudiosNameContext {
+export interface IStudiosNameContext {
     readonly name: string;
     readonly translation: I18n;
 }

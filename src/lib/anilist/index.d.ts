@@ -43,35 +43,35 @@ export type StaffLanguage = 'KOREAN' |
                             'HUNGARIAN' |
                             'PORTUGUESE'
 
-export interface MediaTrailer {
+export interface IMediaTrailer {
     readonly id: string;
     readonly site: string;
 }
 
-export interface CoverImage {
+export interface ICoverImage {
     readonly large: string;
     readonly medium: string;
 }
 
-export interface MediaTitle {
+export interface IMediaTitle {
     readonly native: string;
     readonly romaji: string;
     readonly english: string;
 }
 
-export interface FuzzyDateInt {
+export interface IFuzzyDateInt {
     readonly day: number;
     readonly year: number;
     readonly month: number;
 }
 
-export interface MediaExternalLink {
+export interface IMediaExternalLink {
     readonly id: number;
     readonly url: string;
     readonly site: string;
 }
 
-export interface MediaRanking {
+export interface IMediaRanking {
     readonly id: number;
     readonly rank: number;
     readonly year: number;
@@ -82,14 +82,14 @@ export interface MediaRanking {
     readonly season: MediaSeason;
 }
 
-export interface MediaStreamingEpisode {
+export interface IMediaStreamingEpisode {
     readonly url: string;
     readonly site: string;
     readonly title: string;
     readonly thumbnail: string;
 }
 
-export interface AiringSchedule {
+export interface IAiringSchedule {
     readonly id: number;
     readonly episode: number;
     readonly mediaIt: number;
@@ -97,44 +97,44 @@ export interface AiringSchedule {
     readonly timeUntilAiring: number;
 }
 
-export interface CharacterName {
+export interface ICharacterName {
     readonly last: string;
     readonly first: string;
     readonly native: string;
     readonly alternative: Array<string>;
 }
 
-export interface CharacterImage {
+export interface ICharacterImage {
     readonly large: string;
     readonly medium: string;
 }
 
-export interface StaffName {
+export interface IStaffName {
     readonly last: string;
     readonly first: string;
     readonly native: string;
 }
 
-export interface StaffImage {
+export interface IStaffImage {
     readonly large: string;
     readonly medium: string;
 }
 
-export interface Studio {
+export interface IStudio {
     readonly id: number;
     readonly name: string;
     readonly siteUrl: string;
     readonly isFavourite: boolean;
 }
 
-export interface StudioEdge {
+export interface IStudioEdge {
     readonly id: number;
-    readonly node: Studio;
+    readonly node: IStudio;
     readonly isMain: boolean;
     readonly favouriteOrder: number;
 }
 
-export interface PageInfo {
+export interface IPageInfo {
     readonly total: number;
     readonly perPage: number;
     readonly lastPage: number;
@@ -142,8 +142,8 @@ export interface PageInfo {
     readonly hasNextPage: boolean;
 }
 
-export interface StudioConnection {
-    readonly nodes: Array<Studio>;
-    readonly edges: Array<StudioEdge>;
-    readonly pageInfo: PageInfo;
+export interface IStudioConnection {
+    readonly nodes: Array<IStudio>;
+    readonly edges: Array<IStudioEdge>;
+    readonly pageInfo: IPageInfo;
 }

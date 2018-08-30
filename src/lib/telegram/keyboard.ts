@@ -1,39 +1,39 @@
 import { Markup } from 'telegraf';
 import { InlineKeyboardMarkup } from 'telegram-typings';
-import { KeyboardContext } from '.';
+import { IKeyboardContext } from '.';
 
-export const countdownKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const countdownKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     return Markup.inlineKeyboard([
         Markup.callbackButton(translation.t('backButton'), 'MENU/MENU-BACK/0')
     ]);
 };
 
-export const aboutKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const aboutKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     return Markup.inlineKeyboard([
         Markup.callbackButton(translation.t('backButton'), 'MENU/GUIDE-BACK/0')
     ]);
 };
 
-export const notifyKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const notifyKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     return Markup.inlineKeyboard([
         Markup.callbackButton(translation.t('backButton'), 'MENU/USER-BACK/0')
     ]);
 };
 
-export const timeKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const timeKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     return Markup.inlineKeyboard([
         Markup.callbackButton(translation.t('backButton'), 'MENU/USER-BACK/0')
     ]);
 };
 
-export const guideKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const guideKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     return Markup.inlineKeyboard([
         Markup.callbackButton(translation.t('backButton'), 'MENU/MENU-BACK/0'),
         Markup.callbackButton(translation.t('aboutButton'), 'MENU/ABOUT/0')
     ]);
 };
 
-export const userKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const userKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('notifyButton'), 'MENU/NOTIFY/0'),
         Markup.callbackButton(translation.t('timeButton'), 'MENU/TIME/0')
@@ -45,7 +45,7 @@ export const userKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMa
     return Markup.inlineKeyboard([ firstLine, secondLine ]);
 };
 
-export const menuKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const menuKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('userButton'), 'MENU/USER/0'),
         Markup.callbackButton(translation.t('countdownButton'), 'MENU/COUNTDOWN/0'),
@@ -61,7 +61,7 @@ export const menuKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMa
 
 // I  know that publishing is only to manga and airing to anime, but even so is they have their following data type just
 // to not break the pattern.
-export const readlistKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const readlistKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('publishingButton'), 'MENU/MANGA-PUBLISHING/0'),
         Markup.callbackButton(translation.t('soonButton'), 'MENU/MANGA-SOON/0'),
@@ -78,7 +78,7 @@ export const readlistKeyboard = ({ translation }: KeyboardContext): InlineKeyboa
     return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine ]);
 };
 
-export const publishingMangaKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const publishingMangaKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('allButton'), 'MENU/MANGA-ALL/0'),
         Markup.callbackButton(translation.t('soonButton'), 'MENU/MANGA-SOON/0'),
@@ -95,7 +95,7 @@ export const publishingMangaKeyboard = ({ translation }: KeyboardContext): Inlin
     return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine ]);
 };
 
-export const soonMangaKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const soonMangaKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('allButton'), 'MENU/MANGA-ALL/0'),
         Markup.callbackButton(translation.t('publishingButton'), 'MENU/MANGA-PUBLISHING/0'),
@@ -112,7 +112,7 @@ export const soonMangaKeyboard = ({ translation }: KeyboardContext): InlineKeybo
     return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine ]);
 };
 
-export const completedMangaKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const completedMangaKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('allButton'), 'MENU/MANGA-ALL/0'),
         Markup.callbackButton(translation.t('soonButton'), 'MENU/MANGA-SOON/0'),
@@ -129,7 +129,7 @@ export const completedMangaKeyboard = ({ translation }: KeyboardContext): Inline
     return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine ]);
 };
 
-export const cancelledMangaKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const cancelledMangaKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('allButton'), 'MENU/MANGA-ALL/0'),
         Markup.callbackButton(translation.t('publishingButton'), 'MENU/MANGA-PUBLISHING/0'),
@@ -146,7 +146,7 @@ export const cancelledMangaKeyboard = ({ translation }: KeyboardContext): Inline
     return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine ]);
 };
 
-export const watchlistKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const watchlistKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('airingButton'), 'MENU/ANIME-AIRING/0'),
         Markup.callbackButton(translation.t('soonButton'), 'MENU/ANIME-SOON/0'),
@@ -163,7 +163,7 @@ export const watchlistKeyboard = ({ translation }: KeyboardContext): InlineKeybo
     return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine ]);
 };
 
-export const airingAnimeKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const airingAnimeKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('allButton'), 'MENU/ANIME-ALL/0'),
         Markup.callbackButton(translation.t('soonButton'), 'MENU/ANIME-SOON/0'),
@@ -180,7 +180,7 @@ export const airingAnimeKeyboard = ({ translation }: KeyboardContext): InlineKey
     return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine ]);
 };
 
-export const soonAnimeKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const soonAnimeKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('allButton'), 'MENU/ANIME-ALL/0'),
         Markup.callbackButton(translation.t('airingButton'), 'MENU/ANIME-AIRING/0'),
@@ -197,7 +197,7 @@ export const soonAnimeKeyboard = ({ translation }: KeyboardContext): InlineKeybo
     return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine ]);
 };
 
-export const completedAnimeKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const completedAnimeKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('allButton'), 'MENU/ANIME-ALL/0'),
         Markup.callbackButton(translation.t('airingButton'), 'MENU/ANIME-AIRING/0'),
@@ -214,7 +214,7 @@ export const completedAnimeKeyboard = ({ translation }: KeyboardContext): Inline
     return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine ]);
 };
 
-export const cancelledAnimeKeyboard = ({ translation }: KeyboardContext): InlineKeyboardMarkup => {
+export const cancelledAnimeKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('allButton'), 'MENU/ANIME-ALL/0'),
         Markup.callbackButton(translation.t('airingButton'), 'MENU/ANIME-AIRING/0'),

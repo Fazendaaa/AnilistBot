@@ -1,6 +1,6 @@
-import { MenuContext } from '.';
+import { IMenuContext } from '.';
 
-const handleAnime = ({ request, translation }: MenuContext): string => {
+const handleAnime = ({ request, translation }: IMenuContext): string => {
     if ('ANIME-SOON' === request) {
         return translation.t('soonAnimeOptions');
     } if ('ANIME-AIRING' === request) {
@@ -14,7 +14,7 @@ const handleAnime = ({ request, translation }: MenuContext): string => {
     return translation.t('watchlistOptions');
 };
 
-const handleManga = ({ request, translation }: MenuContext): string => {
+const handleManga = ({ request, translation }: IMenuContext): string => {
     if ('MANGA-SOON' === request) {
         return translation.t('soonMangaOptions');
     } if ('MANGA-COMPLETED' === request) {
@@ -28,7 +28,7 @@ const handleManga = ({ request, translation }: MenuContext): string => {
     return translation.t('readlistOptions');
 };
 
-const handleBack = ({ request, translation }: MenuContext): string => {
+const handleBack = ({ request, translation }: IMenuContext): string => {
     if ('MENU-BACK' === request) {
         return translation.t('menuOptions');
     }
@@ -36,7 +36,7 @@ const handleBack = ({ request, translation }: MenuContext): string => {
     return translation.t('guideOptions');
 };
 
-export const handleMenu = ({ request, translation }: MenuContext): string => {
+export const handleMenu = ({ request, translation }: IMenuContext): string => {
     const kind = request.split('-');
 
     if ('BACK' === kind[0]) {

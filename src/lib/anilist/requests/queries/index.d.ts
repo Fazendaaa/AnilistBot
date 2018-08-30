@@ -1,23 +1,23 @@
-interface Description {
+interface IDescription {
     readonly description: string;
 }
 
-interface MediaDescription {
-    readonly Media: Description;
+interface IMediaDescription {
+    readonly Media: IDescription;
 }
 
-interface Genres {
+interface IGenres {
     readonly genres: Array<string>;
 }
 
-interface MediaGenres {
-    readonly Media: Genres;
+interface IMediaGenres {
+    readonly Media: IGenres;
 }
 
-export interface RequestsDescription {
-    readonly data: MediaDescription;
+export interface IRequestsDescription {
+    readonly data: IMediaDescription;
 }
 
-export interface RequestsGenres {
-    readonly data: MediaGenres;
+export interface IRequestsGenres {
+    readonly data: IMediaGenres;
 }
