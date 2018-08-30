@@ -16,6 +16,7 @@
         "no-relative-imports": false,
         "no-floating-promises": false,
         "match-default-export-name": false,
+        "mocha-no-side-effect-code": false,
         "binary-expression-operand-order": false,
         "no-backbone-get-set-outside-model": false,
         "no-implicit-dependencies": [

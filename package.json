@@ -8,9 +8,9 @@
         "prepush": "npm test",
         "test": "npm run jest",
         "bot": "node dist/main.js",
-        "precommit": "npm run lint",
         "counter": "linecounter >> stats.json",
         "start": "npm run build && npm run bot",
+        "precommit": "npm run lint && npm run counter",
         "lint": "tslint --config tslint.json --project .",
         "jest": "jest --config jest.config.json --ci --runInBand --detectOpenHandles --forceExit --no-cache"
     },
