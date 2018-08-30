@@ -4,8 +4,8 @@ import { IAdultContext, IAllTitleContext, IAllTitleResponse, IAverageContext, IC
 IEndDateContext, IEpisodesContext, IExternalLinksContext, IFormatContext, IKindContext, IMediaImageContext,
 INextAiringEpisodeContext, IRakingContext, ISeasonContext, ISourceContext, IStartDateContext, IStatusContext, IStudiosContext,
 ITrailerContext, IVolumesContext } from '.';
-import { IMediaExternalLink, IStudioConnection } from '../../..';
-import { errorPng } from '../../../utils/common';
+import { IMediaExternalLink, IStudioConnection } from '../../';
+import { errorPng } from '../../utils/common';
 
 const dateFormat = 'MMMM Do YYYY';
 

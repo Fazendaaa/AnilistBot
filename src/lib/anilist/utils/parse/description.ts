@@ -1,5 +1,5 @@
 import { ICharacterDescriptionContext, IMediaDescriptionContext, IStaffDescriptionContext, IStudiosDescriptionContext } from '.';
-import { mediaFormat, mediaSource, toNextAiring } from './formatting/media';
+import { mediaFormat, mediaSource, toNextAiring } from '../formatting/media';
 
 export const mediaDescription = ({ title, format, source, nextAiringEpisode, translation }: IMediaDescriptionContext): string => {
     let response = '';

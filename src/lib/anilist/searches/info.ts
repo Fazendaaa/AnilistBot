@@ -1,11 +1,11 @@
 import { ICharactersContext, IMediaContext, IStaffContext, IStudiosContext } from '.';
 import { IMinimumInline } from '../../telegram/';
 import { missingPng } from '../utils/common';
-import { charactersDescription, mediaDescription, staffDescription, studiosDescription } from './parse/description';
-import { charactersKeyboard, mediaKeyboard, staffKeyboard } from './parse/keyboard';
-import { charactersMessage, mediaMessage , staffMessage, studiosMessage } from './parse/messageText';
-import { charactersThumbUrl, mediaThumbUrl, staffThumbUrl } from './parse/thumbUrl';
-import { charactersTitle, mediaTitle, staffTitle, studiosTitle } from './parse/title';
+import { charactersDescription, mediaDescription, staffDescription, studiosDescription } from '../utils/parse/description';
+import { charactersKeyboard, mediaKeyboard, staffKeyboard } from '../utils/parse/keyboard';
+import { charactersMessage, mediaMessage , staffMessage, studiosMessage } from '../utils/parse/messageText';
+import { charactersThumbUrl, mediaThumbUrl, staffThumbUrl } from '../utils/parse/thumbUrl';
+import { charactersTitle, mediaTitle, staffTitle, studiosTitle } from '../utils/parse/title';
 
 export const staffInfo = ({ staff, translation }: IStaffContext): IMinimumInline => {
     const { id, image, name } = staff;

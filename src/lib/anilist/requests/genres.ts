@@ -6,7 +6,15 @@ import anime from './queries/genres/anime.gql';
 import manga from './queries/genres/manga.gql';
 import { translateGenres } from './translations/translations';
 
-const parseGenres = (input: string): string => input.split(/\s*,\s*/).reduce((acc, cur) => `${acc} • ${cur}\n`, '');
+const parseGenres = (input: string | string []): string => {
+    let genres = input;
+
+    if (false === Array.isArray(input)) {
+        genres = (<string> input).split(/\s*,\s*/);
+    }
+
+    return (<string[]> genres).reduce((acc, cur) => `${acc}• ${cur}\n`, '');
+};
 
 export const fetchGenres = async ({ id, request, translation }: IDataContext): Promise<string> => {
     const fetch = <IRequestsGenres> await fetchData({
