@@ -1,7 +1,7 @@
 import striptags from 'striptags';
-import { ITranslateDescriptionContext, ITranslateGenresContext } from '..';
 import { fetchDescriptionTranslation, newDescriptionTranslation } from '../../../database/content/descriptions';
 import { fetchGenresTranslation, newGenresTranslation } from '../../../database/content/genres';
+import { ITranslateDescriptionContext, ITranslateGenresContext } from '../../requests';
 import { translate } from './utils';
 
 export const translateDescription = async ({ id, to, request, message }: ITranslateDescriptionContext): Promise<string> => {
