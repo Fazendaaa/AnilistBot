@@ -1,3 +1,4 @@
+import striptags from 'striptags';
 import { ITranslateDescriptionContext, ITranslateGenresContext } from '..';
 import { fetchDescriptionTranslation, newDescriptionTranslation } from '../../../database/content/descriptions';
 import { fetchGenresTranslation, newGenresTranslation } from '../../../database/content/genres';
@@ -7,7 +8,7 @@ export const translateDescription = async ({ id, to, request, message }: ITransl
     const description = await fetchDescriptionTranslation({ id, to, request });
 
     if ('' === description) {
-        const text = await translate({ src: 'en', message, to });
+        const text = await translate({ src: 'en', message: striptags(message), to });
 
         newDescriptionTranslation({ message: text, id, to, request });
 

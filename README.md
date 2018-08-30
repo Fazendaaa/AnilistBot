@@ -117,6 +117,7 @@ You can build yourself a bot similar to this one, I've wrote a tutorial about it
 * [moment](http://momentjs.com/)
 * [mongoose](http://mongoosejs.com/)
 * [node schedule](https://github.com/node-schedule/node-schedule)
+* [striptags](https://github.com/ericnorris/striptags)
 * [telegraf](http://telegraf.js.org/#/)
 * [telegraf-i18n](https://github.com/telegraf/telegraf-i18n)
 

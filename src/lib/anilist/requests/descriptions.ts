@@ -1,4 +1,5 @@
 import { fetchData } from 'endeavor';
+import striptags from 'striptags';
 import { IDataContext } from '.';
 import { IRequestsDescription } from './queries';
 import anime from './queries/description/anime.gql';
@@ -14,7 +15,7 @@ export const fetchDescription = async ({ id, request, translation }: IDataContex
     const to = translation.locale().split('-')[0];
 
     if ('en' === to) {
-        return message;
+        return striptags(message);
     }
 
     return translateDescription({ id, to, request, message });
