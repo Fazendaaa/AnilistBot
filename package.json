@@ -6,7 +6,7 @@
     "scripts": {
         "build": "webpack",
         "bot": "node dist/main.js",
-        "test": "snyk test && npm run jest",
+        "test": "npm run jest",
         "counter": "linecounter >> stats.json",
         "start": "npm run build && npm run bot",
         "lint": "tslint --config tslint.json --project .",
