@@ -4,7 +4,7 @@ import { IDataContext } from '.';
 import { IRequestsDescription } from '../queries';
 import anime from '../queries/animeDescription.gql';
 import manga from '../queries/mangaDescription.gql';
-import { translateDescription } from '../utils/translations/translations';
+import { translateDescription } from '../translations/translations';
 
 export const fetchDescription = async ({ id, request, translation }: IDataContext): Promise<string> => {
     const fetch = <IRequestsDescription> await fetchData({

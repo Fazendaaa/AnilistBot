@@ -1,11 +1,11 @@
 import { ICharacterMessage, IMediaMessage, IStaffMessage, IStudioMessage } from '.';
-import { missingPng } from '../../utils/common';
 import { charactersAllNames, charactersImage } from '../formatting/characters';
 import { mediaAllTitle, mediaAverage, mediaChapters, mediaDuration, mediaEndDate, mediaEpisodes, mediaExternalLinks, mediaImage,
 mediaIsAdult, mediaKind, mediaNextAiringEpisode, mediaRanking, mediaSeason, mediaStartDate, mediaStatus, mediaStudios, mediaTrailer,
 mediaVolumes } from '../formatting/media';
 import { staffAllNames, staffImage } from '../formatting/staff';
 import { studiosName } from '../formatting/studios';
+import { missingPng } from '../utils/common';
 
 export const mediaMessage = ({ media, translation }: IMediaMessage): string => {
     const { siteUrl, season, status, isAdult, volumes, trailer, rankings, duration, episodes, chapters, averageScore,

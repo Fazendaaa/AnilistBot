@@ -1,7 +1,7 @@
 import { IStaffNameContext } from '.';
-import { IStaffImage } from '../../';
-import { errorPng } from '../../utils/common';
+import { IStaffImage } from '../';
 import { IStaffNameResponse } from '../parse';
+import { errorPng } from '../utils/common';
 
 const isEmpty = (input: string): boolean => {
     const matched = input.match(/\s*/gm)[0];

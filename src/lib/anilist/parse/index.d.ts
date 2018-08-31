@@ -1,7 +1,7 @@
 import { I18n } from 'telegraf-i18n';
-import { IMedia, ICharacters, IStudios, IStaff } from '../../queries';
-import { ICoverImage, MediaFormat, IMediaTitle, MediaSource, ICharacterName, IAiringSchedule, IStaffName } from '../..';
-import { AllRequests } from '../../../telegram';
+import { IMedia, ICharacters, IStudios, IStaff } from '../queries';
+import { ICoverImage, MediaFormat, IMediaTitle, MediaSource, ICharacterName, IAiringSchedule, IStaffName } from '..';
+import { AllRequests } from '../../telegram';
 
 interface IKeyboardContext {
     readonly id: number;

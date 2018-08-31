@@ -1,6 +1,6 @@
 import { ICharactersNameContext, ICharactersNameResponse } from '.';
-import { ICharacterImage } from '../../';
-import { errorPng } from '../../utils/common';
+import { ICharacterImage } from '../';
+import { errorPng } from '../utils/common';
 
 const joining = (input: string[]): string => input.reduce((acc, cur) => `${acc}\t\t • _${cur}_\n`, '');
 

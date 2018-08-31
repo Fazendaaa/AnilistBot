@@ -4,7 +4,7 @@ import { MediaType } from '..';
 import { IRequestsGenres } from '../queries';
 import anime from '../queries/animeGenres.gql';
 import manga from '../queries/mangaGenres.gql';
-import { translateGenres } from '../utils/translations/translations';
+import { translateGenres } from '../translations/translations';
 
 const parseGenres = (input: string | string []): string => {
     let genres = input;
