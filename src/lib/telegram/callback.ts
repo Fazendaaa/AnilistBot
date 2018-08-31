@@ -3,10 +3,9 @@ import { ICallbackKeyboardContext, IRequestsContext } from '.';
 import { fetchDescription } from '../anilist/requests/descriptions';
 import { fetchGenres } from '../anilist/requests/genres';
 import { handleMenu } from './formatting/menu';
-import { aboutKeyboard, airingAnimeKeyboard, cancelledAnimeKeyboard, cancelledMangaKeyboard, completedAnimeKeyboard,
-completedMangaKeyboard, countdownKeyboard, guideKeyboard, menuKeyboard, notifyKeyboard, publishingMangaKeyboard,
-readlistKeyboard, soonAnimeKeyboard,  soonMangaKeyboard, timeKeyboard, userKeyboard, watchlistKeyboard
-} from './keyboard';
+import { aboutKeyboard, airingAnimeKeyboard, cancelledAnimeKeyboard, cancelledMangaKeyboard, completedAnimeKeyboard, completedMangaKeyboard,
+countdownKeyboard, guideKeyboard, languageKeyboard, menuKeyboard, notifyKeyboard, publishingMangaKeyboard, readlistKeyboard,
+soonAnimeKeyboard,  soonMangaKeyboard, timeKeyboard, userKeyboard, watchlistKeyboard } from './keyboard';
 
 const truncateMessage = (input: string): string => {
     const max = 196;
@@ -42,25 +41,15 @@ const mangaKeyboard = ({ request, translation }: ICallbackKeyboardContext): Inli
     return readlistKeyboard({ translation });
 };
 
-const backKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
-    if ('MENU-BACK' === request) {
-        return menuKeyboard({ translation });
-    } if ('USER-BACK' === request) {
-        return userKeyboard({ translation });
-    }
-
-    return aboutKeyboard({ translation });
-};
-
 export const handleCallback = async ({ id, request, field, translation, dbStatus }: IRequestsContext): Promise<string> => {
     const lang = translation.locale().split('-')[0];
 
     if (false === dbStatus && ('en' !== lang || 'LIST' === field)) {
         return translation.t('dbDown');
-    } if ('GENRES' === field) {
-        return fetchGenres({ id, request, translation }).then(truncateMessage);
     } if ('MENU' === field) {
         return handleMenu({ request, translation });
+    } if ('GENRES' === field) {
+        return fetchGenres({ id, request, translation }).then(truncateMessage);
     } if ('DESCRIPTION' === field) {
         return fetchDescription({ id, request, translation }).then(truncateMessage);
     }
@@ -71,12 +60,12 @@ export const handleCallback = async ({ id, request, field, translation, dbStatus
 export const callbackKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
     const kind = request.split('-');
 
-    if ('BACK' === kind[0]) {
-        return backKeyboard({ request, translation });
-    } if ('ANIME' === kind[0]) {
+    if ('ANIME' === kind[0]) {
         return animeKeyboard({ request, translation });
     } if ('MANGA' === kind[0]) {
         return mangaKeyboard({ request, translation });
+    } if ('LANGUAGE' === kind[0]) {
+        return languageKeyboard({ translation });
     } if ('TIME' === request) {
         return timeKeyboard({ translation });
     } if ('USER' === request) {

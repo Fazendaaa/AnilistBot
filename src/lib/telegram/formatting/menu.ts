@@ -28,23 +28,43 @@ const handleManga = ({ request, translation }: IMenuContext): string => {
     return translation.t('readlistOptions');
 };
 
-const handleBack = ({ request, translation }: IMenuContext): string => {
-    if ('MENU-BACK' === request) {
-        return translation.t('menuOptions');
+const handleLanguage = ({ request, translation }: IMenuContext): string => {
+    if ('LANGUAGE-PORTUGUESE' === request) {
+        return 'FOO';
+    } if ('LANGUAGE-INDONESIAN' === request) {
+        return 'FOO';
+    } if ('LANGUAGE-DUTCH' === request) {
+        return 'FOO';
+    } if ('LANGUAGE-SPANISH' === request) {
+        return 'FOO';
+    } if ('LANGUAGE-ITALIAN' === request) {
+        return 'FOO';
+    } if ('LANGUAGE-DEUTSCH' === request) {
+        return 'FOO';
+    } if ('LANGUAGE-FRENCH' === request) {
+        return 'FOO';
+    } if ('LANGUAGE-RUSSIAN' === request) {
+        return 'FOO';
+    } if ('LANGUAGE-CHINESE' === request) {
+        return 'FOO';
+    } if ('LANGUAGE-JAPANESE' === request) {
+        return 'FOO';
     }
 
-    return translation.t('guideOptions');
+    return 'FOO';
 };
 
 export const handleMenu = ({ request, translation }: IMenuContext): string => {
     const kind = request.split('-');
 
-    if ('BACK' === kind[0]) {
-        return handleBack({ request, translation });
-    } if ('ANIME' === kind[0]) {
+    if ('ANIME' === kind[0]) {
         return handleAnime({ request, translation });
+    } if ('LANGUAGE' === kind[0]) {
+        return handleLanguage({ request, translation });
     } if ('MANGA' === kind[0]) {
         return handleManga({ request, translation });
+    } if ('MENU' === request) {
+        return translation.t('menuOptions');
     } if ('TIME' === request) {
         return translation.t('timeOptions');
     } if ('ABOUT' === request) {
@@ -61,5 +81,5 @@ export const handleMenu = ({ request, translation }: IMenuContext): string => {
         return translation.t('watchlistOptions');
     }
 
-    return translation.t('userOptions', { notifications: 'foo', time: 'bar' });
+    return translation.t('userOptions', { notifications: 'foo', time: 'bar', language: 'nothing' });
 };

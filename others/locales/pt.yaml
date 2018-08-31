@@ -39,12 +39,18 @@ helpOptions:
 
 userOptions:
   "😀 *USUÁRIO*\n\n\
-  - *Notificações*: _${notifications}_ \n\
+  - *Idioma do usuário*: _${language}_\n\
+  - *Notificações*: _${notifications}_\n\
   - *Horário para notificações*: _${time}_"
 
 notifyOptions:
   "✉️ *NOTIFICAÇÕES*\n\n\
-  Você gostaria mesmo de desativar *TODAS* as notificações dos episódios dos animes que estão saindo?"
+  *Episódios*\n\
+  Quando novos episódios dos animes que estão sendo liberados saírem, você será notificado sobre.\n\n\
+  *Notícias*\n\
+  Quando notícias sobre os animes que acompanha forem liberadas — de animes em lançamento ou não —, você será notificado sobre.\n\
+  Esta opção está somente disponível para notícias em Inglês.\n\n\
+  Você gostaria mesmo de desativar *TODAS* as notificações, ou apenas as dos __episódios__ ou __notícias__?"
 
 timeOptions:
   "⏰ *HORÁRIO*\n\n\
@@ -113,8 +119,44 @@ cancelledAnimeOptions:
 countdownOptions:
   "⏲️ *CONTAGEM REGRESSIVA*"
 
+enButton:
+  "🇬🇧 Inglês"
+
+ptButton:
+  "🇧🇷 Português"
+
+idButton:
+  "🇮🇩 Indonês"
+
+nlButton:
+  "🇳🇱 Holandês"
+
+esButton:
+  "🇪🇸 Espanha"
+
+itButton:
+  "🇮🇹 Italiano"
+
+deButton:
+  "🇩🇪 Alemão"
+
+frButton:
+  "🇫🇷 Francês"
+
+ruButton:
+  "🇷🇺 Russo"
+
+zhButton:
+  "🇨🇳 Chinês"
+
+jpButton:
+  "🇯🇵 Japonês"
+
 backButton:
   "<"
+
+languageButton:
+  "Idioma"
 
 notifyButton:
   "Notificações"

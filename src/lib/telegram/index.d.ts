@@ -3,7 +3,8 @@ import { ContextMessageUpdate } from 'telegraf';
 import { InlineKeyboardMarkup } from 'telegram-typings';
 import RedisSession from 'telegraf-session-redis';
 
-export type AllRequests = 'READ' |
+export type AllRequests = 'MENU' |
+                          'READ' |
                           'USER' |
                           'TIME' |
                           'GUIDE' |
@@ -18,21 +19,30 @@ export type AllRequests = 'READ' |
                           'CHARACTER' |
                           'COUNTDOWN' |
                           'WATCHLIST' |
-                          'MENU-BACK' |
-                          'USER-BACK' |
                           'ANIME-ALL' |
                           'MANGA-ALL' |
-                          'GUIDE-BACK' |
                           'ANIME-SOON' |
                           'MANGA-SOON' |
                           'ANIME-AIRING' |
+                          'LANGUAGE-DUTCH' |
                           'ANIME-CANCELLED' |
                           'MANGA-CANCELLED' |
                           'ANIME-COMPLETED' |
                           'MANGA-COMPLETED' |
                           'ANIME-MORE-INFO' |
                           'MANGA-MORE-INFO' |
-                          'MANGA-PUBLISHING'
+                          'LANGUAGE-FRENCH' |
+                          'LANGUAGE-FRENCH' |
+                          'MANGA-PUBLISHING' |
+                          'LANGUAGE-ENGLISH' |
+                          'LANGUAGE-SPANISH' |
+                          'LANGUAGE-DEUTSCH' |
+                          'LANGUAGE-RUSSIAN' |
+                          'LANGUAGE-CHINESE' |
+                          'LANGUAGE-ITALIAN' |
+                          'LANGUAGE-JAPANESE' |
+                          'LANGUAGE-PORTUGUESE' |
+                          'LANGUAGE-INDONESIAN'
 
 export type RequestsFiled = 'LIST' |
                             'MENU' |

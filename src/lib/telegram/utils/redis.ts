@@ -1,12 +1,12 @@
 import { Context } from 'telegraf';
 
-export const getSessionKey = (ctx: Context) => {
-    if (undefined !== ctx.from && undefined !== ctx.chat) {
-        return `${ctx.from.id}:${ctx.chat.id}`;
+export const getSessionKey = (ctx: Context): string => {
+    if ('message' === ctx.updateType) {
+        return `${ctx.from.id}:${ctx.from.id}`;
     } if ('inline_query' === ctx.updateType) {
-        return `${ctx.update.update_id}:${ctx.update.inline_query.id}`;
+        return `${ctx.update.inline_query.from.id}:${ctx.update.inline_query.from.id}`;
     } if ('callback_query' === ctx.updateType) {
-        return `${ctx.update.update_id}:${ctx.update.callback_query.id}`;
+        return `${ctx.update.callback_query.from.id}:${ctx.update.callback_query.from.id}`;
     }
 
     return null;

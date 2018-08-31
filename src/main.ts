@@ -1,17 +1,16 @@
+import { callbackKeyboard, handleCallback } from 'callback';
 import { config } from 'dotenv';
+import { toInlineArticle } from 'inline';
+import { menuKeyboard } from 'keyboard';
 import { connect, set } from 'mongoose';
 import { join } from 'path';
+import { allSearch } from 'searches';
 import Telegraf from 'telegraf';
+import { AllRequests, IBotContext, RequestsFiled } from 'telegraf-bot-typings';
 import I18n from 'telegraf-i18n';
+import { fetchPage, sanitize } from 'telegraf-parse';
+import { getSessionKey } from 'telegraf-redis';
 import RedisSession from 'telegraf-session-redis';
-import { allSearch } from './lib/anilist/searches/searches';
-import { AllRequests, IBotContext, RequestsFiled } from './lib/telegram';
-import { callbackKeyboard, handleCallback } from './lib/telegram/callback';
-import { toInlineArticle } from './lib/telegram/inline';
-import { menuKeyboard } from './lib/telegram/keyboard';
-import { isEditable } from './lib/telegram/utils/edit';
-import { fetchPage, sanitize } from './lib/telegram/utils/parse';
-import { getSessionKey } from './lib/telegram/utils/redis';
 
 config();
 
@@ -75,16 +74,13 @@ bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCb
     const request = <AllRequests> data[1];
     const response = await handleCallback({ translation: i18n, id, request, field, dbStatus });
 
-    if (isEditable(field)) {
-        await answerCbQuery(i18n.t('loading'));
-
-        return editMessageText(response, {
-            parse_mode: 'Markdown',
-            reply_markup: callbackKeyboard({ translation: i18n, request })
-        });
+    if ('MENU' !== field) {
+        return answerCbQuery(response, true);
     }
 
-    return answerCbQuery(response, true);
+    await answerCbQuery(i18n.t('loading'));
+
+    return editMessageText(response, { parse_mode: 'Markdown', reply_markup: callbackKeyboard({ translation: i18n, request }) });
 });
 
 bot.on('text', async ({ i18n, message, replyWithMarkdown, redis }: IBotContext) => {

@@ -1,20 +1,29 @@
-import path from 'path';
+import { join } from 'path';
+
+const nonRelative = (path: string): string => join(__dirname, `./src/lib/${path}`);
 
 module.exports = {
     target: 'node',
     mode: 'development',
-    entry: path.join(__dirname, 'src/main.ts'),
+    entry: join(__dirname, 'src/main.ts'),
     node: {
         __dirname: false
     },
     output: {
         filename: 'main.js',
-        path: path.join(__dirname, 'dist')
+        path: join(__dirname, 'dist')
     },
     resolve: {
         alias: {
+            inline: nonRelative('telegram/inline.ts'),
+            callback: nonRelative('telegram/callback.ts'),
+            keyboard: nonRelative('telegram/keyboard.ts'),
             // https://github.com/NodeRedis/node_redis/issues/790#issuecomment-318904983
-            hiredis: path.join(__dirname, './src/aliases/hiredis.ts')
+            hiredis: join(__dirname, './src/aliases/hiredis.ts'),
+            searches: nonRelative('anilist/searches/searches.ts'),
+            'telegraf-redis': nonRelative('telegram/utils/redis.ts'),
+            'telegraf-parse': nonRelative('telegram/utils/parse.ts'),
+            'telegraf-bot-typings': nonRelative('telegram/index.d.ts')
         },
         extensions: [
             '.js',
