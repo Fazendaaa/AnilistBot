@@ -18,7 +18,7 @@
         "build": "webpack",
         "test": "npm run jest",
         "bot": "node dist/main.js",
-        "counter": "linecounter >> stats.json",
+        "counter": "linecounter > stats.json",
         "start": "npm run build && npm run bot",
         "lint": "tslint --config tslint.json --project .",
         "jest": "jest --config jest.config.json --ci --runInBand --detectOpenHandles --forceExit --no-cache"
@@ -67,7 +67,7 @@
     "husky": {
         "hooks": {
             "pre-push": "npm test",
-            "pre-commit": "npm run counter && npm run lint"
+            "pre-commit": "npm run lint && npm run counter"
         }
     }
 }
