@@ -52,16 +52,20 @@ const backKeyboard = ({ request, translation }: ICallbackKeyboardContext): Inlin
     return aboutKeyboard({ translation });
 };
 
-export const handleCallback = async ({ id, request, field, translation }: IRequestsContext): Promise<string> => {
-    if ('GENRES' === field) {
+export const handleCallback = async ({ id, request, field, translation, dbStatus }: IRequestsContext): Promise<string> => {
+    const lang = translation.locale().split('-')[0];
+
+    if (false === dbStatus && ('en' !== lang || 'LIST' === field)) {
+        return translation.t('dbDown');
+    } if ('GENRES' === field) {
         return fetchGenres({ id, request, translation }).then(truncateMessage);
+    } if ('MENU' === field) {
+        return handleMenu({ request, translation });
     } if ('DESCRIPTION' === field) {
         return fetchDescription({ id, request, translation }).then(truncateMessage);
-    } if ('LIST' === field) {
-        return translation.t('notAvailable');
     }
 
-    return handleMenu({ request, translation });
+    return translation.t('notAvailable');
 };
 
 export const callbackKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {

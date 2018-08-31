@@ -1,6 +1,7 @@
 import { I18n } from 'telegraf-i18n';
 import { ContextMessageUpdate } from 'telegraf';
 import { InlineKeyboardMarkup } from 'telegram-typings';
+import RedisSession from 'telegraf-session-redis';
 
 export type AllRequests = 'READ' |
                           'USER' |
@@ -38,8 +39,13 @@ export type RequestsFiled = 'LIST' |
                             'GENRES' |
                             'DESCRIPTION'
 
+interface IMyRedis extends RedisSession {
+    counter: number;
+}
+
 export interface IBotContext extends ContextMessageUpdate {
     readonly i18n: I18n;
+    readonly redis: IMyRedis;
 }
 
 export interface ITelegramContext {
@@ -53,6 +59,7 @@ export interface IKeyboardContext {
 
 export interface IRequestsContext {
     readonly id: number;
+    readonly dbStatus: boolean;
     readonly translation: I18n;
     readonly request: AllRequests;
     readonly field: RequestsFiled;

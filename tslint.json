@@ -23,5 +23,10 @@
             true,
             "dev"
         ]
+    },
+    "linterOptions": {
+        "exclude": [
+            "./src/aliases/*.ts"
+        ]
     }
 }

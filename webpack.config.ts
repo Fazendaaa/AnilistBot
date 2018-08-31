@@ -12,6 +12,10 @@ module.exports = {
         path: path.join(__dirname, 'dist')
     },
     resolve: {
+        alias: {
+            // https://github.com/NodeRedis/node_redis/issues/790#issuecomment-318904983
+            hiredis: path.join(__dirname, './src/aliases/hiredis.ts')
+        },
         extensions: [
             '.js',
             '.ts',

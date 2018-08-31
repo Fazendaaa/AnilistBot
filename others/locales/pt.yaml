@@ -2,6 +2,9 @@ start:
   "*Olá*, _${from.username}!_\n\n\
   Eu sou AnilistBot, o seu bot the pesquisas sobre o mundo dos animes. Porém, eu posso fazer muito mais, para saber apenas clique em /more!"
 
+dbDown:
+  "Infelizmente, o banco de dados se encontra fora do ar. Por favor, informe @farmy sobre isso para que ele posso corrigir logo!"
+
 menu:
   "menu"
 
