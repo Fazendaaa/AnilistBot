@@ -1,10 +1,10 @@
 import { fetchData } from 'endeavor';
 import striptags from 'striptags';
 import { IDataContext } from '.';
+import { IRequestsDescription } from '../queries';
+import anime from '../queries/animeDescription.gql';
+import manga from '../queries/mangaDescription.gql';
 import { translateDescription } from '../utils/translations/translations';
-import { IRequestsDescription } from './queries';
-import anime from './queries/description/anime.gql';
-import manga from './queries/description/manga.gql';
 
 export const fetchDescription = async ({ id, request, translation }: IDataContext): Promise<string> => {
     const fetch = <IRequestsDescription> await fetchData({

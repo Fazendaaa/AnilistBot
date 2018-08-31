@@ -1,6 +1,6 @@
 import { IMediaTitle, ICoverImage, IFuzzyDateInt, MediaFormat, MediaStatus, IMediaTrailer, MediaSource, IAiringSchedule, IMediaRanking,
 IMediaExternalLink, MediaSeason, MediaType, ICharacterName, ICharacterImage, IStaffName, StaffLanguage, IStaffImage, IStudioConnection
-} from '../..';
+} from '..';
 
 interface IMedia {
     readonly id: number;
@@ -97,4 +97,28 @@ export interface IStudiosQueryPage {
 
 export interface IStaffQueryPage {
     readonly data: IStaffData;
+}
+
+interface IDescription {
+    readonly description: string;
+}
+
+interface IMediaDescription {
+    readonly Media: IDescription;
+}
+
+interface IGenres {
+    readonly genres: Array<string>;
+}
+
+interface IMediaGenres {
+    readonly Media: IGenres;
+}
+
+export interface IRequestsDescription {
+    readonly data: IMediaDescription;
+}
+
+export interface IRequestsGenres {
+    readonly data: IMediaGenres;
 }

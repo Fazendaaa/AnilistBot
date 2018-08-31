@@ -1,5 +1,5 @@
 import { I18n } from 'telegraf-i18n';
-import { ICharacters, IMedia, IStudios, IStaff } from './queries';
+import { ICharacters, IMedia, IStudios, IStaff } from '../queries';
 import { DocumentNode } from 'graphql';
 
 export interface IAnilistContext {

@@ -1,10 +1,10 @@
 import { fetchData } from 'endeavor';
 import { IDataContext } from '.';
 import { MediaType } from '..';
+import { IRequestsGenres } from '../queries';
+import anime from '../queries/animeGenres.gql';
+import manga from '../queries/mangaGenres.gql';
 import { translateGenres } from '../utils/translations/translations';
-import { IRequestsGenres } from './queries';
-import anime from './queries/genres/anime.gql';
-import manga from './queries/genres/manga.gql';
 
 const parseGenres = (input: string | string []): string => {
     let genres = input;
