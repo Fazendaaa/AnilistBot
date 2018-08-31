@@ -119,6 +119,15 @@ cancelledAnimeOptions:
 countdownOptions:
   "⏲️ *CONTAGEM REGRESSIVA*"
 
+languageOptions:
+  "Por favor, escolha uma das opções seguintes como o seu idioma:"
+
+setLanguage:
+  "Idioma configurado"
+
+errorSetLanguage:
+  "Um erro ocorreu ao configurar seu idioma, por favor avise @farmy sobre ele"
+
 enButton:
   "🇬🇧 Inglês"
 

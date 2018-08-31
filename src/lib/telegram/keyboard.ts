@@ -252,3 +252,9 @@ export const languageKeyboard = ({ translation }: IKeyboardContext): InlineKeybo
 
     return Markup.inlineKeyboard(languages.concat(back).map(line => [ line ]));
 };
+
+export const languageBackKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
+    return Markup.inlineKeyboard([
+        Markup.callbackButton(translation.t('backButton'), 'MENU/USER/0')
+    ]);
+};

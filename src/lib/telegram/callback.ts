@@ -4,8 +4,8 @@ import { fetchDescription } from '../anilist/requests/descriptions';
 import { fetchGenres } from '../anilist/requests/genres';
 import { handleMenu } from './formatting/menu';
 import { aboutKeyboard, airingAnimeKeyboard, cancelledAnimeKeyboard, cancelledMangaKeyboard, completedAnimeKeyboard, completedMangaKeyboard,
-countdownKeyboard, guideKeyboard, languageKeyboard, menuKeyboard, notifyKeyboard, publishingMangaKeyboard, readlistKeyboard,
-soonAnimeKeyboard,  soonMangaKeyboard, timeKeyboard, userKeyboard, watchlistKeyboard } from './keyboard';
+countdownKeyboard, guideKeyboard, languageBackKeyboard, languageKeyboard, menuKeyboard, notifyKeyboard, publishingMangaKeyboard,
+readlistKeyboard, soonAnimeKeyboard, soonMangaKeyboard, timeKeyboard, userKeyboard, watchlistKeyboard } from './keyboard';
 
 const truncateMessage = (input: string): string => {
     const max = 196;
@@ -64,8 +64,8 @@ export const callbackKeyboard = ({ request, translation }: ICallbackKeyboardCont
         return animeKeyboard({ request, translation });
     } if ('MANGA' === kind[0]) {
         return mangaKeyboard({ request, translation });
-    } if ('LANGUAGE' === kind[0]) {
-        return languageKeyboard({ translation });
+    } if ('LANGUAGE' === kind[0] && kind.length > 1) {
+        return languageBackKeyboard({ translation });
     } if ('TIME' === request) {
         return timeKeyboard({ translation });
     } if ('USER' === request) {
@@ -76,6 +76,8 @@ export const callbackKeyboard = ({ request, translation }: ICallbackKeyboardCont
         return aboutKeyboard({ translation });
     } if ('NOTIFY' === request) {
         return notifyKeyboard({ translation });
+    } if ('LANGUAGE' === request) {
+        return languageKeyboard({ translation });
     } if ('READLIST' === request) {
         return readlistKeyboard({ translation });
     } if ('WATCHLIST' === request) {

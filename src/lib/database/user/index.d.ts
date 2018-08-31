@@ -1,6 +1,13 @@
-export interface IDBUser {
+import { Document } from 'mongoose';
+
+export interface IDBUser extends Document {
+    notify: boolean;
+    language: string;
+    timezone: string;
     readonly _id: number;
-    readonly notify: boolean;
-    readonly timezone: string;
+}
+
+export interface ILanguageContext {
+    readonly id: number;
     readonly language: string;
 }

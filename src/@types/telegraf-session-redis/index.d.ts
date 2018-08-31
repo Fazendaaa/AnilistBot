@@ -1,4 +1,5 @@
 declare module 'telegraf-session-redis' {
+    import { RedisClient } from 'redis';
     import { Context } from 'telegraf';
 
     interface StoreOptions {
@@ -33,6 +34,7 @@ declare module 'telegraf-session-redis' {
     type ContextUpdate = (ctx: any, next?: (() => any) | undefined) => any;
 
     class RedisSession {
+        client: RedisClient;
         middleware(): ContextUpdate;
         getSession(key: Context): string;
         clearSession(key: string): void;

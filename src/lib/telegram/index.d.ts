@@ -16,6 +16,7 @@ export type AllRequests = 'MENU' |
                           'STUDIO' |
                           'NOTIFY' |
                           'READLIST' |
+                          'LANGUAGE' |
                           'CHARACTER' |
                           'COUNTDOWN' |
                           'WATCHLIST' |

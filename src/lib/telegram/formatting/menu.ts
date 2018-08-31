@@ -1,4 +1,5 @@
 import { IMenuContext } from '.';
+import { setLanguage } from '../../database/user/language';
 
 const handleAnime = ({ request, translation }: IMenuContext): string => {
     if ('ANIME-SOON' === request) {
@@ -28,38 +29,40 @@ const handleManga = ({ request, translation }: IMenuContext): string => {
     return translation.t('readlistOptions');
 };
 
-const handleLanguage = ({ request, translation }: IMenuContext): string => {
+const handleLanguage = async ({ request, translation }: IMenuContext): Promise<string> => {
+    let language = 'en';
+
     if ('LANGUAGE-PORTUGUESE' === request) {
-        return 'FOO';
+        language = 'pt';
     } if ('LANGUAGE-INDONESIAN' === request) {
-        return 'FOO';
+        language = 'id';
     } if ('LANGUAGE-DUTCH' === request) {
-        return 'FOO';
+        language = 'nl';
     } if ('LANGUAGE-SPANISH' === request) {
-        return 'FOO';
+        language = 'es';
     } if ('LANGUAGE-ITALIAN' === request) {
-        return 'FOO';
+        language = 'it';
     } if ('LANGUAGE-DEUTSCH' === request) {
-        return 'FOO';
+        language = 'de';
     } if ('LANGUAGE-FRENCH' === request) {
-        return 'FOO';
+        language = 'fr';
     } if ('LANGUAGE-RUSSIAN' === request) {
-        return 'FOO';
+        language = 'ru';
     } if ('LANGUAGE-CHINESE' === request) {
-        return 'FOO';
+        language = 'zh';
     } if ('LANGUAGE-JAPANESE' === request) {
-        return 'FOO';
+        language = 'jp';
     }
 
-    return 'FOO';
+    return setLanguage({ id: 0, language }).then(() => translation.t('setLanguage')).catch(() => translation.t('errorSetLanguage'));
 };
 
-export const handleMenu = ({ request, translation }: IMenuContext): string => {
+export const handleMenu = async ({ request, translation }: IMenuContext): Promise<string> => {
     const kind = request.split('-');
 
     if ('ANIME' === kind[0]) {
         return handleAnime({ request, translation });
-    } if ('LANGUAGE' === kind[0]) {
+    } if ('LANGUAGE' === kind[0] && kind.length > 1) {
         return handleLanguage({ request, translation });
     } if ('MANGA' === kind[0]) {
         return handleManga({ request, translation });
@@ -73,10 +76,12 @@ export const handleMenu = ({ request, translation }: IMenuContext): string => {
         return translation.t('guideOptions');
     } if ('NOTIFY' === request) {
         return translation.t('notifyOptions');
-    } if ('COUNTDOWN' === request) {
-        return translation.t('countdownOptions');
+    } if ('LANGUAGE' === request) {
+        return translation.t('languageOptions');
     } if ('READLIST' === request) {
         return translation.t('readlistOptions');
+    } if ('COUNTDOWN' === request) {
+        return translation.t('countdownOptions');
     } if ('WATCHLIST' === request) {
         return translation.t('watchlistOptions');
     }

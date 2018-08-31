@@ -9,7 +9,7 @@ import Telegraf from 'telegraf';
 import { AllRequests, IBotContext, RequestsFiled } from 'telegraf-bot-typings';
 import I18n from 'telegraf-i18n';
 import { fetchPage, sanitize } from 'telegraf-parse';
-import { getSessionKey } from 'telegraf-redis';
+import { getSessionKey, loadLanguages } from 'telegraf-redis';
 import RedisSession from 'telegraf-session-redis';
 
 config();
@@ -46,6 +46,11 @@ connect(process.env.MONGODB_URI).then(() => {
 
     dbStatus = false;
 });
+
+redisStorage.client.on('connect', () => {
+    console.log('Redis connected.');
+    loadLanguages();
+}).on('error', console.error);
 
 bot.startPolling();
 
@@ -89,12 +94,12 @@ bot.on('text', async ({ i18n, message, replyWithMarkdown, redis }: IBotContext) 
 
     if ('private' !== type) {
         return false;
+    } if (i18n.t('help') === text.toLowerCase()) {
+        return replyWithMarkdown(i18n.t('helpOptions'));
     } if (i18n.t('menu') === text.toLowerCase()) {
         await replyWithMarkdown(i18n.t('menuGreetings'));
 
         return replyWithMarkdown(i18n.t('menuOptions'), { reply_markup: menuKeyboard({ translation: i18n }) });
-    } if (i18n.t('help') === text.toLowerCase()) {
-        return replyWithMarkdown(i18n.t('helpOptions'));
     }
 
     return i18n.t('notAvailable');

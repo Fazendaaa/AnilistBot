@@ -1,4 +1,12 @@
 import { Context } from 'telegraf';
+import { IDBUser } from '../../database/user';
+import { User } from '../../database/user/model';
+
+const userLanguagesToRedis = async (users: IDBUser[]): Promise<boolean> => {
+    return false;
+};
+
+export const loadLanguages = async (): Promise<boolean> => User.find({}).then(userLanguagesToRedis).catch(() => false);
 
 export const getSessionKey = (ctx: Context): string => {
     if ('message' === ctx.updateType) {
