@@ -245,7 +245,7 @@ export const languageKeyboard = ({ translation }: IKeyboardContext): InlineKeybo
         Markup.callbackButton(translation.t('ruButton'), 'MENU/LANGUAGE-FRENCH/0'),
         Markup.callbackButton(translation.t('zhButton'), 'MENU/LANGUAGE-CHINESE/0'),
         Markup.callbackButton(translation.t('jpButton'), 'MENU/LANGUAGE-JAPANESE/0')
-    ]
+    ];
     const back = [
         Markup.callbackButton(translation.t('backButton'), 'MENU/USER/0')
     ];

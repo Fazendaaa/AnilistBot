@@ -1,7 +1,7 @@
-import { IMenuContext } from '.';
+import { IMenuAnimeContext, IMenuContext, IMenuLanguageContext, IMenuMangaContext } from '.';
 import { setLanguage } from '../../database/user/language';
 
-const handleAnime = ({ request, translation }: IMenuContext): string => {
+const handleAnime = ({ request, translation }: IMenuAnimeContext): string => {
     if ('ANIME-SOON' === request) {
         return translation.t('soonAnimeOptions');
     } if ('ANIME-AIRING' === request) {
@@ -15,7 +15,7 @@ const handleAnime = ({ request, translation }: IMenuContext): string => {
     return translation.t('watchlistOptions');
 };
 
-const handleManga = ({ request, translation }: IMenuContext): string => {
+const handleManga = ({ request, translation }: IMenuMangaContext): string => {
     if ('MANGA-SOON' === request) {
         return translation.t('soonMangaOptions');
     } if ('MANGA-COMPLETED' === request) {
@@ -29,7 +29,7 @@ const handleManga = ({ request, translation }: IMenuContext): string => {
     return translation.t('readlistOptions');
 };
 
-const handleLanguage = async ({ request, translation }: IMenuContext): Promise<string> => {
+const handleLanguage = async ({ user, request, translation }: IMenuLanguageContext): Promise<string> => {
     let language = 'en';
 
     if ('LANGUAGE-PORTUGUESE' === request) {
@@ -54,16 +54,16 @@ const handleLanguage = async ({ request, translation }: IMenuContext): Promise<s
         language = 'jp';
     }
 
-    return setLanguage({ id: 0, language }).then(() => translation.t('setLanguage')).catch(() => translation.t('errorSetLanguage'));
+    return setLanguage({ id: user, language }).then(() => translation.t('setLanguage')).catch(() => translation.t('errorSetLanguage'));
 };
 
-export const handleMenu = async ({ request, translation }: IMenuContext): Promise<string> => {
+export const handleMenu = async ({ user, request, translation }: IMenuContext): Promise<string> => {
     const kind = request.split('-');
 
     if ('ANIME' === kind[0]) {
         return handleAnime({ request, translation });
     } if ('LANGUAGE' === kind[0] && kind.length > 1) {
-        return handleLanguage({ request, translation });
+        return handleLanguage({ user, request, translation });
     } if ('MANGA' === kind[0]) {
         return handleManga({ request, translation });
     } if ('MENU' === request) {

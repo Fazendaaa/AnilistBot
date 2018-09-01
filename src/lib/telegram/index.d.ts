@@ -51,7 +51,7 @@ export type RequestsFiled = 'LIST' |
                             'DESCRIPTION'
 
 interface IMyRedis extends RedisSession {
-    counter: number;
+    readonly language: string;
 }
 
 export interface IBotContext extends ContextMessageUpdate {
@@ -70,6 +70,7 @@ export interface IKeyboardContext {
 
 export interface IRequestsContext {
     readonly id: number;
+    readonly user: number;
     readonly dbStatus: boolean;
     readonly translation: I18n;
     readonly request: AllRequests;

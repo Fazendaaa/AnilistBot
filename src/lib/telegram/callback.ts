@@ -41,13 +41,13 @@ const mangaKeyboard = ({ request, translation }: ICallbackKeyboardContext): Inli
     return readlistKeyboard({ translation });
 };
 
-export const handleCallback = async ({ id, request, field, translation, dbStatus }: IRequestsContext): Promise<string> => {
+export const handleCallback = async ({ id, user, request, field, translation, dbStatus }: IRequestsContext): Promise<string> => {
     const lang = translation.locale().split('-')[0];
 
     if (false === dbStatus && ('en' !== lang || 'LIST' === field)) {
         return translation.t('dbDown');
     } if ('MENU' === field) {
-        return handleMenu({ request, translation });
+        return handleMenu({ user, request, translation });
     } if ('GENRES' === field) {
         return fetchGenres({ id, request, translation }).then(truncateMessage);
     } if ('DESCRIPTION' === field) {

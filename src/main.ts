@@ -11,6 +11,7 @@ import I18n from 'telegraf-i18n';
 import { fetchPage, sanitize } from 'telegraf-parse';
 import { getSessionKey, loadLanguages } from 'telegraf-redis';
 import RedisSession from 'telegraf-session-redis';
+import { UserLanguage } from 'user-language';
 
 config();
 
@@ -30,6 +31,7 @@ const redisStorage = new RedisSession({
         port: process.env.TELEGRAM_SESSION_PORT
     }
 });
+const userConfigLanguage = new UserLanguage();
 
 let dbStatus = false;
 
@@ -49,7 +51,7 @@ connect(process.env.MONGODB_URI).then(() => {
 
 redisStorage.client.on('connect', () => {
     console.log('Redis connected.');
-    loadLanguages();
+    loadLanguages(redisStorage.client);
 }).on('error', console.error);
 
 bot.startPolling();
@@ -57,12 +59,13 @@ bot.startPolling();
 bot.use(Telegraf.log());
 bot.use(redisStorage.middleware());
 bot.use(internationalization.middleware());
+bot.use(userConfigLanguage.middleware());
 
 bot.catch(console.error);
 
 bot.start(async ({ i18n, replyWithMarkdown }: IBotContext) => replyWithMarkdown(i18n.t('start')));
 
-bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery, redis }: IBotContext) => {
+bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotContext) => {
     const perPage = 20;
     const page = fetchPage(inlineQuery.offset);
     const next_offset = (page + perPage).toString();
@@ -72,12 +75,12 @@ bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery, redis }: I
     return answerInlineQuery(results, { next_offset });
 });
 
-bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCbQuery, redis }: IBotContext) => {
+bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCbQuery, from, redis }: IBotContext) => {
     const data = callbackQuery.data.split('/');
     const id = parseInt(data[2], 10);
     const field = <RequestsFiled> data[0];
     const request = <AllRequests> data[1];
-    const response = await handleCallback({ translation: i18n, id, request, field, dbStatus });
+    const response = await handleCallback({ translation: i18n, user: from.id, id, request, field, dbStatus });
 
     if ('MENU' !== field) {
         return answerCbQuery(response, true);
@@ -88,7 +91,7 @@ bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCb
     return editMessageText(response, { parse_mode: 'Markdown', reply_markup: callbackKeyboard({ translation: i18n, request }) });
 });
 
-bot.on('text', async ({ i18n, message, replyWithMarkdown, redis }: IBotContext) => {
+bot.on('text', async ({ i18n, message, replyWithMarkdown }: IBotContext) => {
     const { text } = message;
     const { type } = message.chat;
 

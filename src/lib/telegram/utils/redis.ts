@@ -1,12 +1,20 @@
+import { RedisClient } from 'redis';
 import { Context } from 'telegraf';
+import { IRedisUserLanguage } from '.';
 import { IDBUser } from '../../database/user';
 import { User } from '../../database/user/model';
 
-const userLanguagesToRedis = async (users: IDBUser[]): Promise<boolean> => {
-    return false;
-};
+const addUserLanguage = ({ key, language, client }: IRedisUserLanguage) => new Promise((resolve, reject) => {
+    client.set(key, JSON.stringify({ language }), (err: Error) => {
+        if (null !== err) {
+            console.error(err);
 
-export const loadLanguages = async (): Promise<boolean> => User.find({}).then(userLanguagesToRedis).catch(() => false);
+            return reject(false);
+        }
+
+        resolve(true);
+    });
+});
 
 export const getSessionKey = (ctx: Context): string => {
     if ('message' === ctx.updateType) {
@@ -18,4 +26,16 @@ export const getSessionKey = (ctx: Context): string => {
     }
 
     return null;
+};
+
+export const loadLanguages = async (client: RedisClient): Promise<boolean> => {
+    const users = <IDBUser[]> await User.find({});
+
+    users.map(({ _id, language }) => {
+        if (null !== language) {
+            addUserLanguage({ key: `${_id}:${_id}`, language, client });
+        }
+    });
+
+    return true;
 };

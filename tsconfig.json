@@ -56,10 +56,11 @@
             "inline": [ "lib/telegram/inline.ts" ],
             "keyboard": [ "lib/telegram/keyboard.ts" ],
             "callback": [ "lib/telegram/callback.ts" ],
-            "telegraf-redis": [ "lib/telegram/utils/redis" ],
-            "telegraf-parse": [ "lib/telegram/utils/parse" ],
+            "telegraf-redis": [ "lib/telegram/utils/redis.ts" ],
+            "telegraf-parse": [ "lib/telegram/utils/parse.ts" ],
             "searches": [ "lib/anilist/searches/searches.ts" ],
-            "telegraf-bot-typings": [ "lib/telegram/index.d.ts" ]
+            "telegraf-bot-typings": [ "lib/telegram/index.d.ts" ],
+            "user-language": [ "lib/telegram/middleware/userLanguage.ts" ]
         },
         // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
         // "typeRoots": [],                       /* List of folders to include type definitions from. */

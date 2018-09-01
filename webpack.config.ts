@@ -23,7 +23,8 @@ module.exports = {
             searches: nonRelative('anilist/searches/searches.ts'),
             'telegraf-redis': nonRelative('telegram/utils/redis.ts'),
             'telegraf-parse': nonRelative('telegram/utils/parse.ts'),
-            'telegraf-bot-typings': nonRelative('telegram/index.d.ts')
+            'telegraf-bot-typings': nonRelative('telegram/index.d.ts'),
+            'user-language': nonRelative('telegram/middleware/userLanguage.ts')
         },
         extensions: [
             '.js',
