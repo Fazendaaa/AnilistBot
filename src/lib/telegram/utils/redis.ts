@@ -4,17 +4,29 @@ import { IRedisUserLanguage } from '.';
 import { IDBUser } from '../../database/user';
 import { User } from '../../database/user/model';
 
-const addUserLanguage = ({ key, language, client }: IRedisUserLanguage) => new Promise((resolve, reject) => {
-    client.set(key, JSON.stringify({ language }), (err: Error) => {
-        if (null !== err) {
-            console.error(err);
+const addUserLanguage = async ({ key, language, client }: IRedisUserLanguage): Promise<boolean> => {
+    return new Promise((resolve: (a: boolean) => void, reject: (a: boolean) => void) => {
+        client.set(key, JSON.stringify({ language }), (err: Error) => {
+            if (null !== err) {
+                console.error(err);
 
-            return reject(false);
-        }
+                reject(false);
+            }
 
-        resolve(true);
+            resolve(true);
+        });
     });
-});
+};
+
+const __loadLanguages = (client: RedisClient, users: IDBUser[]): boolean => {
+    users.map(({ _id, language }) => {
+        if (null !== language) {
+            addUserLanguage({ key: `${_id}:${_id}`, language, client });
+        }
+    });
+
+    return true;
+};
 
 export const getSessionKey = (ctx: Context): string => {
     if ('message' === ctx.updateType) {
@@ -29,13 +41,7 @@ export const getSessionKey = (ctx: Context): string => {
 };
 
 export const loadLanguages = async (client: RedisClient): Promise<boolean> => {
-    const users = <IDBUser[]> await User.find({});
+    const curriedLoadLanguages = ((users: IDBUser[]) => __loadLanguages(client, users));
 
-    users.map(({ _id, language }) => {
-        if (null !== language) {
-            addUserLanguage({ key: `${_id}:${_id}`, language, client });
-        }
-    });
-
-    return true;
+    return User.find({}).then(curriedLoadLanguages).catch(() => false);
 };
