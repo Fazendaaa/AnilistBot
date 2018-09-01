@@ -25,6 +25,8 @@ export type AllRequests = 'MENU' |
                           'ANIME-SOON' |
                           'MANGA-SOON' |
                           'ANIME-AIRING' |
+                          'NOTIFY-ENABLE' |
+                          'NOTIFY-DISABLE' |
                           'LANGUAGE-DUTCH' |
                           'ANIME-CANCELLED' |
                           'MANGA-CANCELLED' |

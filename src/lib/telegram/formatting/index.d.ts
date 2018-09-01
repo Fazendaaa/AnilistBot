@@ -12,9 +12,15 @@ export interface IMenuContext {
     readonly request: AllRequests;
 }
 
+export interface IMenuUserContext {
+    readonly user: number;
+    readonly translation: I18n;
+}
+
 export interface IMenuAnimeContext extends IMenuCommonContext { }
 
 export interface IMenuMangaContext extends IMenuCommonContext { }
 
 export interface IMenuLanguageContext extends IMenuContext { }
 
+export interface IMenuNotifyContext extends IMenuContext { }

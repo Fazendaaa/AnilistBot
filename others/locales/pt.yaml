@@ -40,8 +40,9 @@ helpOptions:
 userOptions:
   "😀 *USUÁRIO*\n\n\
   - *Idioma do usuário*: _${language}_\n\
-  - *Notificações*: _${notifications}_\n\
-  - *Horário para notificações*: _${time}_"
+  - *Notificações*: _${notify}_\n\
+  - *Horário para notificações*: _${time}_\n\
+  - *Localização do Usuário*: _${timezone}_"
 
 notifyOptions:
   "✉️ *NOTIFICAÇÕES*\n\n\
@@ -69,6 +70,11 @@ guideOptions:
   /studio _nome do estúdio_\n\n\
   *Idioma do Usuário*\n\n\
   Por padrão eu funciono com a sua linguagem no Telegram, se não configurado minha linguagem padrão é Inglês. Se quiser mudar isso, vá para a aba _Usuário_ e modifique isto.\n\n\
+  *Localização do Usuário*\n\n\
+  _\"POR QUE PERGUNTAR MINHA LOCALIZAÇÃO???\"_ — Você\n\n\
+  Eu não irei te seguir ou coisa do tipo, é simples: como eu funciono em um servidor norte-americano, se você quiser mudar seu horário para notificações e escolher as 13h, será quando for 13h nos EUA.\n\
+  Se você quiser ser notificado às 13h do seu país, eu preciso saber qual país você é.\n\
+  Ou você pode também calcular as hora equivalente do seu país em horário norte-americano; apenas um aviso, se o seu país tiver horário de verão — como o do meu criador —, você terá que considerar isso também.\n\n\
   *Lista de assistir/Lista de Leitura*\n\n\
   Para ver mais informções sobre os seus animes/mangás, basta apenas pressionar o botão de _Maiores Informações_.\n\n\
   *Notificações*\n\n\
@@ -78,7 +84,7 @@ guideOptions:
 
 aboutOptions:
   "⚙️ *SOBRE*\n\n\
-  [‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/logo/logo.png)Notícias sobre o bot são informadas no seu [canal](https://t.me/ANILISTbotchannel).\n\n\
+  [‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/logo/logo.png)Notícias sobre o bot e enquetes sobre novas ferramentas são informadas no meu [canal](https://t.me/ANILISTbotchannel) — *Apenas em Inglês*.\n\n\
   Veja mais sobre mim:\n\
   🤖 [My website](https://fazendaaa.github.io/AnilistBot) — Minha história.\n\
   ⭐ [Github](https://github.com/Fazendaaa/AnilistBot) — Dê uma estrelinha neste projeto, É DE GRAÇA!!!\n\
@@ -127,12 +133,78 @@ languageOptions:
   "Por favor, escolha uma das opções seguintes como o seu idioma:"
 
 setLanguage:
-  "👌 *Idioma configurado*\n\n\
+  "👌 *Idioma Configurado*\n\n\
   Por favor, espere alguns segundos para essa configuração começar a funcionar."
 
 errorSetLanguage:
-  "🚫 *Error ao configurar idioma*\n\n\
+  "🚫 *Error ao Configurar Idioma*\n\n\
   Um erro ocorreu ao configurar seu idioma, por favor avise @farmy sobre ele"
+
+setNotify:
+  "👌 *Notificações Configuradas*\n\n\
+  Seu status agora para notificações é: _${notify}_"
+
+errorNotify:
+  "🚫 *Erro em Notificações*\n\n\
+  Um erro aconteceu ao mudar seu status de notificações, por favor avise @farmy sobre isso."
+
+errorUserInfo:
+  "🚫 *Erro em Usuário*\n\n\
+  Um erro aconteceu ao buscar informações sobre você, por favor avise @farmy sobre isso."
+
+languageDefault:
+  "Idioma configurado do Telegram"
+
+timeNotSet:
+  "Não configurado"
+
+timezoneNotSet:
+  "Não configurado"
+
+enabled:
+  "Ativo"
+
+disabled:
+  "Desativado"
+
+enableButton:
+  "Ativar"
+
+disableButton:
+  "Desativar"
+
+en:
+  "Inglês"
+
+pt:
+  "Português"
+
+id:
+  "Indonês"
+
+nl:
+  "Holandês"
+
+es:
+  "Espanha"
+
+it:
+  "Italiano"
+
+de:
+  "Alemão"
+
+fr:
+  "Francês"
+
+ru:
+  "Russo"
+
+zh:
+  "Chinês"
+
+jp:
+  "Japonês"
 
 enButton:
   "🇬🇧 Inglês"

@@ -1,5 +1,6 @@
-import { IMenuAnimeContext, IMenuContext, IMenuLanguageContext, IMenuMangaContext } from '.';
-import { userLanguage } from '../../database/user/user';
+import { IMenuAnimeContext, IMenuContext, IMenuLanguageContext, IMenuMangaContext, IMenuNotifyContext, IMenuUserContext } from '.';
+import { IDBUserInfo } from '../../database/user';
+import { userInfo, userLanguage, userSetNotification } from '../../database/user/user';
 import { getLanguageCode } from './language';
 
 const handleAnime = ({ request, translation }: IMenuAnimeContext): string => {
@@ -31,20 +32,49 @@ const handleManga = ({ request, translation }: IMenuMangaContext): string => {
 };
 
 const handleLanguage = async ({ user, request, translation }: IMenuLanguageContext): Promise<string> => {
+    if ('LANGUAGE' === request) {
+        return translation.t('languageOptions');
+    }
+
     return userLanguage({ id: user, language: getLanguageCode(request) })
           .then(() => translation.t('setLanguage'))
           .catch(() => translation.t('errorSetLanguage'));
 };
+
+const handleNotify = async ({ user, request, translation }: IMenuNotifyContext): Promise<string> => {
+    const notify = ('NOTIFY-ENABLE' === request) ? true : false ;
+
+    if ('NOTIFY' === request) {
+        return translation.t('notifyOptions');
+    }
+
+    return userSetNotification({ id: user, notify })
+           .then(() => translation.t('setNotify', { notify: (true === notify) ? translation.t('enabled') : translation.t('disabled') }))
+           .catch(() => translation.t('errorNotify'));
+};
+
+const handleUser = ({ user, translation }: IMenuUserContext): Promise<string> => userInfo(user).then(info => {
+    const { notify, language, time, timezone } = <IDBUserInfo> info;
+
+    return translation.t('userOptions', {
+        time: (null !== time) ? time : translation.t('timezoneNotSet'),
+        timezone: (null !== timezone) ? timezone : translation.t('timezoneNotSet'),
+        notify: (true === notify) ? translation.t('enabled') : translation.t('disabled'),
+        language: (null !== language) ? translation.t(language) : translation.t('languageDefault')
+    });
+}).catch(() => translation.t('errorUserInfo'));
 
 export const handleMenu = async ({ user, request, translation }: IMenuContext): Promise<string> => {
     const kind = request.split('-');
 
     if ('ANIME' === kind[0]) {
         return handleAnime({ request, translation });
-    } if ('LANGUAGE' === kind[0] && kind.length > 1) {
-        return handleLanguage({ user, request, translation });
     } if ('MANGA' === kind[0]) {
         return handleManga({ request, translation });
+    } if ('LANGUAGE' === kind[0]) {
+        return handleLanguage({ user, request, translation });
+    } if ('NOTIFY' === kind[0]) {
+        return handleNotify({ user, request, translation });
     } if ('MENU' === request) {
         return translation.t('menuOptions');
     } if ('TIME' === request) {
@@ -53,17 +83,15 @@ export const handleMenu = async ({ user, request, translation }: IMenuContext): 
         return translation.t('aboutOptions');
     } if ('GUIDE' === request) {
         return translation.t('guideOptions');
-    } if ('NOTIFY' === request) {
-        return translation.t('notifyOptions');
-    } if ('LANGUAGE' === request) {
-        return translation.t('languageOptions');
     } if ('READLIST' === request) {
         return translation.t('readlistOptions');
+    } if ('USER' === request) {
+        return handleUser({ user, translation });
     } if ('COUNTDOWN' === request) {
         return translation.t('countdownOptions');
     } if ('WATCHLIST' === request) {
         return translation.t('watchlistOptions');
     }
 
-    return translation.t('userOptions', { notifications: 'foo', time: 'bar', language: 'nothing' });
+    return translation.t('notAvailable');
 };

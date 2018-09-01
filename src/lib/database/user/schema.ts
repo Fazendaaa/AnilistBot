@@ -6,6 +6,10 @@ export const userSchema = new Schema({
         type: Boolean,
         default: true
     },
+    time: {
+        type: Date,
+        default: null
+    },
     timezone: {
         type: String,
         default: null

@@ -2,6 +2,18 @@ import { Markup } from 'telegraf';
 import { InlineKeyboardMarkup } from 'telegram-typings';
 import { IKeyboardContext } from '.';
 
+export const languageBackKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
+    return Markup.inlineKeyboard([
+        Markup.callbackButton(translation.t('backButton'), 'MENU/USER/0')
+    ]);
+};
+
+export const notifyBackKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
+    return Markup.inlineKeyboard([
+        Markup.callbackButton(translation.t('backButton'), 'MENU/USER/0')
+    ]);
+};
+
 export const countdownKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     return Markup.inlineKeyboard([
         Markup.callbackButton(translation.t('backButton'), 'MENU/MENU/0')
@@ -11,12 +23,6 @@ export const countdownKeyboard = ({ translation }: IKeyboardContext): InlineKeyb
 export const aboutKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     return Markup.inlineKeyboard([
         Markup.callbackButton(translation.t('backButton'), 'MENU/GUIDE/0')
-    ]);
-};
-
-export const notifyKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
-    return Markup.inlineKeyboard([
-        Markup.callbackButton(translation.t('backButton'), 'MENU/USER/0')
     ]);
 };
 
@@ -31,6 +37,18 @@ export const guideKeyboard = ({ translation }: IKeyboardContext): InlineKeyboard
         Markup.callbackButton(translation.t('backButton'), 'MENU/MENU/0'),
         Markup.callbackButton(translation.t('aboutButton'), 'MENU/ABOUT/0')
     ]);
+};
+
+export const notifyKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
+    const firstLine = [
+        Markup.callbackButton(translation.t('enableButton'), 'MENU/NOTIFY-ENABLE/0'),
+        Markup.callbackButton(translation.t('disableButton'), 'MENU/NOTIFY-DISABLE/0')
+    ];
+    const secondLine = [
+        Markup.callbackButton(translation.t('backButton'), 'MENU/USER/0')
+    ];
+
+    return Markup.inlineKeyboard([firstLine, secondLine]);
 };
 
 export const userKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
@@ -251,10 +269,4 @@ export const languageKeyboard = ({ translation }: IKeyboardContext): InlineKeybo
     ];
 
     return Markup.inlineKeyboard(languages.concat(back).map(line => [ line ]));
-};
-
-export const languageBackKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
-    return Markup.inlineKeyboard([
-        Markup.callbackButton(translation.t('backButton'), 'MENU/USER/0')
-    ]);
 };

@@ -40,8 +40,9 @@ helpOptions:
 userOptions:
   "😀 *USER*\n\n\
   - *User language*: _${language}_\n\
-  - *Notifications*: _${notifications}_\n\
-  - *Time for notifications*: _${time}_"
+  - *Notifications*: _${notify}_\n\
+  - *Time for notifications*: _${time}_\n\
+  - *User location*: _${timezone}_"
 
 notifyOptions:
   "✉️ *NOTIFICATIONS*\n\n\
@@ -69,6 +70,11 @@ guideOptions:
   /studio _studio name_\n\n\
   *User Language*\n\n\
   By default I work with your Telegram language, if not provided my default language is English. If you want change that, go to _User_ tab and change this.\n\n\
+  *User Location*\n\n\
+  _\"WHY ASKY MY LOCATION???\"_ — You\n\n\
+  I won't follow you or anything, is simple: right now I'm running in a US server, if you want to change your time for notifications and choose to be notified 13h, it will be 13h in the US time.\n\
+  If you want to be notified in 13h in your country, I need to know what country is first.\n\
+  Or you can also calculate your time in US hours; just a little remminder, if your country — like of my own creator — that has daylight saving, you need to consider that also.\n\n\
   *Watchlist/Readlist*\n\n\
   To see more info about your anime/manga just presse _More Info_ button.\n\n\
   *Notifications*\n\n\
@@ -78,7 +84,7 @@ guideOptions:
 
 aboutOptions:
   "⚙️ *ABOUT*\n\n\
-  [‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/logo/logo.png)Bot news are released in it's [channel](https://t.me/ANILISTbotchannel).\n\n\
+  [‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/logo/logo.png)Bot news and polls about new features are released in my [channel](https://t.me/ANILISTbotchannel) — *English only*.\n\n\
   See more about me at:\n\
   🤖 [My website](https://fazendaaa.github.io/AnilistBot) — The history behind me.\n\
   ⭐ [Github](https://github.com/Fazendaaa/AnilistBot) — Star this project, IT'S FREE!!!\n\
@@ -127,12 +133,78 @@ languageOptions:
   "Please, choose one of the following language options:"
 
 setLanguage:
-  "👌 *Language configured*\n\n\
+  "👌 *Language Configured*\n\n\
   Please, wait a few seconds to this configuration to works."
 
 errorSetLanguage:
-  "🚫 *Language error*\n\n\
+  "🚫 *Language Error*\n\n\
   An error occured when trying to change your language, please warn @farmy about it"
+
+setNotify:
+  "👌 *Notifications Configured*\n\n\
+  Your notifications status is now: _${notify}_"
+
+errorNotify:
+  "🚫 *Notifications Error*\n\n\
+  An error occured changing it your notification status, please warn @farmy about that."
+
+errorUserInfo:
+  "🚫 *User Error*\n\n\
+  An error occured getting your user info, please warn @farmy about that."
+
+languageDefault:
+  "Telegram's default language"
+
+timeNotSet:
+  "Not set"
+
+timezoneNotSet:
+  "Not set"
+
+enabled:
+  "Enabled"
+
+disabled:
+  "Disabled"
+
+enableButton:
+  "Enable"
+
+disableButton:
+  "Disable"
+
+en:
+  "English"
+
+pt:
+  "Portuguese"
+
+id:
+  "Indonesian"
+
+nl:
+  "Dutch"
+
+es:
+  "Spanish"
+
+it:
+  "Italian"
+
+de:
+  "Deutsch"
+
+fr:
+  "French"
+
+ru:
+  "Russian"
+
+zh:
+  "Chinise"
+
+jp:
+  "Japanese"
 
 enButton:
   "🇬🇧 English"

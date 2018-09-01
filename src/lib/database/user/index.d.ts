@@ -1,10 +1,19 @@
 import { Document } from 'mongoose';
 
 export interface IDBUser extends Document {
+    time: Date;
     notify: boolean;
     language: string;
     timezone: string;
     readonly _id: number;
+}
+
+export interface IDBUserInfo {
+    readonly time: Date;
+    readonly _id: number;
+    readonly notify: boolean;
+    readonly language: string;
+    readonly timezone: string;
 }
 
 export interface ILanguageContext {
@@ -34,7 +43,12 @@ export interface IUserLanguageContext {
     readonly language: string;
 }
 
-export interface IUserSetLanguageContext {
-    readonly user: IDBUser;
-    readonly language: string;
+export interface IUserNotifyContext {
+    readonly id: number;
+    readonly notify: boolean;
+}
+
+export interface IUserTimezoneContext {
+    readonly id: number;
+    readonly timezone: string;
 }
