@@ -1,6 +1,6 @@
-import { redisUserLanguage } from 'telegraf-redis';
 import { IMenuAnimeContext, IMenuContext, IMenuLanguageContext, IMenuMangaContext } from '.';
 import { userLanguage } from '../../database/user/user';
+import { getLanguageCode } from './language';
 
 const handleAnime = ({ request, translation }: IMenuAnimeContext): string => {
     if ('ANIME-SOON' === request) {
@@ -31,35 +31,9 @@ const handleManga = ({ request, translation }: IMenuMangaContext): string => {
 };
 
 const handleLanguage = async ({ user, request, translation }: IMenuLanguageContext): Promise<string> => {
-    let language = 'en';
-
-    if ('LANGUAGE-PORTUGUESE' === request) {
-        language = 'pt';
-    } if ('LANGUAGE-INDONESIAN' === request) {
-        language = 'id';
-    } if ('LANGUAGE-DUTCH' === request) {
-        language = 'nl';
-    } if ('LANGUAGE-SPANISH' === request) {
-        language = 'es';
-    } if ('LANGUAGE-ITALIAN' === request) {
-        language = 'it';
-    } if ('LANGUAGE-DEUTSCH' === request) {
-        language = 'de';
-    } if ('LANGUAGE-FRENCH' === request) {
-        language = 'fr';
-    } if ('LANGUAGE-RUSSIAN' === request) {
-        language = 'ru';
-    } if ('LANGUAGE-CHINESE' === request) {
-        language = 'zh';
-    } if ('LANGUAGE-JAPANESE' === request) {
-        language = 'jp';
-    }
-
-    return userLanguage({ id: user, language }).then(() => {
-        redisUserLanguage({ id: user, language });
-
-        return translation.t('setLanguage');
-    }).catch(() => translation.t('errorSetLanguage'));
+    return userLanguage({ id: user, language: getLanguageCode(request) })
+          .then(() => translation.t('setLanguage'))
+          .catch(() => translation.t('errorSetLanguage'));
 };
 
 export const handleMenu = async ({ user, request, translation }: IMenuContext): Promise<string> => {

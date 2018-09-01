@@ -76,7 +76,7 @@ bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotCont
     return answerInlineQuery(results, { next_offset });
 });
 
-bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCbQuery, from, redis }: IBotContext) => {
+bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCbQuery, from }: IBotContext) => {
     const data = callbackQuery.data.split('/');
     const id = parseInt(data[2], 10);
     const field = <RequestsFiled> data[0];

@@ -58,13 +58,17 @@ timeOptions:
 
 guideOptions:
   "🗺️ *GUIDE*\n\n\
-  Search features:\n\n\
+  *Search features*\n\n\
+  On inline mode:\n\n\
   ``` @ANILISTbot Pokemon```\n\n\
+  Talking to bot:\n\n\
   /anime _anime name_\n\
   /manga _manga name_\n\
   /character _character name_\n\
   /staff _staff name_\n\
   /studio _studio name_\n\n\
+  *User Language*\n\n\
+  By default I work with your Telegram language, if not provided my default language is English. If you want change that, go to _User_ tab and change this.\n\n\
   *Watchlist/Readlist*\n\n\
   To see more info about your anime/manga just presse _More Info_ button.\n\n\
   *Notifications*\n\n\

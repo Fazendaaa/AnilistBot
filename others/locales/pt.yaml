@@ -58,13 +58,17 @@ timeOptions:
 
 guideOptions:
   "🗺️ *GUIA*\n\n\
-  Como pesquisar:\n\n\
+  *Como pesquisar*\n\n\
+  No modo inline:\n\n\
   ``` @ANILISTbot Pokemon```\n\n\
+  Conversando com o bot:\n\n\
   /anime _nome do anime_\n\
   /manga _nome do mangá_\n\
   /character _nome do personagem_\n\
   /staff _nome do produtor_\n\
   /studio _nome do estúdio_\n\n\
+  *Idioma do Usuário*\n\n\
+  Por padrão eu funciono com a sua linguagem no Telegram, se não configurado minha linguagem padrão é Inglês. Se quiser mudar isso, vá para a aba _Usuário_ e modifique isto.\n\n\
   *Lista de assistir/Lista de Leitura*\n\n\
   Para ver mais informções sobre os seus animes/mangás, basta apenas pressionar o botão de _Maiores Informações_.\n\n\
   *Notificações*\n\n\
@@ -124,7 +128,7 @@ languageOptions:
 
 setLanguage:
   "👌 *Idioma configurado*\n\n\
-  Por favor, espere alguns segundos para essa configuração conmeçar a funcionar."
+  Por favor, espere alguns segundos para essa configuração começar a funcionar."
 
 errorSetLanguage:
   "🚫 *Error ao configurar idioma*\n\n\

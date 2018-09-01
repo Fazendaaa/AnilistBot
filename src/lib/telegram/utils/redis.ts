@@ -4,9 +4,11 @@ import { IRedisUserLanguage, PromiseFunction } from '.';
 import { IDBUser } from '../../database/user';
 import { userAll } from '../../database/user/user';
 
+const generateKey = (id: number): string => `${id}:${id}`;
+
 export const redisUserLanguage = async ({ id, language }: IRedisUserLanguage): Promise<boolean> => {
     return new Promise((resolve: PromiseFunction, reject: PromiseFunction) => {
-        redisClient.set(`${id}:${id}`, JSON.stringify({ language }), (err: Error) => {
+        redisClient.set(generateKey(id), JSON.stringify({ language }), (err: Error) => {
             if (null !== err) {
                 console.error(err);
 
@@ -18,13 +20,13 @@ export const redisUserLanguage = async ({ id, language }: IRedisUserLanguage): P
     });
 };
 
-export const getSessionKey = (ctx: Context): string => {
-    if ('message' === ctx.updateType) {
-        return `${ctx.from.id}:${ctx.from.id}`;
-    } if ('inline_query' === ctx.updateType) {
-        return `${ctx.update.inline_query.from.id}:${ctx.update.inline_query.from.id}`;
-    } if ('callback_query' === ctx.updateType) {
-        return `${ctx.update.callback_query.from.id}:${ctx.update.callback_query.from.id}`;
+export const getSessionKey = ({ updateType, from, update }: Context): string => {
+    if ('message' === updateType) {
+        return generateKey(from.id);
+    } if ('inline_query' === updateType) {
+        return generateKey(update.inline_query.from.id);
+    } if ('callback_query' === updateType) {
+        return generateKey(update.callback_query.from.id);
     }
 
     return null;
