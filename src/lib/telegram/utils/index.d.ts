@@ -1,7 +1,9 @@
 import { RedisClient } from 'redis';
+import { IDBUser } from '../../database/user';
+
+export type PromiseFunction = (value: boolean) => void;
 
 export interface IRedisUserLanguage {
-    readonly key: string;
+    readonly id: number;
     readonly language: string;
-    readonly client: RedisClient;
 }

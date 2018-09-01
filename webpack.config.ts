@@ -15,6 +15,7 @@ module.exports = {
     },
     resolve: {
         alias: {
+            main: join(__dirname, './src/main.ts'),
             inline: nonRelative('telegram/inline.ts'),
             callback: nonRelative('telegram/callback.ts'),
             keyboard: nonRelative('telegram/keyboard.ts'),

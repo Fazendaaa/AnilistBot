@@ -31,6 +31,7 @@ const redisStorage = new RedisSession({
         port: process.env.TELEGRAM_SESSION_PORT
     }
 });
+export const redisClient = redisStorage.client;
 const userConfigLanguage = new UserLanguage();
 
 let dbStatus = false;
@@ -51,7 +52,7 @@ connect(process.env.MONGODB_URI).then(() => {
 
 redisStorage.client.on('connect', () => {
     console.log('Redis connected.');
-    loadLanguages(redisStorage.client);
+    loadLanguages();
 }).on('error', console.error);
 
 bot.startPolling();

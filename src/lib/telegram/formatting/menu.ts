@@ -1,5 +1,6 @@
+import { redisUserLanguage } from 'telegraf-redis';
 import { IMenuAnimeContext, IMenuContext, IMenuLanguageContext, IMenuMangaContext } from '.';
-import { setLanguage } from '../../database/user/language';
+import { userLanguage } from '../../database/user/user';
 
 const handleAnime = ({ request, translation }: IMenuAnimeContext): string => {
     if ('ANIME-SOON' === request) {
@@ -54,7 +55,11 @@ const handleLanguage = async ({ user, request, translation }: IMenuLanguageConte
         language = 'jp';
     }
 
-    return setLanguage({ id: user, language }).then(() => translation.t('setLanguage')).catch(() => translation.t('errorSetLanguage'));
+    return userLanguage({ id: user, language }).then(() => {
+        redisUserLanguage({ id: user, language });
+
+        return translation.t('setLanguage');
+    }).catch(() => translation.t('errorSetLanguage'));
 };
 
 export const handleMenu = async ({ user, request, translation }: IMenuContext): Promise<string> => {

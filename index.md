@@ -72,10 +72,11 @@ Right now, this project has the following total lines:
 
 ![Lines](https://img.shields.io/badge/dynamic/json.svg?style=for-the-badge&label=Lines&url=https%3A%2F%2Fraw.githubusercontent.com%2FFazendaaa%2FAnilistBot%2Fmaster%2Fstats.json&query=%24.TOTAL.lines&colorB=red)
 
-And bot uses three paid services:
+And bot uses four paid services:
 1. [Heroku](http://heroku.com/)
-2. [mLab](https://mlab.com/)
-3. [Google Translate](https://translate.google.com/)
+2. [Heroku Redis](https://elements.heroku.com/addons/heroku-redis)
+3. [mLab](https://mlab.com/)
+4. [Google Translate](https://translate.google.com/)
 
 All of your support actually makes a difference to help me maintain this project up and running. I really would love if anyone who uses it could support it helping one time with any value that think it worth it or even supporting it each month with one dollar through my Patreon. And this would allow me to improve this project more and more, adding a ton of features that I've planned.
 

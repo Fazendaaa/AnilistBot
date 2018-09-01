@@ -123,10 +123,12 @@ languageOptions:
   "Por favor, escolha uma das opções seguintes como o seu idioma:"
 
 setLanguage:
-  "Idioma configurado"
+  "👌 *Idioma configurado*\n\n\
+  Por favor, espere alguns segundos para essa configuração conmeçar a funcionar."
 
 errorSetLanguage:
-  "Um erro ocorreu ao configurar seu idioma, por favor avise @farmy sobre ele"
+  "🚫 *Error ao configurar idioma*\n\n\
+  Um erro ocorreu ao configurar seu idioma, por favor avise @farmy sobre ele"
 
 enButton:
   "🇬🇧 Inglês"

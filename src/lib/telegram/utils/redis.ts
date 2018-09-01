@@ -1,31 +1,21 @@
-import { RedisClient } from 'redis';
+import { redisClient } from 'main';
 import { Context } from 'telegraf';
-import { IRedisUserLanguage } from '.';
+import { IRedisUserLanguage, PromiseFunction } from '.';
 import { IDBUser } from '../../database/user';
-import { User } from '../../database/user/model';
+import { userAll } from '../../database/user/user';
 
-const addUserLanguage = async ({ key, language, client }: IRedisUserLanguage): Promise<boolean> => {
-    return new Promise((resolve: (a: boolean) => void, reject: (a: boolean) => void) => {
-        client.set(key, JSON.stringify({ language }), (err: Error) => {
+export const redisUserLanguage = async ({ id, language }: IRedisUserLanguage): Promise<boolean> => {
+    return new Promise((resolve: PromiseFunction, reject: PromiseFunction) => {
+        redisClient.set(`${id}:${id}`, JSON.stringify({ language }), (err: Error) => {
             if (null !== err) {
                 console.error(err);
 
                 reject(false);
             }
 
-            resolve(true);
+            resolve(false);
         });
     });
-};
-
-const __loadLanguages = (client: RedisClient, users: IDBUser[]): boolean => {
-    users.map(({ _id, language }) => {
-        if (null !== language) {
-            addUserLanguage({ key: `${_id}:${_id}`, language, client });
-        }
-    });
-
-    return true;
 };
 
 export const getSessionKey = (ctx: Context): string => {
@@ -40,8 +30,14 @@ export const getSessionKey = (ctx: Context): string => {
     return null;
 };
 
-export const loadLanguages = async (client: RedisClient): Promise<boolean> => {
-    const curriedLoadLanguages = ((users: IDBUser[]) => __loadLanguages(client, users));
+const __loadLanguages = (users: IDBUser[]): boolean => {
+    users.map(({ _id, language }) => {
+        if (null !== language) {
+            redisUserLanguage({ id: _id, language });
+        }
+    });
 
-    return User.find({}).then(curriedLoadLanguages).catch(() => false);
+    return true;
 };
+
+export const loadLanguages = async (): Promise<void> => userAll({ success: __loadLanguages, error: () => false });
