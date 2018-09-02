@@ -103,7 +103,7 @@ bot.on('text', async ({ i18n, message, replyWithMarkdown }: IBotContext) => {
     } if (i18n.t('menu') === text.toLowerCase()) {
         await replyWithMarkdown(i18n.t('menuGreetings'));
 
-        return replyWithMarkdown(i18n.t('menuOptions'), { reply_markup: menuKeyboard({ translation: i18n }) });
+        return replyWithMarkdown(i18n.t('menuOptions'), { reply_markup: menuKeyboard(i18n) });
     }
 
     return i18n.t('notAvailable');

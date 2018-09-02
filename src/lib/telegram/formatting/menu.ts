@@ -1,7 +1,9 @@
+import moment from 'moment';
 import { IMenuAnimeContext, IMenuContext, IMenuLanguageContext, IMenuMangaContext, IMenuNotifyContext, IMenuTimeContext, IMenuUserContext
 } from '.';
 import { IDBUserInfo } from '../../database/user';
-import { userInfo, userLanguage, userSetNotification } from '../../database/user/user';
+import { userInfo, userLanguage, userSetNotification, userSetTime } from '../../database/user/user';
+import { errorDate } from '../../database/utils';
 import { getLanguageCode } from './language';
 
 const handleAnime = ({ request, translation }: IMenuAnimeContext): string => {
@@ -32,14 +34,18 @@ const handleManga = ({ request, translation }: IMenuMangaContext): string => {
     return translation.t('readlistOptions');
 };
 
-const handleTime = ({ request, translation }: IMenuTimeContext): string => {
-    if ('TIME-HOUR' === request) {
-        return translation.t('timeHourOptions');
+const handleTime = async ({ id, user, request, translation }: IMenuTimeContext): Promise<string> => {
+    if ('TIME' === request) {
+        return translation.t('timeOptions');
     } if ('TIME-PERIOD' === request) {
         return translation.t('timePeriodOptions');
+    } if ('TIME-PERIOD-AM' === request || 'TIME-PERIOD-PM' === request) {
+        return translation.t('timeHourOptions');
     }
 
-    return translation.t('timeOptions');
+    return userSetTime({ id: user, time: id })
+           .then(date => (errorDate !== date) ? translation.t('setHour', { hour: moment(date).hour() }) : translation.t('errorSetHour'))
+           .catch(() => translation.t('errorSetHour'));
 };
 
 const handleLanguage = async ({ user, request, translation }: IMenuLanguageContext): Promise<string> => {
@@ -68,7 +74,7 @@ const handleUser = async ({ user, translation }: IMenuUserContext): Promise<stri
     const { notify, language, time, timezone } = <IDBUserInfo> info;
 
     return translation.t('userOptions', {
-        time: (null !== time) ? time : translation.t('timezoneNotSet'),
+        time: (null !== time) ? moment(time).hour() : translation.t('timeNotSet'),
         timezone: (null !== timezone) ? timezone : translation.t('timezoneNotSet'),
         notify: (true === notify) ? translation.t('enabled') : translation.t('disabled'),
         language: (null !== language) ? translation.t(language) : translation.t('languageDefault')
@@ -81,17 +87,17 @@ const handleCounter = async ({ user, translation }: IMenuUserContext): Promise<s
     return translation.t('counterOptions', { counter: (null !== counter) ? counter : translation.t('notAvailable') });
 }).catch(() => translation.t('errorUserInfo'));
 
-export const handleMenu = async ({ user, request, translation }: IMenuContext): Promise<string> => {
+export const handleMenu = async ({ id, user, request, translation }: IMenuContext): Promise<string> => {
     const kind = request.split('-');
 
-    if ('TIME' === kind[0]) {
-        return handleTime({ request, translation });
-    } if ('ANIME' === kind[0]) {
+    if ('ANIME' === kind[0]) {
         return handleAnime({ request, translation });
     } if ('MANGA' === kind[0]) {
         return handleManga({ request, translation });
     } if ('NOTIFY' === kind[0]) {
         return handleNotify({ user, request, translation });
+    } if ('TIME' === kind[0]) {
+        return handleTime({ id, user, request, translation });
     } if ('LANGUAGE' === kind[0]) {
         return handleLanguage({ user, request, translation });
     } if ('MENU' === request) {

@@ -3,6 +3,8 @@ import { ContextMessageUpdate } from 'telegraf';
 import { InlineKeyboardMarkup } from 'telegram-typings';
 import RedisSession from 'telegraf-session-redis';
 
+// I  know that publishing is only to manga and airing to anime, but even so is they have their following data type just
+// to not break the pattern.
 export type AllRequests = 'MENU' |
                           'READ' |
                           'USER' |
@@ -22,7 +24,6 @@ export type AllRequests = 'MENU' |
                           'CHARACTER' |
                           'COUNTDOWN' |
                           'WATCHLIST' |
-                          'TIME-HOUR' |
                           'ANIME-ALL' |
                           'MANGA-ALL' |
                           'ANIME-SOON' |
@@ -31,6 +32,8 @@ export type AllRequests = 'MENU' |
                           'ANIME-AIRING' |
                           'NOTIFY-ENABLE' |
                           'NOTIFY-DISABLE' |
+                          'TIME-PERIOD-AM' |
+                          'TIME-PERIOD-PM' |
                           'LANGUAGE-DUTCH' |
                           'ANIME-CANCELLED' |
                           'MANGA-CANCELLED' |
@@ -41,6 +44,7 @@ export type AllRequests = 'MENU' |
                           'LANGUAGE-FRENCH' |
                           'LANGUAGE-FRENCH' |
                           'LANGUAGE-ARABIC' |
+                          'TIME-HOUR-VALUE' |
                           'MANGA-PUBLISHING' |
                           'LANGUAGE-ENGLISH' |
                           'LANGUAGE-SPANISH' |
@@ -57,6 +61,8 @@ export type RequestsFiled = 'LIST' |
                             'GENRES' |
                             'DESCRIPTION'
 
+export type Period = 'AM' | 'PM'
+
 interface IMyRedis extends RedisSession {
     readonly language: string;
 }
@@ -71,8 +77,13 @@ export interface ITelegramContext {
     readonly translation?: I18n;
 }
 
-export interface IKeyboardContext {
-    readonly translation: I18n;
+export interface IKeyboardHourContext {
+    readonly period: Period;
+}
+
+export interface IPeriodContext {
+    readonly hour: number;
+    readonly period: Period;
 }
 
 export interface IRequestsContext {

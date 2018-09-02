@@ -1,4 +1,8 @@
-import { IDBUser, IDBUserInfo, IUserAllContext, IUserContext, IUserLanguageContext, IUserNotifyContext, IUserTimezoneContext } from '.';
+import moment, { Moment } from 'moment';
+import momentTimezone from 'moment-timezone';
+import { IDBUser, IDBUserInfo, IUserAllContext, IUserContext, IUserLanguageContext, IUserNotifyContext, IUserTimeContext,
+IUserTimezoneContext } from '.';
+import { errorDate } from '../utils';
 import { User } from './model';
 
 const options = { upsert: true, new: true, runValidators: true, setDefaultsOnInsert: true };
@@ -7,6 +11,18 @@ const handleCallbackBoolean = (err: Error): boolean => {
     console.log(err);
 
     return false;
+};
+
+// Why?  If  any  server  error  occurs consistency must always be priority. This is just to ensure that if user change his time for updates
+// won't be set for two days from now or anything like that.
+const handleTimeInconsistency = (time: Moment): Date => {
+    let newTime = time;
+
+    if (moment().add(1, 'day') < newTime) {
+        newTime = newTime.subtract(1, 'day');
+    }
+
+    return newTime.toDate();
 };
 
 const handleDeprecatedDB = async (user: IDBUser): Promise<IDBUser | {}> => {
@@ -88,4 +104,14 @@ export const userSetTimezone = async ({ id, timezone }: IUserTimezoneContext): P
 
         return user.save().then(async (userSaved: IDBUser) => userSaved.timezone).catch(() => '');
     }).catch(() => '');
+};
+
+export const userSetTime = async ({ id, time }: IUserTimeContext): Promise<Date> => {
+    return User.findByIdAndUpdate(id, {}, options).then(async (user: IDBUser) => {
+        const hour = momentTimezone.tz(user.timezone).hours(time).minutes(0).seconds(0).milliseconds(0);
+
+        user.time = handleTimeInconsistency(hour);
+
+        return user.save().then(async (userSaved: IDBUser) => userSaved.time).catch(() => errorDate);
+    }).catch(() => errorDate);
 };

@@ -40,14 +40,19 @@ export interface IUserAllContext {
     readonly success: successAllFunction;
 }
 
-export interface IUserLanguageContext {
+export interface IUserTimeContext {
     readonly id: number;
-    readonly language: string;
+    readonly time: number;
 }
 
 export interface IUserNotifyContext {
     readonly id: number;
     readonly notify: boolean;
+}
+
+export interface IUserLanguageContext {
+    readonly id: number;
+    readonly language: string;
 }
 
 export interface IUserTimezoneContext {

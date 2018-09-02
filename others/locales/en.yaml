@@ -59,7 +59,7 @@ notifyOptions:
 timeOptions:
   "⏰ *TIME*\n\n\
   Change here the time for your notifications.\n\n\
-  You can do that by setting the time by yourself — just remember my clock is the US clock — or send me your location in the user options so that way I can send you the notifications in your local time."
+  You can do that by setting the time by yourself — just remember my clock is the UTC clock — or send me your location in the user options so that way I can send you the notifications in your local time."
 
 timePeriodOptions:
   "⏰ *PERIOD*\n\n\
@@ -90,9 +90,9 @@ guideOptions:
   By default I work with your Telegram language, if not provided my default language is English. If you want change that, go to _User_ tab and change this.\n\n\
   *User Location*\n\n\
   _\"WHY ASKY MY LOCATION???\"_ — You\n\n\
-  I won't follow you or anything, is simple: right now I'm running in a US server, if you want to change your time for notifications and choose to be notified 13h, it will be 13h in the US time.\n\
+  I won't follow you or anything, is simple: right now I'm running in a server, if you want to change your time for notifications and choose to be notified 13h, it will be 13h in the server time — that uses the UTC standard.\n\
   If you want to be notified in 13h in your country, I need to know what country is first.\n\
-  Or you can also calculate your time in US hours; just a little remminder, if your country — like of my own creator — that has daylight saving, you need to consider that also.\n\n\
+  Or you can also calculate your time in UTC hours; just a little remminder, if your country — like of my own creator — that has daylight saving, you need to consider that also.\n\n\
   *Watchlist/Readlist*\n\n\
   To see more info about your anime/manga just presse _More Info_ button.\n\n\
   *Notifications*\n\n\
@@ -166,6 +166,14 @@ setNotify:
   "👌 *NOTIFICATIONS CONFIGURED*\n\n\
   Your notifications status is now: _${notify}_"
 
+setHour:
+  "👌 *HOUR CONFIGURED*\n\n\
+  From now on, you will be notified each day about your anime episodes, manga and anime news at: _${hour}h_"
+
+errorSetHour:
+  "🚫 *HOUR ERROR*\n\n\
+  An error occured changing it your hour time, please warn @farmy about that."
+
 errorNotify:
   "🚫 *NOTIFICATIONS ERROR*\n\n\
   An error occured changing it your notification status, please warn @farmy about that."
@@ -178,7 +186,7 @@ languageDefault:
   "Telegram's default language"
 
 timeNotSet:
-  "Not set"
+  "Upon episodes and news release"
 
 timezoneNotSet:
   "Not set"
@@ -267,9 +275,6 @@ jpButton:
 arButton:
   "🇦🇪 Arabic"
 
-backButton:
-  "<"
-
 counterButton:
   "How much time I've watched Anime?"
 
@@ -281,6 +286,18 @@ notifyButton:
 
 timeButton:
   "Time"
+
+timePeriodButton:
+  "Period"
+
+timePeriodMorningButton:
+  "Morning"
+
+timePeriodAfternoonButton:
+  "Afternoon"
+
+timeHourButton:
+  "Hour"
 
 locationButton:
   "Location"

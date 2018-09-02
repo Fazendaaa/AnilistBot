@@ -110,6 +110,8 @@ All of your support actually makes a difference to help me maintain this project
 
 You don't think that money is the best option to help out? It's okay, I'm open to translations request and code also! Just take a look at [Contributing](#contributing).
 
+Also, I explain better the _"Why"_ receive donations instead of selling ads at [SUPPORT.md](./docs/support/SUPPORT.md).
+
 Consider buy me a coffee:
 
 [![Buy Me a Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/Fazenda)
@@ -118,7 +120,7 @@ Or even becoming a patron:
 
 [![Patreon](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/Fazenda/overview)
 
-To all of my fellow countrymen, starting at one real:
+To all of my fellow countrymen, starting at one real each month:
 
 [![Padrim](https://s3-sa-east-1.amazonaws.com/padrimbucketteste/padrim/Logotipo_colorido_horizontal.png)](https://www.padrim.com.br/AnilistBot)
 
@@ -130,12 +132,15 @@ So, whether is code or not you can help me out making this code more accessible 
 # TODO
 Since I will be keeping this README up to date with any major change and I don't use any versioning system to log all the fixed bugs or previous projects updates, you can still have a taste of what comes next and what is being under analysis right in the [Projects](https://github.com/Fazendaaa/AnilistBot/projects/) tab. But I can give you a taste what I have in mind:
 
-* Improve metric in time watching Anime
+* Improve metric in time watching Anime:
+    * Provide to user options to _"what to do"_ in real life what he likes. Like showing a YouTube drawing channel if he likes [Bakuman](https://anilist.co/anime/7674/Bakuman/) as one example
 * Anilist connection
 * Anime/manga review
 * Support to anime/manga news besides ANN -- to improve news accessibility
 * Natural Language Processing -- You can really have a talk to this bot
 * Anime and Manga recommendation -- Create a engine to it:
+    * Create another server to store this processing -- Talking to the bot through an GraphQL API and probably using [Rust](http://rust-lang.org/) to processing this info and [GO](https://golang.org/) to handle the API
+    * Probably uses a server that allows GPU usage
     * Improve this engine through image, video and audio processing
 * Create a site displaying info about:
     * Trending animes/mangas
@@ -166,6 +171,7 @@ As the [Anilist API V2](https://github.com/AniList/ApiV2-GraphQL-Docs) was writt
 * [emoji-regex](https://github.com/mathiasbynens/emoji-regex)
 * [google-translate](https://github.com/Localize/node-google-translate)
 * [moment](http://momentjs.com/)
+* [moment-timezone](https://momentjs.com/timezone/)
 * [mongoose](http://mongoosejs.com/)
 * [node schedule](https://github.com/node-schedule/node-schedule)
 * [striptags](https://github.com/ericnorris/striptags)
