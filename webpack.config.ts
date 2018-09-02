@@ -25,7 +25,7 @@ module.exports = {
             'telegraf-redis': nonRelative('telegram/utils/redis.ts'),
             'telegraf-parse': nonRelative('telegram/utils/parse.ts'),
             'telegraf-bot-typings': nonRelative('telegram/index.d.ts'),
-            'user-language': nonRelative('telegram/middleware/userLanguage.ts')
+            'user-cache': nonRelative('telegram/middleware/userCache.ts')
         },
         extensions: [
             '.js',

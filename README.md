@@ -151,6 +151,16 @@ This bot is up and running at [Heroku](http://heroku.com/) in a [Docker](https:/
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Fazendaaa/AnilistBot)
 
+But if you use [Azure](https://azure.microsoft.com/):
+
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repository=https://github.com/Fazendaaa/AnilistBot/tree/master)
+
+Or even deploy it in [Docker Cloud](https://cloud.docker.com/):
+
+[![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/Fazendaaa/AnilistBot/tree/master)
+
+> Note: You must be logged in to Docker Cloud for the button to work Otherwise, the link results in a 404 error.
+
 # Versioning
 I would love to say that [SemVer](https://semver.org/) or anything like that is used but, in my personal experience, this kind of approach doesn't work very well with me, the guy who could be committing in this project for two weeks in a roll and leave it for almost one year with no simple ```npm update```. So, no versioning system is used. 
 

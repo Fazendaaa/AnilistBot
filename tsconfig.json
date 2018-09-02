@@ -61,7 +61,7 @@
             "telegraf-parse": [ "lib/telegram/utils/parse.ts" ],
             "searches": [ "lib/anilist/searches/searches.ts" ],
             "telegraf-bot-typings": [ "lib/telegram/index.d.ts" ],
-            "user-language": [ "lib/telegram/middleware/userLanguage.ts" ]
+            "user-cache": [ "lib/telegram/middleware/userCache.ts" ]
         },
         // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
         // "typeRoots": [],                       /* List of folders to include type definitions from. */

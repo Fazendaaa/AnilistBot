@@ -6,7 +6,7 @@ import { getLanguageCode } from '../formatting/language';
  * Just a setting user language if available.
  * TSLint disable is used here because of Telegraf's TS typings.
  */
-export class UserLanguage {
+export class UserCache {
     // tslint:disable-next-line: no-any
     public middleware(): any {
         // tslint:disable-next-line: no-any

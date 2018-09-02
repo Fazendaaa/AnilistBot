@@ -11,7 +11,7 @@ import I18n from 'telegraf-i18n';
 import { fetchPage, sanitize } from 'telegraf-parse';
 import { getSessionKey, loadLanguages } from 'telegraf-redis';
 import RedisSession from 'telegraf-session-redis';
-import { UserLanguage } from 'user-language';
+import { UserCache } from 'user-cache';
 
 config();
 
@@ -32,7 +32,7 @@ const redisStorage = new RedisSession({
     }
 });
 export const redisClient = redisStorage.client;
-const userConfigLanguage = new UserLanguage();
+const userCache = new UserCache();
 
 let dbStatus = false;
 
@@ -60,7 +60,7 @@ bot.startPolling();
 bot.use(Telegraf.log());
 bot.use(redisStorage.middleware());
 bot.use(internationalization.middleware());
-bot.use(userConfigLanguage.middleware());
+bot.use(userCache.middleware());
 
 bot.catch(console.error);
 

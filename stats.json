@@ -1,1 +1,58 @@
-{"TOTAL":{"lines":10942,"files":267},".md":{"files":5,"lines":512},".json":{"files":9,"lines":205},"PLAIN":{"files":1,"lines":13},".rdb":{"files":1,"lines":7},".ts":{"files":78,"lines":3164},".info":{"files":1,"lines":22},".js":{"files":73,"lines":3385},".map":{"files":70,"lines":70},".css":{"files":2,"lines":226},".html":{"files":15,"lines":2044},".MD":{"files":2,"lines":2},".yaml":{"files":2,"lines":1153},".gql":{"files":8,"lines":139}}
+{
+    "TOTAL": {
+        "lines": 11049,
+        "files": 272
+    },
+    "PLAIN": {
+        "files": 1,
+        "lines": 13
+    },
+    ".md": {
+        "files": 5,
+        "lines": 522
+    },
+    ".json": {
+        "files": 10,
+        "lines": 209
+    },
+    ".rdb": {
+        "files": 1,
+        "lines": 7
+    },
+    ".ts": {
+        "files": 78,
+        "lines": 3164
+    },
+    ".info": {
+        "files": 1,
+        "lines": 22
+    },
+    ".js": {
+        "files": 75,
+        "lines": 3476
+    },
+    ".map": {
+        "files": 72,
+        "lines": 72
+    },
+    ".css": {
+        "files": 2,
+        "lines": 226
+    },
+    ".html": {
+        "files": 15,
+        "lines": 2044
+    },
+    ".MD": {
+        "files": 2,
+        "lines": 2
+    },
+    ".yaml": {
+        "files": 2,
+        "lines": 1153
+    },
+    ".gql": {
+        "files": 8,
+        "lines": 139
+    }
+}
