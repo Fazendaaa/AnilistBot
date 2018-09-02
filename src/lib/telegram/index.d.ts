@@ -15,6 +15,7 @@ export type AllRequests = 'MENU' |
                           'ABOUT' |
                           'STUDIO' |
                           'NOTIFY' |
+                          'COUNTER' |
                           'READLIST' |
                           'LANGUAGE' |
                           'CHARACTER' |
@@ -36,6 +37,7 @@ export type AllRequests = 'MENU' |
                           'MANGA-MORE-INFO' |
                           'LANGUAGE-FRENCH' |
                           'LANGUAGE-FRENCH' |
+                          'LANGUAGE-ARABIC' |
                           'MANGA-PUBLISHING' |
                           'LANGUAGE-ENGLISH' |
                           'LANGUAGE-SPANISH' |

@@ -17,5 +17,9 @@ export const userSchema = new Schema({
     language: {
         type: String,
         default: null
+    },
+    counter: {
+        type: Number,
+        default: null
     }
 });

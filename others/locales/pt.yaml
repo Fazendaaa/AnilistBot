@@ -19,11 +19,12 @@ menuGreetings:
 
 menuOptions:
   "📕\t*MENU*\n\n\
-  *Usuário*: _informações sobre noficações_\n\
+  *Usuário*: _informações sobre: noficações, idioma, horário e localização_\n\
+  *Calculadora*: _Quanto tempo passou vendo anime_\n\
   *Regressiva*: _quanto tempo falta para os próximos episódios_\n\
   *Lista de Assistir*: _animes salvos_\n\
   *Lista de Leitura*: _mangás salvos_\n\n\
-  Outros comandos em guia."
+  Outros informações em guia."
 
 helpOptions:
   "Como posso lhe ajudar hoje, _${from.username}_?\n\n\
@@ -31,6 +32,8 @@ helpOptions:
   ``` @ANILISTbot Pokemon```\n\n\
   Este bot tem funções especiais para você:\n\
   - *Notificações quando saírem novos episódios*\n\
+  - *Notícias sobre seus mangás e animes*\n\
+  - *Calculadora de tempo assistindo animes*\n\
   - *Contagem regressiva dos episódios*\n\
   - *Sua própria lista de mangás e animes*\n\n\
   Para receber as notificações, basta apenas adicionar o anime na sua lista de assistindo após pesquisar sobre ele, há um botão disso em cada anime pesquisado.\n\n\
@@ -68,6 +71,8 @@ guideOptions:
   /character _nome do personagem_\n\
   /staff _nome do produtor_\n\
   /studio _nome do estúdio_\n\n\
+  *Calculadora de Tempo em Anime*\n\n\
+  Apenas uma calculadora que mostra o quanto tempo passou assistindo animes.\n\n\
   *Idioma do Usuário*\n\n\
   Por padrão eu funciono com a sua linguagem no Telegram, se não configurado minha linguagem padrão é Inglês. Se quiser mudar isso, vá para a aba _Usuário_ e modifique isto.\n\n\
   *Localização do Usuário*\n\n\
@@ -129,6 +134,10 @@ cancelledAnimeOptions:
 countdownOptions:
   "⏲️ *CONTAGEM REGRESSIVA*"
 
+counterOptions:
+  "⌛ *Tempo Assistido*\n\n\
+  Esse é o quanto tempo passou assistindo animes: _${counter} horas_"
+
 languageOptions:
   "Por favor, escolha uma das opções seguintes como o seu idioma:"
 
@@ -186,7 +195,7 @@ nl:
   "Holandês"
 
 es:
-  "Espanha"
+  "Espanhol"
 
 it:
   "Italiano"
@@ -202,6 +211,9 @@ ru:
 
 zh:
   "Chinês"
+
+ar:
+  "Árabe"
 
 jp:
   "Japonês"
@@ -219,7 +231,7 @@ nlButton:
   "🇳🇱 Holandês"
 
 esButton:
-  "🇪🇸 Espanha"
+  "🇪🇸 Espanhol"
 
 itButton:
   "🇮🇹 Italiano"
@@ -239,8 +251,14 @@ zhButton:
 jpButton:
   "🇯🇵 Japonês"
 
+arButton:
+  "🇦🇪 Árabe"
+
 backButton:
   "<"
+
+counterButton:
+  "Quanto tempo eu passei vendo anime?"
 
 languageButton:
   "Idioma"

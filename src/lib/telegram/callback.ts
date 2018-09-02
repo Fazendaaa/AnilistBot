@@ -4,9 +4,9 @@ import { fetchDescription } from '../anilist/requests/descriptions';
 import { fetchGenres } from '../anilist/requests/genres';
 import { handleMenu } from './formatting/menu';
 import { aboutKeyboard, airingAnimeKeyboard, cancelledAnimeKeyboard, cancelledMangaKeyboard, completedAnimeKeyboard, completedMangaKeyboard,
-countdownKeyboard, guideKeyboard, languageBackKeyboard, languageKeyboard, menuKeyboard, notifyBackKeyboard, notifyKeyboard,
-publishingMangaKeyboard, readlistKeyboard, soonAnimeKeyboard, soonMangaKeyboard, timeKeyboard, userKeyboard, watchlistKeyboard
-} from './keyboard';
+countdownKeyboard, counterBackKeyboard, guideKeyboard, languageBackKeyboard, languageKeyboard, menuKeyboard, notifyBackKeyboard,
+notifyKeyboard, publishingMangaKeyboard, readlistKeyboard, soonAnimeKeyboard, soonMangaKeyboard, timeKeyboard, userKeyboard,
+watchlistKeyboard } from './keyboard';
 
 const truncateMessage = (input: string): string => {
     const max = 196;
@@ -91,6 +91,8 @@ export const callbackKeyboard = ({ request, translation }: ICallbackKeyboardCont
         return watchlistKeyboard({ translation });
     } if ('COUNTDOWN' === request) {
         return countdownKeyboard({ translation });
+    } if ('COUNTER' === request) {
+        return counterBackKeyboard({ translation });
     }
 
     return menuKeyboard({ translation });

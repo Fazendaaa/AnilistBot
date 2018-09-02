@@ -19,11 +19,12 @@ menuGreetings:
 
 menuOptions:
   "📕\t*MENU*\n\n\
-  *User*: _info about all notifications_\n\
+  *User*: _info about: notifications, language, time and location_\n\
+  *Counter*: _how much time in watching anime_\n\
   *Countdown*: _episodes time for ariring_\n\
   *Watchlist*: _saved animes_\n\
   *Readlist*: _saved mangas_\n\n\
-  Other commands in guide."
+  Other infos in guide."
 
 helpOptions:
   "How can I be helpful to you today, _${from.username}_?\n\n\
@@ -31,6 +32,8 @@ helpOptions:
   ``` @ANILISTbot Pokemon```\n\n\
   This bot has special features for you:\n\
   - *Notifications when new episodes releases*\n\
+  - *News about your mangas and animes*\n\
+  - *Time watching on anime calculator*\n\
   - *Countdown for episodes*\n\
   - *Your own watchlist and readlist*\n\n\
   To recive notifications, just add the anime in your watchlist after searching for it, there's a button for that in the searched content.\n\n\
@@ -68,6 +71,8 @@ guideOptions:
   /character _character name_\n\
   /staff _staff name_\n\
   /studio _studio name_\n\n\
+  *Anime Time Calculator*\n\n\
+  Just a calculator of how much time you have passed watching anime.\n\n\
   *User Language*\n\n\
   By default I work with your Telegram language, if not provided my default language is English. If you want change that, go to _User_ tab and change this.\n\n\
   *User Location*\n\n\
@@ -128,6 +133,10 @@ cancelledAnimeOptions:
 
 countdownOptions:
   "⏲️ *COUNTDOWN*"
+
+counterOptions:
+  "⌛ *Time Watching*\n\n\
+  This is how much you have watched anime: _${counter} hours_"
 
 languageOptions:
   "Please, choose one of the following language options:"
@@ -206,6 +215,9 @@ zh:
 jp:
   "Japanese"
 
+ar:
+  "Arabic"
+
 enButton:
   "🇬🇧 English"
 
@@ -239,8 +251,14 @@ zhButton:
 jpButton:
   "🇯🇵 Japanese"
 
+arButton:
+  "🇦🇪 Arabic"
+
 backButton:
   "<"
+
+counterButton:
+  "How much time I've watched Anime?"
 
 languageButton:
   "Language"

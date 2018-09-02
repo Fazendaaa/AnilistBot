@@ -35,7 +35,10 @@ More than this it also notifies you when new episodes are released and lets you 
 * Watchlist
 * Readlist
 * Countdown from new episodes
-* Anime and manga filters in your lists
+* Time watching anime calculator
+* Anime and manga filters in your lists by: airing/publishing, completed, cancelled & soon
+* News when released from [ANN](https://www.animenewsnetwork.com/) about your mangas and animes
+* And much more features that are under development
 
 All of the data about it is fetched from [Anilist](http://anilist.co/) & [Anichart](http://anichart.net/).
 
@@ -46,17 +49,20 @@ All of the data about it is fetched from [Anilist](http://anilist.co/) & [Anicha
 ## Supported languages:
 By default all the commands are in English, but you can see if the same command is available in your language. Only English and Portuguese had some kind of review, the others are automatic translation from [Google Translate](https://translate.google.com/).
 
-* [English](./others/locales/en.yaml)
-* [Portuguese - Brazil](./others/locales/pt.yaml)
-* [Indonesian](./others/locales/id.yaml)
-* [Dutch](./others/locales/nl.yaml)
-* [Spanish](./others/locales/es.yaml)
-* [Italian](./others/locales/it.yaml)
-* [German](./others/locales/de.yaml)
-* [French](./others/locales/fr.yaml)
-* [Russian](./others/locales/ru.yaml)
+* [Arabic](./others/locales/ar.yaml)
 * [Chinese](./others/locales/zh.yaml)
+* [Dutch](./others/locales/nl.yaml)
+* [English](./others/locales/en.yaml)
+* [French](./others/locales/fr.yaml)
+* [German](./others/locales/de.yaml)
+* [Indonesian](./others/locales/id.yaml)
+* [Italian](./others/locales/it.yaml)
 * [Japanese](./others/locales/jp.yaml)
+* [Portuguese - Brazil](./others/locales/pt.yaml)
+* [Russian](./others/locales/ru.yaml)
+* [Spanish](./others/locales/es.yaml)
+
+**Want a new language?** Talk to me through an issue about it or hit me up at Telegram: [@farmy](http://t.me/farmy).
 
 # How to use it
 First of all, talk to [@AnilistBot](http://t.me/anilistbot).
@@ -115,10 +121,21 @@ Or even becoming a patron:
 # Contributing
 Please, I'm not a native/fluent english speaker, so whether you see a variable name wrote the wrong way or even some comment where I've wrote something with the wrong "past perfect way of life" or something like that, please let me know it. Not always is just about the code, but rather making it more clear to other people to learn from it.
 
-So, whether is code or not you can help me out making this code more accessible by reading the [CONTRIBUTING.md](./docs/contributing/CONTRIBUTING.md).
+So, whether is code or not you can help me out making this code more accessible or even supporting trough a new language or fixing some mistranslated content. Just read the [CONTRIBUTING.md](./docs/contributing/CONTRIBUTING.md).
 
 # TODO
-Since I will be keeping this README up to date with any major change and I don't use any versioning system to log all the fixed bugs or previous projects updates, you can still have a taste of what comes next and what is being under analysis right in the [Projects](https://github.com/Fazendaaa/AnilistBot/projects/) tab.
+Since I will be keeping this README up to date with any major change and I don't use any versioning system to log all the fixed bugs or previous projects updates, you can still have a taste of what comes next and what is being under analysis right in the [Projects](https://github.com/Fazendaaa/AnilistBot/projects/) tab. But I can give you a taste what I have in mind:
+
+* Improve metric in time watching Anime
+* Anilist connection
+* Anime/manga review
+* Support to anime/manga news besides ANN -- to improve news accessibility
+* Natural Language Processing -- You can really have a talk to this bot
+* Anime and Manga recommendation -- Create a engine to it:
+    * Improve this engine through image, video and audio processing
+* Create a site displaying info about:
+    * Trending animes/mangas
+    * A graph showing anime/mangas distances between users likes
 
 # Deployment
 This bot is up and running at [Heroku](http://heroku.com/) in a [Docker](https://www.docker.com/) container. You can also deploy yourself this bot into Heroku through:

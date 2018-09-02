@@ -53,7 +53,7 @@ const handleNotify = async ({ user, request, translation }: IMenuNotifyContext):
            .catch(() => translation.t('errorNotify'));
 };
 
-const handleUser = ({ user, translation }: IMenuUserContext): Promise<string> => userInfo(user).then(info => {
+const handleUser = async ({ user, translation }: IMenuUserContext): Promise<string> => userInfo(user).then(info => {
     const { notify, language, time, timezone } = <IDBUserInfo> info;
 
     return translation.t('userOptions', {
@@ -62,6 +62,12 @@ const handleUser = ({ user, translation }: IMenuUserContext): Promise<string> =>
         notify: (true === notify) ? translation.t('enabled') : translation.t('disabled'),
         language: (null !== language) ? translation.t(language) : translation.t('languageDefault')
     });
+}).catch(() => translation.t('errorUserInfo'));
+
+const handleCounter = async ({ user, translation }: IMenuUserContext): Promise<string> => userInfo(user).then(info => {
+    const { counter } = <IDBUserInfo> info;
+
+    return translation.t('counterOptions', { counter: (null !== counter) ? counter : translation.t('notAvailable') });
 }).catch(() => translation.t('errorUserInfo'));
 
 export const handleMenu = async ({ user, request, translation }: IMenuContext): Promise<string> => {
@@ -91,6 +97,8 @@ export const handleMenu = async ({ user, request, translation }: IMenuContext): 
         return translation.t('countdownOptions');
     } if ('WATCHLIST' === request) {
         return translation.t('watchlistOptions');
+    } if ('COUNTER' === request) {
+        return handleCounter({ user, translation });
     }
 
     return translation.t('notAvailable');

@@ -3,6 +3,7 @@ import { Document } from 'mongoose';
 export interface IDBUser extends Document {
     time: Date;
     notify: boolean;
+    counter: number;
     language: string;
     timezone: string;
     readonly _id: number;
@@ -12,6 +13,7 @@ export interface IDBUserInfo {
     readonly time: Date;
     readonly _id: number;
     readonly notify: boolean;
+    readonly counter: number;
     readonly language: string;
     readonly timezone: string;
 }

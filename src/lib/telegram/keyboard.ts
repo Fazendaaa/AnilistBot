@@ -14,6 +14,12 @@ export const notifyBackKeyboard = ({ translation }: IKeyboardContext): InlineKey
     ]);
 };
 
+export const counterBackKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
+    return Markup.inlineKeyboard([
+        Markup.callbackButton(translation.t('backButton'), 'MENU/MENU/0')
+    ]);
+};
+
 export const countdownKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     return Markup.inlineKeyboard([
         Markup.callbackButton(translation.t('backButton'), 'MENU/MENU/0')
@@ -74,8 +80,11 @@ export const menuKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardM
         Markup.callbackButton(translation.t('watchlistButton'), 'MENU/WATCHLIST/0'),
         Markup.callbackButton(translation.t('readlistButton'), 'MENU/READLIST/0')
     ];
+    const thirdLine = [
+        Markup.callbackButton(translation.t('counterButton'), 'MENU/COUNTER/0')
+    ];
 
-    return Markup.inlineKeyboard([ firstLine, secondLine ]);
+    return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine ]);
 };
 
 // I  know that publishing is only to manga and airing to anime, but even so is they have their following data type just
@@ -252,17 +261,18 @@ export const cancelledAnimeKeyboard = ({ translation }: IKeyboardContext): Inlin
 
 export const languageKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     const languages = [
-        Markup.callbackButton(translation.t('enButton'), 'MENU/LANGUAGE-ENGLISH/0'),
-        Markup.callbackButton(translation.t('ptButton'), 'MENU/LANGUAGE-PORTUGUESE/0'),
-        Markup.callbackButton(translation.t('idButton'), 'MENU/LANGUAGE-INDONESIAN/0'),
-        Markup.callbackButton(translation.t('nlButton'), 'MENU/LANGUAGE-DUTCH/0'),
-        Markup.callbackButton(translation.t('esButton'), 'MENU/LANGUAGE-SPANISH/0'),
-        Markup.callbackButton(translation.t('itButton'), 'MENU/LANGUAGE-DEUTSCH/0'),
-        Markup.callbackButton(translation.t('deButton'), 'MENU/LANGUAGE-FRENCH/0'),
-        Markup.callbackButton(translation.t('frButton'), 'MENU/LANGUAGE-RUSSIAN/0'),
-        Markup.callbackButton(translation.t('ruButton'), 'MENU/LANGUAGE-FRENCH/0'),
+        Markup.callbackButton(translation.t('arButton'), 'MENU/LANGUAGE-ARABIC/0'),
         Markup.callbackButton(translation.t('zhButton'), 'MENU/LANGUAGE-CHINESE/0'),
-        Markup.callbackButton(translation.t('jpButton'), 'MENU/LANGUAGE-JAPANESE/0')
+        Markup.callbackButton(translation.t('nlButton'), 'MENU/LANGUAGE-DUTCH/0'),
+        Markup.callbackButton(translation.t('enButton'), 'MENU/LANGUAGE-ENGLISH/0'),
+        Markup.callbackButton(translation.t('frButton'), 'MENU/LANGUAGE-RUSSIAN/0'),
+        Markup.callbackButton(translation.t('deButton'), 'MENU/LANGUAGE-FRENCH/0'),
+        Markup.callbackButton(translation.t('idButton'), 'MENU/LANGUAGE-INDONESIAN/0'),
+        Markup.callbackButton(translation.t('itButton'), 'MENU/LANGUAGE-DEUTSCH/0'),
+        Markup.callbackButton(translation.t('jpButton'), 'MENU/LANGUAGE-JAPANESE/0'),
+        Markup.callbackButton(translation.t('ptButton'), 'MENU/LANGUAGE-PORTUGUESE/0'),
+        Markup.callbackButton(translation.t('ruButton'), 'MENU/LANGUAGE-FRENCH/0'),
+        Markup.callbackButton(translation.t('esButton'), 'MENU/LANGUAGE-SPANISH/0')
     ];
     const back = [
         Markup.callbackButton(translation.t('backButton'), 'MENU/USER/0')

@@ -1,7 +1,9 @@
 import { AllRequests } from 'telegraf-bot-typings';
 
 export const getLanguageCode = (request: AllRequests): string => {
-    if ('LANGUAGE-PORTUGUESE' === request) {
+    if ('LANGUAGE-ARABIC' === request) {
+        return 'ar';
+    } if ('LANGUAGE-PORTUGUESE' === request) {
         return 'pt';
     } if ('LANGUAGE-INDONESIAN' === request) {
         return 'id';
