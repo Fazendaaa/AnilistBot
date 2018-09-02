@@ -58,7 +58,20 @@ notifyOptions:
 
 timeOptions:
   "⏰ *HORÁRIO*\n\n\
-  Mude aqui o horário das suas notificações."
+  Mude aqui o horário das suas notificações.\n\n\
+  Você pode fazer isso por configurando o tempo por você mesmo — só se lembre que meu relógio é o dos Estados Unidos — ou você pode me mandar sua localização nas configurações para o usuário para que, dessa maneira, eu possa lhe notificar no seu horário local."
+
+timePeriodOptions:
+  "⏰ *PERÍODO*\n\n\
+  Você gostaria de ser notificado pela manhã ou pela tarde?"
+
+timeHourOptions:
+  "⏰ *HORAS*\n\n\
+  Selecione o seu horário desejado para receber notificações."
+
+locationOptions:
+  "🌎 *LOCALIZAÇÃO*\n\n\
+  Envie-me sua localização para que, desta maneira, eu possa te enviar notificações no seu horário local."
 
 guideOptions:
   "🗺️ *GUIA*\n\n\
@@ -95,7 +108,8 @@ aboutOptions:
   ⭐ [Github](https://github.com/Fazendaaa/AnilistBot) — Dê uma estrelinha neste projeto, É DE GRAÇA!!!\n\
   😀 [Site do meu criador](http://fazendaaa.me) — Veja outros bots.\n\n\
   Ou até mesmo considere suportar o meu criador:\n\
-  📅 [Patreon](https://www.patreon.com/Fazenda/overview) — Assinatura.\n\
+  📅 [Patreon](https://www.patreon.com/Fazenda/overview) — Assinatura em dólar.\n\
+  😎 [Padrim](https://www.padrim.com.br/AnilistBot) — Assinatura em reais.\n\
   ☕ [Buy me a coffee](https://www.buymeacoffee.com/Fazenda) — Uma doação pontual.\n\
   ❓ [Por que contribuir?](https://fazendaaa.github.io/AnilistBot) — Leia sobre o porquê você faz a diferença na parte *Supporting*.\n\n\
   *Tens alguma sugestão, erros para reportar ou até mesmo requerir uma tradução para que eu possa funcionar na sua linguagem nativa?*\n\n\
@@ -135,30 +149,30 @@ countdownOptions:
   "⏲️ *CONTAGEM REGRESSIVA*"
 
 counterOptions:
-  "⌛ *Tempo Assistido*\n\n\
+  "⌛ *TEMPO ASSISTIDO*\n\n\
   Esse é o quanto tempo passou assistindo animes: _${counter} horas_"
 
 languageOptions:
   "Por favor, escolha uma das opções seguintes como o seu idioma:"
 
 setLanguage:
-  "👌 *Idioma Configurado*\n\n\
+  "👌 *IDIOMA CONFIGURADO*\n\n\
   Por favor, espere alguns segundos para essa configuração começar a funcionar."
 
 errorSetLanguage:
-  "🚫 *Error ao Configurar Idioma*\n\n\
+  "🚫 *ERROR AO CONFIGURAR IDIOMAS*\n\n\
   Um erro ocorreu ao configurar seu idioma, por favor avise @farmy sobre ele"
 
 setNotify:
-  "👌 *Notificações Configuradas*\n\n\
+  "👌 *NOTIFICAÇÕES CONFIGURADAS*\n\n\
   Seu status agora para notificações é: _${notify}_"
 
 errorNotify:
-  "🚫 *Erro em Notificações*\n\n\
+  "🚫 *ERRO EM NOTIFICAÇÕES*\n\n\
   Um erro aconteceu ao mudar seu status de notificações, por favor avise @farmy sobre isso."
 
 errorUserInfo:
-  "🚫 *Erro em Usuário*\n\n\
+  "🚫 *ERROR EM USUÁRIO*\n\n\
   Um erro aconteceu ao buscar informações sobre você, por favor avise @farmy sobre isso."
 
 languageDefault:
@@ -267,6 +281,12 @@ notifyButton:
   "Notificações"
 
 timeButton:
+  "Tempo"
+
+locationButton:
+  "Localização"
+
+hoursButton:
   "Horas"
 
 allButton:

@@ -17,14 +17,17 @@ export type AllRequests = 'MENU' |
                           'NOTIFY' |
                           'COUNTER' |
                           'READLIST' |
+                          'LOCATION' |
                           'LANGUAGE' |
                           'CHARACTER' |
                           'COUNTDOWN' |
                           'WATCHLIST' |
+                          'TIME-HOUR' |
                           'ANIME-ALL' |
                           'MANGA-ALL' |
                           'ANIME-SOON' |
                           'MANGA-SOON' |
+                          'TIME-PERIOD' |
                           'ANIME-AIRING' |
                           'NOTIFY-ENABLE' |
                           'NOTIFY-DISABLE' |

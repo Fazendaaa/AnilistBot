@@ -32,17 +32,59 @@ export const aboutKeyboard = ({ translation }: IKeyboardContext): InlineKeyboard
     ]);
 };
 
-export const timeKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
-    return Markup.inlineKeyboard([
-        Markup.callbackButton(translation.t('backButton'), 'MENU/USER/0')
-    ]);
+export const guideKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
+    const firstLine = [
+        Markup.callbackButton(translation.t('aboutButton'), 'MENU/ABOUT/0')
+    ];
+    const secondLine = [
+        Markup.callbackButton(translation.t('backButton'), 'MENU/MENU/0')
+    ];
+
+    return Markup.inlineKeyboard([ firstLine, secondLine ]);
 };
 
-export const guideKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
-    return Markup.inlineKeyboard([
-        Markup.callbackButton(translation.t('backButton'), 'MENU/MENU/0'),
-        Markup.callbackButton(translation.t('aboutButton'), 'MENU/ABOUT/0')
-    ]);
+export const timeKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
+    const firstLine = [
+        Markup.callbackButton(translation.t('hoursButton'), 'MENU/TIME-HOUR/0')
+    ];
+    const secondLine = [
+        Markup.callbackButton(translation.t('backButton'), 'MENU/USER/0')
+    ];
+
+    return Markup.inlineKeyboard([ firstLine, secondLine ]);
+};
+
+export const timePeriodKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
+    const firstLine = [
+        Markup.callbackButton(translation.t('hoursButton'), 'MENU/TIME-HOUR/0')
+    ];
+    const secondLine = [
+        Markup.callbackButton(translation.t('backButton'), 'MENU/USER/0')
+    ];
+
+    return Markup.inlineKeyboard([firstLine, secondLine]);
+};
+
+export const timeHourKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
+    const firstLine = [
+        Markup.callbackButton(translation.t('hoursButton'), 'MENU/TIME-HOUR/0')
+    ];
+    const secondLine = [
+        Markup.callbackButton(translation.t('backButton'), 'MENU/USER/0')
+    ];
+
+    return Markup.inlineKeyboard([firstLine, secondLine]);
+};
+
+export const locationKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
+    const firstLine = [
+        Markup.callbackButton(translation.t('locationButton'), 'MENU/LOCATION/0')
+    ];
+    const secondLine = [
+        Markup.callbackButton(translation.t('backButton'), 'MENU/USER/0')
+    ];
+
+    return Markup.inlineKeyboard([ firstLine, secondLine ]);
 };
 
 export const notifyKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
@@ -54,20 +96,23 @@ export const notifyKeyboard = ({ translation }: IKeyboardContext): InlineKeyboar
         Markup.callbackButton(translation.t('backButton'), 'MENU/USER/0')
     ];
 
-    return Markup.inlineKeyboard([firstLine, secondLine]);
+    return Markup.inlineKeyboard([ firstLine, secondLine ]);
 };
 
 export const userKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('languageButton'), 'MENU/LANGUAGE/0'),
-        Markup.callbackButton(translation.t('notifyButton'), 'MENU/NOTIFY/0'),
-        Markup.callbackButton(translation.t('timeButton'), 'MENU/TIME/0')
+        Markup.callbackButton(translation.t('notifyButton'), 'MENU/NOTIFY/0')
     ];
     const secondLine = [
+        Markup.callbackButton(translation.t('timeButton'), 'MENU/TIME/0'),
+        Markup.callbackButton(translation.t('locationButton'), 'MENU/LOCATION/0')
+    ];
+    const thirdLine = [
         Markup.callbackButton(translation.t('backButton'), 'MENU/MENU/0')
     ];
 
-    return Markup.inlineKeyboard([ firstLine, secondLine ]);
+    return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine ]);
 };
 
 export const menuKeyboard = ({ translation }: IKeyboardContext): InlineKeyboardMarkup => {

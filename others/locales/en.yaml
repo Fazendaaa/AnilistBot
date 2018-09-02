@@ -58,7 +58,20 @@ notifyOptions:
 
 timeOptions:
   "⏰ *TIME*\n\n\
-  Change here the time for your notifications."
+  Change here the time for your notifications.\n\n\
+  You can do that by setting the time by yourself — just remember my clock is the US clock — or send me your location in the user options so that way I can send you the notifications in your local time."
+
+timePeriodOptions:
+  "⏰ *PERIOD*\n\n\
+  Would you like to be notified by the moorning period or the afternoon?"
+
+timeHourOptions:
+  "⏰ *HOUR*\n\n\
+  Select your desired time to recive notifications."
+
+locationOptions:
+  "🌎 *LOCATION*\n\n\
+  Send me your location so, that way, I can send notifications in your local time."
 
 guideOptions:
   "🗺️ *GUIDE*\n\n\
@@ -135,30 +148,30 @@ countdownOptions:
   "⏲️ *COUNTDOWN*"
 
 counterOptions:
-  "⌛ *Time Watching*\n\n\
+  "⌛ *TIME WATCHING*\n\n\
   This is how much you have watched anime: _${counter} hours_"
 
 languageOptions:
   "Please, choose one of the following language options:"
 
 setLanguage:
-  "👌 *Language Configured*\n\n\
+  "👌 *LANGUAGE CONFIGURED*\n\n\
   Please, wait a few seconds to this configuration to works."
 
 errorSetLanguage:
-  "🚫 *Language Error*\n\n\
+  "🚫 *LANGUAGE ERROR*\n\n\
   An error occured when trying to change your language, please warn @farmy about it"
 
 setNotify:
-  "👌 *Notifications Configured*\n\n\
+  "👌 *NOTIFICATIONS CONFIGURED*\n\n\
   Your notifications status is now: _${notify}_"
 
 errorNotify:
-  "🚫 *Notifications Error*\n\n\
+  "🚫 *NOTIFICATIONS ERROR*\n\n\
   An error occured changing it your notification status, please warn @farmy about that."
 
 errorUserInfo:
-  "🚫 *User Error*\n\n\
+  "🚫 *USER ERROR*\n\n\
   An error occured getting your user info, please warn @farmy about that."
 
 languageDefault:
@@ -268,6 +281,12 @@ notifyButton:
 
 timeButton:
   "Time"
+
+locationButton:
+  "Location"
+
+hoursButton:
+  "Hours"
 
 allButton:
   "All"

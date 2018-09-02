@@ -4,9 +4,9 @@ import { fetchDescription } from '../anilist/requests/descriptions';
 import { fetchGenres } from '../anilist/requests/genres';
 import { handleMenu } from './formatting/menu';
 import { aboutKeyboard, airingAnimeKeyboard, cancelledAnimeKeyboard, cancelledMangaKeyboard, completedAnimeKeyboard, completedMangaKeyboard,
-countdownKeyboard, counterBackKeyboard, guideKeyboard, languageBackKeyboard, languageKeyboard, menuKeyboard, notifyBackKeyboard,
-notifyKeyboard, publishingMangaKeyboard, readlistKeyboard, soonAnimeKeyboard, soonMangaKeyboard, timeKeyboard, userKeyboard,
-watchlistKeyboard } from './keyboard';
+countdownKeyboard, counterBackKeyboard, guideKeyboard, languageBackKeyboard, languageKeyboard, locationKeyboard, menuKeyboard,
+notifyBackKeyboard, notifyKeyboard, publishingMangaKeyboard, readlistKeyboard, soonAnimeKeyboard, soonMangaKeyboard, timeHourKeyboard,
+timeKeyboard, timePeriodKeyboard, userKeyboard, watchlistKeyboard } from './keyboard';
 
 const truncateMessage = (input: string): string => {
     const max = 196;
@@ -20,6 +20,16 @@ const handleNotifyKeyboard = ({ request, translation }: ICallbackKeyboardContext
 
 const handleLanguageKeyboard = ({ request, translation }: ICallbackKeyboardContext) => {
     return ('LANGUAGE' === request) ? languageKeyboard({ translation }) : languageBackKeyboard({ translation });
+};
+
+const handleTimeKeyboard = ({ request, translation }: ICallbackKeyboardContext) => {
+    if ('TIME-HOUR' === request) {
+        return timeHourKeyboard({ translation });
+    } if ('TIME-PERIOD' === request) {
+        return timePeriodKeyboard({ translation });
+    }
+
+    return timeKeyboard({ translation });
 };
 
 const animeKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
@@ -73,13 +83,13 @@ export const callbackKeyboard = ({ request, translation }: ICallbackKeyboardCont
         return animeKeyboard({ request, translation });
     } if ('MANGA' === kind[0]) {
         return mangaKeyboard({ request, translation });
+    } if ('TIME' === kind[0]) {
+        return handleTimeKeyboard({ request, translation });
     } if ('NOTIFY' === kind[0]) {
         return handleNotifyKeyboard({ request, translation });
     } if ('LANGUAGE' === kind[0]) {
         return handleLanguageKeyboard({ request, translation });
-    } if ('TIME' === request) {
-        return timeKeyboard({ translation });
-    } if ('USER' === request) {
+    }  if ('USER' === request) {
         return userKeyboard({ translation });
     } if ('GUIDE' === request) {
         return guideKeyboard({ translation });
@@ -87,6 +97,8 @@ export const callbackKeyboard = ({ request, translation }: ICallbackKeyboardCont
         return aboutKeyboard({ translation });
     } if ('READLIST' === request) {
         return readlistKeyboard({ translation });
+    } if ('LOCATION' === request) {
+        return locationKeyboard({ translation });
     } if ('WATCHLIST' === request) {
         return watchlistKeyboard({ translation });
     } if ('COUNTDOWN' === request) {

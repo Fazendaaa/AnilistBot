@@ -1,4 +1,5 @@
-import { IMenuAnimeContext, IMenuContext, IMenuLanguageContext, IMenuMangaContext, IMenuNotifyContext, IMenuUserContext } from '.';
+import { IMenuAnimeContext, IMenuContext, IMenuLanguageContext, IMenuMangaContext, IMenuNotifyContext, IMenuTimeContext, IMenuUserContext
+} from '.';
 import { IDBUserInfo } from '../../database/user';
 import { userInfo, userLanguage, userSetNotification } from '../../database/user/user';
 import { getLanguageCode } from './language';
@@ -29,6 +30,16 @@ const handleManga = ({ request, translation }: IMenuMangaContext): string => {
     }
 
     return translation.t('readlistOptions');
+};
+
+const handleTime = ({ request, translation }: IMenuTimeContext): string => {
+    if ('TIME-HOUR' === request) {
+        return translation.t('timeHourOptions');
+    } if ('TIME-PERIOD' === request) {
+        return translation.t('timePeriodOptions');
+    }
+
+    return translation.t('timeOptions');
 };
 
 const handleLanguage = async ({ user, request, translation }: IMenuLanguageContext): Promise<string> => {
@@ -73,24 +84,26 @@ const handleCounter = async ({ user, translation }: IMenuUserContext): Promise<s
 export const handleMenu = async ({ user, request, translation }: IMenuContext): Promise<string> => {
     const kind = request.split('-');
 
-    if ('ANIME' === kind[0]) {
+    if ('TIME' === kind[0]) {
+        return handleTime({ request, translation });
+    } if ('ANIME' === kind[0]) {
         return handleAnime({ request, translation });
     } if ('MANGA' === kind[0]) {
         return handleManga({ request, translation });
-    } if ('LANGUAGE' === kind[0]) {
-        return handleLanguage({ user, request, translation });
     } if ('NOTIFY' === kind[0]) {
         return handleNotify({ user, request, translation });
+    } if ('LANGUAGE' === kind[0]) {
+        return handleLanguage({ user, request, translation });
     } if ('MENU' === request) {
         return translation.t('menuOptions');
-    } if ('TIME' === request) {
-        return translation.t('timeOptions');
     } if ('ABOUT' === request) {
         return translation.t('aboutOptions');
     } if ('GUIDE' === request) {
         return translation.t('guideOptions');
     } if ('READLIST' === request) {
         return translation.t('readlistOptions');
+    } if ('LOCATION' === request) {
+        return translation.t('locationOptions');
     } if ('USER' === request) {
         return handleUser({ user, translation });
     } if ('COUNTDOWN' === request) {

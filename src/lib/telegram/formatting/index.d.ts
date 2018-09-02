@@ -24,3 +24,5 @@ export interface IMenuMangaContext extends IMenuCommonContext { }
 export interface IMenuLanguageContext extends IMenuContext { }
 
 export interface IMenuNotifyContext extends IMenuContext { }
+
+export interface IMenuTimeContext extends IMenuCommonContext { }
