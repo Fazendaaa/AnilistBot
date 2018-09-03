@@ -1,5 +1,6 @@
 import { InlineKeyboardMarkup } from 'telegram-typings';
 import { ICallbackKeyboardContext, IRequestsContext } from '.';
+import { handleList } from '../anilist/lists/handle';
 import { fetchDescription } from '../anilist/requests/descriptions';
 import { fetchGenres } from '../anilist/requests/genres';
 import { handleMenu } from './formatting/menu';
@@ -75,8 +76,11 @@ export const handleCallback = async ({ id, user, request, field, translation, db
         return fetchGenres({ id, request, translation }).then(truncateMessage);
     } if ('DESCRIPTION' === field) {
         return fetchDescription({ id, request, translation }).then(truncateMessage);
+    } if ('LIST' === field) {
+        return handleList({ id, user, request, translation });
     }
 
+    // For deprecated methods -- this saves me time while debugging.
     return translation.t('notAvailable');
 };
 

@@ -52,9 +52,10 @@ notifyOptions:
   *Episódios*\n\
   Quando novos episódios dos animes que estão sendo liberados saírem, você será notificado sobre.\n\n\
   *Notícias*\n\
-  Quando notícias sobre os animes que acompanha forem liberadas — de animes em lançamento ou não —, você será notificado sobre.\n\
-  Esta opção está somente disponível para notícias em Inglês.\n\n\
-  Você gostaria mesmo de desativar *TODAS* as notificações, ou apenas as dos __episódios__ ou __notícias__?"
+  Quando notícias sobre os animes que acompanha forem liberadas — de animes em lançamento ou não —, você será notificado sobre. Esta opção está somente disponível para notícias em Inglês.\n\n\
+  *Casos Especificos*\n\
+  Caso queria ativar ou desativar notificações para animes/mangas especificos, você pode fazer isso indo diretamente no conteudo em si nas listas.\n\n\
+  Você gostaria mesmo de desativar *TODAS* as notificações dos __episódios__ e __notícias__?"
 
 timeOptions:
   "⏰ *HORÁRIO*\n\n\
@@ -182,6 +183,28 @@ errorNotify:
 errorUserInfo:
   "🚫 *ERROR EM USUÁRIO*\n\n\
   Um erro aconteceu ao buscar informações sobre você, por favor avise @farmy sobre isso."
+
+addedWatchlist:
+  "Este anime foi adicionado a sua lista!\n\
+  Para vê-lo, basta conversar comigo. E eu também irei te avisar quando novos episódios saírem."
+
+alreadyWatchlist:
+  "Este anime já estava adicionado na sua lista!"
+
+errorWatchlist:
+  "Aconteceu um erro!\n\
+  Por favor, avise @famry sobre isto."
+
+addedReadlist:
+  "Este manga foi adicionado a sua lista!\n\
+  Para vê-lo, basta conversar comigo. "
+
+alreadyReadlist:
+  "Este manga já estava adicionado na sua lista!"
+
+errorReadlist:
+  "Aconteceu um erro!\n\
+  Por favor, avise @famry sobre isto."
 
 languageDefault:
   "Idioma configurado do Telegram"

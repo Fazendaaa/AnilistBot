@@ -52,9 +52,10 @@ notifyOptions:
   *Episodes*\n\
   When new currently airing anime episodes are released, you will be notified about it.\n\n\
   *News*\n\
-  When news about your animes are released — airing or not —, you will be notified about.\n\
-  This only works for news in English.\n\n\
-  Would you really like to disable *ALL* of the nofications, just the __episodes__ or __news__?"
+  When news about your animes are released — airing or not —, you will be notified about. This only works for news in English.\n\n\
+  *Specifc Cases*\n\
+  If you would like to enable or disble notification to given animes/mangas, you can do that directly through the media in your lists.\n\n
+  Would you really like to disable *ALL* of the __episodes__ and __news__ nofications?"
 
 timeOptions:
   "⏰ *TIME*\n\n\
@@ -181,6 +182,28 @@ errorNotify:
 errorUserInfo:
   "🚫 *USER ERROR*\n\n\
   An error occured getting your user info, please warn @farmy about that."
+
+addedWatchlist:
+  "This anime was added to your watchlist!\n\
+  To see it, just talk to me in private. And I also will give notification upon new episodes."
+
+alreadyWatchlist:
+  "This anime is already in your watchlist!"
+
+errorWatchlist:
+  "An error occured!\n\
+  Please warn @farmy about it."
+
+addedReadlist:
+  "This manga was added to your readlist!\n\
+  To see it, just talk to me in private."
+
+alreadyReadlist:
+  "This manga is already in your readlist!"
+
+errorReadlist:
+  "An error occured!\n\
+  Please warn @farmy about it."
 
 languageDefault:
   "Telegram's default language"

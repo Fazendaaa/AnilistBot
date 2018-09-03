@@ -42,13 +42,27 @@ const mediaSearch = async ({ search, page, perPage, translation }: ISearchContex
     return searched.data.Page.media.map(curriedMediaInfo);
 };
 
+// Needs A LOT of refactoring.
 export const allSearch = async ({ search, page, perPage, translation }: ISearchContext): Promise<IMinimumInline[]> => {
-    const divided = Math.trunc(perPage / 4);
+    const total = await mediaSearch({ search, translation, page, perPage });
 
-    return [
-        ...await mediaSearch({ search, translation, page, perPage: divided }),
-        ...await staffSearch({ search, translation, page, perPage: divided }),
-        ...await studiosSearch({ search, translation, page, perPage: divided }),
-        ...await charactersSearch({ search, translation, page, perPage: divided })
-    ];
+    if (total.length === perPage) {
+        return total;
+    }
+
+    total.push(...await staffSearch({ search, translation, page, perPage: total.length - perPage }));
+
+    if (total.length === perPage) {
+        return total;
+    }
+
+    total.push(...await studiosSearch({ search, translation, page, perPage: total.length - perPage }));
+
+    if (total.length === perPage) {
+        return total;
+    }
+
+    total.push(...await charactersSearch({ search, translation, page, perPage: total.length - perPage }));
+
+    return total;
 };

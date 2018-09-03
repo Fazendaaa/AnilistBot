@@ -91,8 +91,8 @@ export interface IRequestsContext {
     readonly user: number;
     readonly dbStatus: boolean;
     readonly translation: I18n;
-    readonly request: AllRequests;
     readonly field: RequestsFiled;
+    readonly request: AllRequests;
 }
 
 export interface ICallbackKeyboardContext {

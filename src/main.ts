@@ -68,7 +68,7 @@ bot.start(async ({ i18n, replyWithMarkdown }: IBotContext) => replyWithMarkdown(
 
 bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotContext) => {
     const perPage = 20;
-    const page = fetchPage(inlineQuery.offset);
+    const page = fetchPage(inlineQuery.offset) / 20;
     const next_offset = (page + perPage).toString();
     const search = sanitize({ message: inlineQuery.query });
     const results = await allSearch({ translation: i18n, search, page, perPage }).then(toInlineArticle);

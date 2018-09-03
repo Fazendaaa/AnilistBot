@@ -1,0 +1,8 @@
+query ($id: Int) {
+    Media (id: $id, type: ANIME) {
+        nextAiringEpisode {
+            airingAt
+            timeUntilAiring
+        }
+    }
+}

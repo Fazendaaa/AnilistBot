@@ -111,8 +111,16 @@ interface IGenres {
     readonly genres: Array<string>;
 }
 
+interface INextEpisode {
+    readonly nextAiringEpisode: IAiringSchedule;
+}
+
 interface IMediaGenres {
     readonly Media: IGenres;
+}
+
+interface IMediaNextEpisode {
+    readonly Media: INextEpisode;
 }
 
 export interface IRequestsDescription {
@@ -121,4 +129,8 @@ export interface IRequestsDescription {
 
 export interface IRequestsGenres {
     readonly data: IMediaGenres;
+}
+
+export interface IRequestNextEpisode {
+    readonly data: IMediaNextEpisode;
 }
