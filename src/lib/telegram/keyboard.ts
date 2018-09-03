@@ -121,8 +121,8 @@ export const menuKeyboard = (translation: I18n): InlineKeyboardMarkup => {
         Markup.callbackButton(translation.t('guideButton'), 'MENU/GUIDE/0')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('watchlistButton'), 'MENU/WATCHLIST/0'),
-        Markup.callbackButton(translation.t('readlistButton'), 'MENU/READLIST/0')
+        Markup.callbackButton(translation.t('watchlistButton'), 'MENU/ANIME-LIST/0'),
+        Markup.callbackButton(translation.t('readlistButton'), 'MENU/MANGA-LIST/0')
     ];
     const thirdLine = [
         Markup.callbackButton(translation.t('counterButton'), 'MENU/COUNTER/0')

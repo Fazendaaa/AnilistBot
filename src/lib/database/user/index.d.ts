@@ -1,4 +1,12 @@
 import { Document } from 'mongoose';
+import { MediaStatus, IMediaTitle } from '../../anilist';
+import { I18n } from 'telegraf-i18n';
+
+type errorFunction = (res: Error) => void;
+
+type successAllFunction = (res: IDBUser[]) => void;
+
+type successFunction = (res: IDBUser) => void;
 
 export interface IDBUser extends Document {
     time: Date;
@@ -22,12 +30,6 @@ export interface ILanguageContext {
     readonly id: number;
     readonly language: string;
 }
-
-type errorFunction = (res: Error) => void;
-
-type successAllFunction = (res: IDBUser[]) => void;
-
-type successFunction = (res: IDBUser) => void;
 
 export interface IUserContext {
     readonly id: number;
@@ -58,4 +60,21 @@ export interface IUserLanguageContext {
 export interface IUserTimezoneContext {
     readonly id: number;
     readonly timezone: string;
+}
+
+export interface IUserAnimeContext {
+    readonly user: number;
+    readonly translation: I18n;
+    readonly status: MediaStatus | null;
+}
+
+export interface IUserMangaContext {
+    readonly user: number;
+    readonly translation: I18n;
+    readonly status: MediaStatus | null;
+}
+
+export interface IToPrintContext {
+    readonly translation: I18n;
+    readonly title: IMediaTitle;
 }

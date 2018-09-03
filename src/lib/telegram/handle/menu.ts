@@ -5,33 +5,38 @@ import { IDBUserInfo } from '../../database/user';
 import { userInfo, userLanguage, userSetNotification, userSetTime } from '../../database/user/user';
 import { errorDate } from '../../database/utils';
 import { getLanguageCode } from './language';
+import { fetchUserAnime, fetchUserManga } from './list';
 
-const handleAnime = ({ request, translation }: IMenuAnimeContext): string => {
+const handleAnime = async ({ user, request, translation }: IMenuAnimeContext): Promise<string> => {
+    const common = { user, translation };
+
     if ('ANIME-SOON' === request) {
-        return translation.t('soonAnimeOptions');
-    } if ('ANIME-AIRING' === request) {
-        return translation.t('airingAnimeOptions');
+        return translation.t('soonAnimeOptions', { anime: await fetchUserAnime({ ...common, status: 'NOT_YET_RELEASED' }) });
+    } if ('ANIME-RELEASING' === request) {
+        return translation.t('airingAnimeOptions', { anime: await fetchUserAnime({ ...common, status: 'RELEASING' }) });
     } if ('ANIME-COMPLETED' === request) {
-        return translation.t('completedAnimeOptions');
+        return translation.t('completedAnimeOptions', { anime: await fetchUserAnime({ ...common, status: 'FINISHED' }) });
     } if ('ANIME-CANCELLED' === request) {
-        return translation.t('cancelledAnimeOptions');
+        return translation.t('cancelledAnimeOptions', { anime: await fetchUserAnime({ ...common, status: 'CANCELLED' }) });
     }
 
-    return translation.t('watchlistOptions');
+    return translation.t('watchlistOptions', { anime: await  fetchUserAnime({ ...common, status: null }) });
 };
 
-const handleManga = ({ request, translation }: IMenuMangaContext): string => {
+const handleManga = async ({ user, request, translation }: IMenuMangaContext): Promise<string> => {
+    const common = { user, translation };
+
     if ('MANGA-SOON' === request) {
-        return translation.t('soonMangaOptions');
+        return translation.t('soonMangaOptions', { manga: await fetchUserManga({ ...common, status: 'NOT_YET_RELEASED' }) });
     } if ('MANGA-COMPLETED' === request) {
-        return translation.t('completedMangaOptions');
+        return translation.t('completedMangaOptions', { manga: await fetchUserManga({ ...common, status: 'FINISHED' }) });
     } if ('MANGA-CANCELLED' === request) {
-        return translation.t('cancelledMangaOptions');
-    } if ('MANGA-PUBLISHING' === request) {
-        return translation.t('publishingMangaOptions');
+        return translation.t('cancelledMangaOptions', { manga: await fetchUserManga({ ...common, status: 'CANCELLED' }) });
+    } if ('MANGA-RELEASING' === request) {
+        return translation.t('publishingMangaOptions', { manga: await fetchUserManga({ ...common, status: 'RELEASING' }) });
     }
 
-    return translation.t('readlistOptions');
+    return translation.t('readlistOptions', { manga: await fetchUserManga({ ...common, status: null }) });
 };
 
 const handleTime = async ({ id, user, request, translation }: IMenuTimeContext): Promise<string> => {
@@ -91,9 +96,9 @@ export const handleMenu = async ({ id, user, request, translation }: IMenuContex
     const kind = request.split('-');
 
     if ('ANIME' === kind[0]) {
-        return handleAnime({ request, translation });
+        return handleAnime({ user, request, translation });
     } if ('MANGA' === kind[0]) {
-        return handleManga({ request, translation });
+        return handleManga({ user, request, translation });
     } if ('NOTIFY' === kind[0]) {
         return handleNotify({ user, request, translation });
     } if ('TIME' === kind[0]) {
@@ -106,18 +111,14 @@ export const handleMenu = async ({ id, user, request, translation }: IMenuContex
         return translation.t('aboutOptions');
     } if ('GUIDE' === request) {
         return translation.t('guideOptions');
-    } if ('READLIST' === request) {
-        return translation.t('readlistOptions');
     } if ('LOCATION' === request) {
         return translation.t('locationOptions');
     } if ('USER' === request) {
         return handleUser({ user, translation });
-    } if ('COUNTDOWN' === request) {
-        return translation.t('countdownOptions');
-    } if ('WATCHLIST' === request) {
-        return translation.t('watchlistOptions');
     } if ('COUNTER' === request) {
         return handleCounter({ user, translation });
+    } if ('COUNTDOWN' === request) {
+        return translation.t('countdownOptions', { anime: 'foo' });
     }
 
     return translation.t('notAvailable');

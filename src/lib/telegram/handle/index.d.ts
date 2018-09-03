@@ -24,11 +24,24 @@ export interface IMenuUserContext {
     readonly translation: I18n;
 }
 
+export interface IListContext {
+    readonly id: number;
+    readonly user: number;
+    readonly translation: I18n;
+    readonly request: AllRequests;
+}
+
+export interface ISubscriptionContext {
+    readonly id: number;
+    readonly user: number;
+    readonly translation: I18n;
+}
+
 export interface IMenuTimeContext extends IMenuContext { }
 
-export interface IMenuAnimeContext extends IMenuCommonContext { }
+export interface IMenuAnimeContext extends IMenuBasicContext { }
 
-export interface IMenuMangaContext extends IMenuCommonContext { }
+export interface IMenuMangaContext extends IMenuBasicContext { }
 
 export interface IMenuNotifyContext extends IMenuBasicContext { }
 

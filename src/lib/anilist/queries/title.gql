@@ -1,0 +1,10 @@
+query ($id: Int, $type: MediaType) {
+    Media (id: $id, type: $type) {
+        status,
+        title {
+            romaji
+            native
+            english
+        }
+    }
+}

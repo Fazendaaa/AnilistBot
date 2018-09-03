@@ -115,12 +115,21 @@ interface INextEpisode {
     readonly nextAiringEpisode: IAiringSchedule;
 }
 
+interface ITitleStatus {
+    readonly title: IMediaTitle;
+    readonly status: MediaStatus;
+}
+
 interface IMediaGenres {
     readonly Media: IGenres;
 }
 
 interface IMediaNextEpisode {
     readonly Media: INextEpisode;
+}
+
+interface IMediaTitleStatus {
+    readonly Media: ITitleStatus;
 }
 
 export interface IRequestsDescription {
@@ -133,4 +142,8 @@ export interface IRequestsGenres {
 
 export interface IRequestNextEpisode {
     readonly data: IMediaNextEpisode;
+}
+
+export interface IRequestTitleStatus {
+    readonly data: IMediaTitleStatus;
 }

@@ -3,8 +3,6 @@ import { ContextMessageUpdate } from 'telegraf';
 import { InlineKeyboardMarkup } from 'telegram-typings';
 import RedisSession from 'telegraf-session-redis';
 
-// I  know that publishing is only to manga and airing to anime, but even so is they have their following data type just
-// to not break the pattern.
 export type AllRequests = 'MENU' |
                           'READ' |
                           'USER' |
@@ -18,23 +16,23 @@ export type AllRequests = 'MENU' |
                           'STUDIO' |
                           'NOTIFY' |
                           'COUNTER' |
-                          'READLIST' |
                           'LOCATION' |
                           'LANGUAGE' |
                           'CHARACTER' |
                           'COUNTDOWN' |
-                          'WATCHLIST' |
                           'ANIME-ALL' |
                           'MANGA-ALL' |
+                          'ANIME-LIST' |
+                          'MANGA-LIST' |
                           'ANIME-SOON' |
                           'MANGA-SOON' |
                           'TIME-PERIOD' |
-                          'ANIME-AIRING' |
                           'NOTIFY-ENABLE' |
                           'NOTIFY-DISABLE' |
                           'TIME-PERIOD-AM' |
                           'TIME-PERIOD-PM' |
                           'LANGUAGE-DUTCH' |
+                          'ANIME-RELEASING' |
                           'ANIME-CANCELLED' |
                           'MANGA-CANCELLED' |
                           'ANIME-COMPLETED' |
@@ -45,7 +43,7 @@ export type AllRequests = 'MENU' |
                           'LANGUAGE-FRENCH' |
                           'LANGUAGE-ARABIC' |
                           'TIME-HOUR-VALUE' |
-                          'MANGA-PUBLISHING' |
+                          'MANGA-RELEASING' |
                           'LANGUAGE-ENGLISH' |
                           'LANGUAGE-SPANISH' |
                           'LANGUAGE-DEUTSCH' |
@@ -74,7 +72,7 @@ export interface IBotContext extends ContextMessageUpdate {
 
 export interface ITelegramContext {
     readonly message: string;
-    readonly translation?: I18n;
+    readonly translation: I18n;
 }
 
 export interface IKeyboardHourContext {

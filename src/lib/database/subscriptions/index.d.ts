@@ -1,5 +1,7 @@
 import { DBAnime, DBManga } from '..';
 import { Document } from 'mongoose';
+import { I18n } from 'telegraf-i18n';
+import { AllRequests } from 'telegraf-bot-typings';
 
 export interface ISubscription extends Document {
     notify: boolean;
@@ -17,6 +19,17 @@ export interface ISubscriptionInfo {
 
 export interface ISubscriptionContext {
     readonly user: number;
+    readonly content_id: number;
+    readonly kind: DBAnime | DBManga;
+}
+
+export interface IAllSubscriptionContext {
+    readonly user: number;
+    readonly kind: DBAnime | DBManga;
+}
+
+export interface IAllSubscriptionResponse {
+    readonly notify: boolean;
     readonly content_id: number;
     readonly kind: DBAnime | DBManga;
 }

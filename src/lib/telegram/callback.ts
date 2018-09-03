@@ -1,9 +1,9 @@
 import { InlineKeyboardMarkup } from 'telegram-typings';
 import { ICallbackKeyboardContext, IRequestsContext } from '.';
-import { handleList } from '../anilist/lists/handle';
 import { fetchDescription } from '../anilist/requests/descriptions';
 import { fetchGenres } from '../anilist/requests/genres';
-import { handleMenu } from './formatting/menu';
+import { handleList } from './handle/list';
+import { handleMenu } from './handle/menu';
 import { aboutKeyboard, airingAnimeKeyboard, cancelledAnimeKeyboard, cancelledMangaKeyboard, completedAnimeKeyboard, completedMangaKeyboard,
 countdownKeyboard, counterBackKeyboard, guideKeyboard, languageBackKeyboard, languageKeyboard, locationKeyboard, menuKeyboard,
 notifyBackKeyboard, notifyKeyboard, publishingMangaKeyboard, readlistKeyboard, soonAnimeKeyboard, soonMangaKeyboard, timeBackKeyboard,
@@ -40,7 +40,7 @@ const handleTimeKeyboard = ({ request, translation }: ICallbackKeyboardContext) 
 const animeKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
     if ('ANIME-SOON' === request) {
         return soonAnimeKeyboard(translation);
-    } if ('ANIME-AIRING' === request) {
+    } if ('ANIME-RELEASING' === request) {
         return airingAnimeKeyboard(translation);
     } if ('ANIME-COMPLETED' === request) {
         return completedAnimeKeyboard(translation);
@@ -58,7 +58,7 @@ const mangaKeyboard = ({ request, translation }: ICallbackKeyboardContext): Inli
         return completedMangaKeyboard(translation);
     } if ('MANGA-CANCELLED' === request) {
         return cancelledMangaKeyboard(translation);
-    } if ('MANGA-PUBLISHING' === request) {
+    } if ('MANGA-RELEASING' === request) {
         return publishingMangaKeyboard(translation);
     }
 
@@ -107,12 +107,8 @@ export const callbackKeyboard = ({ request, translation }: ICallbackKeyboardCont
         return userKeyboard(translation);
     } if ('GUIDE' === request) {
         return guideKeyboard(translation);
-    } if ('READLIST' === request) {
-        return readlistKeyboard(translation);
     } if ('LOCATION' === request) {
         return locationKeyboard(translation);
-    } if ('WATCHLIST' === request) {
-        return watchlistKeyboard(translation);
     }
 
     return menuKeyboard(translation);

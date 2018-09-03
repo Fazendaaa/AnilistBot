@@ -1,6 +1,6 @@
 import { AllRequests, IBotContext } from 'telegraf-bot-typings';
 import { IHandleNext } from '.';
-import { getLanguageCode } from '../formatting/language';
+import { getLanguageCode } from '../handle/language';
 
 /**
  * Just a setting user language if available.
@@ -25,7 +25,7 @@ export class UserCache {
             const request = (<AllRequests>data[1]).split('-');
 
             if ('LANGUAGE' === request[0] && request.length > 1) {
-                redis.language = getLanguageCode(<AllRequests>data[1]);
+                redis.language = getLanguageCode(<AllRequests> data[1]);
             }
 
             return true;

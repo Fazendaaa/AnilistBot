@@ -117,37 +117,48 @@ aboutOptions:
   Sinta-se a vontade para dizer ao meu criador: @farmy."
 
 readlistOptions:
-  "🔖 *TODOS*"
+  "🔖 *TODOS*\n\n\
+  ${manga}"
 
 soonMangaOptions:
-  "🔖 *EM BREVE*"
+  "🔖 *EM BREVE*\n\n\
+  ${manga}"
 
 publishingMangaOptions:
-  "🔖 *EM LANÇAMENTO*"
+  "🔖 *EM LANÇAMENTO*\n\n\
+  ${manga}"
 
 completedMangaOptions:
-  "🔖 *COMPLETOS*"
+  "🔖 *COMPLETOS*\n\n\
+  ${manga}"
 
 cancelledMangaOptions:
-  "🔖 *CANCELADOS*"
+  "🔖 *CANCELADOS*\n\n\
+  ${manga}"
 
 watchlistOptions:
-  "🎭 *TODOS*"
+  "🎭 *TODOS*\n\n\
+  ${anime}"
 
 soonAnimeOptions:
-  "🎭 *EM BREVE*"
+  "🎭 *EM BREVE*\n\n\
+  ${anime}"
 
 airingAnimeOptions:
-  "🎭 *EM LANÇAMENTO*"
+  "🎭 *EM LANÇAMENTO*\n\n\
+  ${anime}"
 
 completedAnimeOptions:
-  "🎭 *COMPLETOS*"
+  "🎭 *COMPLETOS*\n\n\
+  ${anime}"
 
 cancelledAnimeOptions:
-  "🎭 *CANCELADOS*"
+  "🎭 *CANCELADOS*\n\n\
+  ${anime}"
 
 countdownOptions:
-  "⏲️ *CONTAGEM REGRESSIVA*"
+  "⏲️ *CONTAGEM REGRESSIVA*\n\n\
+  ${anime}"
 
 counterOptions:
   "⌛ *TEMPO ASSISTIDO*\n\n\

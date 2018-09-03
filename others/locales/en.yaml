@@ -116,37 +116,48 @@ aboutOptions:
   Feel free to tell to my creator: @farmy."
 
 readlistOptions:
-  "🔖 *ALL*"
+  "🔖 *ALL*\n\n\
+  ${manga}"
 
 soonMangaOptions:
-  "🔖 *SOON*"
+  "🔖 *SOON*\n\n\
+  ${manga}"
 
 publishingMangaOptions:
-  "🔖 *PUBLISHING*"
+  "🔖 *PUBLISHING*\n\n\
+  ${manga}"
 
 completedMangaOptions:
-  "🔖 *COMPLETED*"
+  "🔖 *COMPLETED*\n\n\
+  ${manga}"
 
 cancelledMangaOptions:
-  "🔖 *CANCELLED*"
+  "🔖 *CANCELLED*\n\n\
+  ${manga}"
 
 watchlistOptions:
-  "🎭 *ALL*"
+  "🎭 *ALL*\n\n\
+  ${anime}"
 
 soonAnimeOptions:
-  "🎭 *SOON*"
+  "🎭 *SOON*\n\n\
+  ${anime}"
 
 airingAnimeOptions:
-  "🎭 *AIRING*"
+  "🎭 *AIRING*\n\n\
+  ${anime}"
 
 completedAnimeOptions:
-  "🎭 *COMPLETED*"
+  "🎭 *COMPLETED*\n\n\
+  ${anime}"
 
 cancelledAnimeOptions:
-  "🎭 *CANCELLED*"
+  "🎭 *CANCELLED*\n\n\
+  ${anime}"
 
 countdownOptions:
-  "⏲️ *COUNTDOWN*"
+  "⏲️ *COUNTDOWN*\n\n\
+  ${anime}"
 
 counterOptions:
   "⌛ *TIME WATCHING*\n\n\

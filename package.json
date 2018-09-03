@@ -18,7 +18,7 @@
         "build": "webpack",
         "test": "npm run jest",
         "bot": "node dist/main.js",
-        "counter": "linecounter > stats.json",
+        "counter": "linecounter --ignore ./node_modules > stats.json",
         "start": "npm run build && npm run bot",
         "lint": "tslint --config tslint.json --project .",
         "jest": "jest --config jest.config.json --ci --runInBand --detectOpenHandles --forceExit --no-cache"
