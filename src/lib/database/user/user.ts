@@ -2,6 +2,8 @@ import moment, { Moment } from 'moment';
 import momentTimezone from 'moment-timezone';
 import { IDBUser, IDBUserInfo, IUserAllContext, IUserContext, IUserLanguageContext, IUserNotifyContext, IUserTimeContext,
 IUserTimezoneContext } from '.';
+import { IAllSubscriptionResponse } from '../subscriptions';
+import { fetchAllSubscription } from '../subscriptions/subscription';
 import { errorDate } from '../utils';
 import { User } from './model';
 
@@ -11,6 +13,10 @@ const handleCallbackBoolean = (err: Error): boolean => {
     console.log(err);
 
     return false;
+};
+
+const catchError = (err: Error): {} => {
+    return {};
 };
 
 // Why?  If  any  server  error  occurs consistency must always be priority. This is just to ensure that if user change his time for updates
@@ -38,9 +44,7 @@ const handleDeprecatedDB = async (user: IDBUser): Promise<IDBUser | {}> => {
         user.counter = null;
         changed = true;
     } if (true === changed) {
-        return user.save().then(async (userSaved: IDBUser) => userSaved).catch(() => {
-            return {};
-        });
+        return user.save().then(async (userSaved: IDBUser) => userSaved).catch(catchError);
     }
 
     return user;
@@ -63,9 +67,7 @@ export const userAll = async ({ success, error }: IUserAllContext): Promise<void
 
 // This function only uses findByIdAndUpdate instead of findById because of the older DB that has to be compatible.
 export const userInfo = async (id: number): Promise<IDBUserInfo | {}> => {
-    return User.findByIdAndUpdate(id, {}, options).then(__userInfo).catch(() => {
-        return {};
-    });
+    return User.findByIdAndUpdate(id, {}, options).then(__userInfo).catch(catchError);
 };
 
 export const userFind = async ({ id, success, error }: IUserContext): Promise<void> => {
@@ -115,3 +117,7 @@ export const userSetTime = async ({ id, time }: IUserTimeContext): Promise<Date>
         return user.save().then(async (userSaved: IDBUser) => userSaved.time).catch(() => errorDate);
     }).catch(() => errorDate);
 };
+
+export const fetchUserAnime = async (user: number): Promise<IAllSubscriptionResponse[]> => fetchAllSubscription({ user, kind: true });
+
+export const fetchUserManga = async (user: number): Promise<IAllSubscriptionResponse[]> => fetchAllSubscription({ user, kind: false });

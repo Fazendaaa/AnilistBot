@@ -1,43 +1,10 @@
 import moment from 'moment';
-import { IMenuAnimeContext, IMenuContext, IMenuLanguageContext, IMenuMangaContext, IMenuNotifyContext, IMenuTimeContext, IMenuUserContext
-} from '.';
+import { IMenuContext, IMenuLanguageContext, IMenuNotifyContext, IMenuTimeContext, IMenuUserContext } from '.';
 import { IDBUserInfo } from '../../database/user';
 import { userInfo, userLanguage, userSetNotification, userSetTime } from '../../database/user/user';
 import { errorDate } from '../../database/utils';
 import { getLanguageCode } from './language';
-import { fetchUserAnime, fetchUserManga } from './list';
-
-const handleAnime = async ({ user, request, translation }: IMenuAnimeContext): Promise<string> => {
-    const common = { user, translation };
-
-    if ('ANIME-RELEASING' === request) {
-        return translation.t('airingAnimeOptions', { anime: await fetchUserAnime({ ...common, status: 'RELEASING' }) });
-    } if ('ANIME-COMPLETED' === request) {
-        return translation.t('completedAnimeOptions', { anime: await fetchUserAnime({ ...common, status: 'FINISHED' }) });
-    } if ('ANIME-CANCELLED' === request) {
-        return translation.t('cancelledAnimeOptions', { anime: await fetchUserAnime({ ...common, status: 'CANCELLED' }) });
-    } if ('ANIME-SOON' === request) {
-        return translation.t('soonAnimeOptions', { anime: await fetchUserAnime({ ...common, status: 'NOT_YET_RELEASED' }) });
-    }
-
-    return translation.t('watchlistOptions', { anime: await  fetchUserAnime({ ...common, status: null }) });
-};
-
-const handleManga = async ({ user, request, translation }: IMenuMangaContext): Promise<string> => {
-    const common = { user, translation };
-
-    if ('MANGA-COMPLETED' === request) {
-        return translation.t('completedMangaOptions', { manga: await fetchUserManga({ ...common, status: 'FINISHED' }) });
-    } if ('MANGA-CANCELLED' === request) {
-        return translation.t('cancelledMangaOptions', { manga: await fetchUserManga({ ...common, status: 'CANCELLED' }) });
-    } if ('MANGA-RELEASING' === request) {
-        return translation.t('publishingMangaOptions', { manga: await fetchUserManga({ ...common, status: 'RELEASING' }) });
-    } if ('MANGA-SOON' === request) {
-        return translation.t('soonMangaOptions', { manga: await fetchUserManga({ ...common, status: 'NOT_YET_RELEASED' }) });
-    }
-
-    return translation.t('readlistOptions', { manga: await fetchUserManga({ ...common, status: null }) });
-};
+import { handleAnime, handleManga } from './media';
 
 const handleTime = async ({ id, user, request, translation }: IMenuTimeContext): Promise<string> => {
     if ('TIME' === request) {

@@ -3,11 +3,11 @@ import { ICallbackKeyboardContext, IRequestsContext } from '.';
 import { fetchDescription } from '../anilist/requests/descriptions';
 import { fetchGenres } from '../anilist/requests/genres';
 import { handleList } from './handle/list';
+import { animeKeyboard, mangaKeyboard } from './handle/media';
 import { handleMenu } from './handle/menu';
-import { aboutKeyboard, airingAnimeKeyboard, cancelledAnimeKeyboard, cancelledMangaKeyboard, completedAnimeKeyboard, completedMangaKeyboard,
-countdownKeyboard, counterBackKeyboard, guideKeyboard, languageBackKeyboard, languageKeyboard, locationKeyboard, menuKeyboard,
-notifyBackKeyboard, notifyKeyboard, publishingMangaKeyboard, readlistKeyboard, soonAnimeKeyboard, soonMangaKeyboard, timeBackKeyboard,
-timeHourKeyboard, timeKeyboard, timePeriodKeyboard, userKeyboard, watchlistKeyboard } from './keyboard';
+import { aboutKeyboard, countdownKeyboard, counterBackKeyboard, guideKeyboard, languageBackKeyboard, languageKeyboard, locationKeyboard,
+menuKeyboard, notifyBackKeyboard, notifyKeyboard, timeBackKeyboard, timeHourKeyboard, timeKeyboard, timePeriodKeyboard, userKeyboard
+ } from './keyboard';
 
 const truncateMessage = (input: string): string => {
     const max = 196;
@@ -35,34 +35,6 @@ const handleTimeKeyboard = ({ request, translation }: ICallbackKeyboardContext) 
     }
 
     return timeBackKeyboard();
-};
-
-const animeKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
-    if ('ANIME-SOON' === request) {
-        return soonAnimeKeyboard(translation);
-    } if ('ANIME-RELEASING' === request) {
-        return airingAnimeKeyboard(translation);
-    } if ('ANIME-COMPLETED' === request) {
-        return completedAnimeKeyboard(translation);
-    } if ('ANIME-CANCELLED' === request) {
-        return cancelledAnimeKeyboard(translation);
-    }
-
-    return watchlistKeyboard(translation);
-};
-
-const mangaKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
-    if ('MANGA-SOON' === request) {
-        return soonMangaKeyboard(translation);
-    } if ('MANGA-COMPLETED' === request) {
-        return completedMangaKeyboard(translation);
-    } if ('MANGA-CANCELLED' === request) {
-        return cancelledMangaKeyboard(translation);
-    } if ('MANGA-RELEASING' === request) {
-        return publishingMangaKeyboard(translation);
-    }
-
-    return readlistKeyboard(translation);
 };
 
 export const handleCallback = async ({ id, user, request, field, translation, dbStatus }: IRequestsContext): Promise<string> => {

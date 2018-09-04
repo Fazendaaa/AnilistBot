@@ -1,6 +1,7 @@
 import { Document } from 'mongoose';
 import { MediaStatus, IMediaTitle } from '../../anilist';
 import { I18n } from 'telegraf-i18n';
+import { IListTitle } from '../../anilist/queries';
 
 type errorFunction = (res: Error) => void;
 
@@ -60,29 +61,4 @@ export interface IUserLanguageContext {
 export interface IUserTimezoneContext {
     readonly id: number;
     readonly timezone: string;
-}
-
-export interface IUserAnimeContext {
-    readonly user: number;
-    readonly translation: I18n;
-    readonly status: MediaStatus | null;
-}
-
-export interface IUserMangaContext {
-    readonly user: number;
-    readonly translation: I18n;
-    readonly status: MediaStatus | null;
-}
-
-export interface IToPrintContext {
-    readonly siteUrl: string;
-    readonly translation: I18n;
-    readonly title: IMediaTitle;
-    readonly countryOfOrigin: string;
-}
-
-export interface INativeContext {
-    readonly native: string;
-    readonly translation: I18n;
-    readonly countryOfOrigin: string;
 }
