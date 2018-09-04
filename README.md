@@ -87,9 +87,15 @@ I've made all the artwork for it, [Studio Ghibli](https://www.studioghibli.com.a
 
 <div align="center">
     <br>
+    <img src="./others/img/all/all.png" width=100/>
+    <img src="./others/img/soon/soon.png" width=100/>
     <img src="./others/img/logo/logo.png" width=100/>
     <img src="./others/img/error/error.png" width=100/>
     <img src="./others/img/missing/missing.png" width=100/>
+    <img src="./others/img/cancelled/cancelled.png" width=100/>
+    <img src="./others/img/countdown/countdown.png" width=100/>
+    <img src="./others/img/completed/completed.png" width=100/>
+    <img src="./others/img/releasing/releasing.png" width=100/>
 </div>
 
 You can see more in the [img](./others/img) folder.

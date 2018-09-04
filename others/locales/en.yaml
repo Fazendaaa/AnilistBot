@@ -116,47 +116,47 @@ aboutOptions:
   Feel free to tell to my creator: @farmy."
 
 readlistOptions:
-  "🔖 *ALL*\n\n\
+  "🔖 *ALL*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/all/all.png)\n\n\
   ${manga}"
 
 soonMangaOptions:
-  "🔖 *SOON*\n\n\
+  "🔖 *SOON*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/soon/soon.png)\n\n\
   ${manga}"
 
 publishingMangaOptions:
-  "🔖 *PUBLISHING*\n\n\
+  "🔖 *PUBLISHING*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/releasing/releasing.png)\n\n\
   ${manga}"
 
 completedMangaOptions:
-  "🔖 *COMPLETED*\n\n\
+  "🔖 *COMPLETED*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/completed/completed.png)\n\n\
   ${manga}"
 
 cancelledMangaOptions:
-  "🔖 *CANCELLED*\n\n\
+  "🔖 *CANCELLED*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/cancelled/cancelled.png)\n\n\
   ${manga}"
 
 watchlistOptions:
-  "🎭 *ALL*\n\n\
+  "🎭 *ALL*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/all/all.png)\n\n\
   ${anime}"
 
 soonAnimeOptions:
-  "🎭 *SOON*\n\n\
+  "🎭 *SOON*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/soon/soon.png)\n\n\
   ${anime}"
 
 airingAnimeOptions:
-  "🎭 *AIRING*\n\n\
+  "🎭 *AIRING*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/releasing/releasing.png)\n\n\
   ${anime}"
 
 completedAnimeOptions:
-  "🎭 *COMPLETED*\n\n\
+  "🎭 *COMPLETED*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/completed/completed.png)\n\n\
   ${anime}"
 
 cancelledAnimeOptions:
-  "🎭 *CANCELLED*\n\n\
+  "🎭 *CANCELLED*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/cancelled/cancelled.png)\n\n\
   ${anime}"
 
 countdownOptions:
-  "⏲️ *COUNTDOWN*\n\n\
+  "⏲️ *COUNTDOWN*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/countdown/countdown.png)\n\n\
   ${anime}"
 
 counterOptions:
@@ -479,6 +479,9 @@ lightNovel:
 
 visualNovel:
   "🔳 Visual Novel"
+
+seeMore:
+  "[see more](${siteUrl})\n"
 
 english:
   "🇬🇧 *${english}*\n"

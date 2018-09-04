@@ -75,6 +75,14 @@ export interface IUserMangaContext {
 }
 
 export interface IToPrintContext {
+    readonly siteUrl: string;
     readonly translation: I18n;
     readonly title: IMediaTitle;
+    readonly countryOfOrigin: string;
+}
+
+export interface INativeContext {
+    readonly native: string;
+    readonly translation: I18n;
+    readonly countryOfOrigin: string;
 }

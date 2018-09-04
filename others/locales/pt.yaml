@@ -117,47 +117,47 @@ aboutOptions:
   Sinta-se a vontade para dizer ao meu criador: @farmy."
 
 readlistOptions:
-  "🔖 *TODOS*\n\n\
+  "🔖 *TODOS*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/all/all.png)\n\n\
   ${manga}"
 
 soonMangaOptions:
-  "🔖 *EM BREVE*\n\n\
+  "🔖 *EM BREVE*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/soon/soon.png)\n\n\
   ${manga}"
 
 publishingMangaOptions:
-  "🔖 *EM LANÇAMENTO*\n\n\
+  "🔖 *EM LANÇAMENTO*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/releasing/releasing.png)\n\n\
   ${manga}"
 
 completedMangaOptions:
-  "🔖 *COMPLETOS*\n\n\
+  "🔖 *COMPLETOS*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/completed/completed.png)\n\n\
   ${manga}"
 
 cancelledMangaOptions:
-  "🔖 *CANCELADOS*\n\n\
+  "🔖 *CANCELADOS*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/countdown/countdown.png)\n\n\
   ${manga}"
 
 watchlistOptions:
-  "🎭 *TODOS*\n\n\
+  "🎭 *TODOS*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/all/all.png)\n\n\
   ${anime}"
 
 soonAnimeOptions:
-  "🎭 *EM BREVE*\n\n\
+  "🎭 *EM BREVE*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/soon/soon.png)\n\n\
   ${anime}"
 
 airingAnimeOptions:
-  "🎭 *EM LANÇAMENTO*\n\n\
+  "🎭 *EM LANÇAMENTO*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/releasing/releasing.png)\n\n\
   ${anime}"
 
 completedAnimeOptions:
-  "🎭 *COMPLETOS*\n\n\
+  "🎭 *COMPLETOS*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/completed/completed.png)\n\n\
   ${anime}"
 
 cancelledAnimeOptions:
-  "🎭 *CANCELADOS*\n\n\
+  "🎭 *CANCELADOS*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/countdown/countdown.png)\n\n\
   ${anime}"
 
 countdownOptions:
-  "⏲️ *CONTAGEM REGRESSIVA*\n\n\
+  "⏲️ *CONTAGEM REGRESSIVA*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/countdown/countdown.png)\n\n\
   ${anime}"
 
 counterOptions:
@@ -480,6 +480,9 @@ lightNovel:
 
 visualNovel:
   "🔳 Visual Novel"
+
+seeMore:
+  "[veja mais](${siteUrl})\n"
 
 english:
   "🇬🇧 *${english}*\n"
