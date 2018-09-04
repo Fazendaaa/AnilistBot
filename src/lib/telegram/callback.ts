@@ -1,5 +1,5 @@
 import { InlineKeyboardMarkup } from 'telegram-typings';
-import { ICallbackKeyboardContext, IRequestsContext } from '.';
+import { ICallbackKeyboardContext, IKeyboardContext, IRequestsContext } from '.';
 import { fetchDescription } from '../anilist/requests/descriptions';
 import { fetchGenres } from '../anilist/requests/genres';
 import { handleList } from './handle/list';
@@ -16,15 +16,15 @@ const truncateMessage = (input: string): string => {
     return (max < input.length) ? `${input.substring(0, max)}...` : input;
 };
 
-const handleNotifyKeyboard = ({ request, translation }: ICallbackKeyboardContext) => {
+const handleNotifyKeyboard = ({ request, translation }: IKeyboardContext) => {
     return ('NOTIFY' === request) ? notifyKeyboard(translation) : notifyBackKeyboard();
 };
 
-const handleLanguageKeyboard = ({ request, translation }: ICallbackKeyboardContext) => {
+const handleLanguageKeyboard = ({ request, translation }: IKeyboardContext) => {
     return ('LANGUAGE' === request) ? languageKeyboard(translation) : languageBackKeyboard();
 };
 
-const handleTimeKeyboard = ({ request, translation }: ICallbackKeyboardContext) => {
+const handleTimeKeyboard = ({ request, translation }: IKeyboardContext) => {
     if ('TIME-PERIOD-AM' === request) {
         return timeHourKeyboard('AM');
     } if ('TIME-PERIOD-PM' === request) {
@@ -38,11 +38,19 @@ const handleTimeKeyboard = ({ request, translation }: ICallbackKeyboardContext) 
     return timeBackKeyboard();
 };
 
-export const handleCallback = async ({ id, user, request, field, translation, dbStatus }: IRequestsContext): Promise<string> => {
+const handleDBDown = ({ field, translation }): string => {
     const lang = translation.locale().split('-')[0];
 
-    if (false === dbStatus && ('en' !== lang || 'LIST' === field)) {
+    if ('en' !== lang || 'LIST' === field) {
         return translation.t('dbDown');
+    }
+
+    return translation.t('dbDownPrivate');
+};
+
+export const handleCallback = async ({ id, user, request, field, translation, dbStatus }: IRequestsContext): Promise<string> => {
+    if (false === dbStatus) {
+        return handleDBDown({ field, translation });
     } if ('MENU' === field) {
         return handleMenu({ id, user, request, translation });
     } if ('GENRES' === field) {
@@ -57,14 +65,16 @@ export const handleCallback = async ({ id, user, request, field, translation, db
     return translation.t('notAvailable');
 };
 
-export const callbackKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
+export const callbackKeyboard = ({ request, translation, dbStatus }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
     const kind = request.split('-');
 
     if ('ANIME' === kind[0]) {
         return animeKeyboard({ request, translation });
     } if ('MANGA' === kind[0]) {
         return mangaKeyboard({ request, translation });
-    } if ('TIME' === kind[0]) {
+    } if (false === dbStatus) {
+        return null;
+    }if ('TIME' === kind[0]) {
         return handleTimeKeyboard({ request, translation });
     } if ('NOTIFY' === kind[0]) {
         return handleNotifyKeyboard({ request, translation });

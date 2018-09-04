@@ -1,5 +1,5 @@
 import { Markup } from 'telegraf';
-import { ICallbackKeyboardContext } from 'telegraf-bot-typings';
+import { IKeyboardContext } from 'telegraf-bot-typings';
 import { I18n } from 'telegraf-i18n';
 import { InlineKeyboardMarkup } from 'telegram-typings';
 
@@ -173,7 +173,7 @@ const publishingMangaKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     return Markup.inlineKeyboard([firstLine, secondLine, thirdLine]);
 };
 
-export const animeKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
+export const animeKeyboard = ({ request, translation }: IKeyboardContext): InlineKeyboardMarkup => {
     if ('ANIME-SOON' === request) {
         return soonAnimeKeyboard(translation);
     } if ('ANIME-RELEASING' === request) {
@@ -187,7 +187,7 @@ export const animeKeyboard = ({ request, translation }: ICallbackKeyboardContext
     return watchlistKeyboard(translation);
 };
 
-export const mangaKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
+export const mangaKeyboard = ({ request, translation }: IKeyboardContext): InlineKeyboardMarkup => {
     if ('MANGA-SOON' === request) {
         return soonMangaKeyboard(translation);
     } if ('MANGA-COMPLETED' === request) {

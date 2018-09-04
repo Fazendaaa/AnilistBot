@@ -1,4 +1,4 @@
-import { ICallbackKeyboardContext } from 'telegraf-bot-typings';
+import { IKeyboardContext } from 'telegraf-bot-typings';
 import { InlineKeyboardMarkup } from 'telegram-typings';
 import { askLocationKeyboard, locationKeyboard, sendLocationKeyboard } from '../keyboard/location';
 
@@ -12,7 +12,7 @@ export const handleLocation = ({ request, translation }): string => {
     return translation.t('locationOptions');
 };
 
-export const handleLocationKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
+export const handleLocationKeyboard = ({ request, translation }: IKeyboardContext): InlineKeyboardMarkup => {
     if ('LOCATION-ASK' === request) {
         return askLocationKeyboard(translation);
     } if ('LOCATION-SEND' === request) {

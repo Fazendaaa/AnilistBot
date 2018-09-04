@@ -94,7 +94,7 @@ bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCb
 
     await answerCbQuery(i18n.t('loading'));
 
-    return editMessageText(response, { parse_mode: 'Markdown', reply_markup: callbackKeyboard({ translation: i18n, request }) });
+    return editMessageText(response, { parse_mode: 'Markdown', reply_markup: callbackKeyboard({ translation: i18n, dbStatus, request }) });
 });
 
 bot.on('text', async ({ i18n, message, replyWithMarkdown }: IBotContext) => {
@@ -103,8 +103,6 @@ bot.on('text', async ({ i18n, message, replyWithMarkdown }: IBotContext) => {
 
     if ('private' !== type) {
         return false;
-    } if (false === dbStatus) {
-        replyWithMarkdown(i18n.t('dbDownPrivate'));
     } if (i18n.t('help') === text.toLowerCase()) {
         return replyWithMarkdown(i18n.t('helpOptions'));
     } if (i18n.t('menu') === text.toLowerCase()) {
