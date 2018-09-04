@@ -1,7 +1,7 @@
 import { callbackKeyboard, handleCallback } from 'callback';
 import { config } from 'dotenv';
 import { toInlineArticle } from 'inline';
-import { menuKeyboard } from 'keyboard';
+import { menuKeyboard, startKeyboard } from 'keyboard';
 import { connect, set } from 'mongoose';
 import { join } from 'path';
 import { allSearch } from 'searches';
@@ -64,7 +64,7 @@ bot.use(userCache.middleware());
 
 bot.catch(console.error);
 
-bot.start(async ({ i18n, replyWithMarkdown }: IBotContext) => replyWithMarkdown(i18n.t('start')));
+bot.start(async ({ i18n, replyWithMarkdown }: IBotContext) => replyWithMarkdown(i18n.t('start'), { reply_markup: startKeyboard(i18n) }));
 
 bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotContext) => {
     const perPage = 20;

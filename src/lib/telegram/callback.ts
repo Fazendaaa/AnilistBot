@@ -3,11 +3,11 @@ import { ICallbackKeyboardContext, IRequestsContext } from '.';
 import { fetchDescription } from '../anilist/requests/descriptions';
 import { fetchGenres } from '../anilist/requests/genres';
 import { handleList } from './handle/list';
-import { animeKeyboard, mangaKeyboard } from './handle/media';
 import { handleMenu } from './handle/menu';
+import { animeKeyboard, mangaKeyboard } from './keyboard/media';
 import { aboutKeyboard, countdownKeyboard, counterBackKeyboard, guideKeyboard, languageBackKeyboard, languageKeyboard, locationKeyboard,
 menuKeyboard, notifyBackKeyboard, notifyKeyboard, timeBackKeyboard, timeHourKeyboard, timeKeyboard, timePeriodKeyboard, userKeyboard
- } from './keyboard';
+ } from './keyboard/menu';
 
 const truncateMessage = (input: string): string => {
     const max = 196;

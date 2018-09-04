@@ -18,7 +18,7 @@ module.exports = {
             main: join(__dirname, './src/main.ts'),
             inline: nonRelative('telegram/inline.ts'),
             callback: nonRelative('telegram/callback.ts'),
-            keyboard: nonRelative('telegram/keyboard.ts'),
+            keyboard: nonRelative('telegram/keyboard/menu.ts'),
             // https://github.com/NodeRedis/node_redis/issues/790#issuecomment-318904983
             hiredis: join(__dirname, './src/aliases/hiredis.ts'),
             searches: nonRelative('anilist/searches/searches.ts'),

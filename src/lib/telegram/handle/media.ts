@@ -1,11 +1,7 @@
-import { airingAnimeKeyboard, cancelledAnimeKeyboard, cancelledMangaKeyboard, completedAnimeKeyboard, completedMangaKeyboard,
-publishingMangaKeyboard, readlistKeyboard, soonAnimeKeyboard, soonMangaKeyboard, watchlistKeyboard } from 'keyboard';
-import { ICallbackKeyboardContext } from 'telegraf-bot-typings';
-import { InlineKeyboardMarkup } from 'telegram-typings';
 import { IInfoContext, IMediaRequestContext, IMenuAnimeContext, IMenuMangaContext, INativeContext, IToPrintContext } from '.';
 import { IListTitle } from '../../anilist/queries';
 import { animeSearchTitle, mangaSearchTitle } from '../../anilist/searches/title';
-import { fetchUserAnime } from '../../database/user/user';
+import { fetchUserAnime, fetchUserManga } from '../../database/user/user';
 
 const handleNative = ({ translation, native, countryOfOrigin }: INativeContext): string => {
     if ('JP' === countryOfOrigin) {
@@ -50,7 +46,7 @@ const fetchAnime = async ({ user, status, translation }: IMediaRequestContext): 
 };
 
 const fetchManga = async ({ user, status, translation }: IMediaRequestContext): Promise<string> => {
-    const fetched = await fetchUserAnime(user);
+    const fetched = await fetchUserManga(user);
     const allManga = await Promise.all(fetched.map(async ({ content_id }) => mangaSearchTitle(content_id)));
 
     return toPrint({ response: allManga, filterBy: status, translation });
@@ -90,32 +86,4 @@ export const handleManga = async ({ user, request, translation }: IMenuMangaCont
     }
 
     return translation.t('readlistMoreInfoOptions');
-};
-
-export const animeKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
-    if ('ANIME-SOON' === request) {
-        return soonAnimeKeyboard(translation);
-    } if ('ANIME-RELEASING' === request) {
-        return airingAnimeKeyboard(translation);
-    } if ('ANIME-COMPLETED' === request) {
-        return completedAnimeKeyboard(translation);
-    } if ('ANIME-CANCELLED' === request) {
-        return cancelledAnimeKeyboard(translation);
-    }
-
-    return watchlistKeyboard(translation);
-};
-
-export const mangaKeyboard = ({ request, translation }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
-    if ('MANGA-SOON' === request) {
-        return soonMangaKeyboard(translation);
-    } if ('MANGA-COMPLETED' === request) {
-        return completedMangaKeyboard(translation);
-    } if ('MANGA-CANCELLED' === request) {
-        return cancelledMangaKeyboard(translation);
-    } if ('MANGA-RELEASING' === request) {
-        return publishingMangaKeyboard(translation);
-    }
-
-    return readlistKeyboard(translation);
 };

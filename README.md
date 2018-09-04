@@ -90,6 +90,7 @@ I've made all the artwork for it, [Studio Ghibli](https://www.studioghibli.com.a
     <img src="./others/img/all/all.png" width=100/>
     <img src="./others/img/soon/soon.png" width=100/>
     <img src="./others/img/logo/logo.png" width=100/>
+    <img src="./others/img/more/more.png" width=100/>
     <img src="./others/img/error/error.png" width=100/>
     <img src="./others/img/missing/missing.png" width=100/>
     <img src="./others/img/cancelled/cancelled.png" width=100/>
@@ -186,12 +187,12 @@ As the [Anilist API V2](https://github.com/AniList/ApiV2-GraphQL-Docs) was writt
 * [endeavor](https://github.com/Fazendaaa/endeavor)
 * [emoji-regex](https://github.com/mathiasbynens/emoji-regex)
 * [google-translate](https://github.com/Localize/node-google-translate)
-* [moment](http://momentjs.com/)
-* [moment-timezone](https://momentjs.com/timezone/)
-* [mongoose](http://mongoosejs.com/)
+* [moment](https://github.com/moment/momentjs.com)
+* [moment-timezone](https://github.com/moment/moment-timezone)
+* [mongoose](https://github.com/Automattic/mongoose)
 * [node schedule](https://github.com/node-schedule/node-schedule)
 * [striptags](https://github.com/ericnorris/striptags)
-* [telegraf](http://telegraf.js.org/#/)
+* [telegraf](https://github.com/telegraf/telegraf)
 * [telegraf-i18n](https://github.com/telegraf/telegraf-i18n)
 * [telegraf-session-redis](https://github.com/telegraf/telegraf-session-redis#readme)
 
