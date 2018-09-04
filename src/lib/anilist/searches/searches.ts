@@ -7,7 +7,7 @@ import characters from '../queries/charactersSearch.gql';
 import media from '../queries/mediaSearch.gql';
 import staff from '../queries/staffSearch.gql';
 import studio from '../queries/studioSearch.gql';
-import { charactersInfo, mediaInfo, staffInfo, studiosInfo } from './info';
+import { charactersInfo, mediaInfo, notFoundInfo, staffInfo, studiosInfo } from './info';
 
 const searchAnilist = async ({ search, query, page, perPage }: IAnilistContext): Promise<Object | Error> => fetchData({
     query,
@@ -44,11 +44,12 @@ const mediaSearch = async ({ search, page, perPage, translation }: ISearchContex
 
 export const allSearch = async ({ search, page, perPage, translation }: ISearchContext): Promise<IMinimumInline[]> => {
     const divided = perPage / 4;
-
-    return [
+    const result = [
         ...await mediaSearch({ search, translation, page, perPage: divided }),
         ...await staffSearch({ search, translation, page, perPage: divided }),
         ...await charactersSearch({ search, translation, page, perPage: divided }),
         ...await studiosSearch({ search, translation, page, perPage: divided })
     ];
+
+    return (result.length !== 0) ? result : [ notFoundInfo({ search, translation}) ];
 };

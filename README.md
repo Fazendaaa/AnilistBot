@@ -91,8 +91,10 @@ I've made all the artwork for it, [Studio Ghibli](https://www.studioghibli.com.a
     <img src="./others/img/soon/soon.png" width=100/>
     <img src="./others/img/logo/logo.png" width=100/>
     <img src="./others/img/more/more.png" width=100/>
+    <img src="./others/img/about/about.png" width=100/>
     <img src="./others/img/error/error.png" width=100/>
     <img src="./others/img/missing/missing.png" width=100/>
+    <img src="./others/img/not_found/not_found.png" width=100/>
     <img src="./others/img/cancelled/cancelled.png" width=100/>
     <img src="./others/img/countdown/countdown.png" width=100/>
     <img src="./others/img/completed/completed.png" width=100/>
@@ -183,6 +185,7 @@ Plain and simple [Typescript](http://typescriptlang.org/) and the [Microsoft lin
 As the [Anilist API V2](https://github.com/AniList/ApiV2-GraphQL-Docs) was written with [GraphQL](https://graphql.org/), as I was using it, the needed queries as JS ```imports``` was a option but only with [Webpack](http://webpack.js.org/) and the [webpack-graphql-loader](https://github.com/samsarahq/graphql-loader). And since this makes the code more cleaner and easier to maintain that's why it was used; that's the GREAT difference and could seen a little bit off to see this kind of decision and that's the answer.
 
 ## Build with
+* [city-timezones](https://github.com/kevinroberts/city-timezones)
 * [dotenv](https://github.com/motdotla/dotenv)
 * [endeavor](https://github.com/Fazendaaa/endeavor)
 * [emoji-regex](https://github.com/mathiasbynens/emoji-regex)
@@ -190,11 +193,12 @@ As the [Anilist API V2](https://github.com/AniList/ApiV2-GraphQL-Docs) was writt
 * [moment](https://github.com/moment/momentjs.com)
 * [moment-timezone](https://github.com/moment/moment-timezone)
 * [mongoose](https://github.com/Automattic/mongoose)
+* [node-google-timezone](https://github.com/ecteodoro/node-google-timezone)
 * [node schedule](https://github.com/node-schedule/node-schedule)
 * [striptags](https://github.com/ericnorris/striptags)
 * [telegraf](https://github.com/telegraf/telegraf)
 * [telegraf-i18n](https://github.com/telegraf/telegraf-i18n)
-* [telegraf-session-redis](https://github.com/telegraf/telegraf-session-redis#readme)
+* [telegraf-session-redis](https://github.com/telegraf/telegraf-session-redis)
 
 ## Testing
 Since there's a [Travis CI](http://travis-ci.org/) integration and [Codecov](https://codecov.io/). All of the tests were written with [Jest](https://facebook.github.io/jest/) with the help of [ts-jest](https://github.com/kulshekhar/ts-jest).

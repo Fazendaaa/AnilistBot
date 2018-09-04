@@ -1,11 +1,11 @@
-import { ICharactersContext, IMediaContext, IStaffContext, IStudiosContext } from '.';
+import { ICharactersContext, IMediaContext, INotFoundContext, IStaffContext, IStudiosContext } from '.';
 import { IMinimumInline } from '../../telegram/';
 import { charactersDescription, mediaDescription, staffDescription, studiosDescription } from '../parse/description';
 import { charactersKeyboard, mediaKeyboard, staffKeyboard } from '../parse/keyboard';
 import { charactersMessage, mediaMessage , staffMessage, studiosMessage } from '../parse/messageText';
 import { charactersThumbUrl, mediaThumbUrl, staffThumbUrl } from '../parse/thumbUrl';
 import { charactersTitle, mediaTitle, staffTitle, studiosTitle } from '../parse/title';
-import { missingPng } from '../utils/common';
+import { missingPng, notFoundPng } from '../utils/common';
 
 export const staffInfo = ({ staff, translation }: IStaffContext): IMinimumInline => {
     const { id, image, name } = staff;
@@ -51,5 +51,14 @@ export const mediaInfo = ({ media, translation }: IMediaContext): IMinimumInline
         thumb_url: mediaThumbUrl({ coverImage, bannerImage }),
         reply_markup: mediaKeyboard({ id, type, translation }),
         description: mediaDescription({ title, format, source, nextAiringEpisode, translation })
+    };
+};
+
+export const notFoundInfo = ({ search, translation }: INotFoundContext): IMinimumInline => {
+    return {
+        thumb_url: notFoundPng,
+        title: translation.t('notFoundTitle'),
+        description: translation.t('notFoundDescription', { search }),
+        message_text: translation.t('notFoundMessageText', { search })
     };
 };

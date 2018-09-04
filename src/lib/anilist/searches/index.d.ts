@@ -35,3 +35,8 @@ export interface IMediaContext {
     readonly media: IMedia;
     readonly translation: I18n;
 }
+
+export interface INotFoundContext {
+    readonly search: string;
+    readonly translation: I18n;
+}

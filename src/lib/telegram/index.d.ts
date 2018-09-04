@@ -27,6 +27,8 @@ export type AllRequests = 'MENU' |
                           'ANIME-SOON' |
                           'MANGA-SOON' |
                           'TIME-PERIOD' |
+                          'LOCATION-ASK' |
+                          'LOCATION-SEND' |
                           'NOTIFY-ENABLE' |
                           'NOTIFY-DISABLE' |
                           'TIME-PERIOD-AM' |
@@ -99,9 +101,9 @@ export interface ICallbackKeyboardContext {
 }
 
 export interface IMinimumInline {
-    title: string;
-    thumb_url: string;
-    description: string;
-    message_text: string;
-    reply_markup?: InlineKeyboardMarkup;
+    readonly title: string;
+    readonly thumb_url: string;
+    readonly description: string;
+    readonly message_text: string;
+    readonly reply_markup?: InlineKeyboardMarkup;
 }

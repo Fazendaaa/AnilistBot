@@ -18,7 +18,7 @@ export const counterBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyb
 export const languageBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'MENU/USER/0') ]);
 
 export const startKeyboard = (translation: I18n): InlineKeyboardMarkup => {
-    return Markup.resize().keyboard([translation.t('menu'), translation.t('help')]);
+    return Markup.resize().keyboard([ translation.t('menu'), translation.t('help') ]);
 };
 
 export const timeKeyboard = (translation: I18n): InlineKeyboardMarkup => {
@@ -47,17 +47,6 @@ export const notifyKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('enableButton'), 'MENU/NOTIFY-ENABLE/0'),
         Markup.callbackButton(translation.t('disableButton'), 'MENU/NOTIFY-DISABLE/0')
-    ];
-    const secondLine = [
-        Markup.callbackButton('<', 'MENU/USER/0')
-    ];
-
-    return Markup.inlineKeyboard([ firstLine, secondLine ]);
-};
-
-export const locationKeyboard = (translation: I18n): InlineKeyboardMarkup => {
-    const firstLine = [
-        Markup.callbackButton(translation.t('locationButton'), 'MENU/LOCATION/0')
     ];
     const secondLine = [
         Markup.callbackButton('<', 'MENU/USER/0')

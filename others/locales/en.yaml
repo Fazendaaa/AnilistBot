@@ -72,7 +72,16 @@ timeHourOptions:
 
 locationOptions:
   "🌎 *LOCATION*\n\n\
-  Send me your location so, that way, I can send notifications in your local time."
+  Inform me your location so, that way, I can send notifications in your local time."
+
+askLocationOptions:
+  "🌎 *LOCATION*\n\n\
+  Please, now type *IN ENLGISH* the name of your city. I will make a search and save here as your location."
+
+sendLocationOptions:
+  "🌎 *LOCATION*\n\n\
+  Please, now send me your location clicking in the button.\n\n\
+  note: just a friendly reminder, you *CANNOT* send your location in Telegram Desktop. If that is your case, please back and follow the others steps."
 
 guideOptions:
   "🗺️ *GUIDE*\n\n\
@@ -103,7 +112,7 @@ guideOptions:
 
 aboutOptions:
   "⚙️ *ABOUT*\n\n\
-  [‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/logo/logo.png)Bot news and polls about new features are released in my [channel](https://t.me/ANILISTbotchannel) — *English only*.\n\n\
+  [‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/about/about.png)Bot news and polls about new features are released in my [channel](https://t.me/ANILISTbotchannel) — *English only*.\n\n\
   See more about me at:\n\
   🤖 [My website](https://fazendaaa.github.io/AnilistBot) — The history behind me.\n\
   ⭐ [Github](https://github.com/Fazendaaa/AnilistBot) — Star this project, IT'S FREE!!!\n\
@@ -344,6 +353,15 @@ timeHourButton:
 locationButton:
   "Location"
 
+sendLocationButton:
+  "Send Your Location"
+
+dataLocationButton:
+  "Click Me To Send Your Location"
+
+askLocationButton:
+  "Search Your Location"
+
 hoursButton:
   "Hours"
 
@@ -490,6 +508,16 @@ visualNovel:
 
 seeMore:
   "[see more](${siteUrl})\n"
+
+notFoundTitle:
+  "I haven't found anything!"
+
+notFoundDescription:
+  "No results about: _${search}_"
+
+notFoundMessageText:
+  "I searched about _${search}_ in [Anilist](https://anilist.co/) and came up with nothing. Please, try searching again or verify if is some kind of mistype error.\n\n\
+  Just a friendly reminder: searches only in *ENGLISH*, *JAPANESE* & content *NATIVE LANGUAGE*"
 
 english:
   "🇬🇧 *${english}*\n"

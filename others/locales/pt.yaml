@@ -72,7 +72,16 @@ timeHourOptions:
 
 locationOptions:
   "🌎 *LOCALIZAÇÃO*\n\n\
-  Envie-me sua localização para que, desta maneira, eu possa te enviar notificações no seu horário local."
+  Informe-me sua localização para que, desta maneira, eu possa te enviar notificações no seu horário local."
+
+askLocationOptions:
+  "🌎 *LOCALIZAÇÃO*\n\n\
+  Por favor, me envie *EM INGLÊS* o nome da sua cidade. Eu irei fazer uma pesquisa e salvarei aqui como sua localização."
+
+sendLocationOptions:
+  "🌎 *LOCALIZAÇÃO*\n\n\
+  Por favor, me envie sua localição clicando no botão.\n\n\
+  obs: apenas um aviso, você *NÃO PODE* me enviar sua localização do Telegram Desktop. Se esse for seu caso, por favor siga a outra opção de localização."
 
 guideOptions:
   "🗺️ *GUIA*\n\n\
@@ -103,7 +112,7 @@ guideOptions:
 
 aboutOptions:
   "⚙️ *SOBRE*\n\n\
-  [‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/logo/logo.png)Notícias sobre o bot e enquetes sobre novas ferramentas são informadas no meu [canal](https://t.me/ANILISTbotchannel) — *Apenas em Inglês*.\n\n\
+  [‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/about/about.png)Notícias sobre o bot e enquetes sobre novas ferramentas são informadas no meu [canal](https://t.me/ANILISTbotchannel) — *Apenas em Inglês*.\n\n\
   Veja mais sobre mim:\n\
   🤖 [My website](https://fazendaaa.github.io/AnilistBot) — Minha história.\n\
   ⭐ [Github](https://github.com/Fazendaaa/AnilistBot) — Dê uma estrelinha neste projeto, É DE GRAÇA!!!\n\
@@ -345,6 +354,15 @@ timeHourButton:
 locationButton:
   "Localização"
 
+sendLocationButton:
+  "Envie Sua Localização"
+
+dataLocationButton:
+  "Clique Em Mim Para Enviar Sua Localização"
+
+askLocationButton:
+  "Pesquise Sua Localização"
+
 hoursButton:
   "Horas"
 
@@ -491,6 +509,16 @@ visualNovel:
 
 seeMore:
   "[veja mais](${siteUrl})\n"
+
+notFoundTitle:
+  "Não encontrei nada!"
+
+notFoundDescription:
+  "Nenhum resultado sobre: _${search}_"
+
+notFoundMessageText:
+  "Eu pesquisei sobre _${search}_ em [Anilist](https://anilist.co/) e encontrei nada. Por favor, tente de novo ou verifique se não é algum erro de digitação.\n\n\
+  Apenas uma dica: pequisas apenas em *INGLÊS*, *JAPONÊS* & *LINGUAGEM NATIVA* do conteúdo"
 
 english:
   "🇬🇧 *${english}*\n"

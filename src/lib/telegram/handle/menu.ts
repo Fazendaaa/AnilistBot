@@ -4,6 +4,7 @@ import { IDBUserInfo } from '../../database/user';
 import { userInfo, userLanguage, userSetNotification, userSetTime } from '../../database/user/user';
 import { errorDate } from '../../database/utils';
 import { getLanguageCode } from './language';
+import { handleLocation } from './location';
 import { handleAnime, handleManga } from './media';
 
 const handleTime = async ({ id, user, request, translation }: IMenuTimeContext): Promise<string> => {
@@ -70,6 +71,8 @@ export const handleMenu = async ({ id, user, request, translation }: IMenuContex
         return handleNotify({ user, request, translation });
     } if ('TIME' === kind[0]) {
         return handleTime({ id, user, request, translation });
+    } if ('LOCATION' === kind[0]) {
+        return handleLocation({ request, translation });
     } if ('LANGUAGE' === kind[0]) {
         return handleLanguage({ user, request, translation });
     } if ('MENU' === request) {
@@ -78,8 +81,6 @@ export const handleMenu = async ({ id, user, request, translation }: IMenuContex
         return translation.t('aboutOptions');
     } if ('GUIDE' === request) {
         return translation.t('guideOptions');
-    } if ('LOCATION' === request) {
-        return translation.t('locationOptions');
     } if ('USER' === request) {
         return handleUser({ user, translation });
     } if ('COUNTER' === request) {
