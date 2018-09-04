@@ -4,7 +4,7 @@ import { toInlineArticle } from 'inline';
 import { menuKeyboard, startKeyboard } from 'keyboard';
 import { connect, set } from 'mongoose';
 import { join } from 'path';
-import { allSearch } from 'searches';
+import { allSearch, notFoundSearch } from 'searches';
 import Telegraf from 'telegraf';
 import { AllRequests, IBotContext, RequestsFiled } from 'telegraf-bot-typings';
 import I18n from 'telegraf-i18n';
@@ -69,9 +69,14 @@ bot.start(async ({ i18n, replyWithMarkdown }: IBotContext) => replyWithMarkdown(
 bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotContext) => {
     const perPage = 20;
     const page = fetchPage(inlineQuery.offset);
-    const next_offset = (page + 1).toString();
     const search = sanitize(inlineQuery.query);
-    const results = await allSearch({ translation: i18n, search, page, perPage }).then(toInlineArticle);
+    let next_offset = (page + 1).toString();
+    let results = await allSearch({ translation: i18n, search, page, perPage }).then(toInlineArticle);
+
+    if (results.length === 0) {
+        next_offset = null;
+        results = toInlineArticle(notFoundSearch({ translation: i18n, search }));
+    }
 
     return answerInlineQuery(results, { next_offset });
 });
@@ -98,6 +103,8 @@ bot.on('text', async ({ i18n, message, replyWithMarkdown }: IBotContext) => {
 
     if ('private' !== type) {
         return false;
+    } if (false === dbStatus) {
+        replyWithMarkdown(i18n.t('dbDownPrivate'));
     } if (i18n.t('help') === text.toLowerCase()) {
         return replyWithMarkdown(i18n.t('helpOptions'));
     } if (i18n.t('menu') === text.toLowerCase()) {

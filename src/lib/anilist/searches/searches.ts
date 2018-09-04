@@ -1,5 +1,5 @@
 import { fetchData } from 'endeavor';
-import { IAnilistContext, ISearchContext } from '.';
+import { IAnilistContext, INotFoundContext, ISearchContext } from '.';
 import { IMinimumInline } from '../../telegram/';
 import { ICharacters, ICharactersQueryPage, IMedia, IMediaQueryPage, IStaff, IStaffQueryPage, IStudios, IStudiosQueryPage
 } from '../queries';
@@ -44,12 +44,13 @@ const mediaSearch = async ({ search, page, perPage, translation }: ISearchContex
 
 export const allSearch = async ({ search, page, perPage, translation }: ISearchContext): Promise<IMinimumInline[]> => {
     const divided = perPage / 4;
-    const result = [
+
+    return [
         ...await mediaSearch({ search, translation, page, perPage: divided }),
         ...await staffSearch({ search, translation, page, perPage: divided }),
         ...await charactersSearch({ search, translation, page, perPage: divided }),
         ...await studiosSearch({ search, translation, page, perPage: divided })
     ];
-
-    return (result.length !== 0) ? result : [ notFoundInfo({ search, translation}) ];
 };
+
+export const notFoundSearch = ({ search, translation }: INotFoundContext): IMinimumInline[] => [ notFoundInfo({ search, translation }) ];

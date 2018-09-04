@@ -5,6 +5,11 @@ start:
 dbDown:
   "Unfortunatelly, the database is currently down. Please, inform @farmy about this, so he can fix it!"
 
+dbDownPrivate:
+  "🤔 *WARNING*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/db_down/db_down.png)\n\n\
+  Unfortunatelly, the database is currently down. Please, inform @farmy about this, so he can fix it!\n\n\
+  Some of the bot options might work and some others wont't."
+
 menu:
   "menu"
 
@@ -513,7 +518,7 @@ notFoundTitle:
   "I haven't found anything!"
 
 notFoundDescription:
-  "No results about: _${search}_"
+  "No results about: ${search}"
 
 notFoundMessageText:
   "I searched about _${search}_ in [Anilist](https://anilist.co/) and came up with nothing. Please, try searching again or verify if is some kind of mistype error.\n\n\

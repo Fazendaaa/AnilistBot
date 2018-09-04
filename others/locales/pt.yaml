@@ -5,6 +5,11 @@ start:
 dbDown:
   "Infelizmente, o banco de dados se encontra fora do ar. Por favor, informe @farmy sobre isso para que ele posso corrigir logo!"
 
+dbDownPrivate:
+  "🤔 *AVISO*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/db_down/db_down.png)\n\n\
+  Infelizmente, o banco de dados se encontra fora do ar. Por favor, informe @farmy sobre isso para que ele posso corrigir logo!\n\n\
+  Algumas funções do bot podem funcionar e outras não."
+
 menu:
   "menu"
 
@@ -514,7 +519,7 @@ notFoundTitle:
   "Não encontrei nada!"
 
 notFoundDescription:
-  "Nenhum resultado sobre: _${search}_"
+  "Nenhum resultado sobre: ${search}"
 
 notFoundMessageText:
   "Eu pesquisei sobre _${search}_ em [Anilist](https://anilist.co/) e encontrei nada. Por favor, tente de novo ou verifique se não é algum erro de digitação.\n\n\

@@ -94,6 +94,7 @@ I've made all the artwork for it, [Studio Ghibli](https://www.studioghibli.com.a
     <img src="./others/img/about/about.png" width=100/>
     <img src="./others/img/error/error.png" width=100/>
     <img src="./others/img/missing/missing.png" width=100/>
+    <img src="./others/img/db_down/db_down.png" width=100/>
     <img src="./others/img/not_found/not_found.png" width=100/>
     <img src="./others/img/cancelled/cancelled.png" width=100/>
     <img src="./others/img/countdown/countdown.png" width=100/>
