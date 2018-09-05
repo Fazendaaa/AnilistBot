@@ -4,6 +4,7 @@ import { menuExtra, startExtra } from 'extra';
 import { toInlineArticle } from 'inline';
 import { connect, set } from 'mongoose';
 import { join } from 'path';
+import removeMD from 'remove-markdown';
 import { allSearch, notFoundSearch } from 'searches';
 import Telegraf from 'telegraf';
 import { AllRequests, IBotContext, RequestsFiled } from 'telegraf-bot-typings';
@@ -13,7 +14,9 @@ import { getSessionKey, loadLanguages } from 'telegraf-redis';
 import RedisSession from 'telegraf-session-redis';
 import { UserCache } from 'user-cache';
 import { askLocationExtra, confirmLocationExtra, sendLocationExtra } from './lib/telegram/extra/location';
-import { locationProcess } from './lib/telegram/handle/location';
+import { locationStage } from './lib/telegram/stage/location';
+// tslint:disable-next-line: no-require-imports, no-var-requires, no-submodule-imports
+const session = require('telegraf/session');
 
 config();
 
@@ -59,10 +62,12 @@ redisStorage.client.on('connect', () => {
 
 bot.startPolling();
 
+bot.use(session());
 bot.use(Telegraf.log());
 bot.use(redisStorage.middleware());
 bot.use(internationalization.middleware());
 bot.use(userCache.middleware());
+bot.use(locationStage.middleware());
 
 bot.catch(console.error);
 
@@ -117,10 +122,9 @@ bot.on('text', async ({ i18n, message, replyWithMarkdown }: IBotContext) => {
         return replyWithMarkdown(i18n.t('menuOptions'), menuExtra(i18n));
     } if (i18n.t('help') === text.toLowerCase()) {
         return replyWithMarkdown(i18n.t('helpOptions'), startExtra(i18n));
-    } if (undefined !== reply_to_message && i18n.t('askLocationOptions') === reply_to_message.text) {
-        console.log('here');
-
-        return replyWithMarkdown(locationProcess({ translation: i18n, city: text }), confirmLocationExtra(i18n));
+    } if (removeMD(i18n.t('askLocationOptions')) === reply_to_message.text) {
+        return replyWithMarkdown(i18n.t('notAvailable'), startExtra(i18n));
+        // return replyWithMarkdown(locationProcess({ translation: i18n, city: text }), confirmLocationExtra(i18n));
     }
 
     return i18n.t('notAvailable');

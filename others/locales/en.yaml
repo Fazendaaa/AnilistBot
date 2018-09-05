@@ -29,7 +29,7 @@ menuOptions:
   *Countdown*: _episodes time for ariring_\n\
   *Watchlist*: _saved animes_\n\
   *Readlist*: _saved mangas_\n\n\
-  Other infos in guide."
+  *Guide*: _tutorial, about, infos, how can you help this bot, etc..._"
 
 helpOptions:
   "How can I be helpful to you today, _${from.username}_?\n\n\

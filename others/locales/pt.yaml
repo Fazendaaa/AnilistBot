@@ -29,7 +29,7 @@ menuOptions:
   *Regressiva*: _quanto tempo falta para os próximos episódios_\n\
   *Lista de Assistir*: _animes salvos_\n\
   *Lista de Leitura*: _mangás salvos_\n\n\
-  Outros informações em guia."
+  *Guia*: _tutorial, sobre, informções, como você pode ajudar este bot, etc..._"
 
 helpOptions:
   "Como posso lhe ajudar hoje, _${from.username}_?\n\n\
