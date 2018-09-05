@@ -81,7 +81,7 @@ locationOptions:
 
 askLocationOptions:
   "🌎 *LOCALIZAÇÃO*\n\n\
-  Por favor, me envie *EM INGLÊS* o nome da sua cidade. Eu irei fazer uma pesquisa e salvarei aqui como sua localização."
+  Por favor, responda esta mensagem em *EM INGLÊS* com o nome da sua cidade. Eu irei fazer uma pesquisa e salvarei aqui como sua localização."
 
 sendLocationOptions:
   "🌎 *LOCALIZAÇÃO*\n\n\
@@ -126,7 +126,7 @@ aboutOptions:
   📅 [Patreon](https://www.patreon.com/Fazenda/overview) — Assinatura em dólar.\n\
   😎 [Padrim](https://www.padrim.com.br/AnilistBot) — Assinatura em reais.\n\
   ☕ [Buy me a coffee](https://www.buymeacoffee.com/Fazenda) — Uma doação pontual.\n\
-  ❓ [Por que contribuir?](https://fazendaaa.github.io/AnilistBot) — Leia sobre o porquê você faz a diferença na parte *Supporting*.\n\n\
+  ❓ [Por que contribuir?](https://fazendaaa.github.io/AnilistBot) — Leia sobre o porquê você faz a diferença na parte *Supporting*. Você pode me ajudar em me manter vivo apenas com um Real por mês!\n\n\
   *Tens alguma sugestão, erros para reportar ou até mesmo requerir uma tradução para que eu possa funcionar na sua linguagem nativa?*\n\n\
   Sinta-se a vontade para dizer ao meu criador: @farmy."
 
@@ -367,6 +367,12 @@ dataLocationButton:
 
 askLocationButton:
   "Pesquise Sua Localização"
+
+yesButton:
+  "Sim"
+
+noButton:
+  "Não"
 
 hoursButton:
   "Horas"

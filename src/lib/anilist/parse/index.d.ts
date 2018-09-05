@@ -3,12 +3,6 @@ import { IMedia, ICharacters, IStudios, IStaff } from '../queries';
 import { ICoverImage, MediaFormat, IMediaTitle, MediaSource, ICharacterName, IAiringSchedule, IStaffName } from '..';
 import { AllRequests } from '../../telegram';
 
-interface IKeyboardContext {
-    readonly id: number;
-    readonly type: AllRequests;
-    readonly translation: I18n;
-}
-
 export interface IMediaMessage {
     readonly media: IMedia;
     readonly translation: I18n;

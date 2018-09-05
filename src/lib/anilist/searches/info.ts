@@ -1,7 +1,7 @@
 import { ICharactersContext, IMediaContext, INotFoundContext, IStaffContext, IStudiosContext } from '.';
 import { IMinimumInline } from '../../telegram/';
+import { charactersKeyboard, mediaKeyboard, staffKeyboard } from '../../telegram/keyboard/media';
 import { charactersDescription, mediaDescription, staffDescription, studiosDescription } from '../parse/description';
-import { charactersKeyboard, mediaKeyboard, staffKeyboard } from '../parse/keyboard';
 import { charactersMessage, mediaMessage , staffMessage, studiosMessage } from '../parse/messageText';
 import { charactersThumbUrl, mediaThumbUrl, staffThumbUrl } from '../parse/thumbUrl';
 import { charactersTitle, mediaTitle, staffTitle, studiosTitle } from '../parse/title';

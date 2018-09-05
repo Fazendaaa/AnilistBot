@@ -81,7 +81,7 @@ locationOptions:
 
 askLocationOptions:
   "🌎 *LOCATION*\n\n\
-  Please, now type *IN ENLGISH* the name of your city. I will make a search and save here as your location."
+  Please, reply this message *IN ENLGISH* with the name of your city. I will make a search and save here as your location."
 
 sendLocationOptions:
   "🌎 *LOCATION*\n\n\
@@ -125,7 +125,7 @@ aboutOptions:
   Or even consider it supporting my creator:\n\
   📅 [Patreon](https://www.patreon.com/Fazenda/overview) — Subscription.\n\
   ☕ [Buy me a coffee](https://www.buymeacoffee.com/Fazenda) — One time only.\n\
-  ❓ [Why support it?](https://fazendaaa.github.io/AnilistBot) — Read more why you make a difference in the *Supporting* part.\n\n\
+  ❓ [Why support it?](https://fazendaaa.github.io/AnilistBot) — Read more why you make a difference in the *Supporting* part. You can help maintaning me alive with just one dollar per month!\n\n\
   *Has any suggestions, errors to report it or even request a my translation so I can work in your native language?*\n\n\
   Feel free to tell to my creator: @farmy."
 
@@ -366,6 +366,12 @@ dataLocationButton:
 
 askLocationButton:
   "Search Your Location"
+
+yesButton:
+  "Yes"
+
+noButton:
+  "No"
 
 hoursButton:
   "Hours"
