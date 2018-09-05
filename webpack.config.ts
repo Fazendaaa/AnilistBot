@@ -17,6 +17,7 @@ module.exports = {
         alias: {
             main: join(__dirname, './src/main.ts'),
             inline: nonRelative('telegram/inline.ts'),
+            extra: nonRelative('telegram/extra/menu.ts'),
             callback: nonRelative('telegram/callback.ts'),
             keyboard: nonRelative('telegram/keyboard/menu.ts'),
             // https://github.com/NodeRedis/node_redis/issues/790#issuecomment-318904983

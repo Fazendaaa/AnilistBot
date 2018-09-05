@@ -1,6 +1,5 @@
-import { IKeyboardContext } from 'telegraf-bot-typings';
-import { InlineKeyboardMarkup } from 'telegram-typings';
-import { askLocationKeyboard, locationKeyboard, sendLocationKeyboard } from '../keyboard/location';
+import { IExtraContext } from '../extra';
+import { askLocationExtra, locationExtra, sendLocationExtra } from '../extra/location';
 
 export const handleLocation = ({ request, translation }): string => {
     if ('LOCATION-ASK' === request) {
@@ -12,14 +11,12 @@ export const handleLocation = ({ request, translation }): string => {
     return translation.t('locationOptions');
 };
 
-export const handleLocationKeyboard = ({ request, translation }: IKeyboardContext): InlineKeyboardMarkup => {
+export const handleLocationExtra = ({ request, translation }: IExtraContext) => {
     if ('LOCATION-ASK' === request) {
-        return askLocationKeyboard(translation);
+        return askLocationExtra(translation);
     } if ('LOCATION-SEND' === request) {
-        console.log(sendLocationKeyboard(translation));
-
-        return sendLocationKeyboard(translation);
+        return sendLocationExtra(translation);
     }
 
-    return locationKeyboard(translation);
+    return locationExtra(translation);
 };

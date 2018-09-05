@@ -2,7 +2,7 @@ import { Markup } from 'telegraf';
 import { I18n } from 'telegraf-i18n';
 import { InlineKeyboardMarkup } from 'telegram-typings';
 
-export const sendLocationKeyboard = (translation: I18n): InlineKeyboardMarkup => Markup.resize().keyboard([
+export const sendLocationKeyboard = (translation: I18n) => Markup.resize().keyboard([
     Markup.locationRequestButton(translation.t('dataLocationButton')),
     translation.t('menu')
 ]);

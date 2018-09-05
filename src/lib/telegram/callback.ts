@@ -1,14 +1,12 @@
-import { InlineKeyboardMarkup } from 'telegram-typings';
+import { aboutExtra, countdownExtra, counterBackExtra, guideExtra, languageBackExtra, languageExtra, menuExtra, notifyBackExtra,
+notifyExtra, timeBackExtra, timeExtra, timeHourExtra, timePeriodExtra, userExtra } from 'extra';
 import { ICallbackKeyboardContext, IKeyboardContext, IRequestsContext } from '.';
 import { fetchDescription } from '../anilist/requests/descriptions';
 import { fetchGenres } from '../anilist/requests/genres';
+import { animeExtra, mangaExtra } from './extra/media';
 import { handleList } from './handle/list';
-import { handleLocationKeyboard } from './handle/location';
+import { handleLocationExtra } from './handle/location';
 import { handleMenu } from './handle/menu';
-import { animeKeyboard, mangaKeyboard } from './keyboard/media';
-import { aboutKeyboard, countdownKeyboard, counterBackKeyboard, guideKeyboard, languageBackKeyboard, languageKeyboard, menuKeyboard,
-notifyBackKeyboard, notifyKeyboard, timeBackKeyboard, timeHourKeyboard, timeKeyboard, timePeriodKeyboard, userKeyboard
-} from './keyboard/menu';
 
 const truncateMessage = (input: string): string => {
     const max = 196;
@@ -16,26 +14,26 @@ const truncateMessage = (input: string): string => {
     return (max < input.length) ? `${input.substring(0, max)}...` : input;
 };
 
-const handleNotifyKeyboard = ({ request, translation }: IKeyboardContext) => {
-    return ('NOTIFY' === request) ? notifyKeyboard(translation) : notifyBackKeyboard();
+const handleNotifyExtra = ({ request, translation }: IKeyboardContext) => {
+    return ('NOTIFY' === request) ? notifyExtra(translation) : notifyBackExtra();
 };
 
-const handleLanguageKeyboard = ({ request, translation }: IKeyboardContext) => {
-    return ('LANGUAGE' === request) ? languageKeyboard(translation) : languageBackKeyboard();
+const handleLanguageExtra = ({ request, translation }: IKeyboardContext) => {
+    return ('LANGUAGE' === request) ? languageExtra(translation) : languageBackExtra();
 };
 
-const handleTimeKeyboard = ({ request, translation }: IKeyboardContext) => {
+const handleTimeExtra = ({ request, translation }: IKeyboardContext) => {
     if ('TIME-PERIOD-AM' === request) {
-        return timeHourKeyboard('AM');
+        return timeHourExtra('AM');
     } if ('TIME-PERIOD-PM' === request) {
-        return timeHourKeyboard('PM');
+        return timeHourExtra('PM');
     } if ('TIME-PERIOD' === request) {
-        return timePeriodKeyboard(translation);
+        return timePeriodExtra(translation);
     } if ('TIME' === request) {
-        return timeKeyboard(translation);
+        return timeExtra(translation);
     }
 
-    return timeBackKeyboard();
+    return timeBackExtra();
 };
 
 const handleDBDown = ({ field, translation }): string => {
@@ -65,34 +63,34 @@ export const handleCallback = async ({ id, user, request, field, translation, db
     return translation.t('notAvailable');
 };
 
-export const callbackKeyboard = ({ request, translation, dbStatus }: ICallbackKeyboardContext): InlineKeyboardMarkup => {
+export const callbackExtra = ({ request, translation, dbStatus }: ICallbackKeyboardContext) => {
     const kind = request.split('-');
 
     if ('ANIME' === kind[0]) {
-        return animeKeyboard({ request, translation });
+        return animeExtra({ request, translation });
     } if ('MANGA' === kind[0]) {
-        return mangaKeyboard({ request, translation });
+        return mangaExtra({ request, translation });
     } if (false === dbStatus) {
         return null;
-    }if ('TIME' === kind[0]) {
-        return handleTimeKeyboard({ request, translation });
+    } if ('TIME' === kind[0]) {
+        return handleTimeExtra({ request, translation });
     } if ('NOTIFY' === kind[0]) {
-        return handleNotifyKeyboard({ request, translation });
+        return handleNotifyExtra({ request, translation });
     } if ('LANGUAGE' === kind[0]) {
-        return handleLanguageKeyboard({ request, translation });
+        return handleLanguageExtra({ request, translation });
     } if ('LOCATION' === kind[0]) {
-        return handleLocationKeyboard({ request, translation });
+        return handleLocationExtra({ request, translation });
     } if ('ABOUT' === request) {
-        return aboutKeyboard();
+        return aboutExtra();
     } if ('COUNTDOWN' === request) {
-        return countdownKeyboard();
+        return countdownExtra();
     } if ('COUNTER' === request) {
-        return counterBackKeyboard();
+        return counterBackExtra();
     } if ('USER' === request) {
-        return userKeyboard(translation);
+        return userExtra(translation);
     } if ('GUIDE' === request) {
-        return guideKeyboard(translation);
+        return guideExtra(translation);
     }
 
-    return menuKeyboard(translation);
+    return menuExtra(translation);
 };

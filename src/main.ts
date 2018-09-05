@@ -1,5 +1,6 @@
-import { callbackKeyboard, handleCallback } from 'callback';
+import { callbackExtra, handleCallback } from 'callback';
 import { config } from 'dotenv';
+import { startExtra } from 'extra';
 import { toInlineArticle } from 'inline';
 import { menuKeyboard, startKeyboard } from 'keyboard';
 import { connect, set } from 'mongoose';
@@ -64,7 +65,7 @@ bot.use(userCache.middleware());
 
 bot.catch(console.error);
 
-bot.start(async ({ i18n, replyWithMarkdown }: IBotContext) => replyWithMarkdown(i18n.t('start'), { reply_markup: startKeyboard(i18n) }));
+bot.start(async ({ i18n, replyWithMarkdown }: IBotContext) => replyWithMarkdown(i18n.t('start'), startExtra(i18n)));
 
 bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotContext) => {
     const perPage = 20;
@@ -94,7 +95,7 @@ bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCb
 
     await answerCbQuery(i18n.t('loading'));
 
-    return editMessageText(response, { parse_mode: 'Markdown', reply_markup: callbackKeyboard({ translation: i18n, dbStatus, request }) });
+    return editMessageText(response, callbackExtra({ translation: i18n, dbStatus, request }));
 });
 
 bot.on('text', async ({ i18n, message, replyWithMarkdown }: IBotContext) => {
