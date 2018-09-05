@@ -12,11 +12,11 @@ import I18n from 'telegraf-i18n';
 import { fetchPage, sanitize } from 'telegraf-parse';
 import { getSessionKey, loadLanguages } from 'telegraf-redis';
 import RedisSession from 'telegraf-session-redis';
+// tslint:disable: no-submodule-imports -- Just using it this way because of lack of support yet -- my intention is to work on it.
+import session from 'telegraf/session';
 import { UserCache } from 'user-cache';
 import { askLocationExtra, confirmLocationExtra, sendLocationExtra } from './lib/telegram/extra/location';
 import { locationStage } from './lib/telegram/stage/location';
-// tslint:disable-next-line: no-require-imports, no-var-requires, no-submodule-imports
-const session = require('telegraf/session');
 
 config();
 
@@ -110,7 +110,7 @@ bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCb
     return editMessageText(response, callbackExtra({ translation: i18n, dbStatus, request }));
 });
 
-bot.on('text', async ({ i18n, message, replyWithMarkdown }: IBotContext) => {
+bot.on('text', async ({ i18n, message, replyWithMarkdown, scene }: IBotContext) => {
     const { text, reply_to_message } = message;
     const { type } = message.chat;
 
@@ -123,8 +123,7 @@ bot.on('text', async ({ i18n, message, replyWithMarkdown }: IBotContext) => {
     } if (i18n.t('help') === text.toLowerCase()) {
         return replyWithMarkdown(i18n.t('helpOptions'), startExtra(i18n));
     } if (removeMD(i18n.t('askLocationOptions')) === reply_to_message.text) {
-        return replyWithMarkdown(i18n.t('notAvailable'), startExtra(i18n));
-        // return replyWithMarkdown(locationProcess({ translation: i18n, city: text }), confirmLocationExtra(i18n));
+        return scene.enter('Location');
     }
 
     return i18n.t('notAvailable');

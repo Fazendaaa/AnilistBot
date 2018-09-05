@@ -658,3 +658,11 @@ buttonWatchlist:
 
 buttonReadlist:
   "Lista de Leitura"
+
+locationMask:
+  "📍 *EU ENCONTREI ALGO*\n\n\
+  Eu encontrei a seguinte cidade, ela é a sua?\n\n\
+  - *Cidade*: _${city}_\n\
+  - *Província*: _${province}_\n\
+  - *Estado*: _${state}_\n\
+  - *País*: _${country}_"

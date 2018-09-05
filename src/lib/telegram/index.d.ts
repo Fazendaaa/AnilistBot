@@ -69,6 +69,7 @@ interface IMyRedis extends RedisSession {
 
 export interface IBotContext extends ContextMessageUpdate {
     readonly i18n: I18n;
+    readonly scene: any;
     readonly redis: IMyRedis;
 }
 

@@ -657,3 +657,11 @@ buttonWatchlist:
 
 buttonReadlist:
   "Readlist"
+
+locationMask:
+  "📍 *I FOUND SOMETHING*\n\n\
+  I found the following city, is this yours?\n\n\
+  - *City*: _${city}_\n\
+  - *Province*: _${province}_\n\
+  - *State*: _${state}_\n\
+  - *Country*: _${country}_"
