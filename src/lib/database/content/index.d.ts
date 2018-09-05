@@ -1,5 +1,5 @@
 import { Document } from 'mongoose';
-import { AllRequests } from '../../telegram';
+import { AnilistObject } from '../../anilist';
 
 interface IMongooseMap {
     readonly set: (key: string, value: string) => string;
@@ -21,14 +21,14 @@ interface IOthers extends Document {
 export interface IFetchTranslationContext {
     readonly id: number;
     readonly to: string;
-    readonly request: AllRequests;
+    readonly request: AnilistObject;
 }
 
 export interface INewTranslationContext {
     readonly id: number;
     readonly to: string;
     readonly message: string;
-    readonly request: AllRequests;
+    readonly request: AnilistObject;
 }
 
 export interface IAnime extends IMedia { }

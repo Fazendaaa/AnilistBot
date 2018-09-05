@@ -147,3 +147,12 @@ export interface IStudioConnection {
     readonly edges: Array<IStudioEdge>;
     readonly pageInfo: IPageInfo;
 }
+
+export type AnilistObject = 'ANIME' |
+                            'MANGA' |
+                            'STAFF' |
+                            'STUDIO' |
+                            'CHARACTER'
+
+export type AnilistRequest = 'GENRES' |
+                             'DESCRIPTION'

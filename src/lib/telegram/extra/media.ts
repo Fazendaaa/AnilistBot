@@ -1,8 +1,8 @@
 import { Extra } from 'telegraf';
 import { I18n } from 'telegraf-i18n';
-import { IExtraContext } from '.';
+import { IMediaExtraContext } from '.';
 import { airingAnimeKeyboard, cancelledAnimeKeyboard, cancelledMangaKeyboard, completedAnimeKeyboard, completedMangaKeyboard,
-publishingMangaKeyboard, readlistKeyboard, soonAnimeKeyboard, soonMangaKeyboard, watchlistKeyboard } from '../keyboard/media';
+publishingMangaKeyboard, readlistKeyboard, soonAnimeKeyboard, soonMangaKeyboard, watchlistKeyboard } from '../keyboard/list';
 
 const readlistExtra = (translation: I18n) => Extra.markdown().markup(readlistKeyboard(translation));
 
@@ -24,28 +24,28 @@ const cancelledAnimeExtra = (translation: I18n) => Extra.markdown().markup(cance
 
 const publishingMangaExtra = (translation: I18n) => Extra.markdown().markup(publishingMangaKeyboard(translation));
 
-export const animeExtra = ({ request, translation }: IExtraContext) => {
-    if ('ANIME-SOON' === request) {
+export const animeExtra = ({ request, translation }: IMediaExtraContext) => {
+    if ('NOT_YET_RELEASED' === request) {
         return soonAnimeExtra(translation);
-    } if ('ANIME-RELEASING' === request) {
+    } if ('RELEASING' === request) {
         return airingAnimeExtra(translation);
-    } if ('ANIME-COMPLETED' === request) {
+    } if ('FINISHED' === request) {
         return completedAnimeExtra(translation);
-    } if ('ANIME-CANCELLED' === request) {
+    } if ('CANCELLED' === request) {
         return cancelledAnimeExtra(translation);
     }
 
     return watchlistExtra(translation);
 };
 
-export const mangaExtra = ({ request, translation }: IExtraContext) => {
-    if ('MANGA-SOON' === request) {
+export const mangaExtra = ({ request, translation }: IMediaExtraContext) => {
+    if ('NOT_YET_RELEASED' === request) {
         return soonMangaExtra(translation);
-    } if ('MANGA-COMPLETED' === request) {
+    } if ('FINISHED' === request) {
         return completedMangaExtra(translation);
-    } if ('MANGA-CANCELLED' === request) {
+    } if ('CANCELLED' === request) {
         return cancelledMangaExtra(translation);
-    } if ('MANGA-RELEASING' === request) {
+    } if ('RELEASING' === request) {
         return publishingMangaExtra(translation);
     }
 

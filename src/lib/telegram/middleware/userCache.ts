@@ -1,4 +1,4 @@
-import { AllRequests, IBotContext } from 'telegraf-bot-typings';
+import { IBotContext, KindRequest, LanguageRequest } from 'telegraf-bot-typings';
 import { IHandleNext } from '.';
 import { getLanguageCode } from '../handle/language';
 
@@ -22,10 +22,10 @@ export class UserCache {
     private handleNext({ redis, updateType, callbackQuery }: IHandleNext): boolean {
         if ('callback_query' === updateType) {
             const data = callbackQuery.data.split('/');
-            const request = (<AllRequests>data[1]).split('-');
+            const request = (<KindRequest> data[1]).split('-');
 
             if ('LANGUAGE' === request[0] && request.length > 1) {
-                redis.language = getLanguageCode(<AllRequests> data[1]);
+                redis.language = getLanguageCode(<LanguageRequest> data[1]);
             }
 
             return true;

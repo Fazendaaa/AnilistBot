@@ -55,15 +55,15 @@ const fetchManga = async ({ user, status, translation }: IMediaRequestContext): 
 export const handleAnime = async ({ user, request, translation }: IMenuAnimeContext): Promise<string> => {
     const common = { user, translation };
 
-    if ('ANIME-ALL' === request || 'ANIME-LIST' === request) {
+    if ('ALL' === request) {
         return translation.t('watchlistOptions', { anime: await fetchAnime({ ...common, status: null }) });
-    } if ('ANIME-RELEASING' === request) {
+    } if ('RELEASING' === request) {
         return translation.t('airingAnimeOptions', { anime: await fetchAnime({ ...common, status: 'RELEASING' }) });
-    } if ('ANIME-COMPLETED' === request) {
+    } if ('FINISHED' === request) {
         return translation.t('completedAnimeOptions', { anime: await fetchAnime({ ...common, status: 'FINISHED' }) });
-    } if ('ANIME-CANCELLED' === request) {
+    } if ('CANCELLED' === request) {
         return translation.t('cancelledAnimeOptions', { anime: await fetchAnime({ ...common, status: 'CANCELLED' }) });
-    } if ('ANIME-SOON' === request) {
+    } if ('NOT_YET_RELEASED' === request) {
         return translation.t('soonAnimeOptions', { anime: await fetchAnime({ ...common, status: 'NOT_YET_RELEASED' }) });
     }
 
@@ -73,15 +73,15 @@ export const handleAnime = async ({ user, request, translation }: IMenuAnimeCont
 export const handleManga = async ({ user, request, translation }: IMenuMangaContext): Promise<string> => {
     const common = { user, translation };
 
-    if ('MANGA-ALL' === request || 'MANGA-LIST' === request) {
+    if ('ALL' === request) {
         return translation.t('readlistOptions', { manga: await fetchManga({ ...common, status: null }) });
-    } if ('MANGA-COMPLETED' === request) {
+    } if ('FINISHED' === request) {
         return translation.t('completedMangaOptions', { manga: await fetchManga({ ...common, status: 'FINISHED' }) });
-    } if ('MANGA-CANCELLED' === request) {
+    } if ('CANCELLED' === request) {
         return translation.t('cancelledMangaOptions', { manga: await fetchManga({ ...common, status: 'CANCELLED' }) });
-    } if ('MANGA-RELEASING' === request) {
+    } if ('RELEASING' === request) {
         return translation.t('publishingMangaOptions', { manga: await fetchManga({ ...common, status: 'RELEASING' }) });
-    } if ('MANGA-SOON' === request) {
+    } if ('NOT_YET_RELEASED' === request) {
         return translation.t('soonMangaOptions', { manga: await fetchManga({ ...common, status: 'NOT_YET_RELEASED' }) });
     }
 

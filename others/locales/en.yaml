@@ -295,6 +295,9 @@ jp:
 ar:
   "Arabic"
 
+fa:
+  "Farsi"
+
 enButton:
   "🇬🇧 English"
 
@@ -330,6 +333,9 @@ jpButton:
 
 arButton:
   "🇦🇪 Arabic"
+
+fa:
+  "🇮🇷 Farsi"
 
 counterButton:
   "How much time I've watched Anime?"

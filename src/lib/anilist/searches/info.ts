@@ -1,6 +1,6 @@
 import { ICharactersContext, IMediaContext, INotFoundContext, IStaffContext, IStudiosContext } from '.';
 import { IMinimumInline } from '../../telegram/';
-import { charactersKeyboard, mediaKeyboard, staffKeyboard } from '../../telegram/keyboard/media';
+import { characterKeyboard, mediaKeyboard, staffKeyboard } from '../../telegram/keyboard/anilist';
 import { charactersDescription, mediaDescription, staffDescription, studiosDescription } from '../parse/description';
 import { charactersMessage, mediaMessage , staffMessage, studiosMessage } from '../parse/messageText';
 import { charactersThumbUrl, mediaThumbUrl, staffThumbUrl } from '../parse/thumbUrl';
@@ -14,8 +14,8 @@ export const staffInfo = ({ staff, translation }: IStaffContext): IMinimumInline
         thumb_url: staffThumbUrl(image),
         title: staffTitle({ name, translation }),
         description: staffDescription({ translation }),
-        message_text: staffMessage({ staff, translation }),
-        reply_markup: staffKeyboard({ id, translation, type: 'STAFF' })
+        reply_markup: staffKeyboard({ id, translation }),
+        message_text: staffMessage({ staff, translation })
     };
 };
 
@@ -37,8 +37,8 @@ export const charactersInfo = ({ characters, translation }: ICharactersContext):
         thumb_url: charactersThumbUrl(image),
         title: charactersTitle({ name, translation }),
         description: charactersDescription({ translation }),
-        message_text: charactersMessage({ characters, translation }),
-        reply_markup: charactersKeyboard({ id, translation, type: 'CHARACTER' })
+        reply_markup: characterKeyboard({ id, translation }),
+        message_text: charactersMessage({ characters, translation })
     };
 };
 
@@ -49,7 +49,7 @@ export const mediaInfo = ({ media, translation }: IMediaContext): IMinimumInline
         title: mediaTitle({ title, translation }),
         message_text: mediaMessage({ media, translation }),
         thumb_url: mediaThumbUrl({ coverImage, bannerImage }),
-        reply_markup: mediaKeyboard({ id, type, translation }),
+        reply_markup: mediaKeyboard({ kind: type, id, translation }),
         description: mediaDescription({ title, format, source, nextAiringEpisode, translation })
     };
 };

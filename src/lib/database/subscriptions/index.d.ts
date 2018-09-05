@@ -1,7 +1,6 @@
 import { DBAnime, DBManga } from '..';
 import { Document } from 'mongoose';
 import { I18n } from 'telegraf-i18n';
-import { AllRequests } from 'telegraf-bot-typings';
 
 export interface ISubscription extends Document {
     notify: boolean;

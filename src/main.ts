@@ -1,4 +1,3 @@
-import { callbackExtra, handleCallback } from 'callback';
 import { config } from 'dotenv';
 import { menuExtra, startExtra } from 'extra';
 import { toInlineArticle } from 'inline';
@@ -7,7 +6,7 @@ import { join } from 'path';
 import removeMD from 'remove-markdown';
 import { allSearch, notFoundSearch } from 'searches';
 import Telegraf from 'telegraf';
-import { AllRequests, IBotContext, RequestsFiled } from 'telegraf-bot-typings';
+import { IBotContext, KindRequest } from 'telegraf-bot-typings';
 import I18n from 'telegraf-i18n';
 import { fetchPage, sanitize } from 'telegraf-parse';
 import { getSessionKey, loadLanguages } from 'telegraf-redis';
@@ -15,8 +14,7 @@ import RedisSession from 'telegraf-session-redis';
 // tslint:disable: no-submodule-imports -- Just using it this way because of lack of support yet -- my intention is to work on it.
 import session from 'telegraf/session';
 import { UserCache } from 'user-cache';
-import { askLocationExtra, confirmLocationExtra, sendLocationExtra } from './lib/telegram/extra/location';
-import { locationStage } from './lib/telegram/stage/location';
+import { anilistStage, locationStage } from './lib/telegram/stage/stage';
 
 config();
 
@@ -66,7 +64,9 @@ bot.use(session());
 bot.use(Telegraf.log());
 bot.use(redisStorage.middleware());
 bot.use(internationalization.middleware());
+
 bot.use(userCache.middleware());
+bot.use(anilistStage.middleware());
 bot.use(locationStage.middleware());
 
 bot.catch(console.error);
@@ -88,32 +88,37 @@ bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotCont
     return answerInlineQuery(results, { next_offset });
 });
 
-bot.on('callback_query', async ({ i18n, callbackQuery, editMessageText, answerCbQuery, replyWithMarkdown, from }: IBotContext) => {
-    const data = callbackQuery.data.split('/');
-    const id = parseInt(data[2], 10);
-    const field = <RequestsFiled> data[0];
-    const request = <AllRequests> data[1];
-    const response = await handleCallback({ translation: i18n, user: from.id, id, request, field, dbStatus });
+bot.on('callback_query', async ({ i18n, callbackQuery, scene }: IBotContext) => {
+    const kind = <KindRequest> callbackQuery.data.split('/')[0];
 
-    if ('MENU' !== field) {
-        return answerCbQuery(response, true);
+    if ('ANILIST' === kind) {
+        return scene.enter('Anilist');
     }
 
-    await answerCbQuery(i18n.t('loading'));
+    // const request = <AllRequests> data[1];
+    // const id = parseInt(data[2], 10);
+    // const response = await handleCallback({ translation: i18n, user: from.id, id, request, field, dbStatus });
 
-    if ('LOCATION-ASK' === request) {
-        return replyWithMarkdown(response, askLocationExtra());
-    } if ('LOCATION-SEND' === request) {
-        return replyWithMarkdown(response, sendLocationExtra(i18n));
-    }
+    // if ('MENU' !== field) {
+    //     return answerCbQuery(response, true);
+    // }
 
-    return editMessageText(response, callbackExtra({ translation: i18n, dbStatus, request }));
+    // await answerCbQuery(i18n.t('loading'));
+
+    // if ('LOCATION-ASK' === request) {
+    //     return replyWithMarkdown(response, askLocationExtra());
+    // } if ('LOCATION-SEND' === request) {
+    //     return replyWithMarkdown(response, sendLocationExtra(i18n));
+    // }
+
+    // return editMessageText(response, callbackExtra({ translation: i18n, dbStatus, request }));
 });
 
 bot.on('text', async ({ i18n, message, replyWithMarkdown, scene }: IBotContext) => {
     const { text, reply_to_message } = message;
     const { type } = message.chat;
 
+    // This bot doesn't listen to group messages, but this proves it.
     if ('private' !== type) {
         return false;
     } if (i18n.t('menu') === text.toLowerCase()) {

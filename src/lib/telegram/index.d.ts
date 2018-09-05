@@ -2,66 +2,56 @@ import { I18n } from 'telegraf-i18n';
 import { ContextMessageUpdate } from 'telegraf';
 import { InlineKeyboardMarkup } from 'telegram-typings';
 import RedisSession from 'telegraf-session-redis';
-
-export type AllRequests = 'MENU' |
-                          'READ' |
-                          'USER' |
-                          'TIME' |
-                          'GUIDE' |
-                          'ANIME' |
-                          'WATCH' |
-                          'MANGA' |
-                          'STAFF' |
-                          'ABOUT' |
-                          'STUDIO' |
-                          'NOTIFY' |
-                          'COUNTER' |
-                          'LOCATION' |
-                          'LANGUAGE' |
-                          'CHARACTER' |
-                          'COUNTDOWN' |
-                          'ANIME-ALL' |
-                          'MANGA-ALL' |
-                          'ANIME-LIST' |
-                          'MANGA-LIST' |
-                          'ANIME-SOON' |
-                          'MANGA-SOON' |
-                          'TIME-PERIOD' |
-                          'LOCATION-ASK' |
-                          'LOCATION-SEND' |
-                          'NOTIFY-ENABLE' |
-                          'NOTIFY-DISABLE' |
-                          'TIME-PERIOD-AM' |
-                          'TIME-PERIOD-PM' |
-                          'LANGUAGE-DUTCH' |
-                          'ANIME-RELEASING' |
-                          'ANIME-CANCELLED' |
-                          'MANGA-CANCELLED' |
-                          'ANIME-COMPLETED' |
-                          'MANGA-COMPLETED' |
-                          'ANIME-MORE-INFO' |
-                          'MANGA-MORE-INFO' |
-                          'LANGUAGE-FRENCH' |
-                          'LANGUAGE-FRENCH' |
-                          'LANGUAGE-ARABIC' |
-                          'TIME-HOUR-VALUE' |
-                          'MANGA-RELEASING' |
-                          'LANGUAGE-ENGLISH' |
-                          'LANGUAGE-SPANISH' |
-                          'LANGUAGE-DEUTSCH' |
-                          'LANGUAGE-RUSSIAN' |
-                          'LANGUAGE-CHINESE' |
-                          'LANGUAGE-ITALIAN' |
-                          'LANGUAGE-JAPANESE' |
-                          'LANGUAGE-PORTUGUESE' |
-                          'LANGUAGE-INDONESIAN'
-
-export type RequestsFiled = 'LIST' |
-                            'MENU' |
-                            'GENRES' |
-                            'DESCRIPTION'
+import { MediaStatus } from '../anilist';
 
 export type Period = 'AM' | 'PM'
+
+export type KindRequest = 'LIST' |
+                          'MENU' |
+                          'ANILIST'
+
+export type MenuRequest = 'USER' |
+                          'ABOUT' |
+                          'GUIDE' |
+                          'COUNTER' |
+                          'COUNTDOWN'
+
+export type UerRequest = 'TIME' |
+                         'NOTIFY' |
+                         'LOCATION' |
+                         'LANGUAGE'
+
+export type TimeRequest = Period |
+                          'VALUE' |
+                          'PERIOD'
+
+export type NotifyRequests = 'ENABLE' |
+                             'DISABLE'
+
+export type ListRequest = 'READ' |
+                          'WATCH'
+
+export type LocationRequest = 'ASK' |
+                              'SEND'
+
+export type ListFilterRequest = 'ALL' |
+                                'MORE-INFO' |
+                                MediaStatus
+
+export type LanguageRequest = 'DUTCH' |
+                              'FARSI' |
+                              'FRENCH' |
+                              'FRENCH' |
+                              'ARABIC' |
+                              'ENGLISH' |
+                              'SPANISH' |
+                              'DEUTSCH' |
+                              'RUSSIAN' |
+                              'CHINESE' |
+                              'ITALIAN' |
+                              'JAPANESE' |
+                              'PORTUGUESE' |
+                              'INDONESIAN'
 
 interface IMyRedis extends RedisSession {
     readonly language: string;
@@ -92,19 +82,19 @@ export interface IRequestsContext {
     readonly user: number;
     readonly dbStatus: boolean;
     readonly translation: I18n;
-    readonly field: RequestsFiled;
-    readonly request: AllRequests;
+    readonly field: KindRequest;
+    // readonly request: AllRequests;
 }
 
 export interface IKeyboardContext {
     readonly translation: I18n;
-    readonly request: AllRequests;
+    readonly request: UerRequest;
 }
 
 export interface ICallbackKeyboardContext {
     readonly dbStatus: boolean;
     readonly translation: I18n;
-    readonly request: AllRequests;
+    // readonly request: AllRequests;
 }
 
 export interface IMinimumInline {

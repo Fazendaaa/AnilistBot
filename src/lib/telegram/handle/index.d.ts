@@ -1,24 +1,24 @@
 import { I18n } from 'telegraf-i18n';
-import { AllRequests } from '..';
+import { ListRequest, TimeRequest, LanguageRequest, NotifyRequests, ListFilterRequest } from '..';
 import { IListTitle } from '../../anilist/queries';
 import { MediaStatus, IMediaTitle } from '../../anilist';
 
 interface IMenuCommonContext {
     readonly translation: I18n;
-    readonly request: AllRequests;
+    readonly request: ListFilterRequest;
 }
 
 interface IMenuBasicContext {
     readonly user: number;
     readonly translation: I18n;
-    readonly request: AllRequests;
+    readonly request: ListFilterRequest;
 }
 
 export interface IMenuContext {
     readonly id: number;
     readonly user: number;
     readonly translation: I18n;
-    readonly request: AllRequests;
+    readonly request: ListFilterRequest;
 }
 
 export interface IMenuUserContext {
@@ -30,7 +30,7 @@ export interface IListContext {
     readonly id: number;
     readonly user: number;
     readonly translation: I18n;
-    readonly request: AllRequests;
+    readonly request: ListRequest;
 }
 
 export interface ISubscriptionContext {
@@ -64,12 +64,27 @@ export interface IMediaRequestContext {
     readonly status: MediaStatus | null;
 }
 
-export interface IMenuTimeContext extends IMenuContext { }
+export interface IMenuTimeContext {
+    readonly id: number;
+    readonly user: number;
+    readonly translation: I18n;
+    readonly request: TimeRequest;
+}
+
+export interface IMenuLanguageContext {
+    readonly id: number;
+    readonly user: number;
+    readonly translation: I18n;
+    readonly request: LanguageRequest;
+}
+
+export interface IMenuNotifyContext {
+    readonly id: number;
+    readonly user: number;
+    readonly translation: I18n;
+    readonly request: NotifyRequests;
+}
 
 export interface IMenuAnimeContext extends IMenuBasicContext { }
 
 export interface IMenuMangaContext extends IMenuBasicContext { }
-
-export interface IMenuNotifyContext extends IMenuBasicContext { }
-
-export interface IMenuLanguageContext extends IMenuBasicContext { }
