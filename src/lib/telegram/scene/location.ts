@@ -38,6 +38,5 @@ locationScene.enter(({ i18n, message, replyWithMarkdown }: IBotContext) => {
 
 locationScene.on('callback_query', () => console.log('OR HERE???'));
 
-locationScene.leave(ctx => ctx.reply('bye'));
-locationScene.hears(/hi/gi, leave());
+locationScene.leave(leave());
 locationScene.on('message', ctx => ctx.reply('Send hi'));

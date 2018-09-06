@@ -1,9 +1,8 @@
 import { config } from 'dotenv';
-import { menuExtra, startExtra } from 'extra';
+import { startExtra } from 'extra';
 import { toInlineArticle } from 'inline';
 import { connect, set } from 'mongoose';
 import { join } from 'path';
-import removeMD from 'remove-markdown';
 import { allSearch, notFoundSearch } from 'searches';
 import Telegraf from 'telegraf';
 import { AnilistRequest, IBotContext, KindRequest, ListRequest } from 'telegraf-bot-typings';
@@ -16,7 +15,7 @@ import session from 'telegraf/session';
 import { UserCache } from 'user-cache';
 import { AnilistObject } from './lib/anilist';
 import { anilistCallback } from './lib/telegram/callback/anilist';
-import { handleList } from './lib/telegram/callback/list';
+import { listCallback } from './lib/telegram/callback/list';
 import { userStage } from './lib/telegram/stage';
 
 config();
@@ -91,7 +90,7 @@ bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotCont
     return answerInlineQuery(toInlineArticle(results), { next_offset });
 });
 
-bot.on('callback_query', async ({ i18n, callbackQuery, answerCbQuery, scene, from }: IBotContext) => {
+bot.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callbackQuery }: IBotContext) => {
     const translation = i18n;
     const data = callbackQuery.data.split('/');
     const kind = <KindRequest> data[0];
@@ -104,33 +103,28 @@ bot.on('callback_query', async ({ i18n, callbackQuery, answerCbQuery, scene, fro
             request: <AnilistRequest> data[2]
         }), true);
     } if ('LIST' === kind) {
-        return answerCbQuery(await handleList({
+        return answerCbQuery(await listCallback({
             translation,
             user: from.id,
             id: parseInt(data[2], 10),
             request: <ListRequest> data[1]
         }), true);
     }
-    // await answerCbQuery(i18n.t('loading'));
 
-    // return editMessageText(response, callbackExtra({ translation: i18n, dbStatus, request }));
+    return scene.enter('Menu', 'callback_query');
 });
 
-bot.on('text', async ({ i18n, message, replyWithMarkdown, scene }: IBotContext) => {
-    const { text, reply_to_message } = message;
+bot.on('text', async ({ i18n, scene, message, replyWithMarkdown }: IBotContext) => {
+    const { text } = message;
     const { type } = message.chat;
 
     // This bot doesn't listen to group messages, but this proves it.
     if ('private' !== type) {
         return false;
     } if (i18n.t('menu') === text.toLowerCase()) {
-        await replyWithMarkdown(i18n.t('menuGreetings'), startExtra(i18n));
-
-        return replyWithMarkdown(i18n.t('menuOptions'), menuExtra(i18n));
+        return scene.enter('Menu');
     } if (i18n.t('help') === text.toLowerCase()) {
         return replyWithMarkdown(i18n.t('helpOptions'), startExtra(i18n));
-    } if (removeMD(i18n.t('askLocationOptions')) === reply_to_message.text) {
-        return scene.enter('Location');
     }
 
     return i18n.t('notAvailable');

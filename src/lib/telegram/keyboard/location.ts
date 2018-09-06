@@ -9,17 +9,17 @@ export const sendLocationKeyboard = (translation: I18n) => Markup.resize().keybo
 
 export const locationKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('sendLocationButton'), 'MENU/LOCATION-SEND/0'),
-        Markup.callbackButton(translation.t('askLocationButton'), 'MENU/LOCATION-ASK/0')
+        Markup.callbackButton(translation.t('sendLocationButton'), 'MENU/LOCATION-SEND'),
+        Markup.callbackButton(translation.t('askLocationButton'), 'MENU/LOCATION-ASK')
     ];
     const secondLine = [
-        Markup.callbackButton('<', 'MENU/USER/0')
+        Markup.callbackButton('<', 'MENU/USER')
     ];
 
     return Markup.inlineKeyboard([ firstLine, secondLine ]);
 };
 
 export const confirmLocationKeyboard = (translation: I18n): InlineKeyboardMarkup => Markup.inlineKeyboard([
-    Markup.callbackButton(translation.t('yesButton'), 'MENU/LOCATION-SEND/0'),
-    Markup.callbackButton(translation.t('noButton'), 'MENU/LOCATION-SEND/0')
+    Markup.callbackButton(translation.t('yesButton'), 'MENU/LOCATION-SEND'),
+    Markup.callbackButton(translation.t('noButton'), 'MENU/LOCATION-SEND')
 ]);

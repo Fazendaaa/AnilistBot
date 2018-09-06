@@ -60,9 +60,24 @@ interface IMyRedis extends RedisSession {
     readonly language: string;
 }
 
+interface Message {
+    readonly message_id: number;
+}
+
+interface State {
+    readonly messages: Message[];
+}
+
+interface Scene {
+    readonly state: State;
+    readonly enter: (sceneId: string, defaultState?, silent?: boolean) => Scene;
+    readonly reenter: (...args) => Scene;
+    readonly leave: (...args) => Scene;
+}
+
 export interface IBotContext extends ContextMessageUpdate {
     readonly i18n: I18n;
-    readonly scene: any;
+    readonly scene: Scene;
     readonly redis: IMyRedis;
 }
 
@@ -86,7 +101,6 @@ export interface IRequestsContext {
     readonly dbStatus: boolean;
     readonly translation: I18n;
     readonly field: KindRequest;
-    // readonly request: AllRequests;
 }
 
 export interface IKeyboardContext {
@@ -97,7 +111,6 @@ export interface IKeyboardContext {
 export interface ICallbackKeyboardContext {
     readonly dbStatus: boolean;
     readonly translation: I18n;
-    // readonly request: AllRequests;
 }
 
 export interface IMinimumInline {
