@@ -1,7 +1,7 @@
-import { IListContext, ISubscriptionContext } from '.';
 import { fetchNextEpisode } from '../../anilist/requests/nextEpisode';
 import { addNotifications } from '../../database/notifications/notifications';
 import { addSubscription } from '../../database/subscriptions/subscription';
+import { IListContext, ISubscriptionContext } from './index';
 
 const handleWatchlist = async ({ user, id, translation }: ISubscriptionContext): Promise<string> => {
     return addSubscription({ kind: true, content_id: id, user }).then((added: boolean) => {

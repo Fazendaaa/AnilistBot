@@ -15,21 +15,21 @@ const fetchTranslation = (to: string, response: IAnime | IManga): string => {
     return '';
 };
 
-export const fetchGenresTranslation = async ({ id, to, request }: IFetchTranslationContext): Promise<string> => {
+export const fetchGenresTranslation = async ({ id, to, content }: IFetchTranslationContext): Promise<string> => {
     const curriedFetchTranslation = ((data: IAnime | IManga) => fetchTranslation(to, data));
 
-    if ('ANIME' === request) {
+    if ('ANIME' === content) {
         return Anime.findById(id).then(curriedFetchTranslation).catch(() => '');
     }
 
     return Manga.findById(id).then(curriedFetchTranslation).catch(() => '');
 };
 
-export const newGenresTranslation = async ({ id, to, request, message }: INewTranslationContext): Promise<boolean> => {
+export const newGenresTranslation = async ({ id, to, content, message }: INewTranslationContext): Promise<boolean> => {
     const options = { upsert: true, new: true, runValidators: true, setDefaultsOnInsert: true };
     const curriedAddTranslation = (async (response: IAnime | IManga) => addTranslation(to, message, response));
 
-    if ('ANIME' === request) {
+    if ('ANIME' === content) {
         return Anime.findByIdAndUpdate(id, {}, options).then(curriedAddTranslation).catch(() => false);
     }
 

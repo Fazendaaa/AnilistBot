@@ -1,6 +1,5 @@
 import { fetchData } from 'endeavor';
 import { IDataContext } from '.';
-import { MediaType } from '..';
 import { IRequestsGenres } from '../queries';
 import anime from '../queries/animeGenres.gql';
 import manga from '../queries/mangaGenres.gql';
@@ -16,9 +15,9 @@ const parseGenres = (input: string | string []): string => {
     return (<string[]> genres).reduce((acc, cur) => `${acc}• ${cur}\n`, '');
 };
 
-export const fetchGenres = async ({ id, request, translation }: IDataContext): Promise<string> => {
+export const fetchGenres = async ({ id, content, translation }: IDataContext): Promise<string> => {
     const fetch = <IRequestsGenres> await fetchData({
-        query: ('ANIME' === request) ? anime : manga,
+        query: ('ANIME' === content) ? anime : manga,
         variables: { id }
     });
     const message = fetch.data.Media.genres;
@@ -28,5 +27,5 @@ export const fetchGenres = async ({ id, request, translation }: IDataContext): P
         return parseGenres(message.join(','));
     }
 
-    return translateGenres({ request: <MediaType> request, to, id, message }).then(parseGenres);
+    return translateGenres({ content, to, id, message }).then(parseGenres);
 };

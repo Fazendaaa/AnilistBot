@@ -26,19 +26,6 @@ export interface IMenuUserContext {
     readonly translation: I18n;
 }
 
-export interface IListContext {
-    readonly id: number;
-    readonly user: number;
-    readonly translation: I18n;
-    readonly request: ListRequest;
-}
-
-export interface ISubscriptionContext {
-    readonly id: number;
-    readonly user: number;
-    readonly translation: I18n;
-}
-
 export interface IInfoContext {
     readonly siteUrl: string;
     readonly translation: I18n;

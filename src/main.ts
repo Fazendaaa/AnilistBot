@@ -6,7 +6,7 @@ import { join } from 'path';
 import removeMD from 'remove-markdown';
 import { allSearch, notFoundSearch } from 'searches';
 import Telegraf from 'telegraf';
-import { IBotContext, KindRequest } from 'telegraf-bot-typings';
+import { AnilistRequest, IBotContext, KindRequest, ListRequest } from 'telegraf-bot-typings';
 import I18n from 'telegraf-i18n';
 import { fetchPage, sanitize } from 'telegraf-parse';
 import { getSessionKey, loadLanguages } from 'telegraf-redis';
@@ -14,7 +14,10 @@ import RedisSession from 'telegraf-session-redis';
 // tslint:disable: no-submodule-imports -- Just using it this way because of lack of support yet -- my intention is to work on it.
 import session from 'telegraf/session';
 import { UserCache } from 'user-cache';
-import { anilistStage, locationStage } from './lib/telegram/stage/stage';
+import { AnilistObject } from './lib/anilist';
+import { anilistCallback } from './lib/telegram/callback/anilist';
+import { handleList } from './lib/telegram/callback/list';
+import { userStage } from './lib/telegram/stage';
 
 config();
 
@@ -66,8 +69,7 @@ bot.use(redisStorage.middleware());
 bot.use(internationalization.middleware());
 
 bot.use(userCache.middleware());
-bot.use(anilistStage.middleware());
-bot.use(locationStage.middleware());
+bot.use(userStage.middleware());
 
 bot.catch(console.error);
 
@@ -75,41 +77,41 @@ bot.start(async ({ i18n, replyWithMarkdown }: IBotContext) => replyWithMarkdown(
 
 bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotContext) => {
     const perPage = 20;
+    const translation = i18n;
     const page = fetchPage(inlineQuery.offset);
     const search = sanitize(inlineQuery.query);
     let next_offset = (page + 1).toString();
-    let results = await allSearch({ translation: i18n, search, page, perPage }).then(toInlineArticle);
+    let results = await allSearch({ translation, search, page, perPage });
 
-    if (0 === results.length) {
+    if (0 === results.length && '0' === next_offset) {
         next_offset = null;
-        results = toInlineArticle(notFoundSearch({ translation: i18n, search }));
+        results = notFoundSearch({ translation, search });
     }
 
-    return answerInlineQuery(results, { next_offset });
+    return answerInlineQuery(toInlineArticle(results), { next_offset });
 });
 
-bot.on('callback_query', async ({ i18n, callbackQuery, scene }: IBotContext) => {
-    const kind = <KindRequest> callbackQuery.data.split('/')[0];
+bot.on('callback_query', async ({ i18n, callbackQuery, answerCbQuery, scene, from }: IBotContext) => {
+    const translation = i18n;
+    const data = callbackQuery.data.split('/');
+    const kind = <KindRequest> data[0];
 
     if ('ANILIST' === kind) {
-        return scene.enter('Anilist');
+        return answerCbQuery(await anilistCallback({
+            translation,
+            id: parseInt(data[3], 10),
+            content: <AnilistObject> data[1],
+            request: <AnilistRequest> data[2]
+        }), true);
+    } if ('LIST' === kind) {
+        return answerCbQuery(await handleList({
+            translation,
+            user: from.id,
+            id: parseInt(data[2], 10),
+            request: <ListRequest> data[1]
+        }), true);
     }
-
-    // const request = <AllRequests> data[1];
-    // const id = parseInt(data[2], 10);
-    // const response = await handleCallback({ translation: i18n, user: from.id, id, request, field, dbStatus });
-
-    // if ('MENU' !== field) {
-    //     return answerCbQuery(response, true);
-    // }
-
     // await answerCbQuery(i18n.t('loading'));
-
-    // if ('LOCATION-ASK' === request) {
-    //     return replyWithMarkdown(response, askLocationExtra());
-    // } if ('LOCATION-SEND' === request) {
-    //     return replyWithMarkdown(response, sendLocationExtra(i18n));
-    // }
 
     // return editMessageText(response, callbackExtra({ translation: i18n, dbStatus, request }));
 });

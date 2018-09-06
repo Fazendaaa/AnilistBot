@@ -6,6 +6,9 @@ import { MediaStatus } from '../anilist';
 
 export type Period = 'AM' | 'PM'
 
+export type AnilistRequest = 'GENRES' |
+                             'DESCRIPTION'
+
 export type KindRequest = 'LIST' |
                           'MENU' |
                           'ANILIST'

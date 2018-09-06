@@ -21,14 +21,14 @@ interface IOthers extends Document {
 export interface IFetchTranslationContext {
     readonly id: number;
     readonly to: string;
-    readonly request: AnilistObject;
+    readonly content: AnilistObject;
 }
 
 export interface INewTranslationContext {
     readonly id: number;
     readonly to: string;
     readonly message: string;
-    readonly request: AnilistObject;
+    readonly content: AnilistObject;
 }
 
 export interface IAnime extends IMedia { }
