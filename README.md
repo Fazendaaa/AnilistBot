@@ -111,7 +111,7 @@ Right now, this project has the following total lines:
 
 ![Lines](https://img.shields.io/badge/dynamic/json.svg?style=for-the-badge&label=Lines&url=https%3A%2F%2Fraw.githubusercontent.com%2FFazendaaa%2FAnilistBot%2Fmaster%2Fstats.json&query=%24.TOTAL.lines&colorB=red)
 
-And bot uses four paid services:
+And this bot uses four paid services:
 1. [Heroku](http://heroku.com/)
 2. [Heroku Redis](https://elements.heroku.com/addons/heroku-redis)
 3. [mLab](https://mlab.com/)
@@ -144,7 +144,8 @@ So, whether is code or not you can help me out making this code more accessible 
 Since I will be keeping this README up to date with any major change and I don't use any versioning system to log all the fixed bugs or previous projects updates, you can still have a taste of what comes next and what is being under analysis right in the [Projects](https://github.com/Fazendaaa/AnilistBot/projects/) tab. But I can give you a taste what I have in mind:
 
 * Improve metric in time watching Anime:
-    * Provide to user options to _"what to do"_ in real life what he likes. Like showing a YouTube drawing channel if he likes [Bakuman](https://anilist.co/anime/7674/Bakuman/) as one example
+    * Provide to user options to _"what to do"_ in real life what he likes. Like showing a YouTube drawing channel if the users likes [Bakuman](https://anilist.co/anime/7674/Bakuman/) as one example
+* Add a pattern matching like _"Did you mean?"_ of Google. Probably I will use it [didyoumean](https://www.npmjs.com/package/didyoumean) package
 * Anilist connection
 * Anime/manga review
 * Support to anime/manga news besides ANN -- to improve news accessibility
@@ -156,6 +157,7 @@ Since I will be keeping this README up to date with any major change and I don't
 * Create a site displaying info about:
     * Trending animes/mangas
     * A graph showing anime/mangas distances between users likes
+* The site must be a [PWA](https://en.wikipedia.org/wiki/Progressive_Web_Apps) to allow new users besides the Telegram user base
 
 # Deployment
 This bot is up and running at [Heroku](http://heroku.com/) in a [Docker](https://www.docker.com/) container. You can also deploy yourself this bot into Heroku through:

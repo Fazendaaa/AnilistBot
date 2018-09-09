@@ -13,7 +13,7 @@ export const countdownExtra = () => Extra.markdown().markup(countdownKeyboard())
 
 export const notifyBackExtra = () => Extra.markdown().markup(notifyBackKeyboard());
 
-export const counterBackExtra = () => Extra.markdown().markup(counterBackKeyboard());
+export const counterExtra = () => Extra.markdown().markup(counterBackKeyboard());
 
 export const languageBackExtra = () => Extra.markdown().markup(languageBackKeyboard());
 

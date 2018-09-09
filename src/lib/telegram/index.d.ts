@@ -6,9 +6,6 @@ import { MediaStatus } from '../anilist';
 
 export type Period = 'AM' | 'PM'
 
-export type AnilistRequest = 'GENRES' |
-                             'DESCRIPTION'
-
 export type KindRequest = 'LIST' |
                           'MENU' |
                           'ANILIST'
@@ -16,6 +13,7 @@ export type KindRequest = 'LIST' |
 export type MenuRequest = 'USER' |
                           'ABOUT' |
                           'GUIDE' |
+                          'MEDIA' |
                           'COUNTER' |
                           'COUNTDOWN'
 
@@ -60,16 +58,8 @@ interface IMyRedis extends RedisSession {
     readonly language: string;
 }
 
-interface Message {
-    readonly message_id: number;
-}
-
-interface State {
-    readonly messages: Message[];
-}
-
 interface Scene {
-    readonly state: State;
+    readonly state: Object;
     readonly enter: (sceneId: string, defaultState?, silent?: boolean) => Scene;
     readonly reenter: (...args) => Scene;
     readonly leave: (...args) => Scene;

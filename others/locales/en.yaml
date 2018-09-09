@@ -19,6 +19,9 @@ help:
 loading:
   "Loading..."
 
+leavingMenu:
+  "Leaving menu..."
+
 menuGreetings:
   "Hello again, _${from.username}_."
 
@@ -28,7 +31,7 @@ menuOptions:
   *Counter*: _how much time in watching anime_\n\
   *Countdown*: _episodes time for ariring_\n\
   *Watchlist*: _saved animes_\n\
-  *Readlist*: _saved mangas_\n\n\
+  *Readlist*: _saved mangas_\n\
   *Guide*: _tutorial, about, infos, how can you help this bot, etc..._"
 
 helpOptions:

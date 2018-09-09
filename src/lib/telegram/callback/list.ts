@@ -15,8 +15,10 @@ const handleReadlist = async ({ user, id, translation }: ISubscriptionContext): 
     }).catch(() => translation.t('errorReadlist'));
 };
 
-export const listCallback = async ({ id, user, request, translation }: IListContext): Promise<string> => {
-    if ('WATCH' === request) {
+export const listCallback = async ({ id, user, request, dbStatus, translation }: IListContext): Promise<string> => {
+    if (false === dbStatus) {
+        return translation.t('dbDown');
+    } if ('WATCH' === request) {
         fetchNextEpisode(id).then(async (time: Date) => addNotifications({ kind: true, id, time }));
 
         return handleWatchlist({ id, user, translation });

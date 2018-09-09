@@ -4,13 +4,13 @@ import { InlineKeyboardMarkup } from 'telegram-typings';
 
 export const readlistKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('publishingButton'), 'MENU/MANGA-RELEASING'),
-        Markup.callbackButton(translation.t('soonButton'), 'MENU/MANGA-SOON'),
-        Markup.callbackButton(translation.t('completedButton'), 'MENU/MANGA-COMPLETED'),
-        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/MANGA-CANCELLED')
+        Markup.callbackButton(translation.t('publishingButton'), 'MEDIA/READ/RELEASING'),
+        Markup.callbackButton(translation.t('soonButton'), 'MEDIA/READ/NOT_YET_RELEASED'),
+        Markup.callbackButton(translation.t('completedButton'), 'MEDIA/READ/FINISHED'),
+        Markup.callbackButton(translation.t('cancelledButton'), 'MEDIA/READ/CANCELLED')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MANGA-MORE-INFO')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MEDIA/READ/MORE-INFO')
     ];
     const thirdLine = [
         Markup.callbackButton('<', 'MENU/MENU')
@@ -21,13 +21,13 @@ export const readlistKeyboard = (translation: I18n): InlineKeyboardMarkup => {
 
 export const soonMangaKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('allButton'), 'MENU/MANGA-ALL'),
-        Markup.callbackButton(translation.t('publishingButton'), 'MENU/MANGA-RELEASING'),
-        Markup.callbackButton(translation.t('completedButton'), 'MENU/MANGA-COMPLETED'),
-        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/MANGA-CANCELLED')
+        Markup.callbackButton(translation.t('allButton'), 'MEDIA/READ/ALL'),
+        Markup.callbackButton(translation.t('publishingButton'), 'MEDIA/READ/RELEASING'),
+        Markup.callbackButton(translation.t('completedButton'), 'MEDIA/READ/FINISHED'),
+        Markup.callbackButton(translation.t('cancelledButton'), 'MEDIA/READ/CANCELLED')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MANGA-MORE-INFO')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MEDIA/READ/MORE-INFO')
     ];
     const thirdLine = [
         Markup.callbackButton('<', 'MENU/MENU')
@@ -38,13 +38,13 @@ export const soonMangaKeyboard = (translation: I18n): InlineKeyboardMarkup => {
 
 export const watchlistKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('airingButton'), 'MENU/ANIME-RELEASING'),
-        Markup.callbackButton(translation.t('soonButton'), 'MENU/ANIME-SOON'),
-        Markup.callbackButton(translation.t('completedButton'), 'MENU/ANIME-COMPLETED'),
-        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/ANIME-CANCELLED')
+        Markup.callbackButton(translation.t('airingButton'), 'MEDIA/WATCH/RELEASING'),
+        Markup.callbackButton(translation.t('soonButton'), 'MEDIA/WATCH/NOT_YET_RELEASED'),
+        Markup.callbackButton(translation.t('completedButton'), 'MEDIA/WATCH/FINISHED'),
+        Markup.callbackButton(translation.t('cancelledButton'), 'MEDIA/WATCH/CANCELLED')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/ANIME-MORE-INFO')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MEDIA/WATCH/MORE-INFO')
     ];
     const thirdLine = [
         Markup.callbackButton('<', 'MENU/MENU')
@@ -55,13 +55,13 @@ export const watchlistKeyboard = (translation: I18n): InlineKeyboardMarkup => {
 
 export const soonAnimeKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('allButton'), 'MENU/ANIME-ALL'),
-        Markup.callbackButton(translation.t('airingButton'), 'MENU/ANIME-RELEASING'),
-        Markup.callbackButton(translation.t('completedButton'), 'MENU/ANIME-COMPLETED'),
-        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/ANIME-CANCELLED')
+        Markup.callbackButton(translation.t('allButton'), 'MEDIA/WATCH/ALL'),
+        Markup.callbackButton(translation.t('airingButton'), 'MEDIA/WATCH/RELEASING'),
+        Markup.callbackButton(translation.t('completedButton'), 'MEDIA/WATCH/FINISHED'),
+        Markup.callbackButton(translation.t('cancelledButton'), 'MEDIA/WATCH/CANCELLED')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/ANIME-MORE-INFO')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MEDIA/WATCH/MORE-INFO')
     ];
     const thirdLine = [
         Markup.callbackButton('<', 'MENU/MENU')
@@ -72,13 +72,13 @@ export const soonAnimeKeyboard = (translation: I18n): InlineKeyboardMarkup => {
 
 export const airingAnimeKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('allButton'), 'MENU/ANIME-ALL'),
-        Markup.callbackButton(translation.t('soonButton'), 'MENU/ANIME-SOON'),
-        Markup.callbackButton(translation.t('completedButton'), 'MENU/ANIME-COMPLETED'),
-        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/ANIME-CANCELLED')
+        Markup.callbackButton(translation.t('allButton'), 'MEDIA/WATCH/ALL'),
+        Markup.callbackButton(translation.t('soonButton'), 'MEDIA/WATCH/NOT_YET_RELEASED'),
+        Markup.callbackButton(translation.t('completedButton'), 'MEDIA/WATCH/FINISHED'),
+        Markup.callbackButton(translation.t('cancelledButton'), 'MEDIA/WATCH/CANCELLED')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/ANIME-MORE-INFO')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MEDIA/WATCH/MORE-INFO')
     ];
     const thirdLine = [
         Markup.callbackButton('<', 'MENU/MENU')
@@ -89,13 +89,13 @@ export const airingAnimeKeyboard = (translation: I18n): InlineKeyboardMarkup => 
 
 export const completedMangaKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('allButton'), 'MENU/MANGA-ALL'),
-        Markup.callbackButton(translation.t('soonButton'), 'MENU/MANGA-SOON'),
-        Markup.callbackButton(translation.t('publishingButton'), 'MENU/MANGA-RELEASING'),
-        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/MANGA-CANCELLED')
+        Markup.callbackButton(translation.t('allButton'), 'MEDIA/READ/ALL'),
+        Markup.callbackButton(translation.t('soonButton'), 'MEDIA/READ/NOT_YET_RELEASED'),
+        Markup.callbackButton(translation.t('publishingButton'), 'MEDIA/READ/RELEASING'),
+        Markup.callbackButton(translation.t('cancelledButton'), 'MEDIA/READ/CANCELLED')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MANGA-MORE-INFO')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MEDIA/READ/MORE-INFO')
     ];
     const thirdLine = [
         Markup.callbackButton('<', 'MENU/MENU')
@@ -106,13 +106,13 @@ export const completedMangaKeyboard = (translation: I18n): InlineKeyboardMarkup 
 
 export const cancelledMangaKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('allButton'), 'MENU/MANGA-ALL'),
-        Markup.callbackButton(translation.t('publishingButton'), 'MENU/MANGA-RELEASING'),
-        Markup.callbackButton(translation.t('soonButton'), 'MENU/MANGA-SOON'),
-        Markup.callbackButton(translation.t('completedButton'), 'MENU/COMPLETED-MANGA')
+        Markup.callbackButton(translation.t('allButton'), 'MEDIA/READ/ALL'),
+        Markup.callbackButton(translation.t('publishingButton'), 'MEDIA/READ/RELEASING'),
+        Markup.callbackButton(translation.t('soonButton'), 'MEDIA/READ/NOT_YET_RELEASED'),
+        Markup.callbackButton(translation.t('completedButton'), 'MENU/FINISHED-MANGA')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MANGA-MORE-INFO')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MEDIA/READ/MORE-INFO')
     ];
     const thirdLine = [
         Markup.callbackButton('<', 'MENU/MENU')
@@ -123,13 +123,13 @@ export const cancelledMangaKeyboard = (translation: I18n): InlineKeyboardMarkup 
 
 export const completedAnimeKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('allButton'), 'MENU/ANIME-ALL'),
-        Markup.callbackButton(translation.t('airingButton'), 'MENU/ANIME-RELEASING'),
-        Markup.callbackButton(translation.t('soonButton'), 'MENU/ANIME-SOON'),
-        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/ANIME-CANCELLED')
+        Markup.callbackButton(translation.t('allButton'), 'MEDIA/WATCH/ALL'),
+        Markup.callbackButton(translation.t('airingButton'), 'MEDIA/WATCH/RELEASING'),
+        Markup.callbackButton(translation.t('soonButton'), 'MEDIA/WATCH/NOT_YET_RELEASED'),
+        Markup.callbackButton(translation.t('cancelledButton'), 'MEDIA/WATCH/CANCELLED')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/ANIME-MORE-INFO')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MEDIA/WATCH/MORE-INFO')
     ];
     const thirdLine = [
         Markup.callbackButton('<', 'MENU/MENU')
@@ -140,13 +140,13 @@ export const completedAnimeKeyboard = (translation: I18n): InlineKeyboardMarkup 
 
 export const cancelledAnimeKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('allButton'), 'MENU/ANIME-ALL'),
-        Markup.callbackButton(translation.t('airingButton'), 'MENU/ANIME-RELEASING'),
-        Markup.callbackButton(translation.t('soonButton'), 'MENU/ANIME-SOON'),
-        Markup.callbackButton(translation.t('completedButton'), 'MENU/ANIME-COMPLETED')
+        Markup.callbackButton(translation.t('allButton'), 'MEDIA/WATCH/ALL'),
+        Markup.callbackButton(translation.t('airingButton'), 'MEDIA/WATCH/RELEASING'),
+        Markup.callbackButton(translation.t('soonButton'), 'MEDIA/WATCH/NOT_YET_RELEASED'),
+        Markup.callbackButton(translation.t('completedButton'), 'MEDIA/WATCH/FINISHED')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/ANIME-MORE-INFO')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MEDIA/WATCH/MORE-INFO')
     ];
     const thirdLine = [
         Markup.callbackButton('<', 'MENU/MENU')
@@ -157,13 +157,13 @@ export const cancelledAnimeKeyboard = (translation: I18n): InlineKeyboardMarkup 
 
 export const publishingMangaKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('allButton'), 'MENU/MANGA-ALL'),
-        Markup.callbackButton(translation.t('soonButton'), 'MENU/MANGA-SOON'),
-        Markup.callbackButton(translation.t('completedButton'), 'MENU/MANGA-COMPLETED'),
-        Markup.callbackButton(translation.t('cancelledButton'), 'MENU/MANGA-CANCELLED')
+        Markup.callbackButton(translation.t('allButton'), 'MEDIA/READ/ALL'),
+        Markup.callbackButton(translation.t('soonButton'), 'MEDIA/READ/NOT_YET_RELEASED'),
+        Markup.callbackButton(translation.t('completedButton'), 'MEDIA/READ/FINISHED'),
+        Markup.callbackButton(translation.t('cancelledButton'), 'MEDIA/READ/CANCELLED')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('moreInfoButton'), 'MENU/MANGA-MORE-INFO')
+        Markup.callbackButton(translation.t('moreInfoButton'), 'MEDIA/READ/MORE-INFO')
     ];
     const thirdLine = [
         Markup.callbackButton('<', 'MENU/MENU')

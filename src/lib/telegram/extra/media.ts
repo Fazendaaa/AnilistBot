@@ -24,28 +24,28 @@ const cancelledAnimeExtra = (translation: I18n) => Extra.markdown().markup(cance
 
 const publishingMangaExtra = (translation: I18n) => Extra.markdown().markup(publishingMangaKeyboard(translation));
 
-export const animeExtra = ({ request, translation }: IMediaExtraContext) => {
-    if ('NOT_YET_RELEASED' === request) {
+export const animeExtra = ({ filter, translation }: IMediaExtraContext) => {
+    if ('NOT_YET_RELEASED' === filter) {
         return soonAnimeExtra(translation);
-    } if ('RELEASING' === request) {
+    } if ('RELEASING' === filter) {
         return airingAnimeExtra(translation);
-    } if ('FINISHED' === request) {
+    } if ('FINISHED' === filter) {
         return completedAnimeExtra(translation);
-    } if ('CANCELLED' === request) {
+    } if ('CANCELLED' === filter) {
         return cancelledAnimeExtra(translation);
     }
 
     return watchlistExtra(translation);
 };
 
-export const mangaExtra = ({ request, translation }: IMediaExtraContext) => {
-    if ('NOT_YET_RELEASED' === request) {
+export const mangaExtra = ({ filter, translation }: IMediaExtraContext) => {
+    if ('NOT_YET_RELEASED' === filter) {
         return soonMangaExtra(translation);
-    } if ('FINISHED' === request) {
+    } if ('FINISHED' === filter) {
         return completedMangaExtra(translation);
-    } if ('CANCELLED' === request) {
+    } if ('CANCELLED' === filter) {
         return cancelledMangaExtra(translation);
-    } if ('RELEASING' === request) {
+    } if ('RELEASING' === filter) {
         return publishingMangaExtra(translation);
     }
 

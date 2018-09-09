@@ -2,6 +2,7 @@ import { I18n } from 'telegraf-i18n';
 import { ListRequest, TimeRequest, LanguageRequest, NotifyRequests, ListFilterRequest } from '..';
 import { IListTitle } from '../../anilist/queries';
 import { MediaStatus, IMediaTitle } from '../../anilist';
+import { IAllSubscriptionResponse } from '../../database/subscriptions';
 
 interface IMenuCommonContext {
     readonly translation: I18n;
@@ -70,6 +71,25 @@ export interface IMenuNotifyContext {
     readonly user: number;
     readonly translation: I18n;
     readonly request: NotifyRequests;
+}
+
+export interface IUserTTFInfo {
+    anime: IAllSubscriptionResponse[];
+    manga: IAllSubscriptionResponse[];
+}
+
+export interface IHandleMedia {
+    readonly id: number;
+    readonly user: IUserTTFInfo;
+    readonly list: ListRequest;
+    readonly translation: I18n;
+    readonly filter: ListFilterRequest;
+}
+
+export interface IHandleMediaKeyboard {
+    readonly list: ListRequest;
+    readonly translation: I18n;
+    readonly filter: ListFilterRequest;
 }
 
 export interface IMenuAnimeContext extends IMenuBasicContext { }

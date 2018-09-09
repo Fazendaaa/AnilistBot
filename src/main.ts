@@ -5,7 +5,7 @@ import { connect, set } from 'mongoose';
 import { join } from 'path';
 import { allSearch, notFoundSearch } from 'searches';
 import Telegraf from 'telegraf';
-import { AnilistRequest, IBotContext, KindRequest, ListRequest } from 'telegraf-bot-typings';
+import { IBotContext, KindRequest, ListRequest } from 'telegraf-bot-typings';
 import I18n from 'telegraf-i18n';
 import { fetchPage, sanitize } from 'telegraf-parse';
 import { getSessionKey, loadLanguages } from 'telegraf-redis';
@@ -13,7 +13,7 @@ import RedisSession from 'telegraf-session-redis';
 // tslint:disable: no-submodule-imports -- Just using it this way because of lack of support yet -- my intention is to work on it.
 import session from 'telegraf/session';
 import { UserCache } from 'user-cache';
-import { AnilistObject } from './lib/anilist';
+import { AnilistObject, AnilistRequest } from './lib/anilist';
 import { anilistCallback } from './lib/telegram/callback/anilist';
 import { listCallback } from './lib/telegram/callback/list';
 import { userStage } from './lib/telegram/stage';
@@ -91,20 +91,20 @@ bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotCont
 });
 
 bot.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callbackQuery }: IBotContext) => {
-    const translation = i18n;
     const data = callbackQuery.data.split('/');
     const kind = <KindRequest> data[0];
+    const common = { translation: i18n, dbStatus };
 
     if ('ANILIST' === kind) {
         return answerCbQuery(await anilistCallback({
-            translation,
+            ...common,
             id: parseInt(data[3], 10),
             content: <AnilistObject> data[1],
             request: <AnilistRequest> data[2]
         }), true);
     } if ('LIST' === kind) {
         return answerCbQuery(await listCallback({
-            translation,
+            ...common,
             user: from.id,
             id: parseInt(data[2], 10),
             request: <ListRequest> data[1]

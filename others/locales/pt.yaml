@@ -19,6 +19,9 @@ help:
 loading:
   "Carregando..."
 
+leavingMenu:
+  "Saindo do menu..."
+
 menuGreetings:
   "Olá de novo, _${from.username}_."
 
@@ -28,7 +31,7 @@ menuOptions:
   *Calculadora*: _Quanto tempo passou vendo anime_\n\
   *Regressiva*: _quanto tempo falta para os próximos episódios_\n\
   *Lista de Assistir*: _animes salvos_\n\
-  *Lista de Leitura*: _mangás salvos_\n\n\
+  *Lista de Leitura*: _mangás salvos_\n\
   *Guia*: _tutorial, sobre, informções, como você pode ajudar este bot, etc..._"
 
 helpOptions:

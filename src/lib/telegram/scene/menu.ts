@@ -1,10 +1,13 @@
 // tslint:disable: no-submodule-imports
-import { menuExtra, startExtra } from 'extra';
+import { aboutExtra, countdownExtra, counterExtra, guideExtra, menuExtra, startExtra, userExtra } from 'extra';
 import removeMD from 'remove-markdown';
-import { IBotContext } from 'telegraf-bot-typings';
+import { IBotContext, ListFilterRequest, ListRequest, MenuRequest } from 'telegraf-bot-typings';
 import Scene from 'telegraf/scenes/base';
-import Stage from 'telegraf/stage';
-const { leave } = Stage;
+import { ExtraEditMessage } from 'telegraf/typings/telegram-types';
+import { IHandleMedia, IHandleMediaKeyboard, IUserTTFInfo } from '.';
+import { fetchUserAnime, fetchUserManga } from '../../database/user/user';
+import { animeExtra, mangaExtra } from '../extra/media';
+import { handleAnime, handleManga } from '../parse/media';
 
 // const handleTime = async ({ id, user, request, translation }: IMenuTimeContext): Promise<string> => {
 //     // if ('TIME' === request) {
@@ -60,56 +63,83 @@ const { leave } = Stage;
 //     return translation.t('counterOptions', { counter: (null !== counter) ? counter : translation.t('notAvailable') });
 // }).catch(() => translation.t('errorUserInfo'));
 
-// export const handleMenu = async ({ id, user, request, translation }: IMenuContext): Promise<string> => {
-//     const kind = request.split('-');
+const handleMedia = async ({ id, user, filter, list, translation }: IHandleMedia): Promise<string> => {
+    if ('WATCH' === list) {
+        user.anime = (undefined !== user.anime) ? user.anime : await fetchUserAnime(id);
 
-//     if ('ANIME' === kind[0]) {
-//         return handleAnime({ user, request, translation });
-//     } if ('MANGA' === kind[0]) {
-//         return handleManga({ user, request, translation });
-//     } if ('NOTIFY' === kind[0]) {
-//         return handleNotify({ user, request, translation });
-//     } if ('TIME' === kind[0]) {
-//         return handleTime({ id, user, request, translation });
-//     } if ('LOCATION' === kind[0]) {
-//         return handleLocation({ request, translation });
-//     } if ('LANGUAGE' === kind[0]) {
-//         return handleLanguage({ user, request, translation });
-//     } if ('MENU' === request) {
-//         return translation.t('menuOptions');
-//     } if ('ABOUT' === request) {
-//         return translation.t('aboutOptions');
-//     } if ('GUIDE' === request) {
-//         return translation.t('guideOptions');
-//     } if ('USER' === request) {
-//         return handleUser({ user, translation });
-//     } if ('COUNTER' === request) {
-//         return handleCounter({ user, translation });
-//     } if ('COUNTDOWN' === request) {
-//         return translation.t('countdownOptions', { anime: 'foo' });
-//     }
+        return handleAnime({ user: user.anime, filter, translation });
+    }
+    user.manga = (undefined !== user.manga) ? user.manga : await fetchUserManga(id);
 
-//     return translation.t('notAvailable');
-// };
+    return handleManga({ user: user.manga, filter, translation });
+};
+
+const handleMediaKeyboard = ({ list, filter, translation }: IHandleMediaKeyboard): ExtraEditMessage => {
+    if ('WATCH' === list) {
+        return animeExtra({ filter, translation });
+    }
+
+    return mangaExtra({ filter, translation });
+};
 
 export const menuScene = new Scene('Menu');
 
-menuScene.enter(async ({ i18n, answerCbQuery, message, scene, replyWithMarkdown }: IBotContext) => {
-    // const { city, province, state_ansi, country } = lookupViaCity(text)[0];
+menuScene.leave(async ({ i18n, replyWithMarkdown }: IBotContext) => replyWithMarkdown(i18n.t('leavingMenu')));
 
-    // if (removeMD(i18n.t('askLocationOptions')) === reply_to_message.text) {
-        // return scene.enter('Location');
-    // }
-
+menuScene.enter(async ({ i18n, replyWithMarkdown }: IBotContext) => {
     await replyWithMarkdown(i18n.t('menuGreetings'), startExtra(i18n));
 
     return replyWithMarkdown(i18n.t('menuOptions'), menuExtra(i18n));
-    // return replyWithMarkdown(i18n.t('locationMask', { state: state_ansi, city, province, country }), confirmLocationExtra(i18n));
 });
 
-menuScene.on('callback_query', async ({ i18n, answerCbQuery }: IBotContext) => {
-    answerCbQuery(i18n.t('loading'));
-    console.log('OR HERE???');
+menuScene.on('text', async ({ i18n, scene, message }: IBotContext) => {
+    let text = '';
+
+    if (undefined !== message.reply_to_message) {
+        text = message.reply_to_message.text;
+    } if (removeMD(i18n.t('askLocationOptions')) === text) {
+        return scene.enter('Location');
+    }
+
+    return scene.leave();
 });
 
-menuScene.leave(leave());
+menuScene.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callbackQuery, editMessageText }: IBotContext) => {
+    const data = callbackQuery.data.split('/');
+    const kind = <MenuRequest> data[0];
+    const translation = i18n;
+
+    await answerCbQuery(i18n.t('loading'));
+
+    if ('USER' === kind) {
+        return editMessageText(i18n.t('userOptions', {
+            time: 'zar',
+            notify: 'bar',
+            language: 'foo',
+            timezone: 'nothing'
+        }), userExtra(i18n));
+    } if ('ABOUT' === kind) {
+        return editMessageText(i18n.t('aboutOptions'), aboutExtra());
+    } if ('GUIDE' === kind) {
+        return editMessageText(i18n.t('guideOptions'), guideExtra(i18n));
+    } if ('COUNTDOWN' === kind) {
+        return editMessageText(i18n.t('countdownOptions', { anime: ''}), countdownExtra());
+    } if ('COUNTER' === kind) {
+        return editMessageText(i18n.t('counterOptions', { counter: '' }), counterExtra());
+    } if ('MEDIA' === kind) {
+        const list = <ListRequest> data[1];
+        const filter = <ListFilterRequest> data[2];
+
+        return editMessageText(await handleMedia({
+            list,
+            filter,
+            translation,
+            id: from.id,
+            user: <IUserTTFInfo> scene.state
+        }), handleMediaKeyboard({ list, filter, translation }));
+    } if ('MENU' === kind) {
+        return editMessageText(i18n.t('menuOptions'), menuExtra(i18n));
+    }
+
+    return scene.leave();
+});
