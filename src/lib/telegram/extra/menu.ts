@@ -1,36 +1,109 @@
-import { aboutKeyboard, countdownKeyboard, counterBackKeyboard, guideKeyboard, languageBackKeyboard, languageKeyboard, menuKeyboard,
-notifyBackKeyboard, notifyKeyboard, startKeyboard, timeBackKeyboard, timeHourKeyboard, timeKeyboard, timePeriodKeyboard, userKeyboard
-} from 'keyboard';
-import { Extra } from 'telegraf';
-import { Period } from 'telegraf-bot-typings';
+// tslint:disable: no-submodule-imports
+import { aboutKeyboard, confirmLocationKeyboard, countdownKeyboard, counterBackKeyboard, guideKeyboard, languageBackKeyboard,
+languageKeyboard, locationKeyboard, menuKeyboard, notifyBackKeyboard, notifyKeyboard, sendLocationKeyboard, startKeyboard, timeBackKeyboard,
+timeHourKeyboard, timeKeyboard, timePeriodKeyboard, userKeyboard } from 'keyboard';
+import { Extra, Markup } from 'telegraf';
+import { LanguageRequest, LocationRequest, NotifyRequests, Period, TimeRequest, UserRequest } from 'telegraf-bot-typings';
 import { I18n } from 'telegraf-i18n';
+import { ExtraEditMessage } from 'telegraf/typings/telegram-types';
+import { IHandleLanguageExtra, IHandleMediaExtra, IHandleNotifyExtra, IHandleTimeExtra, IHandleUserExtra, ILocationExtra } from '.';
+import { animeExtra, mangaExtra } from './media';
 
-export const aboutExtra = () => Extra.markdown().markup(aboutKeyboard());
+// Fix this later to use only Extra.
+const askLocationExtra = () => Markup.forceReply().extra();
 
-export const timeBackExtra = () => Extra.markdown().markup(timeBackKeyboard());
+const locationExtra = (translation: I18n) => Extra.markdown().markup(locationKeyboard(translation));
 
-export const countdownExtra = () => Extra.markdown().markup(countdownKeyboard());
+const sendLocationExtra = (translation: I18n) => Extra.markdown().markup(sendLocationKeyboard(translation));
 
-export const notifyBackExtra = () => Extra.markdown().markup(notifyBackKeyboard());
+const confirmLocationExtra = (translation: I18n) => Extra.markdown().markup(confirmLocationKeyboard(translation));
 
-export const counterExtra = () => Extra.markdown().markup(counterBackKeyboard());
+const timeBackExtra = (): ExtraEditMessage => Extra.markdown().markup(timeBackKeyboard());
 
-export const languageBackExtra = () => Extra.markdown().markup(languageBackKeyboard());
+const notifyBackExtra = (): ExtraEditMessage => Extra.markdown().markup(notifyBackKeyboard());
 
-export const menuExtra = (translation: I18n) => Extra.markdown().markup(menuKeyboard(translation));
+const languageBackExtra = (): ExtraEditMessage => Extra.markdown().markup(languageBackKeyboard());
 
-export const timeHourExtra = (period: Period) => Extra.markdown().markup(timeHourKeyboard(period));
+const timeHourExtra = (period: Period): ExtraEditMessage => Extra.markdown().markup(timeHourKeyboard(period));
 
-export const userExtra = (translation: I18n) => Extra.markdown().markup(userKeyboard(translation));
+const timeExtra = (translation: I18n): ExtraEditMessage => Extra.markdown().markup(timeKeyboard(translation));
 
-export const timeExtra = (translation: I18n) => Extra.markdown().markup(timeKeyboard(translation));
+const notifyExtra = (translation: I18n): ExtraEditMessage => Extra.markdown().markup(notifyKeyboard(translation));
 
-export const startExtra = (translation: I18n) => Extra.markdown().markup(startKeyboard(translation));
+const languageExtra = (translation: I18n): ExtraEditMessage => Extra.markdown().markup(languageKeyboard(translation));
 
-export const guideExtra = (translation: I18n) => Extra.markdown().markup(guideKeyboard(translation));
+const timePeriodExtra = (translation: I18n): ExtraEditMessage => Extra.markdown().markup(timePeriodKeyboard(translation));
 
-export const notifyExtra = (translation: I18n) => Extra.markdown().markup(notifyKeyboard(translation));
+const handleLanguageExtra = ({ value, translation }: IHandleLanguageExtra): ExtraEditMessage => {
+    if (null === value) {
+        return languageExtra(translation);
+    }
 
-export const languageExtra = (translation: I18n) => Extra.markdown().markup(languageKeyboard(translation));
+    return languageBackExtra();
+};
 
-export const timePeriodExtra = (translation: I18n) => Extra.markdown().markup(timePeriodKeyboard(translation));
+const handleNotifyExtra = ({ value, translation }: IHandleNotifyExtra): ExtraEditMessage => {
+    if (null === value) {
+        return notifyExtra(translation);
+    }
+
+    return notifyBackExtra();
+};
+
+const handleTimeExtra = ({ value, request, translation }: IHandleTimeExtra): ExtraEditMessage => {
+    if ('TIME' === <UserRequest> request) {
+        return timeExtra(translation);
+    } if ('PERIOD' === <TimeRequest> request) {
+        return timePeriodExtra(translation);
+    } if ('AM' === <TimeRequest> request || 'PM' === <TimeRequest> request) {
+        return timeHourExtra(<Period>value);
+    }
+
+    return timeBackExtra();
+};
+
+const handleLocationExtra = ({ value, translation }: ILocationExtra) => {
+    if ('ASK' === value) {
+        return askLocationExtra();
+    } if ('SEND' === value) {
+        return sendLocationExtra(translation);
+    }
+
+    return locationExtra(translation);
+};
+
+export const aboutExtra = (): ExtraEditMessage => Extra.markdown().markup(aboutKeyboard());
+
+export const countdownExtra = (): ExtraEditMessage => Extra.markdown().markup(countdownKeyboard());
+
+export const counterExtra = (): ExtraEditMessage => Extra.markdown().markup(counterBackKeyboard());
+
+export const menuExtra = (translation: I18n): ExtraEditMessage => Extra.markdown().markup(menuKeyboard(translation));
+
+export const userExtra = (translation: I18n): ExtraEditMessage => Extra.markdown().markup(userKeyboard(translation));
+
+export const startExtra = (translation: I18n): ExtraEditMessage => Extra.markdown().markup(startKeyboard(translation));
+
+export const guideExtra = (translation: I18n): ExtraEditMessage => Extra.markdown().markup(guideKeyboard(translation));
+
+export const handleMediaExtra = ({ list, filter, translation }: IHandleMediaExtra): ExtraEditMessage => {
+    if ('WATCH' === list) {
+        return animeExtra({ filter, translation });
+    }
+
+    return mangaExtra({ filter, translation });
+};
+
+export const handleUserExtra = ({ value, request, translation }: IHandleUserExtra): ExtraEditMessage => {
+    if ('ALL' === <UserRequest> request) {
+        return userExtra(translation);
+    } if ('NOTIFY' === <UserRequest> request) {
+        return handleNotifyExtra({ value: <NotifyRequests> value, translation });
+    } if ('LANGUAGE' === <UserRequest> request) {
+        return handleLanguageExtra({ value: <LanguageRequest> value, translation });
+    } if ('LOCATION' === <UserRequest> request) {
+        return handleLocationExtra({ value: <LocationRequest> value, translation });
+    }
+
+    return handleTimeExtra({ value: <TimeRequest> value, request, translation });
+};

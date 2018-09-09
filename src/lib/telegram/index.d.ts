@@ -17,16 +17,15 @@ export type MenuRequest = 'USER' |
                           'MEDIA' |
                           'COUNTER' |
                           'COUNTDOWN'
-
+                          
 export type UserRequest = 'ALL' |
                           'TIME' |
                           'NOTIFY' |
                           'LANGUAGE' |
-                          'LOCATION' |
-                          'LANGUAGE'
+                          'LOCATION'
 
 export type TimeRequest = Period |
-                          'VALUE' |
+                          'HOUR' |
                           'PERIOD'
 
 export type NotifyRequests = 'ENABLE' |

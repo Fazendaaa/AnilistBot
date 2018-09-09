@@ -21,9 +21,19 @@ export const startKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     return Markup.resize().keyboard([ translation.t('menu'), translation.t('help') ]);
 };
 
+export const sendLocationKeyboard = (translation: I18n) => Markup.resize().keyboard([
+    Markup.locationRequestButton(translation.t('dataLocationButton')),
+    translation.t('menu')
+]);
+
+export const confirmLocationKeyboard = (translation: I18n): InlineKeyboardMarkup => Markup.inlineKeyboard([
+    Markup.callbackButton(translation.t('yesButton'), 'MENU/LOCATION-SEND'),
+    Markup.callbackButton(translation.t('noButton'), 'MENU/LOCATION-SEND')
+]);
+
 export const timeKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('timePeriodButton'), 'TIME-PERIOD')
+        Markup.callbackButton(translation.t('timePeriodButton'), 'USER/PERIOD')
     ];
     const secondLine = [
         Markup.callbackButton('<', 'USER/ALL')
@@ -45,8 +55,8 @@ export const guideKeyboard = (translation: I18n): InlineKeyboardMarkup => {
 
 export const notifyKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('enableButton'), 'NOTIFY-ENABLE'),
-        Markup.callbackButton(translation.t('disableButton'), 'NOTIFY-DISABLE')
+        Markup.callbackButton(translation.t('enableButton'), 'USER/NOTIFY/ENABLE'),
+        Markup.callbackButton(translation.t('disableButton'), 'USER/NOTIFY/DISABLE')
     ];
     const secondLine = [
         Markup.callbackButton('<', 'USER/ALL')
@@ -57,24 +67,36 @@ export const notifyKeyboard = (translation: I18n): InlineKeyboardMarkup => {
 
 export const timePeriodKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('timePeriodMorningButton'), 'TIME-PERIOD-AM'),
-        Markup.callbackButton(translation.t('timePeriodAfternoonButton'), 'TIME-PERIOD-PM')
+        Markup.callbackButton(translation.t('timePeriodMorningButton'), 'USER/AM'),
+        Markup.callbackButton(translation.t('timePeriodAfternoonButton'), 'USER/PM')
     ];
     const secondLine = [
-        Markup.callbackButton('<', 'TIME')
+        Markup.callbackButton('<', 'USER/TIME')
     ];
 
     return Markup.inlineKeyboard([ firstLine, secondLine ]);
 };
 
+export const locationKeyboard = (translation: I18n): InlineKeyboardMarkup => {
+    const firstLine = [
+        Markup.callbackButton(translation.t('sendLocationButton'), 'MENU/LOCATION/SEND'),
+        Markup.callbackButton(translation.t('askLocationButton'), 'MENU/LOCATION/ASK')
+    ];
+    const secondLine = [
+        Markup.callbackButton('<', 'MENU/USER')
+    ];
+
+    return Markup.inlineKeyboard([firstLine, secondLine]);
+};
+
 export const userKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('languageButton'), 'USER/LANGUAGE'),
-        Markup.callbackButton(translation.t('notifyButton'), 'NOTIFY')
+        Markup.callbackButton(translation.t('notifyButton'), 'USER/NOTIFY')
     ];
     const secondLine = [
-        Markup.callbackButton(translation.t('timeButton'), 'TIME'),
-        Markup.callbackButton(translation.t('locationButton'), 'LOCATION')
+        Markup.callbackButton(translation.t('timeButton'), 'USER/TIME'),
+        Markup.callbackButton(translation.t('locationButton'), 'USER/LOCATION')
     ];
     const thirdLine = [
         Markup.callbackButton('<', 'MENU')
@@ -125,27 +147,27 @@ export const languageKeyboard = (translation: I18n): InlineKeyboardMarkup => {
 
 export const timeHourKeyboard = (period: Period): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton('1h', `TIME-HOUR-VALUE/${calculatePeriod({ hour: 1, period })}`),
-        Markup.callbackButton('2h', `TIME-HOUR-VALUE/${calculatePeriod({ hour: 2, period })}`),
-        Markup.callbackButton('3h', `TIME-HOUR-VALUE/${calculatePeriod({ hour: 3, period })}`)
+        Markup.callbackButton('1h', `USER/HOUR/${calculatePeriod({ hour: 1, period })}`),
+        Markup.callbackButton('2h', `USER/HOUR/${calculatePeriod({ hour: 2, period })}`),
+        Markup.callbackButton('3h', `USER/HOUR/${calculatePeriod({ hour: 3, period })}`)
     ];
     const secondLine = [
-        Markup.callbackButton('4h', `TIME-HOUR-VALUE/${calculatePeriod({ hour: 4, period })}`),
-        Markup.callbackButton('5h', `TIME-HOUR-VALUE/${calculatePeriod({ hour: 5, period })}`),
-        Markup.callbackButton('6h', `TIME-HOUR-VALUE/${calculatePeriod({ hour: 6, period })}`)
+        Markup.callbackButton('4h', `USER/HOUR/${calculatePeriod({ hour: 4, period })}`),
+        Markup.callbackButton('5h', `USER/HOUR/${calculatePeriod({ hour: 5, period })}`),
+        Markup.callbackButton('6h', `USER/HOUR/${calculatePeriod({ hour: 6, period })}`)
     ];
     const thirdLine = [
-        Markup.callbackButton('7h', `TIME-HOUR-VALUE/${calculatePeriod({ hour: 7, period })}`),
-        Markup.callbackButton('8h', `TIME-HOUR-VALUE/${calculatePeriod({ hour: 8, period })}`),
-        Markup.callbackButton('9h', `TIME-HOUR-VALUE/${calculatePeriod({ hour: 9, period })}`)
+        Markup.callbackButton('7h', `USER/HOUR/${calculatePeriod({ hour: 7, period })}`),
+        Markup.callbackButton('8h', `USER/HOUR/${calculatePeriod({ hour: 8, period })}`),
+        Markup.callbackButton('9h', `USER/HOUR/${calculatePeriod({ hour: 9, period })}`)
     ];
     const fourthLine = [
-        Markup.callbackButton('10h', `TIME-HOUR-VALUE/${calculatePeriod({ hour: 10, period })}`),
-        Markup.callbackButton('11h', `TIME-HOUR-VALUE/${calculatePeriod({ hour: 11, period })}`),
-        Markup.callbackButton('12h', `TIME-HOUR-VALUE/${calculatePeriod({ hour: 12, period })}`)
+        Markup.callbackButton('10h', `USER/HOUR/${calculatePeriod({ hour: 10, period })}`),
+        Markup.callbackButton('11h', `USER/HOUR/${calculatePeriod({ hour: 11, period })}`),
+        Markup.callbackButton('12h', `USER/HOUR/${calculatePeriod({ hour: 12, period })}`)
     ];
     const fifthLine = [
-        Markup.callbackButton('<', 'TIME-PERIOD')
+        Markup.callbackButton('<', 'USER/PERIOD')
     ];
 
     return Markup.inlineKeyboard([firstLine, secondLine, thirdLine, fourthLine, fifthLine]);
