@@ -11,16 +11,19 @@ export type KindRequest = 'LIST' |
                           'ANILIST'
 
 export type MenuRequest = 'USER' |
+                          'MENU' |
                           'ABOUT' |
                           'GUIDE' |
                           'MEDIA' |
                           'COUNTER' |
                           'COUNTDOWN'
 
-export type UerRequest = 'TIME' |
-                         'NOTIFY' |
-                         'LOCATION' |
-                         'LANGUAGE'
+export type UserRequest = 'ALL' |
+                          'TIME' |
+                          'NOTIFY' |
+                          'LANGUAGE' |
+                          'LOCATION' |
+                          'LANGUAGE'
 
 export type TimeRequest = Period |
                           'VALUE' |
@@ -95,7 +98,7 @@ export interface IRequestsContext {
 
 export interface IKeyboardContext {
     readonly translation: I18n;
-    readonly request: UerRequest;
+    readonly request: UserRequest;
 }
 
 export interface ICallbackKeyboardContext {

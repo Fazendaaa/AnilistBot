@@ -7,15 +7,15 @@ const calculatePeriod = ({ hour, period }: IPeriodContext): number => ('AM' === 
 
 export const aboutKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'GUIDE') ]);
 
-export const timeBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'USER') ]);
+export const timeBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'USER/ALL') ]);
 
 export const countdownKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'MENU') ]);
 
-export const notifyBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'USER') ]);
+export const notifyBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'USER/ALL') ]);
 
 export const counterBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'MENU') ]);
 
-export const languageBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'USER') ]);
+export const languageBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'USER/ALL') ]);
 
 export const startKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     return Markup.resize().keyboard([ translation.t('menu'), translation.t('help') ]);
@@ -26,7 +26,7 @@ export const timeKeyboard = (translation: I18n): InlineKeyboardMarkup => {
         Markup.callbackButton(translation.t('timePeriodButton'), 'TIME-PERIOD')
     ];
     const secondLine = [
-        Markup.callbackButton('<', 'USER')
+        Markup.callbackButton('<', 'USER/ALL')
     ];
 
     return Markup.inlineKeyboard([ firstLine, secondLine ]);
@@ -49,7 +49,7 @@ export const notifyKeyboard = (translation: I18n): InlineKeyboardMarkup => {
         Markup.callbackButton(translation.t('disableButton'), 'NOTIFY-DISABLE')
     ];
     const secondLine = [
-        Markup.callbackButton('<', 'USER')
+        Markup.callbackButton('<', 'USER/ALL')
     ];
 
     return Markup.inlineKeyboard([ firstLine, secondLine ]);
@@ -69,7 +69,7 @@ export const timePeriodKeyboard = (translation: I18n): InlineKeyboardMarkup => {
 
 export const userKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('languageButton'), 'LANGUAGE'),
+        Markup.callbackButton(translation.t('languageButton'), 'USER/LANGUAGE'),
         Markup.callbackButton(translation.t('notifyButton'), 'NOTIFY')
     ];
     const secondLine = [
@@ -85,7 +85,7 @@ export const userKeyboard = (translation: I18n): InlineKeyboardMarkup => {
 
 export const menuKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
-        Markup.callbackButton(translation.t('userButton'), 'USER'),
+        Markup.callbackButton(translation.t('userButton'), 'USER/ALL'),
         Markup.callbackButton(translation.t('countdownButton'), 'COUNTDOWN'),
         Markup.callbackButton(translation.t('guideButton'), 'GUIDE')
     ];
@@ -102,22 +102,22 @@ export const menuKeyboard = (translation: I18n): InlineKeyboardMarkup => {
 
 export const languageKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const languages = [
-        Markup.callbackButton(translation.t('arButton'), 'ARABIC'),
-        Markup.callbackButton(translation.t('zhButton'), 'CHINESE'),
-        Markup.callbackButton(translation.t('deButton'), 'DEUTSCH'),
-        Markup.callbackButton(translation.t('nlButton'), 'DUTCH'),
-        Markup.callbackButton(translation.t('enButton'), 'ENGLISH'),
-        Markup.callbackButton(translation.t('deButton'), 'GERMAN'),
-        Markup.callbackButton(translation.t('ruButton'), 'RUSSIAN'),
-        Markup.callbackButton(translation.t('faButton'), 'FARSI'),
-        Markup.callbackButton(translation.t('frButton'), 'FRENCH'),
-        Markup.callbackButton(translation.t('idButton'), 'INDONESIAN'),
-        Markup.callbackButton(translation.t('jpButton'), 'JAPANESE'),
-        Markup.callbackButton(translation.t('ptButton'), 'PORTUGUESE'),
-        Markup.callbackButton(translation.t('esButton'), 'SPANISH')
+        Markup.callbackButton(translation.t('arButton'), 'USER/LANGUAGE/ARABIC'),
+        Markup.callbackButton(translation.t('zhButton'), 'USER/LANGUAGE/CHINESE'),
+        Markup.callbackButton(translation.t('deButton'), 'USER/LANGUAGE/DEUTSCH'),
+        Markup.callbackButton(translation.t('nlButton'), 'USER/LANGUAGE/DUTCH'),
+        Markup.callbackButton(translation.t('enButton'), 'USER/LANGUAGE/ENGLISH'),
+        Markup.callbackButton(translation.t('deButton'), 'USER/LANGUAGE/GERMAN'),
+        Markup.callbackButton(translation.t('ruButton'), 'USER/LANGUAGE/RUSSIAN'),
+        Markup.callbackButton(translation.t('faButton'), 'USER/LANGUAGE/FARSI'),
+        Markup.callbackButton(translation.t('frButton'), 'USER/LANGUAGE/FRENCH'),
+        Markup.callbackButton(translation.t('idButton'), 'USER/LANGUAGE/INDONESIAN'),
+        Markup.callbackButton(translation.t('jpButton'), 'USER/LANGUAGE/JAPANESE'),
+        Markup.callbackButton(translation.t('ptButton'), 'USER/LANGUAGE/PORTUGUESE'),
+        Markup.callbackButton(translation.t('esButton'), 'USER/LANGUAGE/SPANISH')
     ];
     const back = [
-        Markup.callbackButton('<', 'USER')
+        Markup.callbackButton('<', 'USER/ALL')
     ];
 
     return Markup.inlineKeyboard(languages.concat(back).map(line => [ line ]));

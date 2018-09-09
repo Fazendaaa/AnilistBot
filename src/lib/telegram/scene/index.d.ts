@@ -1,5 +1,5 @@
 import { I18n } from 'telegraf-i18n';
-import { ListRequest, TimeRequest, LanguageRequest, NotifyRequests, ListFilterRequest } from '..';
+import { ListRequest, TimeRequest, LanguageRequest, NotifyRequests, ListFilterRequest, MenuRequest, UserRequest } from '..';
 import { IListTitle } from '../../anilist/queries';
 import { MediaStatus, IMediaTitle } from '../../anilist';
 import { IAllSubscriptionResponse } from '../../database/subscriptions';
@@ -22,8 +22,8 @@ export interface IMenuContext {
     readonly request: ListFilterRequest;
 }
 
-export interface IMenuUserContext {
-    readonly user: number;
+export interface IHandleCounter {
+    readonly id: number;
     readonly translation: I18n;
 }
 
@@ -59,11 +59,15 @@ export interface IMenuTimeContext {
     readonly request: TimeRequest;
 }
 
-export interface IMenuLanguageContext {
+export interface IHandleLanguage {
     readonly id: number;
-    readonly user: number;
     readonly translation: I18n;
-    readonly request: LanguageRequest;
+    readonly request: UserRequest | LanguageRequest;
+}
+
+export interface IHandleUserKeyboard {
+    readonly translation: I18n;
+    readonly request: UserRequest | LanguageRequest;
 }
 
 export interface IMenuNotifyContext {
@@ -74,6 +78,10 @@ export interface IMenuNotifyContext {
 }
 
 export interface IUserTTFInfo {
+    time: Date;
+    notify: boolean;
+    language: string;
+    timezone: string;
     anime: IAllSubscriptionResponse[];
     manga: IAllSubscriptionResponse[];
 }
@@ -84,6 +92,17 @@ export interface IHandleMedia {
     readonly list: ListRequest;
     readonly translation: I18n;
     readonly filter: ListFilterRequest;
+}
+
+export interface IHandleUserData {
+    readonly id: number;
+    readonly translation: I18n;
+}
+
+export interface IHandleUser {
+    readonly id: number;
+    readonly translation: I18n;
+    readonly request: UserRequest | LanguageRequest;
 }
 
 export interface IHandleMediaKeyboard {

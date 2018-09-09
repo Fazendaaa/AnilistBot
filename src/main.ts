@@ -1,3 +1,4 @@
+// tslint:disable: no-submodule-imports -- Just using it this way because of lack of support yet -- my intention is to work on it.
 import { config } from 'dotenv';
 import { startExtra } from 'extra';
 import { toInlineArticle } from 'inline';
@@ -10,7 +11,6 @@ import I18n from 'telegraf-i18n';
 import { fetchPage, sanitize } from 'telegraf-parse';
 import { getSessionKey, loadLanguages } from 'telegraf-redis';
 import RedisSession from 'telegraf-session-redis';
-// tslint:disable: no-submodule-imports -- Just using it this way because of lack of support yet -- my intention is to work on it.
 import session from 'telegraf/session';
 import { UserCache } from 'user-cache';
 import { AnilistObject, AnilistRequest } from './lib/anilist';
