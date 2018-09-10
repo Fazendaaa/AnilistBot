@@ -87,10 +87,8 @@ export interface IHandleUser {
 }
 
 export interface IHandleLocation {
-    readonly id: number;
     readonly translation: I18n;
     readonly request: LocationRequest;
-    readonly confirm: LocationConfirmRequest;
 }
 
 export interface IHandleRemoveLocation {
@@ -129,4 +127,22 @@ export interface ICountdownInfo {
     readonly title: IMediaTitle;
     readonly countryOfOrigin: string;
     readonly nextAiringEpisode: IAiringSchedule;
+}
+
+export interface IHandleTimezone {
+    readonly id: number;
+    readonly timezone: string;
+    readonly translation: I18n;
+}
+
+export interface IGoogleZone {
+    readonly latitude: number | string;
+    readonly longitude: number | string;
+}
+
+export interface IHandleSentLocation {
+    readonly id: number;
+    readonly translation: I18n;
+    readonly latitude: number | string;
+    readonly longitude: number | string;
 }

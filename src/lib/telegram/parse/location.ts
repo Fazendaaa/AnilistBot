@@ -1,8 +1,21 @@
 import { lookupViaCity } from 'city-timezones';
+import { data } from 'node-google-timezone';
 import { parseTimezone } from 'telegraf-parse';
-import { IHandleLocation, IHandleRemoveLocation, ILocationData } from '.';
+import { IGoogleZone, IHandleLocation, IHandleRemoveLocation, IHandleSentLocation, IHandleTimezone, ILocationData } from '.';
 import { userRemoveTimezone, userSetTimezone } from '../../database/user/user';
 import { ICityInfo } from '../scene';
+
+const googlezone = async ({ latitude, longitude }: IGoogleZone): Promise<string> => {
+    return new Promise((resolve: (timezone: string) => void, reject: (err: Error) => void) => {
+        data(latitude, longitude, 0, (err, tz) => {
+            if (null !== err) {
+                reject(err);
+            }
+
+            resolve(tz.raw_response.timeZoneId);
+        });
+    });
+};
 
 export const handleRemoveLocation = async ({ id, confirm, translation }: IHandleRemoveLocation): Promise<string> => {
     if (null === confirm) {
@@ -36,18 +49,20 @@ export const handleLocationCity = (user: ICityInfo): ILocationData => {
     };
 };
 
-export const handleLocation = ({ id, confirm, request, translation }: IHandleLocation): string => {
-    if ('ASK' === request) {
-        return translation.t('askLocationOptions');
-    }
-
-    return translation.t('sendLocationOptions');
+export const handleLocation = ({ request, translation }: IHandleLocation): string => {
+    return ('ASK' === request) ? translation.t('askLocationOptions') : translation.t('sendLocationOptions');
 };
 
-export const handleTimezone = async ({ id, timezone, translation }): Promise<string> => {
+export const handleTimezone = async ({ id, timezone, translation }: IHandleTimezone): Promise<string> => {
     return userSetTimezone({ id, timezone })
            .then(value => ('' !== value) ?
                translation.t('setTimezone', { timezone: parseTimezone(timezone) }) :
                translation.t('errorSetTimezone')
-           ).catch(translation.t('errorSetTimezone'));
+           ).catch(() => translation.t('errorSetTimezone'));
+};
+
+export const handleSentLocation = async ({ id, latitude, longitude, translation }: IHandleSentLocation): Promise<string> => {
+    const timezone = await googlezone({ latitude, longitude });
+
+    return handleTimezone({ id, timezone, translation });
 };

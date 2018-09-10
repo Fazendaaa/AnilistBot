@@ -3,7 +3,7 @@ import { IBotContext, LocationConfirmRequest, LocationRequest, MenuRequest } fro
 import Scene from 'telegraf/scenes/base';
 import { ICityInfo, IConfirmData, IHandleConfirm } from '.';
 import { confirmBackExtra, confirmLocationExtra, handleLocationExtra, locationExtra } from '../extra/location';
-import { handleLocation, handleLocationCity, handleTimezone } from '../parse/location';
+import { handleLocation, handleLocationCity, handleSentLocation, handleTimezone } from '../parse/location';
 
 const handleConfirm = async ({ id, text, confirm, cityContext, translation }: IHandleConfirm): Promise<IConfirmData> => {
     if ('YES' === confirm) {
@@ -57,6 +57,14 @@ locationScene.on('text', async ({ i18n, scene, message, replyWithMarkdown, from 
     });
 
     return replyWithMarkdown(messageText, extra);
+});
+
+locationScene.on('location', async ({ i18n, from,  message, replyWithMarkdown }: IBotContext) => {
+    const { id } = from;
+    const { location } = message;
+    const { latitude, longitude } = location;
+
+    return replyWithMarkdown(await handleSentLocation({ translation: i18n, id, latitude, longitude }), confirmBackExtra());
 });
 
 locationScene.on('callback_query', async ({ i18n, from, scene, callbackQuery, editMessageText, replyWithMarkdown }: IBotContext) => {
