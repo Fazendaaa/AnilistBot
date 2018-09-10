@@ -1,32 +1,23 @@
 // tslint:disable: no-submodule-imports
 import { aboutExtra, countdownExtra, counterExtra, guideExtra, handleMediaExtra, handleUserExtra, menuExtra, startExtra } from 'extra';
-import removeMD from 'remove-markdown';
-import { IBotContext, LanguageRequest, ListFilterRequest, ListRequest, LocationRequest, MenuRequest, NotifyRequests, TimeRequest,
-UserRequest } from 'telegraf-bot-typings';
+import { IBotContext, LanguageRequest, ListFilterRequest, ListRequest, MenuRequest, NotifyRequests, TimeRequest, UserRequest
+} from 'telegraf-bot-typings';
 import Scene from 'telegraf/scenes/base';
 import { IUserTTFInfo } from '.';
 import { handleCounter, handleMedia, handleUser } from '../parse/menu';
 
 export const menuScene = new Scene('Menu');
 
-menuScene.leave(async ({ i18n, replyWithMarkdown }: IBotContext) => replyWithMarkdown(i18n.t('leavingMenu')));
+menuScene.leave(async ({ i18n, updateType, replyWithMarkdown }: IBotContext) => {
+    if ('callback_query' !== updateType) {
+        return replyWithMarkdown(i18n.t('leavingMenu'));
+    }
+});
 
 menuScene.enter(async ({ i18n, replyWithMarkdown }: IBotContext) => {
     await replyWithMarkdown(i18n.t('menuGreetings'), startExtra(i18n));
 
     return replyWithMarkdown(i18n.t('menuOptions'), menuExtra(i18n));
-});
-
-menuScene.on('text', async ({ i18n, scene, message }: IBotContext) => {
-    let text = '';
-
-    if (undefined !== message.reply_to_message) {
-        text = message.reply_to_message.text;
-    } if (removeMD(i18n.t('askLocationOptions')) === text) {
-        return scene.enter('Location');
-    }
-
-    return scene.leave();
 });
 
 menuScene.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callbackQuery, editMessageText }: IBotContext) => {
@@ -49,7 +40,7 @@ menuScene.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callba
         return editMessageText(await handleCounter({ id, translation }), counterExtra());
     } if ('USER' === kind) {
         const request = (2 <= data.length) ? <UserRequest | TimeRequest> data[1] : null;
-        const value = (3 === data.length) ? <LanguageRequest | NotifyRequests | LocationRequest | number> data[2] : null;
+        const value = (3 === data.length) ? <LanguageRequest | NotifyRequests | number> data[2] : null;
 
         return editMessageText(await handleUser({
             id,
@@ -68,6 +59,8 @@ menuScene.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callba
             translation,
             user: <IUserTTFInfo> scene.state
         }), handleMediaExtra({ list, filter, translation }));
+    } if ('LOCATION' === kind) {
+        return scene.enter('Location');
     }
 
     return scene.leave();

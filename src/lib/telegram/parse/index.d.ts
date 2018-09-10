@@ -1,9 +1,9 @@
 import { I18n } from 'telegraf-i18n';
-import { ListFilterRequest, TimeRequest, NotifyRequests, LanguageRequest, ListRequest, UserRequest, LocationRequest } from 'telegraf-bot-typings';
+import { ListFilterRequest, TimeRequest, NotifyRequests, LanguageRequest, ListRequest, UserRequest, LocationRequest, LocationConfirmRequest } from 'telegraf-bot-typings';
 import { IListTitle } from '../../anilist/queries';
 import { IAllSubscriptionResponse } from '../../database/subscriptions';
 import { IMediaTitle } from '../../anilist';
-import { IUserTTFInfo } from '../scene';
+import { IUserTTFInfo, ICityInfo } from '../scene';
 
 export interface IInfoContext {
     readonly siteUrl: string;
@@ -83,10 +83,30 @@ export interface IHandleUser {
     readonly id: number;
     readonly translation: I18n;
     readonly request: UserRequest | TimeRequest;
-    readonly value: LanguageRequest | NotifyRequests | LocationRequest | number;
+    readonly value: LanguageRequest | NotifyRequests | number;
 }
 
 export interface IHandleLocation {
+    readonly id: number;
     readonly translation: I18n;
-    readonly value: LocationRequest;
+    readonly request: LocationRequest;
+    readonly confirm: LocationConfirmRequest;
+}
+
+export interface IHandleRemoveLocation {
+    readonly id: number;
+    readonly translation: I18n;
+    readonly confirm: LocationConfirmRequest;
+}
+
+export interface ILocationData {
+    readonly city: string;
+    readonly country?: string;
+    readonly province?: string;
+}
+
+export interface ITimeFormat {
+    readonly time: Date;
+    readonly timezone: string;
+    readonly translation: I18n;
 }

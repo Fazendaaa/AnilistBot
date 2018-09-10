@@ -199,7 +199,6 @@ As the [Anilist API V2](https://github.com/AniList/ApiV2-GraphQL-Docs) was writt
 * [mongoose](https://github.com/Automattic/mongoose)
 * [node-google-timezone](https://github.com/ecteodoro/node-google-timezone)
 * [node schedule](https://github.com/node-schedule/node-schedule)
-* [remove-markdown](https://github.com/stiang/remove-markdown)
 * [striptags](https://github.com/ericnorris/striptags)
 * [telegraf](https://github.com/telegraf/telegraf)
 * [telegraf-i18n](https://github.com/telegraf/telegraf-i18n)

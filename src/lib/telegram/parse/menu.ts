@@ -1,7 +1,7 @@
 import moment from 'moment';
-import { LanguageRequest, NotifyRequests, TimeRequest, UserRequest, LocationRequest } from 'telegraf-bot-typings';
-import { IHandleCounter, IHandleLanguage, IHandleLocation, IHandleMedia, IHandleNotify, IHandleTime, IHandleUser, IHandleUserData
-} from '.';
+import momentTz from 'moment-timezone';
+import { LanguageRequest, NotifyRequests, TimeRequest, UserRequest } from 'telegraf-bot-typings';
+import { IHandleCounter, IHandleLanguage, IHandleMedia, IHandleNotify, IHandleTime, IHandleUser, IHandleUserData, ITimeFormat } from '.';
 import { IDBUserInfo } from '../../database/user';
 import { fetchUserAnime, fetchUserManga, userInfo, userLanguage, userSetNotification, userSetTime } from '../../database/user/user';
 import { errorDate } from '../../database/utils';
@@ -18,20 +18,18 @@ const handleTime = async ({ id, value, request, translation }: IHandleTime): Pro
     }
 
     return userSetTime({ time: value, id })
-        .then(date => (errorDate !== date) ? translation.t('setHour', { hour: moment(date).hour() }) : translation.t('errorSetHour'))
-        .catch(() => translation.t('errorSetHour'));
+           .then(date => (errorDate !== date) ? translation.t('setHour', { hour: moment(date).hour() }) : translation.t('errorSetHour'))
+           .catch(() => translation.t('errorSetHour'));
 };
 
 const handleNotify = async ({ id, value, translation }: IHandleNotify): Promise<string> => {
-    const notify = ('ENABLE' === value) ? true : false;
-
     if (null === value) {
         return translation.t('notifyOptions');
     }
 
-    return userSetNotification({ id, notify })
-        .then(() => translation.t('setNotify', { notify: (true === notify) ? translation.t('enabled') : translation.t('disabled') }))
-        .catch(() => translation.t('errorNotify'));
+    return userSetNotification({ notify: ('ENABLE' === value) ? true : false, id })
+           .then(notify => translation.t('setNotify', { notify: (true === notify) ? translation.t('enabled') : translation.t('disabled') }))
+           .catch(() => translation.t('errorNotify'));
 };
 
 const handleLanguage = async ({ id, value, translation }: IHandleLanguage): Promise<string> => {
@@ -44,26 +42,27 @@ const handleLanguage = async ({ id, value, translation }: IHandleLanguage): Prom
         .catch(() => translation.t('errorSetLanguage'));
 };
 
+const timeFormat = ({ time, timezone, translation }: ITimeFormat): string => {
+    if (null === time) {
+        return translation.t('timeNotSet');
+    } if (null !== timezone) {
+        return `${momentTz(time).tz(timezone).hour()}h`;
+    }
+
+    return `${moment(time).hour()}h`;
+};
+
 const handleUserData = async ({ id, translation }: IHandleUserData): Promise<string> => userInfo(id).then(info => {
     const { notify, language, time, timezone } = <IDBUserInfo> info;
 
     return translation.t('userOptions', {
-        time: (null !== time) ? moment(time).hour() : translation.t('timeNotSet'),
-        timezone: (null !== timezone) ? timezone : translation.t('timezoneNotSet'),
+        time: timeFormat({ time, timezone, translation }),
         notify: (true === notify) ? translation.t('enabled') : translation.t('disabled'),
-        language: (null !== language) ? translation.t(language) : translation.t('languageDefault')
+        language: (null !== language) ? translation.t(language) : translation.t('languageDefault'),
+        // timezone has to replace the "_" with spaces, otherwise i18n will throw a compile template error.
+        timezone: (null !== timezone) ? timezone.replace('_', ' ') : translation.t('timezoneNotSet')
     });
 }).catch(() => translation.t('errorUserInfo'));
-
-const handleLocation = ({ value, translation }: IHandleLocation): string => {
-    if ('ASK' === value) {
-        return translation.t('askLocationOptions');
-    } if ('SEND' === value) {
-        return translation.t('sendLocationOptions');
-    }
-
-    return translation.t('locationOptions');
-};
 
 export const handleCounter = async ({ id, translation }: IHandleCounter): Promise<string> => userInfo(id)
 .then(({ counter }: IDBUserInfo) => {
@@ -88,8 +87,6 @@ export const handleUser = async ({ id, value, request, translation }: IHandleUse
         return handleNotify({ value: <NotifyRequests> value, id, translation });
     } if ('LANGUAGE' === <UserRequest> request) {
         return handleLanguage({ value: <LanguageRequest> value, id, translation });
-    } if ('LOCATION' === <UserRequest> request) {
-        return handleLocation({ value: <LocationRequest> value, translation });
     }
 
     return handleTime({ value: <number> value, request: <TimeRequest> request, id, translation });

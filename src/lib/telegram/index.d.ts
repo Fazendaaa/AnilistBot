@@ -4,7 +4,8 @@ import { InlineKeyboardMarkup } from 'telegram-typings';
 import RedisSession from 'telegraf-session-redis';
 import { MediaStatus } from '../anilist';
 
-export type Period = 'AM' | 'PM'
+export type Period = 'AM' |
+                     'PM'
 
 export type KindRequest = 'LIST' |
                           'MENU' |
@@ -16,13 +17,13 @@ export type MenuRequest = 'USER' |
                           'GUIDE' |
                           'MEDIA' |
                           'COUNTER' |
+                          'LOCATION' |
                           'COUNTDOWN'
                           
 export type UserRequest = 'ALL' |
                           'TIME' |
                           'NOTIFY' |
-                          'LANGUAGE' |
-                          'LOCATION'
+                          'LANGUAGE'
 
 export type TimeRequest = Period |
                           'HOUR' |
@@ -35,7 +36,12 @@ export type ListRequest = 'READ' |
                           'WATCH'
 
 export type LocationRequest = 'ASK' |
-                              'SEND'
+                              'SEND' |
+                              'REMOVE' |
+                              'CONFIRM'
+
+export type LocationConfirmRequest = 'NO' |
+                                     'YES'
 
 export type ListFilterRequest = 'ALL' |
                                 'MORE-INFO' |

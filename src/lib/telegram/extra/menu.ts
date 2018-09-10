@@ -1,22 +1,13 @@
 // tslint:disable: no-submodule-imports
-import { aboutKeyboard, confirmLocationKeyboard, countdownKeyboard, counterBackKeyboard, guideKeyboard, languageBackKeyboard,
-languageKeyboard, locationKeyboard, menuKeyboard, notifyBackKeyboard, notifyKeyboard, sendLocationKeyboard, startKeyboard, timeBackKeyboard,
-timeHourKeyboard, timeKeyboard, timePeriodKeyboard, userKeyboard } from 'keyboard';
-import { Extra, Markup } from 'telegraf';
+import { aboutKeyboard, countdownKeyboard, counterBackKeyboard, guideKeyboard, languageBackKeyboard, languageKeyboard, menuKeyboard,
+notifyBackKeyboard, notifyKeyboard, startKeyboard, timeBackKeyboard, timeHourKeyboard, timeKeyboard, timePeriodKeyboard, userKeyboard
+} from 'keyboard';
+import { Extra } from 'telegraf';
 import { LanguageRequest, LocationRequest, NotifyRequests, Period, TimeRequest, UserRequest } from 'telegraf-bot-typings';
 import { I18n } from 'telegraf-i18n';
 import { ExtraEditMessage } from 'telegraf/typings/telegram-types';
 import { IHandleLanguageExtra, IHandleMediaExtra, IHandleNotifyExtra, IHandleTimeExtra, IHandleUserExtra, ILocationExtra } from '.';
 import { animeExtra, mangaExtra } from './media';
-
-// Fix this later to use only Extra.
-const askLocationExtra = () => Markup.forceReply().extra();
-
-const locationExtra = (translation: I18n) => Extra.markdown().markup(locationKeyboard(translation));
-
-const sendLocationExtra = (translation: I18n) => Extra.markdown().markup(sendLocationKeyboard(translation));
-
-const confirmLocationExtra = (translation: I18n) => Extra.markdown().markup(confirmLocationKeyboard(translation));
 
 const timeBackExtra = (): ExtraEditMessage => Extra.markdown().markup(timeBackKeyboard());
 
@@ -56,20 +47,10 @@ const handleTimeExtra = ({ value, request, translation }: IHandleTimeExtra): Ext
     } if ('PERIOD' === <TimeRequest> request) {
         return timePeriodExtra(translation);
     } if ('AM' === <TimeRequest> request || 'PM' === <TimeRequest> request) {
-        return timeHourExtra(<Period>value);
+        return timeHourExtra(<Period> request);
     }
 
     return timeBackExtra();
-};
-
-const handleLocationExtra = ({ value, translation }: ILocationExtra) => {
-    if ('ASK' === value) {
-        return askLocationExtra();
-    } if ('SEND' === value) {
-        return sendLocationExtra(translation);
-    }
-
-    return locationExtra(translation);
 };
 
 export const aboutExtra = (): ExtraEditMessage => Extra.markdown().markup(aboutKeyboard());
@@ -101,8 +82,6 @@ export const handleUserExtra = ({ value, request, translation }: IHandleUserExtr
         return handleNotifyExtra({ value: <NotifyRequests> value, translation });
     } if ('LANGUAGE' === <UserRequest> request) {
         return handleLanguageExtra({ value: <LanguageRequest> value, translation });
-    } if ('LOCATION' === <UserRequest> request) {
-        return handleLocationExtra({ value: <LocationRequest> value, translation });
     }
 
     return handleTimeExtra({ value: <TimeRequest> value, request, translation });

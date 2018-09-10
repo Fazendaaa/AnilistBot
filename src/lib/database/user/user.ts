@@ -108,6 +108,14 @@ export const userSetTimezone = async ({ id, timezone }: IUserTimezoneContext): P
     }).catch(() => '');
 };
 
+export const userRemoveTimezone = async (id: number): Promise<boolean> => {
+    return User.findByIdAndUpdate(id, {}, options).then(async (user: IDBUser) => {
+        user.timezone = null;
+
+        return user.save().then(async () => true).catch(() => false);
+    }).catch(() => false);
+};
+
 export const userSetTime = async ({ id, time }: IUserTimeContext): Promise<Date> => {
     return User.findByIdAndUpdate(id, {}, options).then(async (user: IDBUser) => {
         const hour = momentTimezone.tz(user.timezone).hours(time).minutes(0).seconds(0).milliseconds(0);

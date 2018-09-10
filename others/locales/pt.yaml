@@ -22,6 +22,9 @@ loading:
 leavingMenu:
   "Saindo do menu..."
 
+leavingLocation:
+  "Saindo da localização..."
+
 menuGreetings:
   "Olá de novo, _${from.username}_."
 
@@ -90,6 +93,14 @@ sendLocationOptions:
   "🌎 *LOCALIZAÇÃO*\n\n\
   Por favor, me envie sua localição clicando no botão.\n\n\
   obs: apenas um aviso, você *NÃO PODE* me enviar sua localização do Telegram Desktop. Se esse for seu caso, por favor siga a outra opção de localização."
+
+removeLocationOptions:
+  "🌎 *LOCALIZAÇÃO*\n\n\
+  Tem certeza que deseja remover a sua localização atual?"
+
+removeLocationNoOptions:
+  "🌎 *LOCALIZAÇÃO*\n\n\
+  Sua localização permanesce a mesma. Nada mudou."
 
 guideOptions:
   "🗺️ *GUIA*\n\n\
@@ -208,6 +219,22 @@ setHour:
   "👌 *HORÁRIO CONFIGURADO*\n\n\
   De agora em diante, você será notifcado todos os dias sobre os episódios de anime, notcias de mangás e animes às: _${hour}h_"
 
+setTimezone:
+  "👌 *FUSO HOARÁRIO CONFIGURADO*\n\n\
+  De agora em diante, você será notifcado todos os dias sobre os episódios de anime, notcias de mangás e animes no seu fuso horário: _${timezone}_"
+
+setRemoveLocation:
+  "👌 *LOCALIZAÇÃO REMOVIDA*\n\n\
+  Sua localização foi removida com sucesso."
+
+errorSetRemoveLocation:
+  "🚫 *ERRO AO REMOVER LOCALIZAÇÃO*\n\n\
+  Um error occoreu enquanto removovia sua localização, por favor avise @farmy sobre isso."
+
+errorSetTimezone:
+  "🚫 *ERRO AO CONFIGURAR FUSO HOARÁRIO*\n\n\
+  Um error ocorreu ao configurar o seu fuso horário, por favor avise @farmy sobre isso."
+
 errorSetHour:
   "🚫 *ERRO AO CONFIGURAR HORÁRIO*\n\n\
   Um error ocorreu ao configurar o seu horário, por favor avise @farmy sobre isso."
@@ -249,7 +276,7 @@ timeNotSet:
   "Quando episódios e notícias forem liberadas"
 
 timezoneNotSet:
-  "Não configurado"
+  "Não configurado, você receberá as notificações no horário do relógio do bot"
 
 enabled:
   "Ativo"
@@ -376,6 +403,9 @@ dataLocationButton:
 
 askLocationButton:
   "Pesquise Sua Localização"
+
+removeLocationButton:
+  "Remova sua localização atual"
 
 yesButton:
   "Sim"
@@ -673,5 +703,8 @@ locationMask:
   Eu encontrei a seguinte cidade, ela é a sua?\n\n\
   - *Cidade*: _${city}_\n\
   - *Província*: _${province}_\n\
-  - *Estado*: _${state}_\n\
   - *País*: _${country}_"
+
+locationNotFoundMask:
+  "🛰️ *NADA ENCONTRAD*\n\n\
+  Nada encontrado enquanto pesquisquei por _${city}_. Verifique se é ou não um error de digitação ou procure enviar sua localização."

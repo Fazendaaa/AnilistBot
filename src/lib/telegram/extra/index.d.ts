@@ -1,5 +1,5 @@
 import { I18n } from 'telegraf-i18n';
-import { LocationRequest, ListFilterRequest, ListRequest, LanguageRequest, NotifyRequests, UserRequest, TimeRequest } from 'telegraf-bot-typings';
+import { LocationRequest, ListFilterRequest, ListRequest, LanguageRequest, NotifyRequests, UserRequest, TimeRequest, LocationConfirmRequest } from 'telegraf-bot-typings';
 
 export interface IMediaExtraContext {
     readonly translation: I18n;
@@ -25,7 +25,7 @@ export interface IHandleMediaExtra {
 export interface IHandleUserExtra {
     readonly translation: I18n;
     readonly request: UserRequest | TimeRequest;
-    readonly value: LanguageRequest | NotifyRequests | LocationRequest | number;
+    readonly value: LanguageRequest | NotifyRequests | number;
 }
 
 export interface IHandleNotifyExtra {
@@ -41,5 +41,6 @@ export interface IHandleTimeExtra {
 
 export interface ILocationExtra {
     readonly translation: I18n;
-    readonly value: LocationRequest;
+    readonly request: LocationRequest;
+    readonly confirm: LocationConfirmRequest;
 }

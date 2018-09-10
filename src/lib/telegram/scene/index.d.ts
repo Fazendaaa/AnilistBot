@@ -3,6 +3,7 @@ import { ListRequest, TimeRequest, LanguageRequest, NotifyRequests, ListFilterRe
 import { IListTitle } from '../../anilist/queries';
 import { MediaStatus, IMediaTitle } from '../../anilist';
 import { IAllSubscriptionResponse } from '../../database/subscriptions';
+import { ExtraEditMessage } from 'telegraf/typings/telegram-types';
 
 interface IMenuCommonContext {
     readonly translation: I18n;
@@ -54,6 +55,17 @@ export interface IUserTTFInfo {
     timezone: string;
     anime: IAllSubscriptionResponse[];
     manga: IAllSubscriptionResponse[];
+}
+
+export interface ICityInfo {
+    city: string;
+    timezone: string;
+    position: number;
+}
+
+export interface IConfirmData {
+    readonly messageText: string;
+    readonly extra: ExtraEditMessage;
 }
 
 export interface IMenuAnimeContext extends IMenuBasicContext { }

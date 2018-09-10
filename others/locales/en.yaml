@@ -22,6 +22,9 @@ loading:
 leavingMenu:
   "Leaving menu..."
 
+leavingLocation:
+  "Leaving location..."
+
 menuGreetings:
   "Hello again, _${from.username}_."
 
@@ -90,6 +93,14 @@ sendLocationOptions:
   "🌎 *LOCATION*\n\n\
   Please, now send me your location clicking in the button.\n\n\
   note: just a friendly reminder, you *CANNOT* send your location in Telegram Desktop. If that is your case, please back and follow the others steps."
+
+removeLocationOptions:
+  "🌎 *LOCATION*\n\n\
+  Are you sure that you want to remove your current location?"
+
+removeLocationNoOptions:
+  "🌎 *LOCATION*\n\n\
+  Your location still the same. Nothing changed."
 
 guideOptions:
   "🗺️ *GUIDE*\n\n\
@@ -207,6 +218,22 @@ setHour:
   "👌 *HOUR CONFIGURED*\n\n\
   From now on, you will be notified each day about your anime episodes, manga and anime news at: _${hour}h_"
 
+setTimezone:
+  "👌 *TIMEZONE CONFIGURED*\n\n\
+  From now on, you will be notified each day about your anime episodes, manga and anime news in your given timezone: _${timezone}_"
+
+setRemoveLocation:
+  "👌 *LOCATION REMOVED*\n\n\
+  Your location have been sucessfully removed."
+
+errorSetRemoveLocation:
+  "🚫 *LOCATION REMOVED ERROR*\n\n\
+  An error occured while removing your location, please warn @farmy about that."
+
+errorSetTimezone:
+  "🚫 *TIMEZONE ERROR*\n\n\
+  An error occured setting your timezone, please warn @farmy about that."
+
 errorSetHour:
   "🚫 *HOUR ERROR*\n\n\
   An error occured changing it your hour time, please warn @farmy about that."
@@ -248,7 +275,7 @@ timeNotSet:
   "Upon episodes and news release"
 
 timezoneNotSet:
-  "Not set"
+  "Not set, you will be notified at the bot time clock"
 
 enabled:
   "Enabled"
@@ -375,6 +402,9 @@ dataLocationButton:
 
 askLocationButton:
   "Search Your Location"
+
+removeLocationButton:
+  "Remove current location"
 
 yesButton:
   "Yes"
@@ -672,5 +702,8 @@ locationMask:
   I found the following city, is this yours?\n\n\
   - *City*: _${city}_\n\
   - *Province*: _${province}_\n\
-  - *State*: _${state}_\n\
   - *Country*: _${country}_"
+
+locationNotFoundMask:
+  "🛰️ *NOTHING FOUND*\n\n\
+  Nothing found while searching for _${city}_. Verify it wheter or not is a mistyping issue or try send your location."

@@ -21,16 +21,6 @@ export const startKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     return Markup.resize().keyboard([ translation.t('menu'), translation.t('help') ]);
 };
 
-export const sendLocationKeyboard = (translation: I18n) => Markup.resize().keyboard([
-    Markup.locationRequestButton(translation.t('dataLocationButton')),
-    translation.t('menu')
-]);
-
-export const confirmLocationKeyboard = (translation: I18n): InlineKeyboardMarkup => Markup.inlineKeyboard([
-    Markup.callbackButton(translation.t('yesButton'), 'MENU/LOCATION-SEND'),
-    Markup.callbackButton(translation.t('noButton'), 'MENU/LOCATION-SEND')
-]);
-
 export const timeKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('timePeriodButton'), 'USER/PERIOD')
@@ -77,18 +67,6 @@ export const timePeriodKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     return Markup.inlineKeyboard([ firstLine, secondLine ]);
 };
 
-export const locationKeyboard = (translation: I18n): InlineKeyboardMarkup => {
-    const firstLine = [
-        Markup.callbackButton(translation.t('sendLocationButton'), 'MENU/LOCATION/SEND'),
-        Markup.callbackButton(translation.t('askLocationButton'), 'MENU/LOCATION/ASK')
-    ];
-    const secondLine = [
-        Markup.callbackButton('<', 'MENU/USER')
-    ];
-
-    return Markup.inlineKeyboard([firstLine, secondLine]);
-};
-
 export const userKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [
         Markup.callbackButton(translation.t('languageButton'), 'USER/LANGUAGE'),
@@ -96,7 +74,7 @@ export const userKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     ];
     const secondLine = [
         Markup.callbackButton(translation.t('timeButton'), 'USER/TIME'),
-        Markup.callbackButton(translation.t('locationButton'), 'USER/LOCATION')
+        Markup.callbackButton(translation.t('locationButton'), 'LOCATION')
     ];
     const thirdLine = [
         Markup.callbackButton('<', 'MENU')
