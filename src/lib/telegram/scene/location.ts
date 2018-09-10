@@ -16,7 +16,7 @@ const handleConfirm = async ({ id, text, confirm, cityContext, translation }: IH
     cityContext.city = (undefined === cityContext.city) ? text : cityContext.city;
     cityContext.position = (undefined === cityContext.position) ? 0 : cityContext.position + 1;
 
-    const { city, country, province } = await handleLocationCity(cityContext);
+    const { city, country, province } = handleLocationCity(cityContext);
 
     if (undefined !== country) {
         return {

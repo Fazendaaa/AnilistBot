@@ -133,7 +133,7 @@ Or even becoming a patron:
 
 To all of my fellow countrymen, starting at one real each month:
 
-[![Padrim](https://s3-sa-east-1.amazonaws.com/padrimbucketteste/padrim/Logotipo_colorido_horizontal.png)](https://www.padrim.com.br/AnilistBot)
+[![Padrim](./others/external/padrim.png)](https://www.padrim.com.br/AnilistBot)
 
 # Contributing
 Please, I'm not a native/fluent english speaker, so whether you see a variable name wrote the wrong way or even some comment where I've wrote something with the wrong "past perfect way of life" or something like that, please let me know it. Not always is just about the code, but rather making it more clear to other people to learn from it.
