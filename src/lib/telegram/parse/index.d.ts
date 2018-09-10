@@ -2,7 +2,7 @@ import { I18n } from 'telegraf-i18n';
 import { ListFilterRequest, TimeRequest, NotifyRequests, LanguageRequest, ListRequest, UserRequest, LocationRequest, LocationConfirmRequest } from 'telegraf-bot-typings';
 import { IListTitle } from '../../anilist/queries';
 import { IAllSubscriptionResponse } from '../../database/subscriptions';
-import { IMediaTitle } from '../../anilist';
+import { IMediaTitle, IAiringSchedule } from '../../anilist';
 import { IUserTTFInfo, ICityInfo } from '../scene';
 
 export interface IInfoContext {
@@ -109,4 +109,24 @@ export interface ITimeFormat {
     readonly time: Date;
     readonly timezone: string;
     readonly translation: I18n;
+}
+
+export interface IHandleCountdown {
+    readonly id: number;
+    readonly translation: I18n;
+    readonly user: IUserTTFInfo;
+}
+
+export interface IHandleCountdownData {
+    readonly translation: I18n;
+    readonly user: IAllSubscriptionResponse[];
+}
+
+export interface ICountdownInfo {
+    readonly index: number;
+    readonly siteUrl: string;
+    readonly translation: I18n;
+    readonly title: IMediaTitle;
+    readonly countryOfOrigin: string;
+    readonly nextAiringEpisode: IAiringSchedule;
 }

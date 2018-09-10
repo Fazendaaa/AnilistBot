@@ -1,4 +1,7 @@
-import { IAnimeContext, IInfoContext, IMangaContext, IMediaRequestContext, INativeContext, IToPrintContext } from '.';
+import { toRoman } from 'roman-numerals';
+import { IAnimeContext, ICountdownInfo, IHandleCountdownData, IInfoContext, IMangaContext, IMediaRequestContext, INativeContext,
+IToPrintContext } from '.';
+import { toNextAiring } from '../../anilist/formatting/media';
 import { IListTitle } from '../../anilist/queries';
 import { animeSearchTitle, mangaSearchTitle } from '../../anilist/searches/title';
 
@@ -27,6 +30,22 @@ const handleInfo = ({ translation, countryOfOrigin, title, siteUrl }: IInfoConte
     return response;
 };
 
+const handleCountdownInfo = ({ index, nextAiringEpisode, translation, ...remaining }: ICountdownInfo): string => {
+    const { timeUntilAiring, episode } = nextAiringEpisode;
+    let response = '';
+
+    response += `${toRoman(index + 1)}\n`;
+    response += handleInfo({ translation, ...remaining });
+
+    if (null !== episode) {
+        response += translation.t('episode', { episode });
+    } if (null !== timeUntilAiring) {
+        response += translation.t('timeUntilAiring', { timeUntilAiring: toNextAiring({ nextAiringEpisode, translation }) });
+    }
+
+    return response;
+};
+
 const toPrint = ({ response, filterBy, translation }: IToPrintContext): string => {
     let info = response;
 
@@ -34,7 +53,9 @@ const toPrint = ({ response, filterBy, translation }: IToPrintContext): string =
         info = response.filter(({ status }: IListTitle) => status === filterBy);
     }
 
-    return info.map(({ status, ...remaining }: IListTitle) => handleInfo({ translation, ...remaining })).join('\n');
+    return info.reduce((acc, { status, nextAiringEpisode, ...remaining }: IListTitle) => {
+        return `${acc}${handleInfo({ translation, ...remaining })}\n`;
+    }, '');
 };
 
 const fetchAnimeList = async ({ user, status, translation }: IMediaRequestContext): Promise<string> => {
@@ -47,6 +68,16 @@ const fetchMangaList = async ({ user, status, translation }: IMediaRequestContex
     const allManga = await Promise.all(user.map(async ({ content_id }) => mangaSearchTitle(content_id)));
 
     return toPrint({ response: allManga, filterBy: status, translation });
+};
+
+export const handleCountdownData = async ({ user, translation }: IHandleCountdownData): Promise<string> => {
+    const allAnime = await Promise.all(user.map(async ({ content_id }) => animeSearchTitle(content_id)));
+    const countdown = allAnime.filter(({ status }: IListTitle) => 'RELEASING' === status);
+    const sorted = countdown.sort((a, b) => a.nextAiringEpisode.timeUntilAiring - b.nextAiringEpisode.timeUntilAiring);
+
+    return sorted.reduce((acc, { status, ...remaining }: IListTitle, index) => {
+        return `${acc}${handleCountdownInfo({ index, translation, ...remaining })}\n`;
+    }, '');
 };
 
 export const handleAnime = async ({ user, filter, translation }: IAnimeContext): Promise<string> => {

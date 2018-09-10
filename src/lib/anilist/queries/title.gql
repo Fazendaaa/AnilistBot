@@ -8,5 +8,10 @@ query ($id: Int, $type: MediaType) {
             native
             english
         }
+        nextAiringEpisode {
+            id
+            episode
+            timeUntilAiring
+        }
     }
 }

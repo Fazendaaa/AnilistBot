@@ -707,3 +707,9 @@ locationMask:
 locationNotFoundMask:
   "🛰️ *NOTHING FOUND*\n\n\
   Nothing found while searching for _${city}_. Verify it wheter or not is a mistyping issue or try send your location."
+
+episode:
+  "*Episode*: _${episode}_\n"
+
+timeUntilAiring:
+  "*Time Until Airing*: _${timeUntilAiring}_\n"

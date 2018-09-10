@@ -4,7 +4,7 @@ import { IBotContext, LanguageRequest, ListFilterRequest, ListRequest, MenuReque
 } from 'telegraf-bot-typings';
 import Scene from 'telegraf/scenes/base';
 import { IUserTTFInfo } from '.';
-import { handleCounter, handleMedia, handleUser } from '../parse/menu';
+import { handleCountdown, handleCounter, handleMedia, handleUser } from '../parse/menu';
 
 export const menuScene = new Scene('Menu');
 
@@ -35,7 +35,11 @@ menuScene.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callba
     } if ('GUIDE' === kind) {
         return editMessageText(i18n.t('guideOptions'), guideExtra(translation));
     } if ('COUNTDOWN' === kind) {
-        return editMessageText(i18n.t('countdownOptions', { anime: '' }), countdownExtra());
+        return editMessageText(i18n.t('countdownOptions', { anime: await handleCountdown({
+            id,
+            translation,
+            user: <IUserTTFInfo> scene.state
+        })}), countdownExtra());
     } if ('COUNTER' === kind) {
         return editMessageText(await handleCounter({ id, translation }), counterExtra());
     } if ('USER' === kind) {

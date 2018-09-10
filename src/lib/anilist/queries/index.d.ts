@@ -119,7 +119,8 @@ interface IListTitle {
     readonly siteUrl: string;
     readonly title: IMediaTitle;
     readonly status: MediaStatus;
-    readonly countryOfOrigin: string; 
+    readonly countryOfOrigin: string;
+    readonly nextAiringEpisode: IAiringSchedule;
 }
 
 interface IMediaGenres {

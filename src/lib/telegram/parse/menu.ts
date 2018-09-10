@@ -2,12 +2,13 @@ import moment from 'moment';
 import momentTz from 'moment-timezone';
 import { LanguageRequest, NotifyRequests, TimeRequest, UserRequest } from 'telegraf-bot-typings';
 import { parseTimezone } from 'telegraf-parse';
-import { IHandleCounter, IHandleLanguage, IHandleMedia, IHandleNotify, IHandleTime, IHandleUser, IHandleUserData, ITimeFormat } from '.';
+import { IHandleCountdown, IHandleCounter, IHandleLanguage, IHandleMedia, IHandleNotify, IHandleTime, IHandleUser, IHandleUserData,
+ITimeFormat } from '.';
 import { IDBUserInfo } from '../../database/user';
 import { fetchUserAnime, fetchUserManga, userInfo, userLanguage, userSetNotification, userSetTime } from '../../database/user/user';
 import { errorDate } from '../../database/utils';
 import { getLanguageCode } from './language';
-import { handleAnime, handleManga } from './media';
+import { handleAnime, handleCountdownData, handleManga } from './media';
 
 const handleTime = async ({ id, value, request, translation }: IHandleTime): Promise<string> => {
     if ('AM' === request || 'PM' === request) {
@@ -90,4 +91,10 @@ export const handleUser = async ({ id, value, request, translation }: IHandleUse
     }
 
     return handleTime({ value: <number> value, request: <TimeRequest> request, id, translation });
+};
+
+export const handleCountdown = async ({ id, user, translation }: IHandleCountdown): Promise<string> => {
+    user.anime = (undefined !== user.anime) ? user.anime : await fetchUserAnime(id);
+
+    return handleCountdownData({ user: user.anime, translation });
 };
