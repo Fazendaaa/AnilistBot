@@ -9,3 +9,10 @@ export const fetchPage = (input: string): number => {
 
     return (isNaN(value)) ? 1 : value;
 };
+
+// timezone has to replace the "_" with spaces, otherwise i18n will throw a compile template error.
+export const parseTimezone = (input: string): string => {
+    const city = input.split('/')[1];
+
+    return city.replace('_', ' ');
+};

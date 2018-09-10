@@ -1,5 +1,5 @@
 import { I18n } from 'telegraf-i18n';
-import { ListRequest, TimeRequest, LanguageRequest, NotifyRequests, ListFilterRequest, MenuRequest, UserRequest } from '..';
+import { ListRequest, TimeRequest, LanguageRequest, NotifyRequests, ListFilterRequest, MenuRequest, UserRequest, LocationConfirmRequest } from '..';
 import { IListTitle } from '../../anilist/queries';
 import { MediaStatus, IMediaTitle } from '../../anilist';
 import { IAllSubscriptionResponse } from '../../database/subscriptions';
@@ -66,6 +66,14 @@ export interface ICityInfo {
 export interface IConfirmData {
     readonly messageText: string;
     readonly extra: ExtraEditMessage;
+}
+
+export interface IHandleConfirm {
+    readonly id: number;
+    readonly text?: string;
+    readonly translation: I18n;
+    readonly cityContext: ICityInfo;
+    readonly confirm: LocationConfirmRequest;
 }
 
 export interface IMenuAnimeContext extends IMenuBasicContext { }

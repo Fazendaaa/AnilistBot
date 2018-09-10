@@ -706,5 +706,5 @@ locationMask:
   - *País*: _${country}_"
 
 locationNotFoundMask:
-  "🛰️ *NADA ENCONTRAD*\n\n\
+  "🛰️ *NADA ENCONTRADO*\n\n\
   Nada encontrado enquanto pesquisquei por _${city}_. Verifique se é ou não um error de digitação ou procure enviar sua localização."

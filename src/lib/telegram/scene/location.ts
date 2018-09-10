@@ -1,23 +1,34 @@
 // tslint:disable: no-submodule-imports
-import { IBotContext, LocationConfirmRequest, LocationRequest } from 'telegraf-bot-typings';
+import { IBotContext, LocationConfirmRequest, LocationRequest, MenuRequest } from 'telegraf-bot-typings';
 import Scene from 'telegraf/scenes/base';
-import { ICityInfo } from '.';
-import { confirmLocationExtra, handleLocationExtra, locationExtra } from '../extra/location';
+import { ICityInfo, IConfirmData, IHandleConfirm } from '.';
+import { confirmBackExtra, confirmLocationExtra, handleLocationExtra, locationExtra } from '../extra/location';
 import { handleLocation, handleLocationCity, handleTimezone } from '../parse/location';
 
-const handleConfirm = async ({ id, text, confirm, cityContext, translation }): Promise<ILocationData> => {
+const handleConfirm = async ({ id, text, confirm, cityContext, translation }: IHandleConfirm): Promise<IConfirmData> => {
     if ('YES' === confirm) {
-        return handleTimezone({
-            id,
-            translation,
-            timezone: cityContext.timezone
-        });
+        return {
+            extra: confirmBackExtra(),
+            messageText: await handleTimezone({ timezone: cityContext.timezone, id, translation })
+        };
     }
 
     cityContext.city = (undefined === cityContext.city) ? text : cityContext.city;
     cityContext.position = (undefined === cityContext.position) ? 0 : cityContext.position + 1;
 
-    return handleLocationCity(cityContext);
+    const { city, country, province } = await handleLocationCity(cityContext);
+
+    if (undefined !== country) {
+        return {
+            extra: confirmLocationExtra(translation),
+            messageText: translation.t('locationMask', { city, country, province })
+        };
+    }
+
+    return {
+        extra: confirmBackExtra(),
+        messageText: translation.t('locationNotFoundMask', { city })
+    };
 };
 
 export const locationScene = new Scene('Location');
@@ -30,44 +41,47 @@ locationScene.on('text', async ({ i18n, scene, message, replyWithMarkdown, from 
     const { id } = from;
     const translation = i18n;
     const cityContext = <ICityInfo> scene.state;
+    const confirm = <LocationConfirmRequest> 'NO';
     const text = (undefined !== message.reply_to_message) ? message.text : null;
 
     if (undefined !== message.text && i18n.t('menu') === message.text) {
         return scene.enter('Menu');
     }
 
-    const { city, country, province } = await handleConfirm({
+    const { extra, messageText } = await handleConfirm({
         id,
         text,
+        confirm,
         cityContext,
-        translation,
-        confirm: 'NO'
+        translation
     });
 
-    if (undefined !== country) {
-        return replyWithMarkdown(translation.t('locationMask', { city, country, province }), confirmLocationExtra(translation));
-    }
-
-    return replyWithMarkdown(translation.t('locationNotFoundMask', { city }));
+    return replyWithMarkdown(messageText, extra);
 });
 
 locationScene.on('callback_query', async ({ i18n, from, scene, callbackQuery, editMessageText, replyWithMarkdown }: IBotContext) => {
     const { id } = from;
     const translation = i18n;
     const data = callbackQuery.data.split('/');
+    const kind = <MenuRequest> data[0];
     const request = (2 <= data.length) ? <LocationRequest> data[1] : null;
     const confirm = (3 === data.length) ? <LocationConfirmRequest> data[2] : null;
     const cityContext = <ICityInfo> scene.state;
     const args = { id, confirm, request, translation };
 
-    if ('CONFIRM' === request) {
-        return editMessageText(await handleConfirm({
+    if ('USER' === kind) {
+        return scene.enter('Menu');
+    } if ('LOCATION' !== kind) {
+        return scene.leave();
+    } if ('CONFIRM' === request) {
+        const { extra, messageText } = await handleConfirm({
             id,
             confirm,
-            text: null,
             cityContext,
             translation
-        }), confirmLocationExtra(translation));
+        });
+
+        return editMessageText(messageText, extra);
     }
 
     return replyWithMarkdown(handleLocation(args), handleLocationExtra(args));

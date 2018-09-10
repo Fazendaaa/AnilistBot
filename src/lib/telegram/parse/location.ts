@@ -1,4 +1,5 @@
 import { lookupViaCity } from 'city-timezones';
+import { parseTimezone } from 'telegraf-parse';
 import { IHandleLocation, IHandleRemoveLocation, ILocationData } from '.';
 import { userRemoveTimezone, userSetTimezone } from '../../database/user/user';
 import { ICityInfo } from '../scene';
@@ -18,7 +19,7 @@ export const handleRemoveLocation = async ({ id, confirm, translation }: IHandle
 export const handleLocationCity = (user: ICityInfo): ILocationData => {
     const cities = lookupViaCity(user.city);
 
-    if (cities.length >= user.position) {
+    if (cities.length > user.position) {
         const { city, province, country, timezone } = cities[user.position];
 
         user.timezone = timezone;
@@ -45,6 +46,8 @@ export const handleLocation = ({ id, confirm, request, translation }: IHandleLoc
 
 export const handleTimezone = async ({ id, timezone, translation }): Promise<string> => {
     return userSetTimezone({ id, timezone })
-           .then(value => ('' !== value) ? translation.t('setTimezone', { timezone }) : translation.t('errorSetTimezone'))
-           .catch(translation.t('errorSetTimezone'));
+           .then(value => ('' !== value) ?
+               translation.t('setTimezone', { timezone: parseTimezone(timezone) }) :
+               translation.t('errorSetTimezone')
+           ).catch(translation.t('errorSetTimezone'));
 };

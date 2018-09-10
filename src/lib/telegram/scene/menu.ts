@@ -8,8 +8,8 @@ import { handleCounter, handleMedia, handleUser } from '../parse/menu';
 
 export const menuScene = new Scene('Menu');
 
-menuScene.leave(async ({ i18n, updateType, replyWithMarkdown }: IBotContext) => {
-    if ('callback_query' !== updateType) {
+menuScene.leave(async ({ i18n, updateType, message, replyWithMarkdown }: IBotContext) => {
+    if ('callback_query' !== updateType && undefined !== message.text && i18n.t('menu') !== message.text) {
         return replyWithMarkdown(i18n.t('leavingMenu'));
     }
 });

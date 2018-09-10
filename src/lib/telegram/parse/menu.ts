@@ -1,6 +1,7 @@
 import moment from 'moment';
 import momentTz from 'moment-timezone';
 import { LanguageRequest, NotifyRequests, TimeRequest, UserRequest } from 'telegraf-bot-typings';
+import { parseTimezone } from 'telegraf-parse';
 import { IHandleCounter, IHandleLanguage, IHandleMedia, IHandleNotify, IHandleTime, IHandleUser, IHandleUserData, ITimeFormat } from '.';
 import { IDBUserInfo } from '../../database/user';
 import { fetchUserAnime, fetchUserManga, userInfo, userLanguage, userSetNotification, userSetTime } from '../../database/user/user';
@@ -59,8 +60,7 @@ const handleUserData = async ({ id, translation }: IHandleUserData): Promise<str
         time: timeFormat({ time, timezone, translation }),
         notify: (true === notify) ? translation.t('enabled') : translation.t('disabled'),
         language: (null !== language) ? translation.t(language) : translation.t('languageDefault'),
-        // timezone has to replace the "_" with spaces, otherwise i18n will throw a compile template error.
-        timezone: (null !== timezone) ? timezone.replace('_', ' ') : translation.t('timezoneNotSet')
+        timezone: (null !== timezone) ? parseTimezone(timezone) : translation.t('timezoneNotSet')
     });
 }).catch(() => translation.t('errorUserInfo'));
 
