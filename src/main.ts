@@ -14,6 +14,7 @@ import RedisSession from 'telegraf-session-redis';
 import session from 'telegraf/session';
 import { UserCache } from 'user-cache';
 import { AnilistObject, AnilistRequest } from './lib/anilist';
+import { counterSchedule } from './lib/schedule/counter/counter';
 import { anilistCallback } from './lib/telegram/callback/anilist';
 import { listCallback } from './lib/telegram/callback/list';
 import { userStage } from './lib/telegram/stage';
@@ -47,6 +48,7 @@ connect(process.env.MONGODB_URI).then(() => {
     set('useFindAndModify', false);
 
     console.log('DB connected.');
+    counterSchedule();
 
     dbStatus = true;
 }).catch(err => {

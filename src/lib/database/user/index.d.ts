@@ -22,7 +22,6 @@ export interface IDBUserInfo {
     readonly time: Date;
     readonly _id: number;
     readonly notify: boolean;
-    readonly counter: number;
     readonly language: string;
     readonly timezone: string;
 }

@@ -45,7 +45,7 @@ menuScene.on('callback_query', async (ctx: IBotContext) => {
             translation
         })}), countdownExtra());
     } if ('COUNTER' === kind) {
-        return editMessageText(await handleCounter({ id, translation }), counterExtra());
+        return editMessageText(await handleCounter({ id, user, translation }), counterExtra());
     } if ('USER' === kind) {
         const request = (2 <= data.length) ? <UserRequest | TimeRequest> data[1] : null;
         const value = (3 === data.length) ? <LanguageRequest | NotifyRequests | number> data[2] : null;

@@ -3,7 +3,7 @@ import { Extra } from 'telegraf';
 import { I18n } from 'telegraf-i18n';
 import { ExtraEditMessage } from 'telegraf/typings/telegram-types';
 import { IHandleMediaMoreExtra, IMediaExtraContext, IMediaMore } from '.';
-import { animeSearchTitle, mangaSearchTitle } from '../../anilist/searches/title';
+import { animeSearchTitle, mangaSearchTitle } from '../../anilist/requests/title';
 import { IAllSubscriptionResponse } from '../../database/subscriptions';
 import { airingAnimeKeyboard, animeMoreKeyboard, cancelledAnimeKeyboard, cancelledMangaKeyboard, completedAnimeKeyboard,
 completedMangaKeyboard, mangaMoreKeyboard, publishingMangaKeyboard, readlistKeyboard, readlistMoreInfoKeyboard, soonAnimeKeyboard,

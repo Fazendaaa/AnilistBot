@@ -40,9 +40,6 @@ const handleDeprecatedDB = async (user: IDBUser): Promise<IDBUser | {}> => {
     } if (undefined === user.timezone) {
         user.timezone = null;
         changed = true;
-    } if (undefined === user.counter) {
-        user.counter = null;
-        changed = true;
     } if (true === changed) {
         return user.save().then(async (userSaved: IDBUser) => userSaved).catch(catchError);
     }
@@ -51,13 +48,12 @@ const handleDeprecatedDB = async (user: IDBUser): Promise<IDBUser | {}> => {
 };
 
 const __userInfo = async (user: IDBUser) => handleDeprecatedDB(user).then((userSaved: IDBUser) => {
-    const { _id, notify, counter, language, time, timezone } = userSaved;
+    const { _id, notify, language, time, timezone } = userSaved;
 
     return {
         _id,
         time,
         notify,
-        counter,
         language,
         timezone
     };

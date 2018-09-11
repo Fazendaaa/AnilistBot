@@ -69,6 +69,7 @@ export interface IHandleUserData {
 export interface IHandleCounter {
     readonly id: number;
     readonly translation: I18n;
+    readonly user: IUserTTFInfo;
 }
 
 export interface IHandleMedia {

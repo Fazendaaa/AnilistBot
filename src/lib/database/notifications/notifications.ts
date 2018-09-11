@@ -20,3 +20,7 @@ export const addNotifications = async ({ id, kind, time }: INotificationsContext
         return {};
     });
 };
+
+export const fetchAllAnimesNotifications = async (): Promise<IDBNotificationsInfo[]> => {
+    return Notifications.find({ kind: true }).then((response: IDBNotifications[]) => response.map(handleInfo)).catch(() => []);
+};

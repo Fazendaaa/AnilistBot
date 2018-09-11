@@ -124,6 +124,11 @@ interface IListTitle {
     readonly nextAiringEpisode: IAiringSchedule;
 }
 
+interface ICounter {
+    readonly duration: number;
+    readonly episodes: number;
+}
+
 interface IMediaGenres {
     readonly Media: IGenres;
 }
@@ -138,6 +143,10 @@ interface IMediaListTitle {
 
 interface IMediaMedia {
     readonly Media: IMedia;
+}
+
+interface ICounterMedia {
+    readonly Media: ICounter;
 }
 
 export interface IRequestsDescription {
@@ -158,4 +167,8 @@ export interface IRequestListTitle {
 
 export interface IRequestMedia {
     readonly data: IMediaMedia;
+}
+
+export interface IRequestCounter {
+    readonly data: ICounterMedia;
 }

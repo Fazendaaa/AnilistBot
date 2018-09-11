@@ -4,6 +4,7 @@ import { LanguageRequest, NotifyRequests, TimeRequest, UserRequest } from 'teleg
 import { parseTimezone } from 'telegraf-parse';
 import { IHandleCountdown, IHandleCounter, IHandleLanguage, IHandleMedia, IHandleNotify, IHandleTime, IHandleUser, IHandleUserData,
 ITimeFormat } from '.';
+import { fetchCounterInfo } from '../../database/counter/counter';
 import { IDBUserInfo } from '../../database/user';
 import { fetchUserAnime, fetchUserManga, userInfo, userLanguage, userSetNotification, userSetTime } from '../../database/user/user';
 import { errorDate } from '../../database/utils';
@@ -60,15 +61,17 @@ const handleUserData = async ({ id, translation }: IHandleUserData): Promise<str
     return translation.t('userOptions', {
         time: timeFormat({ time, timezone, translation }),
         notify: (true === notify) ? translation.t('enabled') : translation.t('disabled'),
-        language: (null !== language) ? translation.t(language) : translation.t('languageDefault'),
-        timezone: (null !== timezone) ? parseTimezone(timezone) : translation.t('timezoneNotSet')
+        timezone: (null !== timezone) ? parseTimezone(timezone) : translation.t('timezoneNotSet'),
+        language: (null !== language) ? translation.t(language) : translation.t('languageDefault')
     });
 }).catch(() => translation.t('errorUserInfo'));
 
-export const handleCounter = async ({ id, translation }: IHandleCounter): Promise<string> => userInfo(id)
-.then(({ counter }: IDBUserInfo) => {
-    return translation.t('counterOptions', { counter: (null !== counter) ? counter : translation.t('notAvailable') });
-}).catch(() => translation.t('errorUserInfo'));
+export const handleCounter = async ({ id, user, translation }: IHandleCounter): Promise<string> => {
+    user.anime = (undefined !== user.anime) ? user.anime : await fetchUserAnime(id);
+    const counter = await Promise.all(user.anime.map(async ({ content_id }) => fetchCounterInfo(content_id)));
+
+    return translation.t('counterOptions', { counter: counter.reduce((acc, cur) => acc + cur, 0) });
+};
 
 export const handleMedia = async ({ id, user, filter, list, translation }: IHandleMedia): Promise<string> => {
     if ('WATCH' === list) {

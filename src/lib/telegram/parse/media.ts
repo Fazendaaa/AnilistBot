@@ -5,7 +5,7 @@ import { toNextAiring } from '../../anilist/formatting/media';
 import { mediaMessage } from '../../anilist/parse/messageText';
 import { IListTitle } from '../../anilist/queries';
 import { mediaAnime, mediaManga } from '../../anilist/requests/media';
-import { animeSearchTitle, mangaSearchTitle } from '../../anilist/searches/title';
+import { animeSearchTitle, mangaSearchTitle } from '../../anilist/requests/title';
 
 const handleNative = ({ translation, native, countryOfOrigin }: INativeContext): string => {
     if ('JP' === countryOfOrigin) {
