@@ -68,9 +68,10 @@ const handleUserData = async ({ id, translation }: IHandleUserData): Promise<str
 
 export const handleCounter = async ({ id, user, translation }: IHandleCounter): Promise<string> => {
     user.anime = (undefined !== user.anime) ? user.anime : await fetchUserAnime(id);
-    const counter = await Promise.all(user.anime.map(async ({ content_id }) => fetchCounterInfo(content_id)));
+    const time = await Promise.all(user.anime.map(async ({ content_id }) => fetchCounterInfo(content_id)));
+    const counter = time.reduce((acc, cur) => acc + cur, 0) / 60;
 
-    return translation.t('counterOptions', { counter: counter.reduce((acc, cur) => acc + cur, 0) });
+    return translation.t('counterOptions', { counter });
 };
 
 export const handleMedia = async ({ id, user, filter, list, translation }: IHandleMedia): Promise<string> => {

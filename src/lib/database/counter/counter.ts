@@ -15,7 +15,7 @@ const handleCounter = async (response: IDBCounter): Promise<number> => {
 };
 
 export const fetchCounter = async (id: number): Promise<number>  => {
-    const options = { upsert: true, new: true, runValidators: true, setDefaultsOnInsert: true };
+    const options = { upsert: true, new: true, setDefaultsOnInsert: true };
 
     return Counter.findByIdAndUpdate(id, {}, options).then(handleCounter).catch(() => 0);
 };

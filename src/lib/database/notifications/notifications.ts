@@ -12,7 +12,7 @@ const handleInfo = (notification: IDBNotifications): IDBNotificationsInfo => {
 };
 
 export const addNotifications = async ({ id, kind, time }: INotificationsContext): Promise<IDBNotificationsInfo | {}> => {
-    const options = { upsert: true, new: true, setDefaultsOnInsert: true };
+    const options = { new: true, upsert: true, strict: false, setDefaultsOnInsert: true };
     // This handles retrocompatibility.
     const update = { $rename: { type: 'kind' } };
 
@@ -22,5 +22,5 @@ export const addNotifications = async ({ id, kind, time }: INotificationsContext
 };
 
 export const fetchAllAnimesNotifications = async (): Promise<IDBNotificationsInfo[]> => {
-    return Notifications.find({ kind: true }).then((response: IDBNotifications[]) => response.map(handleInfo)).catch(() => []);
+    return Notifications.find({}).then((response: IDBNotifications[]) => response.map(handleInfo)).catch(() => []);
 };

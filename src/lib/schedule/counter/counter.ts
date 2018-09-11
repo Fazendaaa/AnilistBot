@@ -14,7 +14,7 @@ export const counterSchedule = (): Job => scheduleJob('Cleaning DB.', oncePerDay
         const allAnimes = await fetchAllAnimesNotifications();
 
         allAnimes.map(({ _id }) => fetchCounter(_id));
-    } catch (e) {
-        console.error(e);
+    } catch (err) {
+        console.error(err);
     }
 });
