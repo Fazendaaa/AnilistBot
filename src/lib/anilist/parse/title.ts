@@ -3,10 +3,10 @@ import { ICharactersNameContext, IStaffNameContext, IStudiosNameContext, ITitleC
 export const mediaTitle = ({ title, translation }: ITitleContext): string => {
     if (null !== title.english) {
         return title.english;
-    } if (null !== title.native) {
-        return title.native;
     } if (null !== title.romaji) {
         return title.romaji;
+    } if (null !== title.native) {
+        return title.native;
     }
 
     return translation.t('notAvailable');
