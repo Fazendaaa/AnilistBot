@@ -1,8 +1,10 @@
 import { toRoman } from 'roman-numerals';
-import { IAnimeContext, ICountdownInfo, IHandleCountdownData, IInfoContext, IMangaContext, IMediaRequestContext, INativeContext,
-IToPrintContext } from '.';
+import { IAnimeContext, ICountdownInfo, IHandleCountdownData, IHandleMediaMore, IInfoContext, IMangaContext, IMediaRequestContext,
+INativeContext, IToPrintContext } from '.';
 import { toNextAiring } from '../../anilist/formatting/media';
+import { mediaMessage } from '../../anilist/parse/messageText';
 import { IListTitle } from '../../anilist/queries';
+import { mediaAnime, mediaManga } from '../../anilist/requests/media';
 import { animeSearchTitle, mangaSearchTitle } from '../../anilist/searches/title';
 
 const handleNative = ({ translation, native, countryOfOrigin }: INativeContext): string => {
@@ -53,7 +55,7 @@ const toPrint = ({ response, filterBy, translation }: IToPrintContext): string =
         info = response.filter(({ status }: IListTitle) => status === filterBy);
     }
 
-    return info.reduce((acc, { status, nextAiringEpisode, ...remaining }: IListTitle) => {
+    return info.reduce((acc, { id, status, nextAiringEpisode, ...remaining }: IListTitle) => {
         return `${acc}${handleInfo({ translation, ...remaining })}\n`;
     }, '');
 };
@@ -75,7 +77,7 @@ export const handleCountdownData = async ({ user, translation }: IHandleCountdow
     const countdown = allAnime.filter(({ status }: IListTitle) => 'RELEASING' === status);
     const sorted = countdown.sort((a, b) => a.nextAiringEpisode.timeUntilAiring - b.nextAiringEpisode.timeUntilAiring);
 
-    return sorted.reduce((acc, { status, ...remaining }: IListTitle, index) => {
+    return sorted.reduce((acc, { id, status, ...remaining }: IListTitle, index) => {
         return `${acc}${handleCountdownInfo({ index, translation, ...remaining })}\n`;
     }, '');
 };
@@ -102,7 +104,7 @@ export const handleManga = async ({ user, filter, translation }: IMangaContext):
     const common = { user, translation };
 
     if ('ALL' === filter) {
-        return translation.t('readlistOptions', { manga: await fetchMangaList({ status: null, ...common}) });
+        return translation.t('readlistOptions', { manga: await fetchMangaList({ status: null, ...common }) });
     } if ('FINISHED' === filter) {
         return translation.t('completedMangaOptions', { manga: await fetchMangaList({ status: 'FINISHED', ...common }) });
     } if ('CANCELLED' === filter) {
@@ -114,4 +116,10 @@ export const handleManga = async ({ user, filter, translation }: IMangaContext):
     }
 
     return translation.t('readlistMoreInfoOptions');
+};
+
+export const handleMediaMore = async ({ content, request, translation }: IHandleMediaMore): Promise<string> => {
+    const media = ('ANIME' === request) ? await mediaAnime(content) : await mediaManga(content);
+
+    return mediaMessage({ media, translation });
 };

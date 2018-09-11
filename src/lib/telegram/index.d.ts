@@ -13,6 +13,7 @@ export type KindRequest = 'LIST' |
 
 export type MenuRequest = 'USER' |
                           'MENU' |
+                          'MORE' |
                           'ABOUT' |
                           'GUIDE' |
                           'MEDIA' |
@@ -34,6 +35,9 @@ export type NotifyRequests = 'ENABLE' |
 
 export type ListRequest = 'READ' |
                           'WATCH'
+
+export type ListAction = 'SUBSCRIBE' |
+                         'UNSUBSCRIBE'
 
 export type LocationRequest = 'ASK' |
                               'SEND' |

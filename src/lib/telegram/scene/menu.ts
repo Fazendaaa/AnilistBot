@@ -4,6 +4,8 @@ import { IBotContext, LanguageRequest, ListFilterRequest, ListRequest, MenuReque
 } from 'telegraf-bot-typings';
 import Scene from 'telegraf/scenes/base';
 import { IUserTTFInfo } from '.';
+import { handleMediaMoreExtra } from '../extra/media';
+import { handleMediaMore } from '../parse/media';
 import { handleCountdown, handleCounter, handleMedia, handleUser } from '../parse/menu';
 
 export const menuScene = new Scene('Menu');
@@ -20,11 +22,13 @@ menuScene.enter(async ({ i18n, replyWithMarkdown }: IBotContext) => {
     return replyWithMarkdown(i18n.t('menuOptions'), menuExtra(i18n));
 });
 
-menuScene.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callbackQuery, editMessageText }: IBotContext) => {
+menuScene.on('callback_query', async (ctx: IBotContext) => {
+    const { i18n, from, scene, answerCbQuery, callbackQuery, editMessageText, replyWithMarkdown } = ctx;
     const { id } = from;
     const translation = i18n;
     const data = callbackQuery.data.split('/');
     const kind = <MenuRequest> data[0];
+    const user = <IUserTTFInfo> scene.state;
 
     await answerCbQuery(i18n.t('loading'));
 
@@ -37,8 +41,8 @@ menuScene.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callba
     } if ('COUNTDOWN' === kind) {
         return editMessageText(i18n.t('countdownOptions', { anime: await handleCountdown({
             id,
-            translation,
-            user: <IUserTTFInfo> scene.state
+            user,
+            translation
         })}), countdownExtra());
     } if ('COUNTER' === kind) {
         return editMessageText(await handleCounter({ id, translation }), counterExtra());
@@ -59,12 +63,21 @@ menuScene.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callba
         return editMessageText(await handleMedia({
             id,
             list,
+            user,
             filter,
-            translation,
-            user: <IUserTTFInfo> scene.state
-        }), handleMediaExtra({ list, filter, translation }));
+            translation
+        }), await handleMediaExtra({ user, list, filter, translation }));
     } if ('LOCATION' === kind) {
         return scene.enter('Location');
+    } if ('MORE' === kind) {
+        const request = <'ANIME' | 'MANGA'> data[1];
+        const content = parseInt(data[2], 10);
+
+        return replyWithMarkdown(await handleMediaMore({
+            content,
+            request,
+            translation
+        }), handleMediaMoreExtra({ id: content, request, translation }));
     }
 
     return scene.leave();

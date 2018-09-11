@@ -1,8 +1,10 @@
 import { I18n } from 'telegraf-i18n';
 import { LocationRequest, ListFilterRequest, ListRequest, LanguageRequest, NotifyRequests, UserRequest, TimeRequest, LocationConfirmRequest } from 'telegraf-bot-typings';
+import { IUserTTFInfo } from '../scene';
 
 export interface IMediaExtraContext {
     readonly translation: I18n;
+    readonly user: IUserTTFInfo;
     readonly filter: ListFilterRequest;
 }
 
@@ -19,6 +21,7 @@ export interface IHandleLanguageExtra {
 export interface IHandleMediaExtra {
     readonly list: ListRequest;
     readonly translation: I18n;
+    readonly user: IUserTTFInfo;
     readonly filter: ListFilterRequest;
 }
 
@@ -43,4 +46,15 @@ export interface ILocationExtra {
     readonly translation: I18n;
     readonly request: LocationRequest;
     readonly confirm: LocationConfirmRequest;
+}
+
+export interface IHandleMediaMoreExtra {
+    readonly id: number;
+    readonly translation: I18n;
+    readonly request: 'ANIME' | 'MANGA';
+}
+
+export interface IMediaMore {
+    readonly id: number;
+    readonly translation: I18n;
 }

@@ -254,6 +254,12 @@ addedWatchlist:
 alreadyWatchlist:
   "Este anime já estava adicionado na sua lista!"
 
+removedWatchlist:
+  "Este anime foi removido da sua lista!"
+
+alreadyRemovedWatchlist:
+  "Este anime já foi removido da sua lista!"
+
 errorWatchlist:
   "Aconteceu um erro!\n\
   Por favor, avise @famry sobre isto."
@@ -264,6 +270,12 @@ addedReadlist:
 
 alreadyReadlist:
   "Este manga já estava adicionado na sua lista!"
+
+removedReadlist:
+  "Este manga foi removido da sua lista!"
+
+alreadyRemovedReadlist:
+  "Este manga já foi removido da sua lista!"
 
 errorReadlist:
   "Aconteceu um erro!\n\
@@ -697,6 +709,9 @@ buttonWatchlist:
 
 buttonReadlist:
   "Lista de Leitura"
+
+buttonRemove:
+  "Remover"
 
 locationMask:
   "📍 *EU ENCONTREI ALGO*\n\n\

@@ -116,6 +116,7 @@ interface INextEpisode {
 }
 
 interface IListTitle {
+    readonly id: number;
     readonly siteUrl: string;
     readonly title: IMediaTitle;
     readonly status: MediaStatus;
@@ -135,6 +136,10 @@ interface IMediaListTitle {
     readonly Media: IListTitle;
 }
 
+interface IMediaMedia {
+    readonly Media: IMedia;
+}
+
 export interface IRequestsDescription {
     readonly data: IMediaDescription;
 }
@@ -149,4 +154,8 @@ export interface IRequestNextEpisode {
 
 export interface IRequestListTitle {
     readonly data: IMediaListTitle;
+}
+
+export interface IRequestMedia {
+    readonly data: IMediaMedia;
 }

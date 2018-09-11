@@ -1,0 +1,64 @@
+query ($id: Int, $type: MediaType) {
+    Media (id: $id, type: $type) {
+        id
+        type
+        season
+        format
+        status
+        genres
+        source
+        volumes
+        isAdult
+        siteUrl
+        duration
+        episodes
+        chapters
+        bannerImage
+        averageScore
+        countryOfOrigin
+        trailer {
+            id
+            site
+        }            
+        coverImage {
+            large
+            medium
+        }
+        nextAiringEpisode {
+            id
+            episode
+            timeUntilAiring
+        }
+        rankings {
+            id
+            rank
+            type
+        }
+        startDate {
+            day
+            year
+            month
+        }
+        endDate {
+            day
+            year
+            month
+        }
+        title {
+            native
+            romaji
+            english
+        }
+        externalLinks {
+            id
+            url
+            site
+        }
+        studios {
+            nodes {
+                name
+                siteUrl
+            }
+        }
+    }
+}

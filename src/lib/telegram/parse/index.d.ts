@@ -146,3 +146,9 @@ export interface IHandleSentLocation {
     readonly latitude: number | string;
     readonly longitude: number | string;
 }
+
+export interface IHandleMediaMore {
+    readonly content: number;
+    readonly translation: I18n;
+    readonly request: 'ANIME' | 'MANGA';
+}

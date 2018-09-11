@@ -30,6 +30,12 @@ export const addSubscription = async ({ user, kind, content_id }: ISubscriptionC
     }).catch(() => false);
 };
 
+export const removeSubscription = async ({ user, kind, content_id }: ISubscriptionContext): Promise<boolean> => {
+    return Subscription.findOneAndRemove({ user, kind, content_id }).then(async (subscription: ISubscription) => {
+        return (null === subscription) ? true : false;
+    }).catch(() => false);
+};
+
 export const fetchAllSubscription = async ({ user, kind }: IAllSubscriptionContext): Promise<IAllSubscriptionResponse[]> => {
     return Subscription.find({ user, kind }).then(filterSubscriptions).catch(() => []);
 };

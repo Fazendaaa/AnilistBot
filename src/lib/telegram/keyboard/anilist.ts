@@ -15,8 +15,8 @@ export const characterKeyboard = ({ id, translation }: ICharacterKeyboardContext
 };
 
 export const mediaKeyboard = ({ id, translation, kind }: IMediaKeyboardContext): InlineKeyboardMarkup => {
-    const list = ('ANIME' === kind) ? Markup.callbackButton(translation.t('buttonWatchlist'), `LIST/WATCH/${id}`)
-        : Markup.callbackButton(translation.t('buttonReadlist'), `LIST/READ/${id}`);
+    const list = ('ANIME' === kind) ? Markup.callbackButton(translation.t('buttonWatchlist'), `LIST/WATCH/SUBSCRIBE/${id}`)
+        : Markup.callbackButton(translation.t('buttonReadlist'), `LIST/READ/UNSUBSCRIBE/${id}`);
 
     return Markup.inlineKeyboard([
         Markup.callbackButton(translation.t('buttonDescription'), `ANILIST/${kind}/DESCRIPTION/${id}`),

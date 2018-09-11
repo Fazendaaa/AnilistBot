@@ -1,6 +1,56 @@
-import { Markup } from 'telegraf';
+import { CallbackButton, Markup } from 'telegraf';
 import { I18n } from 'telegraf-i18n';
 import { InlineKeyboardMarkup } from 'telegram-typings';
+import { IHandleMediaButton, IMoreKeyboard } from '.';
+import { IListTitle } from '../../anilist/queries';
+
+const handleMediaButton = ({ kind, title }: IHandleMediaButton): CallbackButton => {
+    const { id } = title;
+    const { native, english, romaji } = title.title;
+    let button = '';
+
+    if (null !== native) {
+        button = native;
+    } if (null !== romaji) {
+        button = romaji;
+    } if (null !== english) {
+        button = english;
+    }
+
+    return Markup.callbackButton(button, `MORE/${kind}/${id}`);
+};
+
+export const watchlistMoreInfoKeyboard = (animes: IListTitle[]): InlineKeyboardMarkup => {
+    const content = animes.map((title: IListTitle) => [ handleMediaButton({ kind: 'ANIME', title }) ]);
+
+    content.push([ Markup.callbackButton('<', 'MEDIA/WATCH/ALL') ]);
+
+    return Markup.inlineKeyboard(content);
+};
+
+export const readlistMoreInfoKeyboard = (mangas: IListTitle[]): InlineKeyboardMarkup => {
+    const content = mangas.map((title: IListTitle) => [handleMediaButton({ kind: 'MANGA', title })]);
+
+    content.push([ Markup.callbackButton('<', 'MEDIA/READ/ALL') ]);
+
+    return Markup.inlineKeyboard(content);
+};
+
+export const animeMoreKeyboard = ({ id, translation }: IMoreKeyboard): InlineKeyboardMarkup => {
+    return Markup.inlineKeyboard([
+        Markup.callbackButton(translation.t('buttonDescription'), `ANILIST/ANIME/DESCRIPTION/${id}`),
+        Markup.callbackButton(translation.t('buttonGenres'), `ANILIST/ANIME/GENRES/${id}`),
+        Markup.callbackButton(translation.t('buttonRemove'), `LIST/WATCH/UNSUBSCRIBE/${id}`)
+    ]);
+};
+
+export const mangaMoreKeyboard = ({ id, translation }: IMoreKeyboard): InlineKeyboardMarkup => {
+    return Markup.inlineKeyboard([
+        Markup.callbackButton(translation.t('buttonDescription'), `ANILIST/MANGA/DESCRIPTION/${id}`),
+        Markup.callbackButton(translation.t('buttonGenres'), `ANILIST/MANGA/GENRES/${id}`),
+        Markup.callbackButton(translation.t('buttonRemove'), `LIST/READ/UNSUBSCRIBE/${id}`)
+    ]);
+};
 
 export const readlistKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const firstLine = [

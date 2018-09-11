@@ -6,7 +6,7 @@ import { connect, set } from 'mongoose';
 import { join } from 'path';
 import { allSearch, notFoundSearch } from 'searches';
 import Telegraf from 'telegraf';
-import { IBotContext, KindRequest, ListRequest } from 'telegraf-bot-typings';
+import { IBotContext, KindRequest, ListAction, ListRequest } from 'telegraf-bot-typings';
 import I18n from 'telegraf-i18n';
 import { fetchPage, sanitize } from 'telegraf-parse';
 import { getSessionKey, loadLanguages } from 'telegraf-redis';
@@ -106,7 +106,8 @@ bot.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callbackQuer
         return answerCbQuery(await listCallback({
             ...common,
             user: from.id,
-            id: parseInt(data[2], 10),
+            id: parseInt(data[3], 10),
+            action: <ListAction> data[2],
             request: <ListRequest> data[1]
         }), true);
     }
