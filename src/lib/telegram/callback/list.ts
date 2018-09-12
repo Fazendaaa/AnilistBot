@@ -18,15 +18,15 @@ const addReadlist = async ({ user, id, translation }: ISubscriptionContext): Pro
 };
 
 const removeWatchlist = async ({ user, id, translation }: ISubscriptionContext): Promise<string> => {
-    return removeSubscription({ kind: true, content_id: id, user }).then((added: boolean) => {
-        return (true === added) ? translation.t('removedWatchlist') : translation.t('alreadyRemovedWatchlist');
-    }).catch(() => translation.t('errorWatchlist'));
+    return removeSubscription({ kind: true, content_id: id, user })
+           .then(() => translation.t('removedWatchlist'))
+           .catch(() => translation.t('errorWatchlist'));
 };
 
 const removeReadlist = async ({ user, id, translation }: ISubscriptionContext): Promise<string> => {
-    return removeSubscription({ kind: false, content_id: id, user }).then((added: boolean) => {
-        return (true === added) ? translation.t('removedReadlist') : translation.t('alreadyRemovedReadlist');
-    }).catch(() => translation.t('errorReadlist'));
+    return removeSubscription({ kind: false, content_id: id, user })
+           .then(() => translation.t('removedReadlist'))
+           .catch(() => translation.t('errorReadlist'));
 };
 
 const animeNotify = async ({ user, id, translation }: ISubscriptionContext): Promise<string> => {

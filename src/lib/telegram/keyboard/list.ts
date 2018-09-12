@@ -1,7 +1,7 @@
 import { CallbackButton, Markup } from 'telegraf';
 import { I18n } from 'telegraf-i18n';
 import { InlineKeyboardMarkup } from 'telegram-typings';
-import { IHandleMediaButton, IMoreKeyboard } from '.';
+import { IHandleMediaButton, IMoreKeyboard, INotifyKeyboard } from '.';
 import { IListTitle } from '../../anilist/queries';
 
 const handleMediaButton = ({ kind, title }: IHandleMediaButton): CallbackButton => {
@@ -60,6 +60,32 @@ export const mangaMoreKeyboard = ({ id, translation }: IMoreKeyboard): InlineKey
     ];
 
     return Markup.inlineKeyboard([ firstLine, secondLine ]);
+};
+
+export const animeNotifyKeyboard = ({ id, language, translation }: INotifyKeyboard): InlineKeyboardMarkup => {
+    const firstLine = [
+        Markup.callbackButton(translation.t(language, 'buttonDescription'), `ANILIST/ANIME/DESCRIPTION/${id}`),
+        Markup.callbackButton(translation.t(language, 'buttonGenres'), `ANILIST/ANIME/GENRES/${id}`),
+        Markup.callbackButton(translation.t(language, 'buttonRemove'), `LIST/WATCH/UNSUBSCRIBE/${id}`)
+    ];
+    const secondLine = [
+        Markup.callbackButton(translation.t(language, 'buttonNotify'), `LIST/WATCH/NOTIFY/${id}`)
+    ];
+
+    return Markup.inlineKeyboard([firstLine, secondLine]);
+};
+
+export const mangaNotifyKeyboard = ({ id, language, translation }: INotifyKeyboard): InlineKeyboardMarkup => {
+    const firstLine = [
+        Markup.callbackButton(translation.t(language, 'buttonDescription'), `ANILIST/MANGA/DESCRIPTION/${id}`),
+        Markup.callbackButton(translation.t(language, 'buttonGenres'), `ANILIST/MANGA/GENRES/${id}`),
+        Markup.callbackButton(translation.t(language, 'buttonRemove'), `LIST/READ/UNSUBSCRIBE/${id}`)
+    ];
+    const secondLine = [
+        Markup.callbackButton(translation.t(language, 'buttonNotify'), `LIST/READ/NOTIFY/${id}`)
+    ];
+
+    return Markup.inlineKeyboard([firstLine, secondLine]);
 };
 
 export const readlistKeyboard = (translation: I18n): InlineKeyboardMarkup => {

@@ -16,6 +16,6 @@ export const userSchema = new Schema({
     },
     language: {
         type: String,
-        default: null
+        default: 'en'
     }
 });

@@ -2,12 +2,12 @@
 import { Extra } from 'telegraf';
 import { I18n } from 'telegraf-i18n';
 import { ExtraEditMessage } from 'telegraf/typings/telegram-types';
-import { IHandleMediaMoreExtra, IMediaExtraContext, IMediaMore } from '.';
+import { IHandleMediaMoreExtra, IHandleMediaNotifyExtra, IMediaExtraContext, IMediaMore, INotify } from '.';
 import { animeSearchTitle, mangaSearchTitle } from '../../anilist/requests/title';
 import { IAllSubscriptionResponse } from '../../database/subscriptions';
-import { airingAnimeKeyboard, animeMoreKeyboard, cancelledAnimeKeyboard, cancelledMangaKeyboard, completedAnimeKeyboard,
-completedMangaKeyboard, mangaMoreKeyboard, publishingMangaKeyboard, readlistKeyboard, readlistMoreInfoKeyboard, soonAnimeKeyboard,
-soonMangaKeyboard, watchlistKeyboard, watchlistMoreInfoKeyboard } from '../keyboard/list';
+import { airingAnimeKeyboard, animeMoreKeyboard, animeNotifyKeyboard, cancelledAnimeKeyboard, cancelledMangaKeyboard,
+completedAnimeKeyboard, completedMangaKeyboard, mangaMoreKeyboard, mangaNotifyKeyboard, publishingMangaKeyboard, readlistKeyboard,
+readlistMoreInfoKeyboard, soonAnimeKeyboard, soonMangaKeyboard, watchlistKeyboard, watchlistMoreInfoKeyboard } from '../keyboard/list';
 
 const readlistExtra = (translation: I18n): ExtraEditMessage => Extra.markdown().markup(readlistKeyboard(translation));
 
@@ -32,6 +32,10 @@ const publishingMangaExtra = (translation: I18n): ExtraEditMessage => Extra.mark
 const animeMoreExtra = (data: IMediaMore): ExtraEditMessage => Extra.markdown().markup(animeMoreKeyboard(data));
 
 const mangaMoreExtra = (data: IMediaMore): ExtraEditMessage => Extra.markdown().markup(mangaMoreKeyboard(data));
+
+const mangaNotifyExtra = (data: INotify): ExtraEditMessage => Extra.markdown().markup(mangaNotifyKeyboard(data));
+
+const animeNotifyExtra = (data: INotify): ExtraEditMessage => Extra.markdown().markup(animeNotifyKeyboard(data));
 
 const watchlistMoreInfoExtra = async (anime: IAllSubscriptionResponse[]): Promise<ExtraEditMessage> => {
     const allAnime = await Promise.all(anime.map(async ({ content_id }) => animeSearchTitle(content_id)));
@@ -77,6 +81,10 @@ export const mangaExtra = async ({ user, filter, translation }: IMediaExtraConte
     return readlistMoreInfoExtra(user.manga);
 };
 
-export const handleMediaMoreExtra = ({ id, request, translation }: IHandleMediaMoreExtra): ExtraEditMessage => {
-    return ('ANIME' === request) ? animeMoreExtra({ id, translation }) : mangaMoreExtra({ id, translation });
+export const handleMediaMoreExtra = ({ request, ...remaining }: IHandleMediaMoreExtra): ExtraEditMessage => {
+    return ('ANIME' === request) ? animeMoreExtra(remaining) : mangaMoreExtra(remaining);
+};
+
+export const handleMediaNotifyExtra = ({ request, ...remaining }: IHandleMediaNotifyExtra): ExtraEditMessage => {
+    return ('ANIME' === request) ? animeNotifyExtra(remaining) : mangaNotifyExtra(remaining);
 };

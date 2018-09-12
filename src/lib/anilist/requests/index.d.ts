@@ -20,3 +20,8 @@ export interface ITranslateGenresContext {
     readonly content: AnilistObject;
     readonly message: Array<string>;
 }
+
+export interface INewReleaseContext {
+    readonly id: number;
+    readonly content: 'ANIME' | 'MANGA';
+}

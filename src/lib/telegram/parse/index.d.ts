@@ -1,6 +1,6 @@
 import { I18n } from 'telegraf-i18n';
 import { ListFilterRequest, TimeRequest, NotifyRequests, LanguageRequest, ListRequest, UserRequest, LocationRequest, LocationConfirmRequest } from 'telegraf-bot-typings';
-import { IListTitle } from '../../anilist/queries';
+import { IListTitle, IMedia } from '../../anilist/queries';
 import { IAllSubscriptionResponse } from '../../database/subscriptions';
 import { IMediaTitle, IAiringSchedule } from '../../anilist';
 import { IUserTTFInfo, ICityInfo } from '../scene';
@@ -152,4 +152,10 @@ export interface IHandleMediaMore {
     readonly content: number;
     readonly translation: I18n;
     readonly request: 'ANIME' | 'MANGA';
+}
+
+export interface IHandleNewRelease {
+    readonly media: IMedia;
+    readonly language: string;
+    readonly translation: I18n;
 }

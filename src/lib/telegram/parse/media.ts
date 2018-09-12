@@ -1,11 +1,13 @@
 import { toRoman } from 'roman-numerals';
-import { IAnimeContext, ICountdownInfo, IHandleCountdownData, IHandleMediaMore, IInfoContext, IMangaContext, IMediaRequestContext,
-INativeContext, IToPrintContext } from '.';
+import { IAnimeContext, ICountdownInfo, IHandleCountdownData, IHandleMediaMore, IHandleNewRelease, IInfoContext, IMangaContext,
+IMediaRequestContext, INativeContext, IToPrintContext } from '.';
 import { toNextAiring } from '../../anilist/formatting/media';
 import { mediaMessage } from '../../anilist/parse/messageText';
 import { IListTitle } from '../../anilist/queries';
 import { mediaAnime, mediaManga } from '../../anilist/requests/media';
 import { animeSearchTitle, mangaSearchTitle } from '../../anilist/requests/title';
+import { mediaAllTitle, mediaDuration, mediaEndDate, mediaImage, mediaIsAdult, mediaKind, mediaNewContent, mediaSeason, mediaStartDate,
+mediaStreamingEpisodes } from '../formatting/media';
 
 const handleNative = ({ translation, native, countryOfOrigin }: INativeContext): string => {
     if ('JP' === countryOfOrigin) {
@@ -122,4 +124,24 @@ export const handleMediaMore = async ({ content, request, translation }: IHandle
     const media = ('ANIME' === request) ? await mediaAnime(content) : await mediaManga(content);
 
     return mediaMessage({ media, translation });
+};
+
+export const handleNewRelease = ({ media, language, translation }: IHandleNewRelease): string => {
+    const common = { language, translation };
+    const { siteUrl, coverImage, bannerImage, title, countryOfOrigin, isAdult, format, source, status, startDate, endDate, season, duration,
+    nextAiringEpisode, streamingEpisodes, episodes } = media;
+
+    return translation.t(language, 'newRelease', {
+        siteUrl,
+        streamingEpisodes: mediaStreamingEpisodes({ streamingEpisodes, ...common }),
+        season: mediaSeason({ season, ...common }),
+        isAdult: mediaIsAdult({ isAdult, ...common }),
+        kind: mediaKind({ format, source, ...common }),
+        image: mediaImage({ coverImage, bannerImage }),
+        duration: mediaDuration({ duration, ...common }),
+        endDate: mediaEndDate({ endDate, status, ...common }),
+        ...mediaAllTitle({ title, countryOfOrigin, ...common }),
+        startDate: mediaStartDate({ startDate, status, ...common }),
+        newContent: mediaNewContent({ nextAiringEpisode, episodes, ...common })
+    });
 };

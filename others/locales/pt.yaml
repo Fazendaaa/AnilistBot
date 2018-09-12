@@ -693,6 +693,27 @@ media:
   ${externalLinks}\
   \n[veja mais](${siteUrl})"
 
+newContent:
+ "🎉 *EPISÓDIO* 🎉 - _${newContent}_\n\n"
+
+streamingEpisodes:
+  "*Veja online os últimos episódios em*:\n\
+  ${streamingEpisodes}"
+
+newRelease:
+  "[‍](${image})${newContent}\
+  ${native}\
+  ${english}\
+  ${romaji}\
+  ${isAdult}\
+  ${kind}\
+  ${startDate}\
+  ${endDate}\
+  ${season}\
+  ${duration}\
+  ${streamingEpisodes}\
+  \n[veja mais](${siteUrl})"
+
 native:
   "- *Nativo*: _${native}_\n"
 

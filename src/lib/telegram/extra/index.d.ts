@@ -1,6 +1,7 @@
 import { I18n } from 'telegraf-i18n';
 import { LocationRequest, ListFilterRequest, ListRequest, LanguageRequest, NotifyRequests, UserRequest, TimeRequest, LocationConfirmRequest } from 'telegraf-bot-typings';
 import { IUserTTFInfo } from '../scene';
+import { InlineKeyboardMarkup } from 'telegram-typings';
 
 export interface IMediaExtraContext {
     readonly translation: I18n;
@@ -57,4 +58,17 @@ export interface IHandleMediaMoreExtra {
 export interface IMediaMore {
     readonly id: number;
     readonly translation: I18n;
+}
+
+export interface INotify {
+    readonly id: number;
+    readonly language: string;
+    readonly translation: I18n;
+}
+
+export interface IHandleMediaNotifyExtra {
+    readonly id: number;
+    readonly language: string;
+    readonly translation: I18n;
+    readonly request: 'ANIME' | 'MANGA';
 }

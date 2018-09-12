@@ -22,6 +22,12 @@ export interface IMoreKeyboard {
     readonly translation: I18n;
 }
 
+export interface INotifyKeyboard {
+    readonly id: number;
+    readonly language: string;
+    readonly translation: I18n;
+}
+
 export interface IStaffKeyboardContext extends IMinimumKeyboardContext { }
 
 export interface ICharacterKeyboardContext extends IMinimumKeyboardContext { }

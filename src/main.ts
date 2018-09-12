@@ -14,7 +14,8 @@ import RedisSession from 'telegraf-session-redis';
 import session from 'telegraf/session';
 import { UserCache } from 'user-cache';
 import { AnilistObject, AnilistRequest } from './lib/anilist';
-import { counterSchedule } from './lib/schedule/counter/counter';
+import { counterSchedule } from './lib/schedule/counter';
+import { mediaSchedule } from './lib/schedule/notifications';
 import { anilistCallback } from './lib/telegram/callback/anilist';
 import { listCallback } from './lib/telegram/callback/list';
 import { userStage } from './lib/telegram/stage';
@@ -22,13 +23,6 @@ import { userStage } from './lib/telegram/stage';
 config();
 
 const bot = new Telegraf(process.env.BOT_KEY);
-const internationalization = new I18n({
-    useSession: true,
-    allowMissing: true,
-    defaultLanguage: 'en',
-    sessionName: 'session',
-    directory: join(__dirname, '../others/locales')
-});
 const redisStorage = new RedisSession({
     getSessionKey,
     property: 'redis',
@@ -36,6 +30,13 @@ const redisStorage = new RedisSession({
         host: process.env.TELEGRAM_SESSION_HOST,
         port: process.env.TELEGRAM_SESSION_PORT
     }
+});
+export const internationalization = new I18n({
+    useSession: true,
+    allowMissing: true,
+    defaultLanguage: 'en',
+    sessionName: 'session',
+    directory: join(__dirname, '../others/locales')
 });
 export const redisClient = redisStorage.client;
 const userCache = new UserCache();
@@ -48,6 +49,7 @@ connect(process.env.MONGODB_URI).then(() => {
     set('useFindAndModify', false);
 
     console.log('DB connected.');
+    mediaSchedule();
     counterSchedule();
 
     dbStatus = true;

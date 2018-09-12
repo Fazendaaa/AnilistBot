@@ -1,5 +1,5 @@
 import { IMediaTitle, ICoverImage, IFuzzyDateInt, MediaFormat, MediaStatus, IMediaTrailer, MediaSource, IAiringSchedule, IMediaRanking,
-IMediaExternalLink, MediaSeason, MediaType, ICharacterName, ICharacterImage, IStaffName, StaffLanguage, IStaffImage, IStudioConnection
+IMediaExternalLink, MediaSeason, MediaType, ICharacterName, ICharacterImage, IStaffName, StaffLanguage, IStaffImage, IStudioConnection, IMediaStreamingEpisode
 } from '..';
 
 interface IMedia {
@@ -28,6 +28,7 @@ interface IMedia {
     readonly rankings: Array<IMediaRanking>;
     readonly nextAiringEpisode: IAiringSchedule;
     readonly externalLinks: Array<IMediaExternalLink>;
+    readonly streamingEpisodes: Array<IMediaStreamingEpisode>;
 }
 
 export interface ICharacters {
@@ -149,6 +150,10 @@ interface ICounterMedia {
     readonly Media: ICounter;
 }
 
+interface INewReleaseMedia {
+    readonly Media: IMedia;
+}
+
 export interface IRequestsDescription {
     readonly data: IMediaDescription;
 }
@@ -171,4 +176,8 @@ export interface IRequestMedia {
 
 export interface IRequestCounter {
     readonly data: ICounterMedia;
+}
+
+export interface IRequestNewRelease {
+    readonly data: INewReleaseMedia;
 }
