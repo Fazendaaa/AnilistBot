@@ -44,7 +44,8 @@ All of the data about it is fetched from [Anilist](http://anilist.co/) & [Anicha
 
 ## Disclaimer
 1. [JoshStar](https://github.com/joshstar) was kind to [allow](https://github.com/AniList/ApiV2-GraphQL-Docs/issues/50#event-1794658906) me to store the translated info about the content in different languages, improving the user experience;
-2. This project is a new implementation, the old code base is [here](https://github.com/Fazendaaa/Anilist-bot).
+2. This project is a new implementation, the old code base is [here](https://github.com/Fazendaaa/Anilist-bot);
+3. Also, I've removed the _command_ option when talking to the to the bot from the old version due to low usage.
 
 ## Supported languages:
 By default all the commands are in English, but you can see if the same command is available in your language. Only English and Portuguese had some kind of review, the others are automatic translation from [Google Translate](https://translate.google.com/).

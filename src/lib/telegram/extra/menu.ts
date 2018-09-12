@@ -1,7 +1,7 @@
 // tslint:disable: no-submodule-imports
 import { aboutKeyboard, countdownKeyboard, counterBackKeyboard, guideKeyboard, languageBackKeyboard, languageKeyboard, menuKeyboard,
-notifyBackKeyboard, notifyKeyboard, startKeyboard, timeBackKeyboard, timeHourKeyboard, timeKeyboard, timePeriodKeyboard, userKeyboard
-} from 'keyboard';
+notifyBackKeyboard, notifyKeyboard, recommendationKeyboard, startKeyboard, timeBackKeyboard, timeHourKeyboard, timeKeyboard,
+timePeriodKeyboard, userKeyboard } from 'keyboard';
 import { Extra } from 'telegraf';
 import { LanguageRequest, NotifyRequests, Period, TimeRequest, UserRequest } from 'telegraf-bot-typings';
 import { I18n } from 'telegraf-i18n';
@@ -47,9 +47,11 @@ const handleTimeExtra = ({ value, request, translation }: IHandleTimeExtra): Ext
 
 export const aboutExtra = (): ExtraEditMessage => Extra.markdown().markup(aboutKeyboard());
 
+export const counterExtra = (): ExtraEditMessage => Extra.markdown().markup(counterBackKeyboard());
+
 export const countdownExtra = (): ExtraEditMessage => Extra.markdown().markup(countdownKeyboard());
 
-export const counterExtra = (): ExtraEditMessage => Extra.markdown().markup(counterBackKeyboard());
+export const recommendationExtra = (): ExtraEditMessage => Extra.markdown().markup(recommendationKeyboard());
 
 export const menuExtra = (translation: I18n): ExtraEditMessage => Extra.markdown().markup(menuKeyboard(translation));
 

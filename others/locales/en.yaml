@@ -35,7 +35,8 @@ menuOptions:
   *Countdown*: _episodes time for ariring_\n\
   *Watchlist*: _saved animes_\n\
   *Readlist*: _saved mangas_\n\
-  *Guide*: _tutorial, about, infos, how can you help this bot, etc..._"
+  *Recommendations*: _what content might intrest you_\n\
+  *Guide*: _tutorial, about, infos, news, how can you help this bot, how to request something, etc..._"
 
 helpOptions:
   "How can I be helpful to you today, _${from.username}_?\n\n\
@@ -107,12 +108,6 @@ guideOptions:
   *Search features*\n\n\
   On inline mode:\n\n\
   ``` @ANILISTbot Pokemon```\n\n\
-  Talking to bot:\n\n\
-  /anime _anime name_\n\
-  /manga _manga name_\n\
-  /character _character name_\n\
-  /staff _staff name_\n\
-  /studio _studio name_\n\n\
   *Anime Time Calculator*\n\n\
   Just a calculator of how much time you have passed watching anime.\n\n\
   *User Language*\n\n\
@@ -199,6 +194,11 @@ counterOptions:
   "⌛ *TIME WATCHING*\n\n\
   This is how much you have watched anime: _${counter} hours_"
 
+recommendationOptions:
+  "⚖️ *RECOMMENDATIONS*\n\n\
+  Due to your watching and read history, we are currently working on a system to give you recommendations on what you should watch or read.\n\n\
+  And you can help me out on this... Just go read the _About_ section in _Guide_ tab how you can help me :)"
+
 languageOptions:
   "Please, choose one of the following language options:"
 
@@ -277,6 +277,26 @@ alreadyRemovedReadlist:
   "This anime was already removed from your readlist!"
 
 errorReadlist:
+  "An error occured!\n\
+  Please warn @farmy about it."
+
+animeNotifyEnabled:
+  "You will receive any notification about this anime as new episodes and news about"
+
+animeNotifyDisabled:
+  "You will not receive any further notification about this anime"
+
+animeNotifyError:
+  "An error occured!\n\
+  Please warn @farmy about it."
+
+mangaNotifyEnabled:
+  "You will receive any notification about this manga as news about"
+
+mangaNotifyDisabled:
+  "You will not receive any further notification about this manga"
+
+mangaNotifyError:
   "An error occured!\n\
   Please warn @farmy about it."
 
@@ -381,6 +401,9 @@ faButton:
 
 counterButton:
   "How much time I've watched Anime?"
+
+recommendationButton:
+  "What should I watch?"
 
 languageButton:
   "Language"
@@ -711,6 +734,9 @@ buttonReadlist:
 
 buttonRemove:
   "Remove"
+
+buttonNotify:
+  "Notifications"
 
 locationMask:
   "📍 *I FOUND SOMETHING*\n\n\

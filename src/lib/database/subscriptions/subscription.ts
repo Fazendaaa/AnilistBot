@@ -7,6 +7,12 @@ const newSubscription = async ({ user, kind, content_id }: ISubscriptionContext)
     return Subscription.findOneAndUpdate({ user, kind, content_id }, { }, options).then(async () => true).catch(() => false);
 };
 
+const toggle = async (subscription: ISubscription): Promise<boolean> => {
+    subscription.notify = !subscription.notify;
+
+    return subscription.save().then(({ notify }) => notify).catch(() => false);
+};
+
 const filterSubscriptions = async (subscriptions: ISubscription[]): Promise<IAllSubscriptionResponse[]> => {
     if (null === subscriptions) {
         return [];
@@ -19,6 +25,10 @@ const filterSubscriptions = async (subscriptions: ISubscription[]): Promise<IAll
             content_id
         };
     });
+};
+
+export const fetchAllSubscription = async ({ user, kind }: IAllSubscriptionContext): Promise<IAllSubscriptionResponse[]> => {
+    return Subscription.find({ user, kind }).then(filterSubscriptions).catch(() => []);
 };
 
 export const addSubscription = async ({ user, kind, content_id }: ISubscriptionContext): Promise<boolean> => {
@@ -36,6 +46,6 @@ export const removeSubscription = async ({ user, kind, content_id }: ISubscripti
     }).catch(() => false);
 };
 
-export const fetchAllSubscription = async ({ user, kind }: IAllSubscriptionContext): Promise<IAllSubscriptionResponse[]> => {
-    return Subscription.find({ user, kind }).then(filterSubscriptions).catch(() => []);
+export const toogleSubscription = async ({ user, kind, content_id }: ISubscriptionContext): Promise<boolean> => {
+    return Subscription.findOneAndUpdate({ user, kind, content_id }, {}).then(toggle).catch(() => false);
 };

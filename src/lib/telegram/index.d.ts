@@ -19,7 +19,8 @@ export type MenuRequest = 'USER' |
                           'MEDIA' |
                           'COUNTER' |
                           'LOCATION' |
-                          'COUNTDOWN'
+                          'COUNTDOWN' |
+                          'RECOMMENDATION'
                           
 export type UserRequest = 'ALL' |
                           'TIME' |
@@ -36,7 +37,8 @@ export type NotifyRequests = 'ENABLE' |
 export type ListRequest = 'READ' |
                           'WATCH'
 
-export type ListAction = 'SUBSCRIBE' |
+export type ListAction = 'NOTIFY' |
+                         'SUBSCRIBE' |
                          'UNSUBSCRIBE'
 
 export type LocationRequest = 'ASK' |

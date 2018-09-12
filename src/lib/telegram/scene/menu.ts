@@ -1,5 +1,6 @@
 // tslint:disable: no-submodule-imports
-import { aboutExtra, countdownExtra, counterExtra, guideExtra, handleMediaExtra, handleUserExtra, menuExtra, startExtra } from 'extra';
+import { aboutExtra, countdownExtra, counterExtra, guideExtra, handleMediaExtra, handleUserExtra, menuExtra, recommendationExtra,
+startExtra } from 'extra';
 import { IBotContext, LanguageRequest, ListFilterRequest, ListRequest, MenuRequest, NotifyRequests, TimeRequest, UserRequest
 } from 'telegraf-bot-typings';
 import Scene from 'telegraf/scenes/base';
@@ -38,6 +39,8 @@ menuScene.on('callback_query', async (ctx: IBotContext) => {
         return editMessageText(i18n.t('menuOptions'), menuExtra(translation));
     } if ('GUIDE' === kind) {
         return editMessageText(i18n.t('guideOptions'), guideExtra(translation));
+    } if ('RECOMMENDATION' === kind) {
+        return editMessageText(i18n.t('recommendationOptions'), recommendationExtra());
     } if ('COUNTDOWN' === kind) {
         return editMessageText(i18n.t('countdownOptions', { anime: await handleCountdown({
             id,

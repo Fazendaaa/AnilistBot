@@ -37,19 +37,29 @@ export const readlistMoreInfoKeyboard = (mangas: IListTitle[]): InlineKeyboardMa
 };
 
 export const animeMoreKeyboard = ({ id, translation }: IMoreKeyboard): InlineKeyboardMarkup => {
-    return Markup.inlineKeyboard([
+    const firstLine = [
         Markup.callbackButton(translation.t('buttonDescription'), `ANILIST/ANIME/DESCRIPTION/${id}`),
         Markup.callbackButton(translation.t('buttonGenres'), `ANILIST/ANIME/GENRES/${id}`),
         Markup.callbackButton(translation.t('buttonRemove'), `LIST/WATCH/UNSUBSCRIBE/${id}`)
-    ]);
+    ];
+    const secondLine = [
+        Markup.callbackButton(translation.t('buttonNotify'), `LIST/WATCH/NOTIFY/${id}`)
+    ];
+
+    return Markup.inlineKeyboard([ firstLine, secondLine ]);
 };
 
 export const mangaMoreKeyboard = ({ id, translation }: IMoreKeyboard): InlineKeyboardMarkup => {
-    return Markup.inlineKeyboard([
+    const firstLine = [
         Markup.callbackButton(translation.t('buttonDescription'), `ANILIST/MANGA/DESCRIPTION/${id}`),
         Markup.callbackButton(translation.t('buttonGenres'), `ANILIST/MANGA/GENRES/${id}`),
         Markup.callbackButton(translation.t('buttonRemove'), `LIST/READ/UNSUBSCRIBE/${id}`)
-    ]);
+    ];
+    const secondLine = [
+        Markup.callbackButton(translation.t('buttonNotify'), `LIST/READ/NOTIFY/${id}`)
+    ];
+
+    return Markup.inlineKeyboard([ firstLine, secondLine ]);
 };
 
 export const readlistKeyboard = (translation: I18n): InlineKeyboardMarkup => {
@@ -66,7 +76,7 @@ export const readlistKeyboard = (translation: I18n): InlineKeyboardMarkup => {
         Markup.callbackButton('<', 'MENU/MENU')
     ];
 
-    return Markup.inlineKeyboard([firstLine, secondLine, thirdLine]);
+    return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine ]);
 };
 
 export const soonMangaKeyboard = (translation: I18n): InlineKeyboardMarkup => {
@@ -83,7 +93,7 @@ export const soonMangaKeyboard = (translation: I18n): InlineKeyboardMarkup => {
         Markup.callbackButton('<', 'MENU/MENU')
     ];
 
-    return Markup.inlineKeyboard([firstLine, secondLine, thirdLine]);
+    return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine ]);
 };
 
 export const watchlistKeyboard = (translation: I18n): InlineKeyboardMarkup => {

@@ -7,13 +7,15 @@ const calculatePeriod = ({ hour, period }: IPeriodContext): number => ('AM' === 
 
 export const aboutKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'GUIDE') ]);
 
-export const timeBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'USER/ALL') ]);
-
 export const countdownKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'MENU') ]);
 
-export const notifyBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'USER/ALL') ]);
+export const counterBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([Markup.callbackButton('<', 'MENU')]);
 
-export const counterBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'MENU') ]);
+export const timeBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'USER/ALL') ]);
+
+export const recommendationKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([Markup.callbackButton('<', 'MENU')]);
+
+export const notifyBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'USER/ALL') ]);
 
 export const languageBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([ Markup.callbackButton('<', 'USER/ALL') ]);
 
@@ -96,8 +98,11 @@ export const menuKeyboard = (translation: I18n): InlineKeyboardMarkup => {
     const thirdLine = [
         Markup.callbackButton(translation.t('counterButton'), 'COUNTER')
     ];
+    const fourthLine = [
+        Markup.callbackButton(translation.t('recommendationButton'), 'RECOMMENDATION')
+    ];
 
-    return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine ]);
+    return Markup.inlineKeyboard([ firstLine, secondLine, thirdLine, fourthLine ]);
 };
 
 export const languageKeyboard = (translation: I18n): InlineKeyboardMarkup => {

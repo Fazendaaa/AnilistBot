@@ -35,7 +35,8 @@ menuOptions:
   *Regressiva*: _quanto tempo falta para os próximos episódios_\n\
   *Lista de Assistir*: _animes salvos_\n\
   *Lista de Leitura*: _mangás salvos_\n\
-  *Guia*: _tutorial, sobre, informções, como você pode ajudar este bot, etc..._"
+  *Recomendações*: _quais conteúdos podem te interessar_\n\
+  *Guia*: _tutorial, sobre, informções, como você pode ajudar este bot, novidades, como pedir alguma coisa para o bot, etc..._"
 
 helpOptions:
   "Como posso lhe ajudar hoje, _${from.username}_?\n\n\
@@ -107,12 +108,6 @@ guideOptions:
   *Como pesquisar*\n\n\
   No modo inline:\n\n\
   ``` @ANILISTbot Pokemon```\n\n\
-  Conversando com o bot:\n\n\
-  /anime _nome do anime_\n\
-  /manga _nome do mangá_\n\
-  /character _nome do personagem_\n\
-  /staff _nome do produtor_\n\
-  /studio _nome do estúdio_\n\n\
   *Calculadora de Tempo em Anime*\n\n\
   Apenas uma calculadora que mostra o quanto tempo passou assistindo animes.\n\n\
   *Idioma do Usuário*\n\n\
@@ -200,6 +195,11 @@ counterOptions:
   "⌛ *TEMPO ASSISTIDO*\n\n\
   Esse é o quanto tempo passou assistindo animes: _${counter} horas_"
 
+recommendationOptions:
+  "⚖️ *RECOMENDAÇÕES*\n\n\
+  Devido ao seus histórico de leituras e animes que assiste, estamos trabalhando em uma forma de recomendar conteúdos para você assistir e ler.\n\n\
+  E você pode me ajudar com isso... Vá na aba _Sobre_ no _Guia_ e veja como pode fazer a diferença :)"
+
 languageOptions:
   "Por favor, escolha uma das opções seguintes como o seu idioma:"
 
@@ -278,6 +278,26 @@ alreadyRemovedReadlist:
   "Este manga já foi removido da sua lista!"
 
 errorReadlist:
+  "Aconteceu um erro!\n\
+  Por favor, avise @famry sobre isto."
+
+animeNotifyEnabled:
+  "Você receberá notificações sobre este anime como episódios e noticias sobre ele"
+
+animeNotifyDisabled:
+  "Você não irá mais receber nenhuma notificação sobre este anime"
+
+animeNotifyError:
+  "Aconteceu um erro!\n\
+  Por favor, avise @famry sobre isto."
+
+mangaNotifyEnabled:
+  "Você receberá notificações sobre este mangá noticias sobre ele"
+
+mangaNotifyDisabled:
+  "Você não irá mais receber nenhuma notificação sobre este mangá"
+
+mangaNotifyError:
   "Aconteceu um erro!\n\
   Por favor, avise @famry sobre isto."
 
@@ -382,6 +402,9 @@ faButton:
 
 counterButton:
   "Quanto tempo eu passei vendo anime?"
+
+recommendationButton:
+  "O que eu deveria assistir?"
 
 languageButton:
   "Idioma"
@@ -712,6 +735,9 @@ buttonReadlist:
 
 buttonRemove:
   "Remover"
+
+buttonNotify:
+  "Notificações"
 
 locationMask:
   "📍 *EU ENCONTREI ALGO*\n\n\
