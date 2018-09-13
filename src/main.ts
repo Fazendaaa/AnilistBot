@@ -23,11 +23,12 @@ import { userStage } from './lib/telegram/stage';
 config();
 
 const bot = new Telegraf(process.env.BOT_KEY);
+export const userSessionLimit = 5 * 60;
 const redisStorage = new RedisSession({
     // five minutes to hold to user language info.
-    ttl: 5 * 60,
     getSessionKey,
     property: 'redis',
+    ttl: userSessionLimit,
     store: {
         host: process.env.TELEGRAM_SESSION_HOST,
         port: process.env.TELEGRAM_SESSION_PORT
