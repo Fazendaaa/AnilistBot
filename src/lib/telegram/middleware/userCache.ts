@@ -1,5 +1,7 @@
 import { IBotContext, LanguageRequest, MenuRequest, UserRequest } from 'telegraf-bot-typings';
 import { IHandleNext } from '.';
+import { IDBUserInfo } from '../../database/user';
+import { userInfo } from '../../database/user/user';
 import { getLanguageCode } from '../parse/language';
 
 /**
@@ -10,10 +12,16 @@ export class UserCache {
     // tslint:disable-next-line: no-any
     public middleware(): any {
         // tslint:disable-next-line: no-any
-        return async ({ redis, i18n, updateType, callbackQuery }: IBotContext, next: () => any) => {
-            if (null !== redis.language || undefined !== redis.language) {
-                i18n.locale(redis.language);
+        return async ({ redis, i18n, from, updateType, callbackQuery }: IBotContext, next: () => any) => {
+            const { id } = from;
+
+            if (null === redis.language || undefined === redis.language) {
+                const { language } = <IDBUserInfo> await userInfo(id);
+
+                redis.language = language;
             }
+
+            i18n.locale(redis.language);
 
             return next().then(() => this.handleNext({ redis, updateType, callbackQuery }));
         };

@@ -70,7 +70,7 @@ export type LanguageRequest = 'DUTCH' |
                               'INDONESIAN'
 
 interface IMyRedis extends RedisSession {
-    readonly language: string;
+    language: string;
 }
 
 interface Scene {

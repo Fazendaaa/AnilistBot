@@ -9,7 +9,7 @@ import Telegraf from 'telegraf';
 import { IBotContext, KindRequest, ListAction, ListRequest } from 'telegraf-bot-typings';
 import I18n from 'telegraf-i18n';
 import { fetchPage, sanitize } from 'telegraf-parse';
-import { getSessionKey, loadLanguages } from 'telegraf-redis';
+import { getSessionKey } from 'telegraf-redis';
 import RedisSession from 'telegraf-session-redis';
 import session from 'telegraf/session';
 import { UserCache } from 'user-cache';
@@ -24,6 +24,8 @@ config();
 
 const bot = new Telegraf(process.env.BOT_KEY);
 const redisStorage = new RedisSession({
+    // five minutes to hold to user language info.
+    ttl: 5 * 60,
     getSessionKey,
     property: 'redis',
     store: {
@@ -38,7 +40,6 @@ export const internationalization = new I18n({
     sessionName: 'session',
     directory: join(__dirname, '../others/locales')
 });
-export const redisClient = redisStorage.client;
 const userCache = new UserCache();
 
 let dbStatus = false;
@@ -60,10 +61,7 @@ connect(process.env.MONGODB_URI).then(() => {
     dbStatus = false;
 });
 
-redisStorage.client.on('connect', () => {
-    console.log('Redis connected.');
-    loadLanguages();
-}).on('error', console.error);
+redisStorage.client.on('connect', () => console.log('Redis connected.')).on('error', console.error);
 
 bot.startPolling();
 
