@@ -35,7 +35,7 @@ menuOptions:
   *Countdown*: _time to airing new episodes_\n\
   *Watchlist*: _saved animes_\n\
   *Readlist*: _saved mangas_\n\
-  *Recommendations*: _what content might interest you_\n\
+  *Recommendations*: _content that might interest you_\n\
   *Guide*: _tutorial, about, infos, news, how can you help this bot, how to request something, etc..._"
 
 helpOptions:
@@ -122,7 +122,7 @@ guideOptions:
   *Notifications*\n\n\
   Notifications are enabled for all airing animes by default. If you want to disable it open _User_ tab then click in _Notify_.\n\
   If you want to disable or enable notifications to specific animes, open it watchlist and then click more info.\n\
-  Or event if want set a time of the day for receive all notifications, click in _Time_ in _User_ tab."
+  Or event if want set a time of the day for receive all notifications, click in Time in User tab."
 
 aboutOptions:
   "⚙️ *ABOUT*\n\n\
@@ -134,7 +134,7 @@ aboutOptions:
   Or even consider it supporting my creator:\n\
   📅 [Patreon](https://www.patreon.com/Fazenda/overview) — Subscription.\n\
   ☕ [Buy me a coffee](https://www.buymeacoffee.com/Fazenda) — One time only.\n\
-  ❓ [Why support it?](https://fazendaaa.github.io/AnilistBot) — Read more why you make a difference in the *Supporting* part. You can help maintaining me alive with just one dollar per month!\n\n\
+  ❓ [Why support it?](https://fazendaaa.github.io/AnilistBot) — Read more why you make a difference in the Supporting part. You can help maintaining me alive with just one dollar per month!\n\n\
   *Has any suggestions, errors to report it or even request a my translation so I can work in your native language?*\n\n\
   Feel free to tell to my creator: @farmy."
 
@@ -197,7 +197,7 @@ counterOptions:
 recommendationOptions:
   "⚖️ *RECOMMENDATIONS*\n\n\
   Due to your watching and read history, we are currently working on a system to give you recommendations on what you should watch or read.\n\n\
-  And you can help me out on this... Just go read the _About_ section in _Guide_ tab how you can help me :)"
+  And you can help me out on this... Just go read the About section in Guide tab how you can help me :)"
 
 languageOptions:
   "Please, choose one of the following language options:"
@@ -213,7 +213,7 @@ sourceOptions:
   In a new future my creator want to create a group here so that he can listen to you guys and take your opinion about new features and how to improve me.\n\n\
   Right now if can you could help me out:\n\
   - [Review](https://storebot.me/bot/anilistbot) — review me at the Telegram Bot Store\n\
-  - [Support me](https://fazendaaa.github.io/AnilistBot) — Read how and why you make a difference in the *Supporting* section\n\
+  - [Support me](https://fazendaaa.github.io/AnilistBot) — Read how and why you make a difference in the Supporting section\n\
   Any other doubts, talk to my creator: @farmy :)"
 
 setLanguage:
@@ -295,7 +295,7 @@ errorReadlist:
   Please warn @farmy about it."
 
 animeNotifyEnabled:
-  "You will receive any notification about this anime as new episodes and news about"
+  "You will receive any notification about this anime as new episodes and news about it"
 
 animeNotifyDisabled:
   "You will not receive any further notification about this anime"
@@ -619,7 +619,7 @@ notFoundDescription:
 
 notFoundMessageText:
   "I searched about _${search}_ in [Anilist](https://anilist.co/) and came up with nothing. Please, try searching again or verify if is some kind of mistype error.\n\n\
-  Just a friendly reminder: searches only in *ENGLISH*, *JAPANESE* & content *NATIVE LANGUAGE*"
+  Just a friendly reminder: searches only in ENGLISH, JAPANESE & content NATIVE LANGUAGE"
 
 english:
   "🇬🇧 *${english}*\n"
@@ -800,7 +800,7 @@ locationMask:
 
 locationNotFoundMask:
   "🛰️ *NOTHING FOUND*\n\n\
-  Nothing found while searching for _${city}_. تحقق من عدم وجود مشكلة في الكتابة عن طريق الخطأ أو حاول إرسال موقعك."
+  Nothing found while searching for _${city}_."
 
 episode:
   "*Episode*: _${episode}_\n"

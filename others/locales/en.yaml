@@ -35,7 +35,7 @@ menuOptions:
   *Countdown*: _time to airing new episodes_\n\
   *Watchlist*: _saved animes_\n\
   *Readlist*: _saved mangas_\n\
-  *Recommendations*: _what content might interest you_\n\
+  *Recommendations*: _content that might interest you_\n\
   *Guide*: _tutorial, about, infos, news, how can you help this bot, how to request something, etc..._"
 
 helpOptions:
@@ -288,7 +288,7 @@ removedReadlist:
   "This manga was removed from your readlist!"
 
 alreadyRemovedReadlist:
-  "This anime was already removed from your readlist!"
+  "This manga was already removed from your readlist!"
 
 errorReadlist:
   "An error occurred!\n\
@@ -800,7 +800,7 @@ locationMask:
 
 locationNotFoundMask:
   "🛰️ *NOTHING FOUND*\n\n\
-  Nothing found while searching for _${city}_. تحقق من عدم وجود مشكلة في الكتابة عن طريق الخطأ أو حاول إرسال موقعك."
+  Nothing found while searching for _${city}_."
 
 episode:
   "*Episode*: _${episode}_\n"
