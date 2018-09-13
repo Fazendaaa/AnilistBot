@@ -18,7 +18,7 @@ export class UserCache {
             if (null === redis.language || undefined === redis.language) {
                 const { language } = <IDBUserInfo> await userInfo(id);
 
-                redis.language = language;
+                redis.language = (null !== language) ? language : 'en';
             }
 
             i18n.locale(redis.language);

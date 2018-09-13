@@ -25,13 +25,14 @@ const reduceLanguage = async (reduce: IReduceLanguage, acc: Promise<IUsersLangua
     return acc.then(async(newAcc) => {
         const { content_id, kind } = reduce;
         const { _id, time, language } = <IDBUserInfo> await userInfo(cur);
+        const toNotifyLanguage = (null !== language) ? language : 'en';
 
-        if (undefined === newAcc[language]) {
-            newAcc[language] = [];
+        if (undefined === newAcc[toNotifyLanguage]) {
+            newAcc[toNotifyLanguage] = [];
         } if (null !== time) {
             addLaterNotifications({ _id, content_id, kind });
         } else {
-            newAcc[language].push(_id);
+            newAcc[toNotifyLanguage].push(_id);
         }
 
         return newAcc;
@@ -69,10 +70,13 @@ const sendUser = async ({ _id, media }: IDBLaterNotificationsInfo): Promise<stri
     if (media.length > 0) {
         const translation = internationalization;
         const { language } = <IDBUserInfo> await userInfo(_id);
-        const curriedUserMessage = ((acc: Promise<string>, cur: IContentInfo) => userMessage({ language, translation }, acc, cur));
-        const message = await media.reduce(curriedUserMessage, Promise.resolve(translation.t(language, 'userReleaseHeader')));
+        const toNotifyLanguage = (null !== language) ? language : 'en';
+        const curriedUserMessage = ((acc: Promise<string>, cur: IContentInfo) => {
+            return userMessage({ language: toNotifyLanguage, translation }, acc, cur);
+        });
+        const message = await media.reduce(curriedUserMessage, Promise.resolve(translation.t(toNotifyLanguage, 'userReleaseHeader')));
 
-        return telegram.sendMessage(_id, message, dailyNotificationExtra({ language, translation }));
+        return telegram.sendMessage(_id, message, dailyNotificationExtra({ language: toNotifyLanguage, translation }));
     }
 };
 
