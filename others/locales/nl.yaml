@@ -50,7 +50,7 @@ helpOptions:
   - *Your own watchlist and readlist*\n\n\
   To receive notifications, just add the anime in your watchlist after searching for it, there's a button for that in the searched content.\n\n\
   Any other questions?\n\n\
-  Press _Menu_ and see the guide info for more informations and settings about this bot."
+  Press Menu and see the guide info for more informations and settings about this bot."
 
 userOptions:
   "😀 *USER*\n\n\
@@ -67,7 +67,7 @@ notifyOptions:
   When news about your animes are released — airing or not —, you will be notified about. This only works for news in English.\n\n\
   *Specific Cases*\n\
   If you would like to enable or disable notification to given animes/mangas, you can do that directly through the media in your lists.\n\n
-  Would you really like to disable *ALL* of the __episodes__ and __news__ notifications?"
+  Would you really like to disable ALL of the episodes and news notifications?"
 
 timeOptions:
   "⏰ *TIME*\n\n\
@@ -88,12 +88,12 @@ locationOptions:
 
 askLocationOptions:
   "🌎 *LOCATION*\n\n\
-  Please, reply this message *IN ENGLISH* with the name of your city. I will make a search and save here as your location."
+  Please, reply this message IN ENGLISH with the name of your city. I will make a search and save here as your location."
 
 sendLocationOptions:
   "🌎 *LOCATION*\n\n\
   Please, now send me your location clicking in the button.\n\n\
-  note: just a friendly reminder, you *CANNOT* send your location in Telegram Desktop. If that is your case, please back and follow the others steps."
+  note: just a friendly reminder, you CANNOT send your location in Telegram Desktop. If that is your case, please back and follow the others steps."
 
 removeLocationOptions:
   "🌎 *LOCATION*\n\n\
@@ -111,18 +111,18 @@ guideOptions:
   *Anime Time Calculator*\n\n\
   Just a calculator of how much time you have passed watching anime.\n\n\
   *User Language*\n\n\
-  By default I work with your Telegram language, if not provided my default language is English. If you want change that, go to _User_ tab and change this.\n\n\
+  By default I work with your Telegram language, if not provided my default language is English. If you want change that, go to User tab and change this.\n\n\
   *User Location*\n\n\
   _\"WHY ASKY MY LOCATION???\"_ — You\n\n\
   I won't follow you or anything, is simple: right now I'm running in a server, if you want to change your time for notifications and choose to be notified 13h, it will be 13h in the server time — that uses the UTC standard.\n\
   If you want to be notified in 13h in your country, I need to know what country is first.\n\
   Or you can also calculate your time in UTC hours; just a little reminder, of your country — like of my own creator — that has daylight saving, you need to consider that also.\n\n\
   *Watchlist/Readlist*\n\n\
-  To see more info about your anime/manga just press _More Info_ button.\n\n\
+  To see more info about your anime/manga just press More Info button.\n\n\
   *Notifications*\n\n\
-  Notifications are enabled for all airing animes by default. If you want to disable it open _User_ tab then click in _Notify_.\n\
+  Notifications are enabled for all airing animes by default. If you want to disable it open User tab then click in Notify.\n\
   If you want to disable or enable notifications to specific animes, open it watchlist and then click more info.\n\
-  Or event if want set a time of the day for receive all notifications, click in _Time_ in _User_ tab."
+  Or event if want set a time of the day for receive all notifications, click in Time in User tab."
 
 aboutOptions:
   "⚙️ *ABOUT*\n\n\

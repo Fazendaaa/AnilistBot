@@ -144,7 +144,7 @@ readlistOptions:
 
 readlistMoreInfoOptions:
   "🔖 *MEHR INFO*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/more/more.png)\n\
-  Click in the desired manga to configure it's notifications or even remove it from your list."
+  Klicken Sie auf den gewünschten Manga, um die Benachrichtigungen zu konfigurieren oder sogar aus Ihrer Liste zu entfernen."
 
 soonMangaOptions:
   "🔖 *BALD*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/soon/soon.png)\n\n\
@@ -168,7 +168,7 @@ watchlistOptions:
 
 watchlistMoreInfoOptions:
   "🎭 *MEHR INFO*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/more/more.png)\n\
-  Click in the desired anime to configure it's notifications or even remove it from your list."
+  Klicken Sie auf den gewünschten Anime, um seine Benachrichtigungen zu konfigurieren oder sogar aus Ihrer Liste zu entfernen."
 
 soonAnimeOptions:
   "🎭 *BALD*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/soon/soon.png)\n\n\
