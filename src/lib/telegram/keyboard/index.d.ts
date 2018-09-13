@@ -28,6 +28,11 @@ export interface INotifyKeyboard {
     readonly translation: I18n;
 }
 
+export interface IDailyNotificationKeyboard {
+    readonly language: string;
+    readonly translation: I18n;
+}
+
 export interface IStaffKeyboardContext extends IMinimumKeyboardContext { }
 
 export interface ICharacterKeyboardContext extends IMinimumKeyboardContext { }

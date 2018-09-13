@@ -1,10 +1,9 @@
 import { Markup } from 'telegraf';
-import { I18n } from 'telegraf-i18n';
 import { InlineKeyboardMarkup } from 'telegram-typings';
+import { IDailyNotificationKeyboard } from '.';
 
-export const dailyNotificationKeyboard = (translation: I18n): InlineKeyboardMarkup => {
+export const dailyNotificationKeyboard = ({ language, translation }: IDailyNotificationKeyboard): InlineKeyboardMarkup => {
     return Markup.inlineKeyboard([
-        Markup.callbackButton(translation.t('yesButton'), 'LOCATION/REMOVE/YES'),
-        Markup.callbackButton(translation.t('noButton'), 'LOCATION/REMOVE/NO')
+        Markup.callbackButton(translation.t(language, 'sourceButton'), 'SOURCE')
     ]);
 };

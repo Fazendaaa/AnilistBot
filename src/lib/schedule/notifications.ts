@@ -18,9 +18,8 @@ import { handleNewRelease, handleUserRelease } from '../telegram/parse/media';
 config();
 
 const telegram = new Telegram(process.env.BOT_KEY);
-// const eachHour = '* * */1 * * *';
-const eachHour = '*/3 * * * * *';
-const eachHalfHour = '* */30 * * * *';
+const eachHour = '00 * * * *';
+const eachHalfHour = '00,30 * * * *';
 
 const reduceLanguage = async (reduce: IReduceLanguage, acc: Promise<IUsersLanguage>, cur: number): Promise<IUsersLanguage> => {
     return acc.then(async(newAcc) => {
@@ -73,7 +72,7 @@ const sendUser = async ({ _id, media }: IDBLaterNotificationsInfo): Promise<stri
         const curriedUserMessage = ((acc: Promise<string>, cur: IContentInfo) => userMessage({ language, translation }, acc, cur));
         const message = await media.reduce(curriedUserMessage, Promise.resolve(translation.t(language, 'userReleaseHeader')));
 
-        return telegram.sendMessage(_id, message, dailyNotificationExtra(translation));
+        return telegram.sendMessage(_id, message, dailyNotificationExtra({ language, translation }));
     }
 };
 
@@ -88,15 +87,7 @@ export const mediaSchedule = (): Job => scheduleJob('Sending content upon releas
 
 export const userSchedule = (): Job => scheduleJob('Sending content to the user desired time.', eachHour, async () => {
     const kind = true;
-    // const usersToNotify = await fetchLaterNotifications({ kind });
-    const usersToNotify = [ {
-        _id: 53504470,
-        media: [ {
-            kind: true,
-            content_id: 1
-        } ],
-        time: new Date()
-    } ];
+    const usersToNotify = await fetchLaterNotifications({ kind });
 
     usersToNotify.map(sendUser);
 });

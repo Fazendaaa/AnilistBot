@@ -203,6 +203,21 @@ recommendationOptions:
 languageOptions:
   "Por favor, escolha uma das opções seguintes como o seu idioma:"
 
+sourceOptions:
+  "📋 *VEJA MAIS*\n\n\
+  Graças ao trabalho do pessoal por trás do [Anilist](http://anilist.co/) que eu estou aqui.\n\
+  Não sou um bot oficial ou nada do tipo. Mas graças aos que fizeram este site incrível que eu pude ser concebido. Por favor, considere dar uma olhada nele!\n\n\
+  Também este outro conteúdo importante:\n\n\
+  - [ANN](https://www.animenewsnetwork.com/) — atualmente trablhando em um jeito de integrar as notificações de notícias aqui mas também irei procurar serviços brasileiros que deem suporte para tal\n\
+  - [Reddit](https://www.reddit.com/r/anime/) — se você gostar de compartilhar sua opinião sobre animes\n\
+  - [Bunka Pop](https://www.youtube.com/channel/UCftNzwQtUCWOcSkRdEADS2g) — caso goste de assistir reviews sobre animes e coisas do tipo\n\n\
+  Em um futuro próximo, meu criador pretende criar um grupo para que ele possa ouvir o feedback de vocês e saber a sua opinião sobre mim e como pode me melhorar baseado nisso.\n\
+  Só para vocês saberem, o suporte a Português brasileiro foi um feedback coletado por ele e colocado nessa minha nova versão.\n\n\
+  Você também pode me ajudar através de:\n\
+  - [Review](https://storebot.me/bot/anilistbot) — escrever um review sobre mim na loja do Telegram\n\
+  - [Suporte me](https://fazendaaa.github.io/AnilistBot) — veja como pode me suportar na parte de *Suporte*, com um real por mês você pode me ajudar a continuar existindo\n\n\
+  Qualquer outra dúvida, fale com meu criador: @farmy :)"
+
 setLanguage:
   "👌 *IDIOMA CONFIGURADO*\n\n\
   Por favor, espere alguns segundos para essa configuração começar a funcionar."
@@ -490,6 +505,9 @@ readlistButton:
 aboutButton:
   "Sobre"
 
+sourceButton:
+  "Veja mais"
+
 notAvailable:
   "Não Diponível"
 
@@ -716,6 +734,7 @@ newRelease:
 
 userReleaseHeader:
   "[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/notification/notification.png)\
+  🔔 *RESUMO DO DIA*\n\n\
   Esses são as suas notificações diárias:\n\n"
 
 userRelease:

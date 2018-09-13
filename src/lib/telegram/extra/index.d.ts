@@ -72,3 +72,8 @@ export interface IHandleMediaNotifyExtra {
     readonly translation: I18n;
     readonly request: 'ANIME' | 'MANGA';
 }
+
+export interface IDailyNotificationExtra {
+    readonly language: string;
+    readonly translation: I18n;
+}

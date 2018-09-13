@@ -9,6 +9,7 @@ export type Period = 'AM' |
 
 export type KindRequest = 'LIST' |
                           'MENU' |
+                          'SOURCE' |
                           'ANILIST'
 
 export type MenuRequest = 'USER' |

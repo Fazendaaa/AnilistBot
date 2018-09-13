@@ -202,6 +202,20 @@ recommendationOptions:
 languageOptions:
   "Please, choose one of the following language options:"
 
+sourceOptions:
+  "📋 *SEE MORE*\n\n\
+  I'm only here thanks to those behind [Anilist](http://anilist.co/).\n\
+  I'm not a official bot or anyhting like it. But thanks to those who made it this awesome site that I'm currently available. Please consider cheking out!\n\n\
+  Or any other relevant content like those available at:\n\n\
+  - [ANN](https://www.animenewsnetwork.com/) — currently working on a way to aggregate the anime/manga news here\n\
+  - [Reddit](https://www.reddit.com/r/anime/) — if you like to share your opinion\n\
+  - [Gigguk](https://www.youtube.com/channel/UC7dF9qfBMXrSlaaFFDvV_Yg) — if you like to watch reviews\n\n\
+  In a new future my creator want to create a group here so that he can listen to you guys and take your opion about new features and how to improve me.\n\n\
+  Right now if can you could help me out:\n\
+  - [Review](https://storebot.me/bot/anilistbot) — review me at the Telegram Bot Store\n\
+  - [Support me](https://fazendaaa.github.io/AnilistBot) — Read how and why you make a difference in the *Supporting* section\n\
+  Any other doubts, talk to my creator: @farmy :)"
+
 setLanguage:
   "👌 *LANGUAGE CONFIGURED*\n\n\
   Please, wait a few seconds to this configuration to works."
@@ -489,6 +503,9 @@ readlistButton:
 aboutButton:
   "About"
 
+sourceButton:
+  "Source"
+
 notAvailable:
   "Not Available"
 
@@ -715,6 +732,7 @@ newRelease:
 
 userReleaseHeader:
   "[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/notification/notification.png)\
+  🔔 *DAILY DIGEST*\n\n\
   This are your daily digest notifications:\n\n"
 
 userRelease:

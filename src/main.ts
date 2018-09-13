@@ -95,7 +95,7 @@ bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotCont
     return answerInlineQuery(toInlineArticle(results), { next_offset });
 });
 
-bot.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callbackQuery }: IBotContext) => {
+bot.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callbackQuery, replyWithMarkdown }: IBotContext) => {
     const data = callbackQuery.data.split('/');
     const kind = <KindRequest> data[0];
     const common = { translation: i18n, dbStatus };
@@ -115,6 +115,8 @@ bot.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callbackQuer
             action: <ListAction> data[2],
             request: <ListRequest> data[1]
         }), true);
+    } if ('SOURCE' === kind) {
+        return replyWithMarkdown(i18n.t('sourceOptions'));
     }
 
     return scene.enter('Menu', 'callback_query');
