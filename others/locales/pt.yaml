@@ -714,6 +714,20 @@ newRelease:
   ${streamingEpisodes}\
   \n[veja mais](${siteUrl})"
 
+userReleaseHeader:
+  "[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/notification/notification.png)\
+  Esses são as suas notificações diárias:\n\n"
+
+userRelease:
+  "${newContent}\
+  ${native}\
+  ${english}\
+  ${romaji}\
+  ${isAdult}\
+  ${kind}\
+  ${streamingEpisodes}\
+  \n[see more](${siteUrl})"
+
 native:
   "- *Nativo*: _${native}_\n"
 

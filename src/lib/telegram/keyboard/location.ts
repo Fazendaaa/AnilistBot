@@ -4,7 +4,7 @@ import { InlineKeyboardMarkup } from 'telegram-typings';
 
 export const confirmBackKeyboard = (): InlineKeyboardMarkup => Markup.inlineKeyboard([Markup.callbackButton('<', 'USER/ALL')]);
 
-export const sendLocationKeyboard = (translation: I18n) => Markup.resize().keyboard([
+export const sendLocationKeyboard = (translation: I18n): InlineKeyboardMarkup  => Markup.resize().keyboard([
     Markup.locationRequestButton(translation.t('dataLocationButton')),
     translation.t('menu')
 ]);

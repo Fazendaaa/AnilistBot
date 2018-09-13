@@ -15,7 +15,7 @@ import session from 'telegraf/session';
 import { UserCache } from 'user-cache';
 import { AnilistObject, AnilistRequest } from './lib/anilist';
 import { counterSchedule } from './lib/schedule/counter';
-import { mediaSchedule } from './lib/schedule/notifications';
+import { mediaSchedule, userSchedule } from './lib/schedule/notifications';
 import { anilistCallback } from './lib/telegram/callback/anilist';
 import { listCallback } from './lib/telegram/callback/list';
 import { userStage } from './lib/telegram/stage';
@@ -49,6 +49,7 @@ connect(process.env.MONGODB_URI).then(() => {
     set('useFindAndModify', false);
 
     console.log('DB connected.');
+    userSchedule();
     mediaSchedule();
     counterSchedule();
 

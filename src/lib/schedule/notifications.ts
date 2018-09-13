@@ -3,38 +3,47 @@ import { config } from 'dotenv';
 import { internationalization } from 'main';
 import { Job, scheduleJob } from 'node-schedule';
 import Telegram from 'telegraf/telegram';
-import { UsersLanguage } from '.';
+import { IReduceLanguage, IUserMessage, IUsersLanguage } from '.';
 import { fetchNewRelease } from '../anilist/requests/newRelease';
-import { fetchMediaNotifications } from '../database/notifications/notifications';
+import { IContentInfo, IDBLaterNotificationsInfo } from '../database/notifications';
+import { addLaterNotifications, fetchLaterNotifications, fetchMediaNotifications } from '../database/notifications/notifications';
 import { INotifySubscribersResponse } from '../database/subscriptions';
 import { fetchNotifySubscribers } from '../database/subscriptions/subscription';
 import { IDBUserInfo } from '../database/user';
 import { userInfo } from '../database/user/user';
 import { handleMediaNotifyExtra } from '../telegram/extra/media';
-import { handleNewRelease } from '../telegram/parse/media';
+import { dailyNotificationExtra } from '../telegram/extra/notification';
+import { handleNewRelease, handleUserRelease } from '../telegram/parse/media';
 
 config();
 
 const telegram = new Telegram(process.env.BOT_KEY);
-const eachHour = '* */1 * * * *';
+// const eachHour = '* * */1 * * *';
+const eachHour = '*/3 * * * * *';
 const eachHalfHour = '* */30 * * * *';
 
-const reduceLanguage = async (acc: Promise<UsersLanguage>, cur: number): Promise<UsersLanguage> => acc.then(async(newAcc) => {
-    const { _id, language } = <IDBUserInfo> await userInfo(cur);
+const reduceLanguage = async (reduce: IReduceLanguage, acc: Promise<IUsersLanguage>, cur: number): Promise<IUsersLanguage> => {
+    return acc.then(async(newAcc) => {
+        const { content_id, kind } = reduce;
+        const { _id, time, language } = <IDBUserInfo> await userInfo(cur);
 
-    if (undefined === newAcc[language]) {
-        newAcc[language] = [];
-    }
+        if (undefined === newAcc[language]) {
+            newAcc[language] = [];
+        } if (null !== time) {
+            addLaterNotifications({ _id, content_id, kind });
+        } else {
+            newAcc[language].push(_id);
+        }
 
-    newAcc[language].push(_id);
+        return newAcc;
+    });
+};
 
-    return newAcc;
-});
-
-const sendMessage = async ({ kind, users, content_id }: INotifySubscribersResponse) => {
+const sendMedia = async ({ kind, users, content_id }: INotifySubscribersResponse): Promise<boolean> => {
     const translation = internationalization;
     const content = (true === kind) ? 'ANIME' : 'MANGA';
-    const usersLanguages = await users.reduce(reduceLanguage, Promise.resolve({}));
+    const curriedReduceLanguage = ((acc: Promise<IUsersLanguage>, cur: number) => reduceLanguage({ content_id, kind }, acc, cur));
+    const usersLanguages = await users.reduce(curriedReduceLanguage, Promise.resolve({}));
     const media = await fetchNewRelease({ id: content_id, content });
 
     Object.keys(usersLanguages).map(async (language) => {
@@ -44,12 +53,50 @@ const sendMessage = async ({ kind, users, content_id }: INotifySubscribersRespon
 
         usersToNotify.map(async (userId) => telegram.sendMessage(userId, message, extra));
     });
+
+    return true;
+};
+
+const userMessage = async (user: IUserMessage, acc: Promise<string>, cur: IContentInfo): Promise<string> => acc.then(async (total) => {
+    const { content_id, kind } = cur;
+    const { language, translation } = user;
+    const content = (true === kind) ? 'ANIME' : 'MANGA';
+    const data = await fetchNewRelease({ id: content_id, content });
+
+    return `${total}\n${handleUserRelease({ media: data, language, translation })}`;
+});
+
+const sendUser = async ({ _id, media }: IDBLaterNotificationsInfo): Promise<string> => {
+    if (media.length > 0) {
+        const translation = internationalization;
+        const { language } = <IDBUserInfo> await userInfo(_id);
+        const curriedUserMessage = ((acc: Promise<string>, cur: IContentInfo) => userMessage({ language, translation }, acc, cur));
+        const message = await media.reduce(curriedUserMessage, Promise.resolve(translation.t(language, 'userReleaseHeader')));
+
+        return telegram.sendMessage(_id, message, dailyNotificationExtra(translation));
+    }
 };
 
 export const mediaSchedule = (): Job => scheduleJob('Sending content upon release notification.', eachHalfHour, async () => {
-    const released = await fetchMediaNotifications();
     // Only 'true' because only Animes are currently supported to notify upon releases.
-    const mediaSubscribers = await Promise.all(released.map(async ({ _id }) => fetchNotifySubscribers({ kind: true, content_id: _id })));
+    const kind = true;
+    const released = await fetchMediaNotifications({ kind });
+    const mediaSubscribers = await Promise.all(released.map(async ({ _id }) => fetchNotifySubscribers({ kind, content_id: _id })));
 
-    mediaSubscribers.map(sendMessage);
+    mediaSubscribers.map(sendMedia);
+});
+
+export const userSchedule = (): Job => scheduleJob('Sending content to the user desired time.', eachHour, async () => {
+    const kind = true;
+    // const usersToNotify = await fetchLaterNotifications({ kind });
+    const usersToNotify = [ {
+        _id: 53504470,
+        media: [ {
+            kind: true,
+            content_id: 1
+        } ],
+        time: new Date()
+    } ];
+
+    usersToNotify.map(sendUser);
 });

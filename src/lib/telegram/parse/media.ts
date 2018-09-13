@@ -133,7 +133,6 @@ export const handleNewRelease = ({ media, language, translation }: IHandleNewRel
 
     return translation.t(language, 'newRelease', {
         siteUrl,
-        streamingEpisodes: mediaStreamingEpisodes({ streamingEpisodes, ...common }),
         season: mediaSeason({ season, ...common }),
         isAdult: mediaIsAdult({ isAdult, ...common }),
         kind: mediaKind({ format, source, ...common }),
@@ -142,6 +141,21 @@ export const handleNewRelease = ({ media, language, translation }: IHandleNewRel
         endDate: mediaEndDate({ endDate, status, ...common }),
         ...mediaAllTitle({ title, countryOfOrigin, ...common }),
         startDate: mediaStartDate({ startDate, status, ...common }),
-        newContent: mediaNewContent({ nextAiringEpisode, episodes, ...common })
+        newContent: mediaNewContent({ nextAiringEpisode, episodes, ...common }),
+        streamingEpisodes: mediaStreamingEpisodes({ streamingEpisodes, ...common })
+    });
+};
+
+export const handleUserRelease = ({ media, language, translation }: IHandleNewRelease): string => {
+    const common = { language, translation };
+    const { siteUrl, title, countryOfOrigin, isAdult, format, source, nextAiringEpisode, streamingEpisodes, episodes } = media;
+
+    return translation.t(language, 'userRelease', {
+        siteUrl,
+        isAdult: mediaIsAdult({ isAdult, ...common }),
+        kind: mediaKind({ format, source, ...common }),
+        ...mediaAllTitle({ title, countryOfOrigin, ...common }),
+        newContent: mediaNewContent({ nextAiringEpisode, episodes, ...common }),
+        streamingEpisodes: mediaStreamingEpisodes({ streamingEpisodes, ...common })
     });
 };

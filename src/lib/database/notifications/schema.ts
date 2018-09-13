@@ -8,3 +8,15 @@ export const notifySchema = new Schema({
         default: null
     }
 });
+
+export const laterNotifySchema = new Schema({
+    _id: Number,
+    time: {
+        type: Date,
+        default: null
+    },
+    media: {
+        type: Array,
+        default: []
+    }
+});
