@@ -61,8 +61,8 @@ const handleUserData = async ({ id, translation }: IHandleUserData): Promise<str
     return translation.t('userOptions', {
         time: timeFormat({ time, timezone, translation }),
         notify: (true === notify) ? translation.t('enabled') : translation.t('disabled'),
-        timezone: (null !== timezone) ? parseTimezone(timezone) : translation.t('timezoneNotSet'),
-        language: (null !== language) ? translation.t(language) : translation.t('languageDefault')
+        language: ('' !== language) ? translation.t(language) : translation.t('languageDefault'),
+        timezone: (null !== timezone) ? parseTimezone(timezone) : translation.t('timezoneNotSet')
     });
 }).catch(() => translation.t('errorUserInfo'));
 

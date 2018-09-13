@@ -25,7 +25,7 @@ const reduceLanguage = async (reduce: IReduceLanguage, acc: Promise<IUsersLangua
     return acc.then(async(newAcc) => {
         const { content_id, kind } = reduce;
         const { _id, time, language } = <IDBUserInfo> await userInfo(cur);
-        const toNotifyLanguage = (null !== language) ? language : 'en';
+        const toNotifyLanguage = ('' !== language) ? language : 'en';
 
         if (undefined === newAcc[toNotifyLanguage]) {
             newAcc[toNotifyLanguage] = [];
@@ -70,7 +70,7 @@ const sendUser = async ({ _id, media }: IDBLaterNotificationsInfo): Promise<stri
     if (media.length > 0) {
         const translation = internationalization;
         const { language } = <IDBUserInfo> await userInfo(_id);
-        const toNotifyLanguage = (null !== language) ? language : 'en';
+        const toNotifyLanguage = ('' !== language) ? language : 'en';
         const curriedUserMessage = ((acc: Promise<string>, cur: IContentInfo) => {
             return userMessage({ language: toNotifyLanguage, translation }, acc, cur);
         });
