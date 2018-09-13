@@ -4,8 +4,8 @@ import { mediaFormat, mediaSource, toNextAiring } from '../formatting/media';
 export const mediaDescription = ({ title, format, source, nextAiringEpisode, translation }: IMediaDescriptionContext): string => {
     let response = '';
 
-    if (null === title.english && null !== title.romaji) {
-        response += `${title.romaji}\n`;
+    if (null !== title.native) {
+        response += `${title.native}\n`;
     } if (null !== nextAiringEpisode && null !== nextAiringEpisode.timeUntilAiring) {
         response += `${translation.t('countdown')}${toNextAiring({ nextAiringEpisode, translation })}\n`;
     } if (null !== format) {
