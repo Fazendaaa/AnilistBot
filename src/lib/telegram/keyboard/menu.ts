@@ -114,7 +114,6 @@ export const languageKeyboard = (translation: I18n): InlineKeyboardMarkup => {
         Markup.callbackButton(translation.t('enButton'), 'USER/LANGUAGE/ENGLISH'),
         Markup.callbackButton(translation.t('deButton'), 'USER/LANGUAGE/GERMAN'),
         Markup.callbackButton(translation.t('ruButton'), 'USER/LANGUAGE/RUSSIAN'),
-        Markup.callbackButton(translation.t('faButton'), 'USER/LANGUAGE/FARSI'),
         Markup.callbackButton(translation.t('frButton'), 'USER/LANGUAGE/FRENCH'),
         Markup.callbackButton(translation.t('idButton'), 'USER/LANGUAGE/INDONESIAN'),
         Markup.callbackButton(translation.t('jpButton'), 'USER/LANGUAGE/JAPANESE'),

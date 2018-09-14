@@ -23,8 +23,6 @@ export const getLanguageCode = (request: LanguageRequest): string => {
         return 'zh';
     } if ('JAPANESE' === request) {
         return 'jp';
-    } if ('FARSI' === request) {
-        return 'fa';
     }
 
     return 'en';

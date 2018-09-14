@@ -54,7 +54,6 @@ By default all the commands are in English, but you can see if the same command 
 * [Chinese](./others/locales/zh.yaml)
 * [Dutch](./others/locales/nl.yaml)
 * [English](./others/locales/en.yaml)
-* [Farsi](./others/locales/fa.yaml)
 * [French](./others/locales/fr.yaml)
 * [German](./others/locales/de.yaml)
 * [Indonesian](./others/locales/id.yaml)
