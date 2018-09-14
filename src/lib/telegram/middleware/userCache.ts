@@ -2,7 +2,9 @@ import { IBotContext, LanguageRequest, MenuRequest, UserRequest } from 'telegraf
 import { IHandleNext } from '.';
 import { IDBUserInfo } from '../../database/user';
 import { userInfo } from '../../database/user/user';
-import { getLanguageCode } from '../parse/language';
+import { getLanguageCode, supportedLanguage } from '../parse/language';
+
+const notFoundUserLanguage = (userLanguage: LanguageRequest): string => (true === supportedLanguage(userLanguage)) ? userLanguage : 'en';
 
 /**
  * Just a setting user language if available.
@@ -18,7 +20,7 @@ export class UserCache {
             if (null === redis.language || undefined === redis.language) {
                 const { language } = <IDBUserInfo> await userInfo(id);
 
-                redis.language = ('' !== language) ? language : 'en';
+                redis.language = ('' === language) ? notFoundUserLanguage(<LanguageRequest> i18n.locale()) : language;
             }
 
             i18n.locale(redis.language);

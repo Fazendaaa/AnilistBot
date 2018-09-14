@@ -27,3 +27,33 @@ export const getLanguageCode = (request: LanguageRequest): string => {
 
     return 'en';
 };
+
+export const supportedLanguage = (request: LanguageRequest): boolean => {
+    if ('ARABIC' === request) {
+        return true;
+    } if ('PORTUGUESE' === request) {
+        return true;
+    } if ('INDONESIAN' === request) {
+        return true;
+    } if ('DUTCH' === request) {
+        return true;
+    } if ('SPANISH' === request) {
+        return true;
+    } if ('ITALIAN' === request) {
+        return true;
+    } if ('DEUTSCH' === request) {
+        return true;
+    } if ('FRENCH' === request) {
+        return true;
+    } if ('RUSSIAN' === request) {
+        return true;
+    } if ('CHINESE' === request) {
+        return true;
+    } if ('JAPANESE' === request) {
+        return true;
+    } if ('ENGLISH' === request) {
+        return true;
+    }
+
+    return false;
+};
