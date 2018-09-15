@@ -30,6 +30,8 @@ const redisStorage = new RedisSession({
     property: 'redis',
     ttl: userSessionLimit,
     store: {
+        port: null,
+        host: null,
         url: process.env.REDIS_URL
     }
 });
