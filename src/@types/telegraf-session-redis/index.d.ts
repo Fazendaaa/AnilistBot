@@ -6,12 +6,12 @@ declare module 'telegraf-session-redis' {
         readonly db?: any;
         readonly url?: string;
         readonly tls?: object;
-        readonly host: string;
+        readonly host?: string;
         readonly path?: string;
         readonly family?: 'IPv6';
         readonly prefix?: string;
         readonly password?: string;
-        readonly port: string | number;
+        readonly port?: string | number;
         readonly string_numbers?: boolean;
         readonly return_buffers?: boolean;
         readonly detect_buffers?: boolean;
