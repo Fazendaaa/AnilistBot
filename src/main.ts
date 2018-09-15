@@ -31,7 +31,8 @@ const redisStorage = new RedisSession({
     ttl: userSessionLimit,
     store: {
         host: process.env.TELEGRAM_SESSION_HOST,
-        port: process.env.TELEGRAM_SESSION_PORT
+        port: process.env.TELEGRAM_SESSION_PORT,
+        password: process.env.TELEGRAM_SESSION_PWD
     }
 });
 export const internationalization = new I18n({
