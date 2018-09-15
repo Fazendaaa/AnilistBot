@@ -69,15 +69,47 @@ By default all the commands are in English, but you can see if the same command 
 First of all, talk to [@AnilistBot](http://t.me/anilistbot).
 
 ## Inline Searches
+The inline searches works in any chat conversation:
 
-## Command Searches
+```
+@AnilistBot search content
+```
+
+Example:
+
+```
+@AnilistBot One Piece
+```
+
+<div align="center">
+    <img src="./others/gif/search.gif"/>
+    <br>
+    <img src="./others/img/docs/search/search.png"/>
+</div>
+
+## Descriptions & Genres
+Shows info about anime/manga.
+
+<div align="center">
+    <img src="./others/gif/buttons.gif"/>
+</div>
 
 ## Readlist & Watchlist
+Add to your list to watch or read later.
+
+<div align="center">
+    <img src="./others/gif/list.gif"/>
+</div>
 
 ## Countdown
+Shows a countdown of your next content releases.
+
+<div align="center">
+    <img src="./others/gif/countdown.gif"/>
+</div>
 
 ## Help
-If you have any other questions about it just use it the help command:
+If you have any other questions about it just use it the help command in a bot chat talk:
 
 ```
 /help

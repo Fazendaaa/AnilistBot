@@ -35,11 +35,14 @@ const handleDeprecatedDB = async (user: IDBUser): Promise<IDBUser | {}> => {
     let changed = false;
 
     if (undefined === user.time) {
+        changed = true;
         user.time = null;
+    } if (undefined === user.language) {
         changed = true;
+        user.language = '';
     } if (undefined === user.timezone) {
-        user.timezone = null;
         changed = true;
+        user.timezone = null;
     } if (true === changed) {
         return user.save().then(async (userSaved: IDBUser) => userSaved).catch(catchError);
     }
@@ -61,9 +64,12 @@ const __userInfo = async (user: IDBUser) => handleDeprecatedDB(user).then((userS
 
 export const userAll = async ({ success, error }: IUserAllContext): Promise<void> => User.find({}).then(success).catch(error);
 
-// This function only uses findByIdAndUpdate instead of findById because of the older DB that has to be compatible.
 export const userInfo = async (id: number): Promise<IDBUserInfo | {}> => {
-    return User.findByIdAndUpdate(id, {}, options).then(__userInfo).catch(catchError);
+    return User.findByIdAndUpdate(id, {}, options).then(async (user: IDBUser) => {
+        const updatedUser = await handleDeprecatedDB(user);
+
+        return __userInfo(<IDBUser> updatedUser);
+    }).catch(catchError);
 };
 
 export const userFind = async ({ id, success, error }: IUserContext): Promise<void> => {

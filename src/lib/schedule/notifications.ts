@@ -42,7 +42,7 @@ const reduceLanguage = async (reduce: IReduceLanguage, acc: Promise<IUsersLangua
 const sendMedia = async ({ kind, users, content_id }: INotifySubscribersResponse): Promise<boolean> => {
     const translation = internationalization;
     const content = (true === kind) ? 'ANIME' : 'MANGA';
-    const curriedReduceLanguage = ((acc: Promise<IUsersLanguage>, cur: number) => reduceLanguage({ content_id, kind }, acc, cur));
+    const curriedReduceLanguage = (async (acc: Promise<IUsersLanguage>, cur: number) => reduceLanguage({ content_id, kind }, acc, cur));
     const usersLanguages = await users.reduce(curriedReduceLanguage, Promise.resolve({}));
     const media = await fetchNewRelease({ id: content_id, content });
 
@@ -71,7 +71,7 @@ const sendUser = async ({ _id, media }: IDBLaterNotificationsInfo): Promise<stri
         const translation = internationalization;
         const { language } = <IDBUserInfo> await userInfo(_id);
         const toNotifyLanguage = ('' !== language) ? language : 'en';
-        const curriedUserMessage = ((acc: Promise<string>, cur: IContentInfo) => {
+        const curriedUserMessage = (async (acc: Promise<string>, cur: IContentInfo) => {
             return userMessage({ language: toNotifyLanguage, translation }, acc, cur);
         });
         const message = await media.reduce(curriedUserMessage, Promise.resolve(translation.t(toNotifyLanguage, 'userReleaseHeader')));

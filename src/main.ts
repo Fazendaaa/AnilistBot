@@ -63,7 +63,7 @@ connect(process.env.MONGODB_URI).then(() => {
     dbStatus = false;
 });
 
-redisStorage.client.on('connect', () => console.log('Redis connected.')).on('error', console.error);
+redisStorage.client.on('connect', console.log).on('error', console.error);
 
 bot.startPolling();
 
