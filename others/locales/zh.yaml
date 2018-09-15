@@ -1,549 +1,549 @@
 start:
-  "*Welcome*, _${from.username}!_\n\n\
-  I'm AnilistBot, your search bot about the anime world. But I can do so much more, to know about it just click in /more!"
+  "*欢迎*, _${from.username}!_\n\n\
+  我是AnilistBot，你的搜索机器人关于动漫世界。但我可以做更多，只需点击即可了解它 /more!"
 
 dbDown:
-  "Unfortunately, the database is currently down. Please, inform @farmy about this, so he can fix it!"
+  "不幸的是，数据库目前已关闭。请告诉@farmy这个，所以他可以解决它！"
 
 dbDownPrivate:
-  "🤔 *WARNING*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/db_down/db_down.png)\n\n\
-  Unfortunately, the database is currently down. Please, inform @farmy about this, so he can fix it!\n\n\
-  Some of the bot options might work and some others won't."
+  "🤔 *警告*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/db_down/db_down.png)\n\n\
+  不幸的是，数据库目前已关闭。请告诉@farmy这个，所以他可以解决它！\n\n\
+  一些机器人选项可能有用，有些则不然。"
 
 menu:
-  "menu"
+  "菜单"
 
 help:
-  "help"
+  "帮帮我"
 
 loading:
-  "Loading..."
+  "载入中..."
 
 leavingMenu:
-  "Leaving menu..."
+  "离开菜单..."
 
 leavingLocation:
-  "Leaving location..."
+  "离开位置..."
 
 menuGreetings:
-  "Hello again, _${from.username}_."
+  "再一次问好， _${from.username}_."
 
 menuOptions:
-  "📕\t*MENU*\n\n\
-  *User*: _info about: notifications, language, time and location_\n\
-  *Counter*: _how much time in watching anime_\n\
-  *Countdown*: _time to airing new episodes_\n\
-  *Watchlist*: _saved animes_\n\
-  *Readlist*: _saved mangas_\n\
-  *Recommendations*: _content that might interest you_\n\
-  *Guide*: _tutorial, about, infos, news, how can you help this bot, how to request something, etc..._"
+  "📕\t*菜单*\n\n\
+  *用户*: _信息：通知，语言，时间和地点_\n\
+  *计数器*: _看动漫多少时间_\n\
+  *倒数*: _是时候播放新剧集了_\n\
+  *监视列表*: _保存动漫_\n\
+  *Readlist*: _救了漫画_\n\
+  *建议*: _您可能感兴趣的内容_\n\
+  *指南*: _教程，关于，信息，新闻，你如何帮助这个机器人，如何请求的东西，等等..._"
 
 helpOptions:
-  "How can I be helpful to you today, _${from.username}_?\n\n\
-  Let's us try an example, type the following in ANY chat then click in the desired result:\n\n\
+  "我今天怎样才能对你有所帮助 _${from.username}_?\n\n\
+  让我们尝试一个示例，在任何聊天中键入以下内容，然后单击所需的结果：\n\n\
   ``` @ANILISTbot Pokemon```\n\n\
-  This bot has special features for you:\n\
-  - *Notifications when new episodes releases*\n\
-  - *News about your mangas and animes*\n\
-  - *Time watching on anime calculator*\n\
-  - *Countdown for episodes*\n\
-  - *Your own watchlist and readlist*\n\n\
-  To receive notifications, just add the anime in your watchlist after searching for it, there's a button for that in the searched content.\n\n\
-  Any other questions?\n\n\
-  Press Menu and see the guide info for more informations and settings about this bot."
+  这个机器人有特殊功能：\n\
+  - *新剧集发布时的通知*\n\
+  - *关于你的漫画和动漫的新闻*\n\
+  - *观看在动漫计算器的时间*\n\
+  - *剧集倒计时*\n\
+  - *您自己的关注列表和阅读清单*\n\n\
+  要接收通知，只需在搜索后将动画添加到关注列表中，搜索到的内容中就会有一个按钮。\n\n\
+  还有其他问题吗？\n\n\
+  按菜单，查看指南信息，了解有关此机器人的更多信息和设置。"
 
 userOptions:
-  "😀 *USER*\n\n\
-  - *User language*: _${language}_\n\
-  - *Notifications*: _${notify}_\n\
-  - *Time for notifications*: _${time}_\n\
-  - *User location*: _${timezone}_"
+  "😀 *用户*\n\n\
+  - *用户语言*: _${language}_\n\
+  - *通知*: _${notify}_\n\
+  - *通知时间*: _${time}_\n\
+  - *用户位置*: _${timezone}_"
 
 notifyOptions:
-  "✉️ *NOTIFICATIONS*\n\n\
-  *Episodes*\n\
-  When new currently airing anime episodes are released, you will be notified about it.\n\n\
-  *News*\n\
-  When news about your animes are released — airing or not —, you will be notified about. This only works for news in English.\n\n\
-  *Specific Cases*\n\
-  If you would like to enable or disable notification to given animes/mangas, you can do that directly through the media in your lists.\n\n\
-  Would you really like to disable ALL of the episodes and news notifications?"
+  "✉️ *通知*\n\n\
+  *情节*\n\
+  当新的当前播出的动漫剧集发布时，您将收到有关它的通知。\n\n\
+  *新闻*\n\
+  当有关您的动漫的新闻发布 - 播出与否 - 时，您将收到有关的通知。这仅适用于英语新闻。\n\n\
+  *具体案例*\n\
+  如果您想启用或禁用给定动画/漫画的通知，您可以直接通过列表中的媒体进行操作。\n\n\
+  你真的想要禁用所有的剧集和新闻通知吗？"
 
 timeOptions:
-  "⏰ *TIME*\n\n\
-  Change here the time for your notifications.\n\n\
-  You can do that by setting the time by yourself — just remember my clock is the UTC clock — or send me your location in the user options so that way I can send you the notifications in your local time."
+  "⏰ *时间*\n\n\
+  在此更改通知的时间。\n\n\
+  您可以通过自己设置时间来做到这一点 - 只记得我的时钟是UTC时钟 - 或者在用户选项中将您的位置发送给我，这样我就可以在当地时间向您发送通知。"
 
 timePeriodOptions:
-  "⏰ *PERIOD*\n\n\
-  Would you like to be notified by the morning period or the afternoon?"
+  "⏰ *期*\n\n\
+  您想在早上或下午收到通知吗？"
 
 timeHourOptions:
-  "⏰ *HOUR*\n\n\
-  Select your desired time to receive notifications."
+  "⏰ *小时*\n\n\
+  选择接收通知所需的时间。"
 
 locationOptions:
-  "🌎 *LOCATION*\n\n\
-  Inform me your location so, that way, I can send notifications in your local time."
+  "🌎 *位置*\n\n\
+  告诉我您的位置，这样，我就可以在您当地时间发送通知。"
 
 askLocationOptions:
-  "🌎 *LOCATION*\n\n\
-  Please, reply this message IN ENGLISH with the name of your city. I will make a search and save here as your location."
+  "🌎 *位置*\n\n\
+  请用您所在城市的名称回复此短信IN ENGLISH。我会搜索并保存在这里作为您的位置。"
 
 sendLocationOptions:
-  "🌎 *LOCATION*\n\n\
-  Please, now send me your location clicking in the button.\n\n\
-  note: just a friendly reminder, you CANNOT send your location in Telegram Desktop. If that is your case, please back and follow the others steps."
+  "🌎 *位置*\n\n\
+  请现在点击按钮向我发送您的位置。\n\n\
+  注意：只是友情提醒，您无法在Telegram Desktop中发送您的位置。如果是这种情况，请返回并按照其他步骤操作。"
 
 removeLocationOptions:
-  "🌎 *LOCATION*\n\n\
-  Are you sure that you want to remove your current location?"
+  "🌎 *位置*\n\n\
+  您确定要删除当前位置吗？"
 
 removeLocationNoOptions:
-  "🌎 *LOCATION*\n\n\
-  Your location still the same. Nothing changed."
+  "🌎 *位置*\n\n\
+  你的位置还是一样的。没有改变。"
 
 guideOptions:
-  "🗺️ *GUIDE*\n\n\
-  *Search features*\n\n\
-  On inline mode:\n\n\
+  "🗺️ *指南*\n\n\
+  *搜索功能*\n\n\
+  在内联模式：\n\n\
   ``` @ANILISTbot Pokemon```\n\n\
-  *Anime Time Calculator*\n\n\
-  Just a calculator of how much time you have passed watching anime.\n\n\
-  *User Language*\n\n\
-  By default I work with your Telegram language, if not provided my default language is English. If you want change that, go to User tab and change this.\n\n\
-  *User Location*\n\n\
-  _\"WHY ASKY MY LOCATION???\"_ — You\n\n\
-  I won't follow you or anything, is simple: right now I'm running in a server, if you want to change your time for notifications and choose to be notified 13h, it will be 13h in the server time — that uses the UTC standard.\n\
-  If you want to be notified in 13h in your country, I need to know what country is first.\n\
-  Or you can also calculate your time in UTC hours; just a little reminder, of your country — like of my own creator — that has daylight saving, you need to consider that also.\n\n\
-  *Watchlist/Readlist*\n\n\
-  To see more info about your anime/manga just press More Info button.\n\n\
-  *Notifications*\n\n\
-  Notifications are enabled for all airing animes by default. If you want to disable it open User tab then click in Notify.\n\
-  If you want to disable or enable notifications to specific animes, open it watchlist and then click more info.\n\
-  Or event if want set a time of the day for receive all notifications, click in Time in User tab."
+  *动漫时间计算器*\n\n\
+  只是计算你看动漫的时间。\n\n\
+  *用户语言*\n\n\
+  默认情况下，我使用您的Telegram语言，如果没有提供，我的默认语言是英语。如果要更改，请转到“用户”选项卡并更改此设置。\n\n\
+  *用户位置*\n\n\
+  _\"为什么我的位置问题???\"_ — 您\n\n\
+  我不会关注你或任何事情，很简单：现在我在服务器上运行，如果你想改变你的通知时间并选择通知13h，它将在服务器时间13h  - 使用UTC标准。\n\
+  如果您希望在您所在的国家/地区13h收到通知，我需要知道哪个国家/地区是第一位的。\n\
+  或者您也可以按UTC时间计算您的时间;只是提醒你，你的国家 - 就像我自己的创造者 - 有夏令时，你也需要考虑。\n\n\
+  *监视列表/ Readlist*\n\n\
+  要查看有关动漫/漫画的更多信息，请按“更多信息”按钮。\n\n\
+  *通知*\n\n\
+  默认情况下，所有播放动画都会启用通知。如果要禁用它，请打开“用户”选项卡，然后单击“通知”。\n\
+  如果要禁用或启用特定动画的通知，请打开它，然后单击更多信息。\n\
+  或者如果想要设置当天接收所有通知的时间，请单击“用户”选项卡中的“时间”。"
 
 aboutOptions:
-  "⚙️ *ABOUT*\n\n\
-  [‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/about/about.png)Bot news and polls about new features are released in my [channel](https://t.me/ANILISTbotchannel) — *English only*.\n\n\
-  See more about me at:\n\
-  🤖 [My website](https://fazendaaa.github.io/AnilistBot) — The history behind me.\n\
-  ⭐ [Github](https://github.com/Fazendaaa/AnilistBot) — Star this project, IT'S FREE!!!\n\
-  😀 [Creator's website](http://fazendaaa.me) — Check it out some other bots.\n\n\
-  Or even consider it supporting my creator:\n\
-  📅 [Patreon](https://www.patreon.com/Fazenda/overview) — Subscription.\n\
-  ☕ [Buy me a coffee](https://www.buymeacoffee.com/Fazenda) — One time only.\n\
-  ❓ [Why support it?](https://fazendaaa.github.io/AnilistBot) — Read more why you make a difference in the Supporting part. You can help maintaining me alive with just one dollar per month!\n\n\
-  *Has any suggestions, errors to report it or even request a my translation so I can work in your native language?*\n\n\
-  Feel free to tell to my creator: @farmy."
+  "⚙️ *关于*\n\n\
+  [‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/about/about.png)关于新功能的机器人新闻和民意调查在我的[频道](https://t.me/ANILISTbotchannel)发布 — *仅限英语*.\n\n\
+  在以下位置查看更多关于我\n\
+  🤖 [我的网站](https://fazendaaa.github.io/AnilistBot) — 我背后的历史。\n\
+  ⭐ [Github](https://github.com/Fazendaaa/AnilistBot) — 明星这个项目，它是免费的！\n\
+  😀 [创作者的网站](http://fazendaaa.me) — 看看其他一些机器人。\n\n\
+  或者甚至认为它支持我的创作者：\n\
+  📅 [Patreon](https://www.patreon.com/Fazenda/overview) — 订阅.\n\
+  ☕ [Buy me a coffee](https://www.buymeacoffee.com/Fazenda) — 仅一次.\n\
+  ❓ [为什么支持它？](https://fazendaaa.github.io/AnilistBot) — 阅读更多为什么您在支持部分中有所作为。你可以用每月一美元帮我维持生命！\n\n\
+  *有任何建议，错误报告，甚至要求我的翻译，所以我可以用你的母语工作？*\n\n\
+  随意告诉我的创作者：@farmy。"
 
 readlistOptions:
-  "🔖 *ALL*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/all/all.png)\n\n\
+  "🔖 *所有*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/all/all.png)\n\n\
   ${manga}"
 
 readlistMoreInfoOptions:
-  "🔖 *MORE INFO*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/more/more.png)\n\
-  Click in the desired manga to configure it's notifications or even remove it from your list."
+  "🔖 *更多信息*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/more/more.png)\n\
+  单击所需的漫画以配置其通知，甚至从列表中删除它。"
 
 soonMangaOptions:
-  "🔖 *SOON*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/soon/soon.png)\n\n\
+  "🔖 *不久*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/soon/soon.png)\n\n\
   ${manga}"
 
 publishingMangaOptions:
-  "🔖 *PUBLISHING*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/releasing/releasing.png)\n\n\
+  "🔖 *出版*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/releasing/releasing.png)\n\n\
   ${manga}"
 
 completedMangaOptions:
-  "🔖 *COMPLETED*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/completed/completed.png)\n\n\
+  "🔖 *已完成*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/completed/completed.png)\n\n\
   ${manga}"
 
 cancelledMangaOptions:
-  "🔖 *CANCELLED*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/cancelled/cancelled.png)\n\n\
+  "🔖 *取消*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/cancelled/cancelled.png)\n\n\
   ${manga}"
 
 watchlistOptions:
-  "🎭 *ALL*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/all/all.png)\n\n\
+  "🎭 *所有*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/all/all.png)\n\n\
   ${anime}"
 
 watchlistMoreInfoOptions:
-  "🎭 *MORE INFO*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/more/more.png)\n\
-  Click in the desired anime to configure it's notifications or even remove it from your list."
+  "🎭 *更多信息*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/more/more.png)\n\
+  单击所需的动漫以配置其通知，甚至将其从列表中删除。"
 
 soonAnimeOptions:
-  "🎭 *SOON*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/soon/soon.png)\n\n\
+  "🎭 *不久*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/soon/soon.png)\n\n\
   ${anime}"
 
 airingAnimeOptions:
-  "🎭 *AIRING*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/releasing/releasing.png)\n\n\
+  "🎭 *晾干*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/releasing/releasing.png)\n\n\
   ${anime}"
 
 completedAnimeOptions:
-  "🎭 *COMPLETED*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/completed/completed.png)\n\n\
+  "🎭 *已完成*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/completed/completed.png)\n\n\
   ${anime}"
 
 cancelledAnimeOptions:
-  "🎭 *CANCELLED*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/cancelled/cancelled.png)\n\n\
+  "🎭 *取消*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/cancelled/cancelled.png)\n\n\
   ${anime}"
 
 countdownOptions:
-  "⏲️ *COUNTDOWN*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/countdown/countdown.png)\n\n\
+  "⏲️ *倒数*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/countdown/countdown.png)\n\n\
   ${anime}"
 
 counterOptions:
-  "⌛ *TIME WATCHING*\n\n\
-  This is how much you have watched anime: _${counter} hours_"
+  "⌛ *时间观看*\n\n\
+  这就是你看动漫的程度： _${counter} 小时_"
 
 recommendationOptions:
-  "⚖️ *RECOMMENDATIONS*\n\n\
-  Due to your watching and read history, we are currently working on a system to give you recommendations on what you should watch or read.\n\n\
-  And you can help me out on this... Just go read the About section in Guide tab how you can help me :)"
+  "⚖️ *建议*\n\n\
+  由于您的观看和阅读历史记录，我们目前正在开发一个系统，为您提供有关您应该观看或阅读的内容的建议。\n\n\
+  你可以帮我解决这个问题......只需阅读“指南”选项卡中的“关于”部分，如何帮助我:)"
 
 languageOptions:
-  "Please, choose one of the following language options:"
+  "请选择以下语言选项之一："
 
 sourceOptions:
-  "📋 *SEE MORE*\n\n\
-  I'm only here thanks to those behind [Anilist](http://anilist.co/).\n\
-  I'm not a official bot or anything like it. But thanks to those who made it this awesome site that I'm currently available. Please consider checking out!\n\n\
-  Or any other relevant content like those available at:\n\n\
-  - [ANN](https://www.animenewsnetwork.com/) — currently working on a way to aggregate the anime/manga news here\n\
+  "📋 *查看更多*\n\n\
+  我只是感谢[Anilist](http://anilist.co/)背后的人.\n\
+  我不是官方机器人或类似的东西。但感谢那些使我成为这个令人敬畏的网站的人，我现在可以使用它。请考虑退房！\n\n\
+  或者任何其他相关内容，例如：\n\n\
+  - [ANN](https://www.animenewsnetwork.com/) — 目前正致力于在这里聚集动画/漫画新闻\n\
   - [Reddit](https://www.reddit.com/r/anime/) — if you like to share your opinion\n\
-  - [Gigguk](https://www.youtube.com/channel/UC7dF9qfBMXrSlaaFFDvV_Yg) — if you like to watch reviews\n\n\
-  In a new future my creator want to create a group here so that he can listen to you guys and take your opinion about new features and how to improve me.\n\n\
-  Right now if can you could help me out:\n\
-  - [Review](https://storebot.me/bot/anilistbot) — review me at the Telegram Bot Store\n\
-  - [Support me](https://fazendaaa.github.io/AnilistBot) — Read how and why you make a difference in the Supporting section\n\
-  Any other doubts, talk to my creator: @farmy :)"
+  - [Gigguk](https://www.youtube.com/channel/UC7dF9qfBMXrSlaaFFDvV_Yg) — 如果你想看评论\n\n\
+  在一个新的未来，我的创作者想要在这里创建一个小组，这样他就可以听取你们的意见并对新功能以及如何改进我的看法。\n\n\
+  现在，如果你能帮助我的话：\n\
+  - [评论](https://storebot.me/bot/anilistbot) — 在Telegram Bot商店看我\n\
+  - [支持我](https://fazendaaa.github.io/AnilistBot) — 在“支持”部分阅读如何以及为何有所作为\n\
+  任何其他疑惑，请与我的创作者交谈：@farmy :)"
 
 setLanguage:
-  "👌 *LANGUAGE CONFIGURED*\n\n\
-  Please, wait a few seconds to this configuration to works."
+  "👌 *语言配置*\n\n\
+  请等待几秒钟才能使用此配置。"
 
 errorSetLanguage:
-  "🚫 *LANGUAGE ERROR*\n\n\
-  An error occurred when trying to change your language, please warn @farmy about it"
+  "🚫 *语言错误*\n\n\
+  尝试更改语言时出错，请警告 @farmy"
 
 setNotify:
-  "👌 *NOTIFICATIONS CONFIGURED*\n\n\
-  Your notifications status is now: _${notify}_"
+  "👌 *配置通知*\n\n\
+  您的通知状态现在是：_${notify}_"
 
 setHour:
-  "👌 *HOUR CONFIGURED*\n\n\
-  From now on, you will be notified each day about your anime episodes, manga and anime news at: _${hour}h_"
+  "👌 *小时配置*\n\n\
+  从现在开始，您每天都会收到有关您的动漫剧集，漫画和动漫新闻的通知： _${hour}h_"
 
 setTimezone:
-  "👌 *TIMEZONE CONFIGURED*\n\n\
-  From now on, you will be notified each day about your anime episodes, manga and anime news in your given timezone: _${timezone}_"
+  "👌 *TIMEZONE配置*\n\n\
+  从现在开始，每天都会通知您在给定时区内的动漫剧集，漫画和动漫新闻： _${timezone}_"
 
 setRemoveLocation:
-  "👌 *LOCATION REMOVED*\n\n\
-  Your location have been successfully removed."
+  "👌 *位置已删除*\n\n\
+  您的位置已成功删除。"
 
 errorSetRemoveLocation:
-  "🚫 *LOCATION REMOVED ERROR*\n\n\
-  An error occurred while removing your location, please warn @farmy about that."
+  "🚫 *位置删除错误*\n\n\
+  删除您的位置时发生错误，请警告 @farmy。"
 
 errorSetTimezone:
-  "🚫 *TIMEZONE ERROR*\n\n\
-  An error occurred setting your timezone, please warn @farmy about that."
+  "🚫 *TIMEZONE错误*\n\n\
+  设置您的时区时出错，请警告 @farmy。"
 
 errorSetHour:
-  "🚫 *HOUR ERROR*\n\n\
-  An error occurred changing it your hour time, please warn @farmy about that."
+  "🚫 *小错误*\n\n\
+  将您的小时时间更改为错误，请警告 @farmy。"
 
 errorNotify:
-  "🚫 *NOTIFICATIONS ERROR*\n\n\
-  An error occurred changing it your notification status, please warn @farmy about that."
+  "🚫 *通知错误*\n\n\
+  将其更改为通知状态时出错，请提醒 @farmy。"
 
 errorUserInfo:
-  "🚫 *USER ERROR*\n\n\
-  An error occurred getting your user info, please warn @farmy about that."
+  "🚫 *用户错误*\n\n\
+  获取用户信息时出错，请提醒 @farmy。"
 
 addedWatchlist:
-  "This anime was added to your watchlist!\n\
-  To see it, just talk to me in private. And I also will give notification upon new episodes."
+  "动漫已添加到您的监视列表中！\n\
+  要看到它，请私下与我交谈。我也会在新剧集上发布通知。"
 
 alreadyWatchlist:
-  "This anime is already in your watchlist!"
+  "这个动漫已经在你的监视列表中！"
 
 removedWatchlist:
-  "This anime was removed from your watchlist!"
+  "此动漫已从您的监视列表中删除！"
 
 alreadyRemovedWatchlist:
-  "This anime was already removed from your watchlist!"
+  "此动漫已从您的监视列表中删除！"
 
 errorWatchlist:
-  "An error occurred!\n\
-  Please warn @farmy about it."
+  "发生错误！\n\
+  请警告 @farmy。"
 
 addedReadlist:
-  "This manga was added to your readlist!\n\
-  To see it, just talk to me in private."
+  "这个漫画已添加到您的阅读列表中！\n\
+  要看到它，请私下与我交谈。"
 
 alreadyReadlist:
-  "This manga is already in your readlist!"
+  "这个漫画已经在你的阅读清单中了！"
 
 removedReadlist:
-  "This manga was removed from your readlist!"
+  "这个漫画已从你的阅读清单中删除！"
 
 alreadyRemovedReadlist:
-  "This anime was already removed from your readlist!"
+  "此动漫已从您的阅读列表中删除！"
 
 errorReadlist:
-  "An error occurred!\n\
-  Please warn @farmy about it."
+  "发生错误！\n\
+  请警告 @farmy。"
 
 animeNotifyEnabled:
-  "You will receive any notification about this anime as new episodes and news about"
+  "您将收到有关此动漫的任何通知，作为新剧集和新闻"
 
 animeNotifyDisabled:
-  "You will not receive any further notification about this anime"
+  "您将不会收到有关此动漫的任何进一步通知"
 
 animeNotifyError:
-  "An error occurred!\n\
-  Please warn @farmy about it."
+  "发生错误！\n\
+  请警告 @farmy。"
 
 mangaNotifyEnabled:
-  "You will receive any notification about this manga as news about it"
+  "您将收到关于此漫画的任何通知作为有关它的新闻"
 
 mangaNotifyDisabled:
-  "You will not receive any further notification about this manga"
+  "您将不会收到有关此漫画的任何进一步通知"
 
 mangaNotifyError:
-  "An error occurred!\n\
-  Please warn @farmy about it."
+  "发生错误！\n\
+  请警告 @farmy。"
 
 languageDefault:
-  "Telegram's default language"
+  "电报的默认语言"
 
 timeNotSet:
-  "Upon episodes and news release"
+  "在剧集和新闻发布时"
 
 timezoneNotSet:
-  "Not set, you will be notified at the bot time clock"
+  "未设置，您将在机器人时钟通知您"
 
 enabled:
-  "Enabled"
+  "启用"
 
 disabled:
-  "Disabled"
+  "残"
 
 enableButton:
-  "Enable"
+  "启用"
 
 disableButton:
-  "Disable"
+  "禁用"
 
 en:
-  "English"
+  "英语"
 
 pt:
-  "Portuguese"
+  "葡萄牙语"
 
 id:
-  "Indonesian"
+  "印度尼西亚"
 
 nl:
-  "Dutch"
+  "荷兰人"
 
 es:
-  "Spanish"
+  "西班牙语"
 
 it:
-  "Italian"
+  "意大利"
 
 de:
-  "Deutsch"
+  "德语"
 
 fr:
-  "French"
+  "法国"
 
 ru:
-  "Russian"
+  "俄语"
 
 zh:
-  "Chinese"
+  "中文"
 
 jp:
-  "Japanese"
+  "日本"
 
 ar:
-  "Arabic"
+  "阿拉伯"
 
 enButton:
-  "🇬🇧 English"
+  "🇬🇧 英语"
 
 ptButton:
-  "🇧🇷 Portuguese"
+  "🇧🇷 葡萄牙语"
 
 idButton:
-  "🇮🇩 Indonesian"
+  "🇮🇩 印度尼西亚"
 
 nlButton:
-  "🇳🇱 Dutch"
+  "🇳🇱 荷兰人"
 
 esButton:
-  "🇪🇸 Spanish"
+  "🇪🇸 西班牙语"
 
 itButton:
-  "🇮🇹 Italian"
+  "🇮🇹 意大利"
 
 deButton:
-  "🇩🇪 Deutsch"
+  "🇩🇪 德语"
 
 frButton:
-  "🇫🇷 French"
+  "🇫🇷 法国"
 
 ruButton:
-  "🇷🇺 Russian"
+  "🇷🇺 俄语"
 
 zhButton:
-  "🇨🇳 Chinese"
+  "🇨🇳 中文"
 
 jpButton:
-  "🇯🇵 Japanese"
+  "🇯🇵 日本"
 
 arButton:
-  "🇦🇪 Arabic"
+  "🇦🇪 阿拉伯"
 
 counterButton:
-  "How much time I've watched Anime?"
+  "我看了动漫多少时间？"
 
 recommendationButton:
-  "What should I watch?"
+  "我应该看什么？"
 
 languageButton:
-  "Language"
+  "语言"
 
 notifyButton:
-  "Notifications"
+  "通知"
 
 timeButton:
-  "Time"
+  "时间"
 
 timePeriodButton:
-  "Period"
+  "期"
 
 timePeriodMorningButton:
-  "Morning"
+  "早上"
 
 timePeriodAfternoonButton:
-  "Afternoon"
+  "下午"
 
 timeHourButton:
-  "Hour"
+  "小时"
 
 locationButton:
-  "Location"
+  "位置"
 
 sendLocationButton:
-  "Send Your Location"
+  "发送您的位置"
 
 dataLocationButton:
-  "Click Me To Send Your Location"
+  "单击我发送您的位置"
 
 askLocationButton:
-  "Search Your Location"
+  "搜索您的位置"
 
 removeLocationButton:
-  "Remove current location"
+  "删除当前位置"
 
 yesButton:
-  "Yes"
+  "是"
 
 noButton:
-  "No"
+  "没有"
 
 hoursButton:
-  "Hours"
+  "小时"
 
 allButton:
-  "All"
+  "所有"
 
 airingButton:
-  "Airing"
+  "晾干"
 
 soonButton:
-  "Soon"
+  "不久"
 
 completedButton:
-  "Completed"
+  "已完成"
 
 cancelledButton:
-  "Cancelled"
+  "取消"
 
 publishingButton:
-  "Publishing"
+  "出版"
 
 moreInfoButton:
-  "More Info"
+  "更多信息"
 
 userButton:
-  "User"
+  "用户"
 
 countdownButton:
-  "Countdown"
+  "倒数"
 
 guideButton:
-  "Guide"
+  "指南"
 
 watchlistButton:
-  "Watchlist"
+  "监视列表"
 
 readlistButton:
   "Readlist"
 
 aboutButton:
-  "About"
+  "关于"
 
 sourceButton:
-  "Source"
+  "资源"
 
 notAvailable:
-  "Not Available"
+  "无法使用"
 
 finished:
-  "Finished"
+  "成品"
 
 releasing:
-  "Releasing"
+  "释放"
 
 notYetReleased:
-  "Not yet released"
+  "尚未公布"
 
 cancelled:
-  "Cancelled"
+  "取消"
 
 fall:
-  "Fall"
+  "秋季"
 
 spring:
-  "Spring"
+  "弹簧"
 
 summer:
-  "Summer"
+  "夏季"
 
 winter:
-  "Winter"
+  "冬季"
 
 rated:
-  "Rated"
+  "额定"
 
 poular:
-  "Popular"
+  "流行"
 
 studio:
-  "🏛️ Studio"
+  "🏛️ 工作室"
 
 staff:
-  "😀 Staff"
+  "😀 员工"
 
 character:
-  "👺 Character"
+  "👺 字符"
 
 tv:
-  "📺 TV"
+  "📺 电视"
 
 OVA:
   "💿 OVA"
@@ -552,68 +552,68 @@ ONA:
   "💻 ONA"
 
 music:
-  "🎵 Music"
+  "🎵 音乐"
 
 manga:
   "📖 Manga"
 
 novel:
-  "📚 Novel"
+  "📚 小说"
 
 movie:
-  "🎥 Movie"
+  "🎥 电影"
 
 special:
-  "📼 Special"
+  "📼 特别"
 
 tvShort:
-  "🏮 Tv Short"
+  "🏮 电视短片"
 
 oneShot:
-  "📜 One Shot"
+  "📜 一枪"
 
 other:
-  "❓ Other"
+  "❓ 其他"
 
 original:
-  "🌟 Original"
+  "🌟 原版的"
 
 videoGame:
-  "🎮 Video Game"
+  "🎮 电子游戏"
 
 from:
-  " from "
+  " 从 "
 
 day:
-  "day"
+  "天"
 
 days:
-  "days"
+  "天"
 
 officialSite:
-  "Official Site"
+  "官方网站"
 
 isAdult:
-  "⚠️ Adult content\n"
+  "⚠️ 成人内容\n"
 
 lightNovel:
-  "🔲 Light Novel"
+  "🔲 轻小说"
 
 visualNovel:
-  "🔳 Visual Novel"
+  "🔳 视觉小说"
 
 seeMore:
-  "[see more](${siteUrl})\n"
+  "[查看更多](${siteUrl})\n"
 
 notFoundTitle:
-  "I haven't found anything!"
+  "我还没找到任何东西！"
 
 notFoundDescription:
-  "No results about: ${search}"
+  "没有结果： ${search}"
 
 notFoundMessageText:
-  "I searched about _${search}_ in [Anilist](https://anilist.co/) and came up with nothing. Please, try searching again or verify if is some kind of mistype error.\n\n\
-  Just a friendly reminder: searches only in ENGLISH, JAPANESE & content NATIVE LANGUAGE"
+  "我搜索了一下 _${search}_ 在 [Anilist](https://anilist.co/) 什么都没有。请尝试再次搜索或验证是否存在某种错误类型错误。\n\n\
+  只是一个友好的提醒：只搜索英语，日语和内容本能语言"
 
 english:
   "🇬🇧 *${english}*\n"
@@ -628,57 +628,57 @@ romaji:
   "🔰 *${romaji}*\n"
 
 startDate:
-  "- *Start*: _${startDate}_\n"
+  "- *开始*: _${startDate}_\n"
 
 endDate:
-  "- *End*: _${endDate}_\n"
+  "- *结束*: _${endDate}_\n"
 
 status:
-  "- *Status*: _${status}_\n"
+  "- *状态*: _${status}_\n"
 
 nextAiringEpisode:
-  "- *Next episode in*: _${timeUntilAiring}_ - _episode: ${episode}_\n"
+  "- *下一集*: _${timeUntilAiring}_ - _插曲: ${episode}_\n"
 
 season:
-  "- *Season*: _${season}_\n"
+  "- *季节*: _${season}_\n"
 
 averageScore:
-  "- *Average*: _${averageScore}_%\n"
+  "- *平均*: _${averageScore}_%\n"
 
 episodes:
-  "- *Episodes*: _${episodes}_\n"
+  "- *情节*: _${episodes}_\n"
 
 duration:
-  "- *Duration*: _${duration}_\n"
+  "- *持续时间*: _${duration}_\n"
 
 chapters:
-  "- *Chapters*: _${chapters}_\n"
+  "- *章*: _${chapters}_\n"
 
 volumes:
-  "- *Volumes*: _${volumes}_\n"
+  "- *卷*: _${volumes}_\n"
 
 ranking:
-  "- *Ranking*: _#${ranking} in ${kind}_\n"
+  "- *排行*: _#${ranking} 在 ${kind}_\n"
 
 studiosLinks:
-  "- *Studios*:\n\
+  "- *工作室*:\n\
   ${studios}"
 
 externalLinks:
-  "- *External links*:\n\
+  "- *外部链接*:\n\
   ${externalLinks}"
 
 trailer:
-  "🍿 [Trailer](${trailer})\n"
+  "🍿 [预告片](${trailer})\n"
 
 countdown:
-  "Countdown: "
+  "倒数: "
 
 fmt:
-  "Format: "
+  "格式: "
 
 src:
-  "Source: "
+  "资源: "
 
 media:
   "[‍](${image})${native}\
@@ -701,13 +701,13 @@ media:
   ${ranking}\
   ${studios}\
   ${externalLinks}\
-  \n[see more](${siteUrl})"
+  \n[查看更多](${siteUrl})"
 
 newContent:
- "🎉 *EPISODE* 🎉 - _${newContent}_\n\n"
+ "🎉 *插曲* 🎉 - _${newContent}_\n\n"
 
 streamingEpisodes:
-  "*See online the last episodes in*:\n\
+  "*在线观看最后一集*:\n\
   ${streamingEpisodes}"
 
 newRelease:
@@ -722,12 +722,12 @@ newRelease:
   ${season}\
   ${duration}\
   ${streamingEpisodes}\
-  \n[see more](${siteUrl})"
+  \n[查看更多](${siteUrl})"
 
 userReleaseHeader:
   "[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/notification/notification.png)\
-  🔔 *DAILY DIGEST*\n\n\
-  This are your daily digest notifications:\n\n"
+  🔔 *每日摘要*\n\n\
+  这是您的每日摘要通知：\n\n"
 
 userRelease:
   "${newContent}\
@@ -737,67 +737,67 @@ userRelease:
   ${isAdult}\
   ${kind}\
   ${streamingEpisodes}\
-  \n[see more](${siteUrl})"
+  \n[查看更多](${siteUrl})"
 
 native:
-  "- *Native*: _${native}_\n"
+  "- *本地人*: _${native}_\n"
 
 name:
-  "- *Name*: _${name}_\n"
+  "- *名称*: _${name}_\n"
 
 alternative:
-  "- *Also known as*:\n\
+  "- *也称为*:\n\
   ${alternative}\n"
 
 characters:
   "[‍](${image})${native}\
   ${name}\
   ${alternative}\
-  [see more](${siteUrl})"
+  [查看更多](${siteUrl})"
 
 studios:
   "[‍](${image})${name}\n\
-  \n[see more](${siteUrl})"
+  \n[查看更多](${siteUrl})"
 
 staffMask:
   "[‍](${image})${name}\
   ${native}\
-  \n[see more](${siteUrl})"
+  \n[查看更多](${siteUrl})"
 
 buttonDescription:
-  "Description"
+  "描述"
 
 buttonGenres:
-  "Genres"
+  "流派"
 
 buttonUsers:
-  "Users"
+  "用户"
 
 buttonWatchlist:
-  "Watchlist"
+  "监视列表"
 
 buttonReadlist:
   "Readlist"
 
 buttonRemove:
-  "Remove"
+  "去掉"
 
 buttonNotify:
-  "Notifications"
+  "通知"
 
 locationMask:
-  "📍 *I FOUND SOMETHING*\n\n\
-  I found the following city, is this yours?\n\n\
-  - *City*: _${city}_\n\
-  - *Province*: _${province}_\n\
-  - *Country*: _${country}_"
+  "📍 *我找到了一些东西*\n\n\
+  我找到了以下城市，这是你的吗？\n\n\
+  - *市*: _${city}_\n\
+  - *省*: _${province}_\n\
+  - *国家*: _${country}_"
 
 locationNotFoundMask:
-  "🛰️ *NOTHING FOUND*\n\n\
-  Nothing found while searching for _${city}_."
+  "🛰️ *什么都没找到*\n\n\
+  搜索 _${city}_ 时找不到任何内容。"
 
 episode:
-  "*Episode*: _${episode}_\n"
+  "*插曲*: _${episode}_\n"
 
 timeUntilAiring:
-  "*Time Until Airing*: _${timeUntilAiring}_\n"
+  "*直到播出的时间*: _${timeUntilAiring}_\n"
