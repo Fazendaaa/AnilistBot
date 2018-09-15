@@ -108,6 +108,14 @@ interface IMediaDescription {
     readonly Media: IDescription;
 }
 
+interface IStaffDescription {
+    readonly Staff: IDescription;
+}
+
+interface ICharacterDescription {
+    readonly Character: IDescription;
+}
+
 interface IGenres {
     readonly genres: Array<string>;
 }
@@ -155,7 +163,7 @@ interface INewReleaseMedia {
 }
 
 export interface IRequestsDescription {
-    readonly data: IMediaDescription;
+    readonly data: IMediaDescription | IStaffDescription | ICharacterDescription;
 }
 
 export interface IRequestsGenres {

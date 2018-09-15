@@ -12,3 +12,8 @@ export interface IHandleNext {
     readonly updateType: UpdateType;
     readonly callbackQuery: tt.CallbackQuery;
 }
+
+export interface IUserLanguage {
+    readonly telegram: string;
+    readonly language: string;
+}

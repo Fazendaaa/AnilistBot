@@ -54,7 +54,8 @@ export type ListFilterRequest = 'ALL' |
                                 'MORE-INFO' |
                                 MediaStatus
 
-export type LanguageRequest = 'DUTCH' |
+export type LanguageRequest = '' |
+                              'DUTCH' |
                               'FRENCH' |
                               'FRENCH' |
                               'ARABIC' |

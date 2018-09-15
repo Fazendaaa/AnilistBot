@@ -25,3 +25,8 @@ export interface INewReleaseContext {
     readonly id: number;
     readonly content: 'ANIME' | 'MANGA';
 }
+
+export interface ISelectQuery {
+    readonly id: number;
+    readonly content: AnilistObject;
+}

@@ -1,10 +1,18 @@
 import { IBotContext, LanguageRequest, MenuRequest, UserRequest } from 'telegraf-bot-typings';
-import { IHandleNext } from '.';
+import { IHandleNext, IUserLanguage } from '.';
 import { IDBUserInfo } from '../../database/user';
 import { userInfo } from '../../database/user/user';
 import { getLanguageCode, supportedLanguage } from '../parse/language';
 
-const notFoundUserLanguage = (userLanguage: LanguageRequest): string => (true === supportedLanguage(userLanguage)) ? userLanguage : 'en';
+const userLang = ({ language, telegram }: IUserLanguage): string => {
+    if (null !== language && undefined !== language && '' !== language) {
+        return language;
+    } if (true === supportedLanguage(<LanguageRequest> telegram)) {
+        return telegram;
+    }
+
+    return  'en';
+};
 
 /**
  * Just a setting user language if available.
@@ -20,7 +28,7 @@ export class UserCache {
             if (null === redis.language || undefined === redis.language) {
                 const { language } = <IDBUserInfo> await userInfo(id);
 
-                redis.language = ('' === language) ? notFoundUserLanguage(<LanguageRequest> i18n.locale()) : language;
+                redis.language = userLang({ language, telegram: i18n.locale() });
             }
 
             i18n.locale(redis.language);

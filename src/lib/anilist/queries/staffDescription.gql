@@ -1,0 +1,5 @@
+query ($id: Int) {
+    Staff (id: $id) {
+        description
+    }
+}
