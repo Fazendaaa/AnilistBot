@@ -18,9 +18,13 @@
         "build": "webpack",
         "test": "npm run jest",
         "bot": "node dist/main.js",
-        "counter": "linecounter --ignore ./node_modules > stats.json",
         "start": "npm run build && npm run bot",
+        "ps": "heroku ps:stop worker --app=anilistbot ",
         "lint": "tslint --config tslint.json --project .",
+        "deploy": "heroku container:push worker --app=anilistbot",
+        "heroku": "npm run ps && npm run deploy && npm run release",
+        "counter": "linecounter --ignore ./node_modules > stats.json",
+        "release": "heroku container:release worker --app=anilistbot",
         "jest": "jest --config jest.config.json --ci --runInBand --detectOpenHandles --forceExit --no-cache"
     },
     "dependencies": {

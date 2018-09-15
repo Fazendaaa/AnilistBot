@@ -25,7 +25,6 @@ config();
 const bot = new Telegraf(process.env.BOT_KEY);
 export const userSessionLimit = 5 * 60;
 const redisStorage = new RedisSession({
-    // five minutes to hold to user language info.
     getSessionKey,
     property: 'redis',
     ttl: userSessionLimit,
@@ -51,7 +50,6 @@ connect(process.env.MONGODB_URI).then(() => {
     set('useCreateIndex', true);
     set('useFindAndModify', false);
 
-    console.log('DB connected.');
     userSchedule();
     mediaSchedule();
     counterSchedule();
@@ -78,6 +76,8 @@ bot.use(userStage.middleware());
 bot.catch(console.error);
 
 bot.start(async ({ i18n, replyWithMarkdown }: IBotContext) => replyWithMarkdown(i18n.t('start'), startExtra(i18n)));
+
+bot.command('help', async ({ i18n, replyWithMarkdown }: IBotContext) => replyWithMarkdown(i18n.t('helpOptions'), startExtra(i18n)));
 
 bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotContext) => {
     const perPage = 20;
