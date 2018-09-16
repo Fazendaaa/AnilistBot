@@ -18,8 +18,8 @@ import { handleNewRelease, handleUserRelease } from '../telegram/parse/media';
 config();
 
 const telegram = new Telegram(process.env.BOT_KEY);
-const eachHour = '00 * * * *';
-const eachHalfHour = '00,30 * * * *';
+const eachHour = '00 59 * * * *';
+const eachHalfHour = '* 0,30 * * * *';
 
 const reduceLanguage = async (reduce: IReduceLanguage, acc: Promise<IUsersLanguage>, cur: number): Promise<IUsersLanguage> => {
     return acc.then(async(newAcc) => {
