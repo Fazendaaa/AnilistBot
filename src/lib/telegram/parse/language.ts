@@ -1,4 +1,4 @@
-import { LanguageRequest, LanguageCode } from 'telegraf-bot-typings';
+import { LanguageCode, LanguageRequest } from 'telegraf-bot-typings';
 
 export const getLanguageCode = (request: LanguageRequest): string => {
     if ('ARABIC' === request) {

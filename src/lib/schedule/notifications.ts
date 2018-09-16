@@ -86,10 +86,9 @@ export const mediaSchedule = (): Job => scheduleJob('Sending content upon releas
     const released = await fetchMediaNotifications({ kind });
     const mediaSubscribers = await Promise.all(released.map(async ({ _id }) => fetchNotifySubscribers({ kind, content_id: _id })));
 
-    console.log('RELEASED', released);
-    console.log('MEDIASUBSCRIBERS', mediaSubscribers);
-
-    mediaSubscribers.map(sendMedia);
+    if ([{}] !== mediaSubscribers) {
+        mediaSubscribers.map(sendMedia);
+    }
 });
 
 export const userSchedule = (): Job => scheduleJob('Sending content to the user desired time.', eachHour, async () => {
