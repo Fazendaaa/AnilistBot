@@ -1,6 +1,6 @@
 start:
   "*Bienvenido*, _${from.username}!_\n\n\
-  Soy AnilistBot, tu bot de búsqueda sobre el mundo del anime. Pero puedo hacer mucho más, saberlo solo hacer clic en/more!"
+  Soy AnilistBot, es la investigación de bot en el mundo de los animes. Sin embargo, puedo hacer mucho más, solo para saber cómo hacer clic en el botón de menú!"
 
 dbDown:
   "Desafortunadamente, la base de datos está actualmente inactiva. Por favor, informa a @farmy sobre esto, ¡para que pueda arreglarlo!"

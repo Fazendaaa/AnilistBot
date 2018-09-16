@@ -83,10 +83,6 @@ bot.help(async ({ i18n, replyWithMarkdown, replyWithVideo }: IBotContext) => {
     return replyWithVideo('https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/gif/help.gif');
 });
 
-bot.command('more', async ({ i18n, replyWithMarkdown }: IBotContext) => {
-    return replyWithMarkdown(i18n.t('sourceOptions'), startExtra(i18n));
-});
-
 bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotContext) => {
     const perPage = 20;
     const translation = i18n;

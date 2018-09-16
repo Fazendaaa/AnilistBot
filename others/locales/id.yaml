@@ -1,6 +1,6 @@
 start:
   "*SELAMAT DATANG*, _${from.username}!_\n\n\
-  Saya AnilistBot, bot penelusuran Anda tentang dunia anime. Tapi saya bisa melakukan lebih banyak lagi, untuk mengetahuinya cukup klik /more!"
+  Saya AnilistBot, ini adalah penelitian bot di dunia animes. Namun, saya dapat melakukan lebih banyak lagi, hanya untuk mengetahui cara mengeklik tombol menu!"
 
 dbDown:
   "Sayangnya, database saat ini sedang down. Tolong beri tahu @farmy tentang ini, jadi dia bisa memperbaikinya!"

@@ -1,6 +1,6 @@
 start:
   "*Herzlich willkommen*, _${from.username}!_\n\n\
-  Ich bin AnilistBot, deine Suchmaschine über die Anime-Welt. Aber ich kann so viel mehr tun, darüber zu wissen, einfach reinklicken/more!"
+  Ich bin AnilistBot, es ist die Bot-Forschung über die Welt der Animes. Ich kann jedoch viel mehr tun, nur um zu wissen, wie man auf den Menüknopf klickt !"
 
 dbDown:
   "Leider ist die Datenbank derzeit nicht verfügbar. Bitte informiere @farmy darüber, damit er es beheben kann!"
