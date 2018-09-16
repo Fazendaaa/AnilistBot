@@ -23,7 +23,7 @@
         "deploy": "heroku container:push worker --app=anilistbot",
         "counter": "linecounter --ignore ./node_modules > stats.json",
         "release": "heroku container:release worker --app=anilistbot",
-        "heroku": "npm run start && npm run ps && npm run deploy && npm run release",
+        "heroku": "npm run build && npm run ps && npm run deploy && npm run release",
         "bot": "node --optimize_for_size --max_old_space_size=460 --gc_interval=100 ./dist/main.js",
         "jest": "jest --config jest.config.json --ci --runInBand --detectOpenHandles --forceExit --no-cache"
     },
