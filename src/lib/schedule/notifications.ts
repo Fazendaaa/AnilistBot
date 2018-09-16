@@ -19,7 +19,7 @@ config();
 
 const telegram = new Telegram(process.env.BOT_KEY);
 const eachHour = '00 59 * * * *';
-const eachHalfHour = '* 0,30 * * * *';
+const eachHalfHour = '00 00,30 * * * *';
 
 const reduceLanguage = async (reduce: IReduceLanguage, acc: Promise<IUsersLanguage>, cur: number): Promise<IUsersLanguage> => {
     return acc.then(async(newAcc) => {
@@ -85,6 +85,9 @@ export const mediaSchedule = (): Job => scheduleJob('Sending content upon releas
     const kind = true;
     const released = await fetchMediaNotifications({ kind });
     const mediaSubscribers = await Promise.all(released.map(async ({ _id }) => fetchNotifySubscribers({ kind, content_id: _id })));
+
+    console.log('RELEASED', released);
+    console.log('MEDIASUBSCRIBERS', mediaSubscribers);
 
     mediaSubscribers.map(sendMedia);
 });
