@@ -23,7 +23,7 @@ import { userStage } from './lib/telegram/stage';
 config();
 
 const bot = new Telegraf(process.env.BOT_KEY);
-export const userSessionLimit = 5 * 60;
+export const userSessionLimit = 60;
 const redisStorage = new RedisSession({
     getSessionKey,
     property: 'redis',
@@ -79,7 +79,12 @@ bot.start(async ({ i18n, replyWithMarkdown }: IBotContext) => replyWithMarkdown(
 
 bot.help(async ({ i18n, replyWithMarkdown, replyWithVideo }: IBotContext) => {
     await replyWithMarkdown(i18n.t('helpOptions'), startExtra(i18n));
-    replyWithVideo('https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/gif/help.gif');
+
+    return replyWithVideo('https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/gif/help.gif');
+});
+
+bot.command('more', async ({ i18n, replyWithMarkdown }: IBotContext) => {
+    return replyWithMarkdown(i18n.t('sourceOptions'), startExtra(i18n));
 });
 
 bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotContext) => {

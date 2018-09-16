@@ -54,9 +54,7 @@ export type ListFilterRequest = 'ALL' |
                                 'MORE-INFO' |
                                 MediaStatus
 
-export type LanguageRequest = '' |
-                              'DUTCH' |
-                              'FRENCH' |
+export type LanguageRequest = 'DUTCH' |
                               'FRENCH' |
                               'ARABIC' |
                               'ENGLISH' |
@@ -68,6 +66,19 @@ export type LanguageRequest = '' |
                               'JAPANESE' |
                               'PORTUGUESE' |
                               'INDONESIAN'
+
+export type LanguageCode = 'nl' |
+                           'fr' |
+                           'ar' |
+                           'en' |
+                           'es' |
+                           'de' |
+                           'ru' |
+                           'zh' |
+                           'it' |
+                           'jp' |
+                           'pt' |
+                           'id'
 
 interface IMyRedis extends RedisSession {
     language: string;

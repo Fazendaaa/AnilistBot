@@ -1,4 +1,4 @@
-import { LanguageRequest } from 'telegraf-bot-typings';
+import { LanguageRequest, LanguageCode } from 'telegraf-bot-typings';
 
 export const getLanguageCode = (request: LanguageRequest): string => {
     if ('ARABIC' === request) {
@@ -28,30 +28,30 @@ export const getLanguageCode = (request: LanguageRequest): string => {
     return 'en';
 };
 
-export const supportedLanguage = (request: LanguageRequest): boolean => {
-    if ('ARABIC' === request) {
+export const supportedLanguage = (request: LanguageCode): boolean => {
+    if ('ar' === request) {
         return true;
-    } if ('PORTUGUESE' === request) {
+    } if ('pt' === request) {
         return true;
-    } if ('INDONESIAN' === request) {
+    } if ('id' === request) {
         return true;
-    } if ('DUTCH' === request) {
+    } if ('nl' === request) {
         return true;
-    } if ('SPANISH' === request) {
+    } if ('es' === request) {
         return true;
-    } if ('ITALIAN' === request) {
+    } if ('it' === request) {
         return true;
-    } if ('DEUTSCH' === request) {
+    } if ('de' === request) {
         return true;
-    } if ('FRENCH' === request) {
+    } if ('fr' === request) {
         return true;
-    } if ('RUSSIAN' === request) {
+    } if ('ru' === request) {
         return true;
-    } if ('CHINESE' === request) {
+    } if ('zh' === request) {
         return true;
-    } if ('JAPANESE' === request) {
+    } if ('jp' === request) {
         return true;
-    } if ('ENGLISH' === request) {
+    } if ('en' === request) {
         return true;
     }
 

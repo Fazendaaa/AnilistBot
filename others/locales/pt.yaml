@@ -50,7 +50,7 @@ helpOptions:
   - *Sua própria lista de mangás e animes*\n\n\
   Para receber as notificações, basta apenas adicionar o anime na sua lista de assistindo após pesquisar sobre ele, há um botão disso em cada anime pesquisado.\n\n\
   Tem mais alguma dúvida?\n\n\
-  Aperte o botão _Menu_ para ver mais opções no guia para outras informações e configurações sobre este bot."
+  Para outras informações e configurações sobre este bot, aperte o botão _Menu_ para ver mais opções no guia."
 
 userOptions:
   "😀 *USUÁRIO*\n\n\
@@ -114,7 +114,7 @@ guideOptions:
   Por padrão eu funciono com a sua linguagem no Telegram, se não configurado minha linguagem padrão é Inglês. Se quiser mudar isso, vá para a aba _Usuário_ e modifique isto.\n\n\
   *Localização do Usuário*\n\n\
   _\"POR QUE PERGUNTAR MINHA LOCALIZAÇÃO???\"_ — Você\n\n\
-  Eu não irei te seguir ou coisa do tipo, é simples: como eu funciono em um servidor, se você quiser mudar seu horário para notificações e escolher as 13h, será quando for 13h no servidor — que utiliza o padrão UTC.\n\
+  Eu não irei te seguir ou coisa do tipo, é simples: como eu funciono em um servidor, se você quiser mudar seu horário para notificações e escolher às 13h, será quando for 13h no servidor — que utiliza o padrão UTC.\n\
   Se você quiser ser notificado às 13h do seu país, eu preciso saber qual país você é.\n\
   Ou você pode também calcular as hora equivalente do seu país mo UTC horário; apenas um aviso, se o seu país tiver horário de verão — como o do meu criador —, você terá que considerar isso também.\n\n\
   *Lista de assistir/Lista de Leitura*\n\n\

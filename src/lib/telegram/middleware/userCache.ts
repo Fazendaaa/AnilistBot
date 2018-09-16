@@ -1,13 +1,13 @@
-import { IBotContext, LanguageRequest, MenuRequest, UserRequest } from 'telegraf-bot-typings';
+import { IBotContext, LanguageCode, LanguageRequest, MenuRequest, UserRequest } from 'telegraf-bot-typings';
 import { IHandleNext, IUserLanguage } from '.';
 import { IDBUserInfo } from '../../database/user';
 import { userInfo } from '../../database/user/user';
 import { getLanguageCode, supportedLanguage } from '../parse/language';
 
 const userLang = ({ language, telegram }: IUserLanguage): string => {
-    if (null !== language && undefined !== language && '' !== language) {
+    if ('' !== language) {
         return language;
-    } if (true === supportedLanguage(<LanguageRequest> telegram)) {
+    } if (true === supportedLanguage(<LanguageCode> telegram)) {
         return telegram;
     }
 
@@ -27,8 +27,9 @@ export class UserCache {
 
             if (null === redis.language || undefined === redis.language) {
                 const { language } = <IDBUserInfo> await userInfo(id);
+                const telegram = i18n.locale().split('-')[0];
 
-                redis.language = userLang({ language, telegram: i18n.locale() });
+                redis.language = userLang({ language, telegram });
             }
 
             i18n.locale(redis.language);
