@@ -1,6 +1,10 @@
 ci
 coverage
 docs
+dump
+others/external
+others/gif
+others/img
 node_modules
 src
 .gitignore
