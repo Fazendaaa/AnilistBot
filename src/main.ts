@@ -75,7 +75,11 @@ bot.use(userStage.middleware());
 
 bot.catch(console.error);
 
-bot.start(async ({ i18n, replyWithMarkdown }: IBotContext) => replyWithMarkdown(i18n.t('start'), startExtra(i18n)));
+bot.start(async ({ i18n, replyWithMarkdown, replyWithVideo }: IBotContext) => {
+    await replyWithMarkdown(i18n.t('start'), startExtra(i18n));
+
+    return replyWithVideo('https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/gif/intro.gif');
+});
 
 bot.help(async ({ i18n, replyWithMarkdown, replyWithVideo }: IBotContext) => {
     await replyWithMarkdown(i18n.t('helpOptions'), startExtra(i18n));
