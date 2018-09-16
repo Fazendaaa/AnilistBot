@@ -1,6 +1,8 @@
 start:
   "*Benvenuto*, _${from.username}!_\n\n\
-  Sono AnilistBot, è la ricerca sui robot nel mondo degli animali. Tuttavia, posso fare molto di più, solo per sapere come fare clic sul pulsante del menu!"
+  Sono AnilistBot, è il robot del mondo di anime / manga!\n\n\
+  Tuttavia, posso fare molto di più, solo per sapere come fare clic sul pulsante Guida.\n\n\
+  Vuoi saperne di più su di me? Ti piacerebbe vedere quale è il mio codice o aiutare con il progetto? Vai a Informazioni nella Guida ai menu :)"
 
 dbDown:
   "Sfortunatamente, il database è attualmente inattivo. Per favore, informa @farmy di questo, così può aggiustarlo!"

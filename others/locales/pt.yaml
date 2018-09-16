@@ -1,6 +1,8 @@
 start:
   "*Olá*, _${from.username}!_\n\n\
-  Eu sou AnilistBot, o seu bot the pesquisas sobre o mundo dos animes. Porém, eu posso fazer muito mais, para saber apenas clique no botão de menu!"
+  Eu sou AnilistBot, o seu bot the pesquisas sobre o mundo dos animes/mangas!\n\n\
+  Porém, eu posso fazer muito mais, para saber apenas clique no botão de Ajuda.\n\n\
+  Quer saber mais sobre mim? Gostaria de ver como é meu código ou ajudar no projeto? Vá na opção Sobre no Guia do Menu :)"
 
 dbDown:
   "Infelizmente, o banco de dados se encontra fora do ar. Por favor, informe @farmy sobre isso para que ele posso corrigir logo!"

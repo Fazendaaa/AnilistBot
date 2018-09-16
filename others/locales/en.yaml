@@ -1,6 +1,8 @@
 start:
   "*Welcome*, _${from.username}!_\n\n\
-  I'm AnilistBot, its the bot research on the world of animes. However, I can do a lot more, just to know how to click the menu button!"
+  I'm AnilistBot, its the bot on the world of anime/manga!\n\n\
+  However, I can do a lot more, just to know how to click the Help button.\n\n\
+  Want to know more about me? Would you like to see what my code is or help with the project? Go to About in the Menu Guide :)"
 
 dbDown:
   "Unfortunately, the database is currently down. Please, inform @farmy about this, so he can fix it!"

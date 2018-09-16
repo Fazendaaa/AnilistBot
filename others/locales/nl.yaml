@@ -1,6 +1,8 @@
 start:
   "*Welkom*, _${from.username}!_\n\n\
-  Ik ben AnilistBot, het is het botonderzoek naar de wereld van de animes. Ik kan echter nog veel meer doen, gewoon weten hoe ik op de menuknop moet klikken!"
+  Ik ben AnilistBot, het is de bot in de wereld van anime / manga!\n\n\
+  Ik kan echter nog veel meer doen, gewoon om te weten hoe ik op de knop Help moet klikken.\n\n\
+  Wilt u meer weten over mij? Wilt u zien wat mijn code is of me helpen met het project? Ga naar About in the Menu Guide :)"
 
 dbDown:
   "Helaas is de database momenteel niet beschikbaar. Informeer @farmy alstublieft hierover, zodat hij het kan repareren!"

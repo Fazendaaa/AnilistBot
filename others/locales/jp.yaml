@@ -1,6 +1,8 @@
 start:
   "*ようこそ*, _${from.username}!_\n\n\
-  私はAnilistBotです。アニメの世界に関するボットの研究です。しかし、私はメニューボタンをクリックする方法を知るために、もっとたくさんのことができます！"
+  I'm AnilistBot, its the bot on the world of anime/manga!\n\n\
+  However, I can do a lot more, just to know how to click the Help button.\n\n\
+  Want to know more about me? Would you like to see what my code is or help with the project? Go to About in the Menu Guide :)"
 
 dbDown:
   "残念ながら、データベースは現在ダウンしています。このことについて@farmyに知らせてください、彼はそれを修正することができます！"
