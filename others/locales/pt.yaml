@@ -12,6 +12,9 @@ dbDownPrivate:
   Infelizmente, o banco de dados se encontra fora do ar. Por favor, informe @farmy sobre isso para que ele posso corrigir logo!\n\n\
   Algumas funções do bot podem funcionar e outras não."
 
+deprecated:
+  "Este botão é da minha versão antiga, pesquise este conteúdo novamente."
+
 menu:
   "menu"
 

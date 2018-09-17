@@ -12,6 +12,9 @@ dbDownPrivate:
   Malheureusement, la base de données est actuellement en panne. S'il vous plaît, informez @farmy à ce sujet, afin qu'il puisse le réparer!\n\n\
   Certaines options du bot peuvent fonctionner et d'autres pas."
 
+deprecated:
+  "Ce bouton provient de mon ancienne version, recherchez à nouveau ce contenu."
+
 menu:
   "menu"
 

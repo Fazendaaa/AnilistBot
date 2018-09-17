@@ -12,6 +12,9 @@ dbDownPrivate:
   Desafortunadamente, la base de datos está actualmente inactiva. Por favor, informa a @farmy sobre esto, ¡para que pueda arreglarlo!\n\n\
   Algunas de las opciones de bot pueden funcionar y otras no."
 
+deprecated:
+  "Este botón es de mi versión anterior, busca este contenido nuevamente."
+
 menu:
   "menú"
 

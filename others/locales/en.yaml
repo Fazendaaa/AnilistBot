@@ -12,6 +12,9 @@ dbDownPrivate:
   Unfortunately, the database is currently down. Please, inform @farmy about this, so he can fix it!\n\n\
   Some of the bot options might work and some others won't."
 
+deprecated:
+  "This button is from my old version, search this content again."
+
 menu:
   "menu"
 

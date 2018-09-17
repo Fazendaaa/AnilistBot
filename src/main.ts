@@ -95,7 +95,7 @@ bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotCont
     let next_offset = (page + 1).toString();
     let results = await allSearch({ translation, search, page, perPage });
 
-    if (0 === results.length && '0' === next_offset) {
+    if (0 === results.length && '1' === next_offset) {
         next_offset = null;
         results = notFoundSearch({ translation, search });
     }
@@ -125,9 +125,11 @@ bot.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callbackQuer
         }), true);
     } if ('SOURCE' === kind) {
         return replyWithMarkdown(i18n.t('sourceOptions'));
+    } if ('MENU' === kind) {
+        return scene.enter('Menu');
     }
 
-    return scene.enter('Menu', 'callback_query');
+    return answerCbQuery(i18n.t('deprecated'), true);
 });
 
 bot.on('text', async ({ i18n, scene, message, replyWithMarkdown, replyWithVideo }: IBotContext) => {

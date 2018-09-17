@@ -12,6 +12,9 @@ dbDownPrivate:
   Helaas is de database momenteel niet beschikbaar. Informeer @farmy alstublieft hierover, zodat hij het kan repareren!\n\n\
   Sommige van de bot-opties werken misschien en sommige anderen niet."
 
+deprecated:
+  "Deze knop is van mijn oude versie, doorzoek deze inhoud opnieuw."
+
 menu:
   "menu"
 

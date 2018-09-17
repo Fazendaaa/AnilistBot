@@ -12,6 +12,9 @@ dbDownPrivate:
   Leider ist die Datenbank derzeit nicht verfügbar. Bitte informiere @farmy darüber, damit er es beheben kann!\n\n\
   Einige der Bot-Optionen funktionieren möglicherweise, andere nicht."
 
+deprecated:
+  "Dieser Knopf ist von meiner alten Version, suche diesen Inhalt noch einmal."
+
 menu:
   "Speisekarte"
 
