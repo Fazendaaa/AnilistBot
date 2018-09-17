@@ -6,6 +6,10 @@ import { LaterNotifications, Notifications } from './model';
 
 const options = { new: true, upsert: true, strict: false, setDefaultsOnInsert: true };
 
+const emptyReturn = () => {
+    return {};
+};
+
 const addADay = (input: Date): Date => {
     const nextDay = new Date();
 
@@ -47,31 +51,30 @@ export const addNotifications = async ({ id, kind, time }: INotificationsContext
     // This handles retrocompatibility.
     const update = { $rename: { type: 'kind' } };
 
-    return Notifications.findOneAndUpdate({ _id: id, kind, time }, update, options).then(handleInfo).catch(() => {
-        return {};
-    });
+    return Notifications.findOneAndUpdate({ _id: id, kind, time }, update, options).then(handleInfo).catch(emptyReturn);
 };
 
 export const fetchAllAnimesNotifications = async (): Promise<IDBNotificationsInfo[]> => {
     return Notifications.find({}).then((response: IDBNotifications[]) => response.map(handleInfo)).catch(() => []);
 };
 
-const handleMediaNotify = (notification: IDBNotifications): IDBNotificationsInfo => {
-    const { _id, time, kind } = notification;
+const handleMediaNotify = async (notification: IDBNotifications): Promise<IDBNotificationsInfo | {}> => {
+    const newRelease = await fetchNextEpisode(notification._id);
 
-    // update to next release.
-    fetchNextEpisode(_id).then(async (newRelease: Date) => addNotifications({ id: _id, time: newRelease, kind }));
+    notification.time = newRelease;
 
-    return {
-        _id,
-        time,
-        kind
-    };
+    return notification.save().then(({ _id, time, kind }) => {
+        return {
+            _id,
+            time,
+            kind
+        };
+    }).catch(emptyReturn);
 };
 
-export const fetchMediaNotifications = async ({ kind }: IMediaNotifications): Promise<IDBNotificationsInfo[]> => {
+export const fetchMediaNotifications = async ({ kind }: IMediaNotifications): Promise<IDBNotificationsInfo[] | {}> => {
     return Notifications.find({ kind }).where('time').lte(Date.now()).then((response: IDBNotifications[]) => {
-        return response.map(handleMediaNotify);
+        return Promise.all(response.map(handleMediaNotify));
     }).catch(() => []);
 };
 
