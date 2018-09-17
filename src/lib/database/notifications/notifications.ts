@@ -47,6 +47,14 @@ const laterNotificationsInfo = (response: IDBLaterNotifications[]): IDBLaterNoti
     });
 };
 
+const handleMediaNotify = async (notification: IDBNotifications): Promise<IDBNotificationsInfo | {}> => {
+    const newRelease = await fetchNextEpisode(notification._id);
+
+    notification.time = newRelease;
+
+    return notification.save().then(handleInfo).catch(emptyReturn);
+};
+
 export const addNotifications = async ({ id, kind, time }: INotificationsContext): Promise<IDBNotificationsInfo | {}> => {
     // This handles retrocompatibility.
     const update = { $rename: { type: 'kind' } };
@@ -58,22 +66,14 @@ export const fetchAllAnimesNotifications = async (): Promise<IDBNotificationsInf
     return Notifications.find({}).then((response: IDBNotifications[]) => response.map(handleInfo)).catch(() => []);
 };
 
-const handleMediaNotify = async (notification: IDBNotifications): Promise<IDBNotificationsInfo | {}> => {
-    const newRelease = await fetchNextEpisode(notification._id);
-
-    notification.time = newRelease;
-
-    return notification.save().then(({ _id, time, kind }) => {
-        return {
-            _id,
-            time,
-            kind
-        };
-    }).catch(emptyReturn);
+export const fetchMediaNotifications = async ({ kind }: IMediaNotifications): Promise<IDBNotificationsInfo[]> => {
+    return Notifications.find({ kind }).where('time').lte(Date.now()).then(async (response: IDBNotifications[]) => {
+        return Promise.all(response.map(handleInfo));
+    }).catch(() => []);
 };
 
-export const fetchMediaNotifications = async ({ kind }: IMediaNotifications): Promise<IDBNotificationsInfo[] | {}> => {
-    return Notifications.find({ kind }).where('time').lte(Date.now()).then((response: IDBNotifications[]) => {
+export const updateMediaNotifications = async ({ kind }: IMediaNotifications): Promise<IDBNotificationsInfo[] | {}> => {
+    return Notifications.find({ kind }).where('time').lte(Date.now()).then(async (response: IDBNotifications[]) => {
         return Promise.all(response.map(handleMediaNotify));
     }).catch(() => []);
 };

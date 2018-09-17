@@ -5,8 +5,9 @@ import { Job, scheduleJob } from 'node-schedule';
 import Telegram from 'telegraf/telegram';
 import { IReduceLanguage, IUserMessage, IUsersLanguage } from '.';
 import { fetchNewRelease } from '../anilist/requests/newRelease';
-import { IContentInfo, IDBLaterNotificationsInfo, IDBNotificationsInfo } from '../database/notifications';
-import { addLaterNotifications, fetchLaterNotifications, fetchMediaNotifications } from '../database/notifications/notifications';
+import { IContentInfo, IDBLaterNotificationsInfo } from '../database/notifications';
+import { addLaterNotifications, fetchLaterNotifications, fetchMediaNotifications, updateMediaNotifications
+} from '../database/notifications/notifications';
 import { INotifySubscribersResponse } from '../database/subscriptions';
 import { fetchNotifySubscribers } from '../database/subscriptions/subscription';
 import { IDBUserInfo } from '../database/user';
@@ -83,8 +84,10 @@ const sendUser = async ({ _id, media }: IDBLaterNotificationsInfo): Promise<stri
 export const mediaSchedule = (): Job => scheduleJob('Sending content upon release notification.', eachHalfHour, async () => {
     // Only 'true' because only Animes are currently supported to notify upon releases.
     const kind = true;
-    const released = <IDBNotificationsInfo[]> await fetchMediaNotifications({ kind });
+    const released = await fetchMediaNotifications({ kind });
     const mediaSubscribers = await Promise.all(released.map(async ({ _id }) => fetchNotifySubscribers({ kind, content_id: _id })));
+
+    updateMediaNotifications({ kind });
 
     if ([{}] !== mediaSubscribers) {
         mediaSubscribers.map(sendMedia);
