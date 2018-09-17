@@ -130,7 +130,7 @@ bot.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callbackQuer
     return scene.enter('Menu', 'callback_query');
 });
 
-bot.on('text', async ({ i18n, scene, message, replyWithMarkdown }: IBotContext) => {
+bot.on('text', async ({ i18n, scene, message, replyWithMarkdown, replyWithVideo }: IBotContext) => {
     const { text } = message;
     const { type } = message.chat;
 
@@ -140,7 +140,9 @@ bot.on('text', async ({ i18n, scene, message, replyWithMarkdown }: IBotContext) 
     } if (i18n.t('menu') === text.toLowerCase()) {
         return scene.enter('Menu');
     } if (i18n.t('help') === text.toLowerCase()) {
-        return replyWithMarkdown(i18n.t('helpOptions'), startExtra(i18n));
+        await replyWithMarkdown(i18n.t('helpOptions'), startExtra(i18n));
+
+        return replyWithVideo('https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/gif/help.gif');
     }
 
     return i18n.t('notAvailable');
