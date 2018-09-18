@@ -20,62 +20,62 @@
 
 </div>
 
-> A new code base to Anilist bot in Telegram.
+> Uma nova implementação do Anilist Bot para Telegram.
 
-## About
-This bot helps you to send info in your [Telegram](https://telegram.org/) chats about:
+## Sobre
+Este bot the ajuda a encontrar informções nos chats do [Telegram](https://telegram.org/) sobre:
 * Animes
-* Mangas
-* Characters
-* Studios
-* Staffs
+* Mangás
+* Personagens
+* Estúdios
+* Funcionários
 * etc
 
-More than this it also notifies you when new episodes are released and lets you have a:
+Mais do que isso, ele também te notifica quando novos episódios são lançados e ainda permite ter:
 * Watchlist
 * Readlist
-* Countdown from new episodes
-* Time watching anime calculator
-* Anime and manga filters in your lists by: airing/publishing, completed, cancelled & soon
-* News when released from [ANN](https://www.animenewsnetwork.com/) about your mangas and animes
-* And much more features that are under development
+* Contagem regressiva para novos episódios
+* Calculadora de tempo assistindo animes
+* Anime e mangá filtros para ver os que estão: lançando, completos, cancelados e em breve
+* Notícias quando lançadas do [ANN](https://www.animenewsnetwork.com/) sobre seus mangás e animes -- procuro algum blog BR para tal também
+* E outras várias novas ferramentas em desenvolvimento
 
-All of the data about it is fetched from [Anilist](http://anilist.co/) & [Anichart](http://anichart.net/).
+Toda as informações são do [Anilist](http://anilist.co/) & [Anichart](http://anichart.net/) -- sendo que possuem tradução automática para Português.
 
-## Disclaimer
-1. [JoshStar](https://github.com/joshstar) was kind to [allow](https://github.com/AniList/ApiV2-GraphQL-Docs/issues/50#event-1794658906) me to store the translated info about the content in different languages, improving the user experience;
-2. This project is a new implementation, the old code base is [here](https://github.com/Fazendaaa/Anilist-bot);
-3. Also, I've removed the _command_ option when talking to the to the bot from the old version due to low usage.
+## Notas
+1. [JoshStar](https://github.com/joshstar) foi gentil para [permitir](https://github.com/AniList/ApiV2-GraphQL-Docs/issues/50#event-1794658906) as traduções das informações fossem armazenadas em diferentes idiomas, melhorando a experiência do usuário;
+2. Esse projeto é uma nova implementação, a antiga se encontra [aqui](https://github.com/Fazendaaa/Anilist-bot);
+3. Além disso, a opção de _comandos_ foram removidas quando conversarem com o bot de acordo com o baixo uso.
 
-## Supported languages:
-By default all the commands are in English, but you can see if the same command is available in your language. Only English and Portuguese had some kind of review, the others are automatic translation from [Google Translate](https://translate.google.com/).
+## Idiomas suportados:
+Por padrão, todos os comandos serão em Inglês, mas você pode ver se o mesmo comando está diponível no seu idoma. Somente Inglês e Português tiveram algum tipo de revisão, todos os outros são traduções automáticas do [Google Traduor](https://translate.google.com/).
 
-* [Arabic](../../others/locales/ar.yaml)
-* [Chinese](../../others/locales/zh.yaml)
-* [Dutch](../../others/locales/nl.yaml)
-* [English](../../others/locales/en.yaml)
-* [French](../../others/locales/fr.yaml)
-* [German](../../others/locales/de.yaml)
-* [Indonesian](../../others/locales/id.yaml)
-* [Italian](../../others/locales/it.yaml)
-* [Japanese](../../others/locales/jp.yaml)
-* [Portuguese - Brazil](../../others/locales/pt.yaml)
-* [Russian](../../others/locales/ru.yaml)
-* [Spanish](../../others/locales/es.yaml)
+* [Alemão](../../others/locales/de.yaml)
+* [Arábe](../../others/locales/ar.yaml)
+* [Chinês](../../others/locales/zh.yaml)
+* [Espanho](../../others/locales/es.yaml)
+* [Holandês](../../others/locales/nl.yaml)
+* [Inglês](../../others/locales/en.yaml)
+* [Francês](../../others/locales/fr.yaml)
+* [Indonês](../../others/locales/id.yaml)
+* [Italiano](../../others/locales/it.yaml)
+* [Japanês](../../others/locales/jp.yaml)
+* [Português - Brasileiro](../../others/locales/pt.yaml)
+* [Russo](../../others/locales/ru.yaml)
 
-**Want a new language?** Talk to me through an issue about it or hit me up at Telegram: [@farmy](http://t.me/farmy).
+**Quer um novo idioma?** Converse comigo através de uma issue ou no Telegram: [@farmy](http://t.me/farmy).
 
-# How to use it
-First of all, talk to [@AnilistBot](http://t.me/anilistbot).
+# Como utilizar
+Primeiramente, converse com o [@AnilistBot](http://t.me/anilistbot).
 
-## Inline Searches
-The inline searches works in any chat conversation:
+## Pesquisas inline
+As pesquisas inline funcionam em qualquer chat:
 
 ```
-@AnilistBot search content
+@AnilistBot conteúdo a ser pesquisado
 ```
 
-Example:
+Exemplo:
 
 ```
 @AnilistBot One Piece
@@ -87,36 +87,36 @@ Example:
     <img src="../../others/img/docs/search/search.png"/>
 </div>
 
-## Descriptions & Genres
-Shows info about anime/manga.
+## Descrição & Gêneros
+Mostra inforamções sobre animes, mangás, personagens e funcionários.
 
 <div align="center">
     <img src="../../others/gif/buttons.gif"/>
 </div>
 
 ## Readlist & Watchlist
-Add to your list to watch or read later.
+Adiciona o conteúdo para sua lista de assistir ou ler depois.
 
 <div align="center">
     <img src="../../others/gif/list.gif"/>
 </div>
 
-## Countdown
-Shows a countdown of your next content releases.
+## Contagem Regressiva
+Mostra o quanto tempo falta para os próximos episódios a serem lançados.
 
 <div align="center">
     <img src="../../others/gif/countdown.gif"/>
 </div>
 
-## Help
-If you have any other questions about it just use it the help command in a bot chat talk:
+## Ajuda
+Se tiver alguma dúvida sobre, apenas utilize o seguinte comando numa conversa com o bot:
 
 ```
 /help
 ```
 
-# Artwork
-I've made all the artwork for it, [Studio Ghibli](https://www.studioghibli.com.au/) was my inspiration.
+# Artes
+Eu fiz todas as artes para o projeto, [Studio Ghibli](https://www.studioghibli.com.au/) foi a minha inspiração.
 
 <div align="center">
     <br>
@@ -135,93 +135,93 @@ I've made all the artwork for it, [Studio Ghibli](https://www.studioghibli.com.a
     <img src="../../others/img/releasing/releasing.png" width=100/>
 </div>
 
-You can see more in the [img](../../others/img) folder.
+Você pode ver mais na pasta [img](../../others/img).
 
-# Supporting
+# Ajudando
 
-Right now, this project has the following total lines:
+Agora, este projeto tem o seguinte total de linhas:
 
 ![Lines](https://img.shields.io/badge/dynamic/json.svg?style=for-the-badge&label=Lines&url=https%3A%2F%2Fraw.githubusercontent.com%2FFazendaaa%2FAnilistBot%2Fmaster%2Fstats.json&query=%24.TOTAL.lines&colorB=red)
 
-And this bot uses four paid services:
+E utiliza quatro serviços pagos:
 1. [Heroku](http://heroku.com/)
 2. [Heroku Redis](https://elements.heroku.com/addons/heroku-redis)
 3. [mLab](https://mlab.com/)
 4. [Google Translate](https://translate.google.com/)
 
-All of your support actually makes a difference to help me maintain this project up and running. I really would love if anyone who uses it could support it helping one time with any value that think it worth it or even supporting it each month with one dollar through my Patreon. And this would allow me to improve this project more and more, adding a ton of features that I've planned.
+Todo o seu suporte pode realmente fazer a diferença para me ajudar a manter este projeto rodando. Eu realmente amaria se todo mundo que o utiliza pudesse suportar ele alguma vez, com qualquer valor que julgar válido ou até mesmo cada mês com um real através do meu Padrim. Isso me permitira melhorar cada vez mais o projto, adicionado várias novas ferramentas que tenho planejado.
 
-You don't think that money is the best option to help out? It's okay, I'm open to translations request and code also! Just take a look at [Contributing](#contributing).
+Você acha que dinheiro não é a melhor maneira de contribuir? Tudo bem, estou aberto para receber traduções e código! Apenas dê uma olhada na parte [Contribuindo](#contribuindo).
 
-Also, I explain better the _"Why"_ receive donations instead of selling ads at [SUPPORT.md](../support/SUPPORT.PT.md).
+Eu também explico o _"porquê"_ receber doações ao invés de vender propagandas em [SUPPORT.PT.md](../support/SUPPORT.PT.md).
 
-Consider buy me a coffee:
+Considere me pagar um café:
 
 [![Buy Me a Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/Fazenda)
 
-Or even becoming a patron:
+Ou quem sabe um "patron":
 
 [![Patreon](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/Fazenda/overview)
 
-To all of my fellow countrymen, starting at one real each month:
+Para todos os meus conterrâneos, começando em um real por mês:
 
-[![Padrim](./others/external/padrim.png)](https://www.padrim.com.br/AnilistBot)
+[![Padrim](../../others/external/padrim.png)](https://www.padrim.com.br/AnilistBot)
 
-# Contributing
-Please, I'm not a native/fluent english speaker, so whether you see a variable name wrote the wrong way or even some comment where I've wrote something with the wrong "past perfect way of life" or something like that, please let me know it. Not always is just about the code, but rather making it more clear to other people to learn from it.
+# Contribuindo
+Por favor, eu não sou nativo/fluente em inglês, então qualquer erro que ver, seja o noe de uma variável ou até mesmo um comentário, comente onde eu errei que irei corrigir. Se eu escrevi algo também da forma conjugada erroneamente, por favor informe-me. Nem sempre é tudo apenas sobre código, mas sim torná-lo mais acessível para outas pessoas.
 
-So, whether is code or not you can help me out making this code more accessible or even supporting trough a new language or fixing some mistranslated content. Just read the [CONTRIBUTING.md](..contributing/CONTRIBUTING.PT.md).
+Sendo código ou não você pode me ajudar mantendo esse código mais acessível, ou até mesmo um novo idioma ou corrigindo algo nos atuais. Apenas leia o arquivo para saber como [CONTRIBUTING.PT.md](../contributing/CONTRIBUTING.PT.md).
 
-# TODO
-Since I will be keeping this README up to date with any major change and I don't use any versioning system to log all the fixed bugs or previous projects updates, you can still have a taste of what comes next and what is being under analysis right in the [Projects](https://github.com/Fazendaaa/AnilistBot/projects/) tab. But I can give you a taste what I have in mind:
+# A Fazer
+Como este README estará atualizado com qualquer mudança grande, eu não irei utilizar nenhum sistema para logar bugs corrigirs ou updates, você pode ver o que está por vir no aba [Projects](https://github.com/Fazendaaa/AnilistBot/projects/). Mas te darei um gostinho do que tenho em mente:
 
-* Caching most requested requisitions
-* Improve metric in time watching Anime:
-    * Provide to user options to _"what to do"_ in real life what he likes. Like showing a YouTube drawing channel if the users likes [Bakuman](https://anilist.co/anime/7674/Bakuman/) as one example
-* Add a pattern matching like _"Did you mean?"_ of Google. Probably I will use it [didyoumean](https://www.npmjs.com/package/didyoumean) package
-* Anilist connection
-* Anime/manga review
-* Support to anime/manga news besides ANN -- to improve news accessibility
-* Natural Language Processing -- You can really have a talk to this bot
-* Anime and Manga recommendation -- Create a engine to it:
-    * Create another server to store this processing -- Talking to the bot through an GraphQL API and probably using [Rust](http://rust-lang.org/) to processing this info and [GO](https://golang.org/) to handle the API
-    * Probably uses a server that allows GPU usage
-    * Improve this engine through image, video and audio processing
-* Create a site displaying info about:
-    * Trending animes/mangas
-    * A graph showing anime/mangas distances between users likes
-* The site must be a [PWA](https://en.wikipedia.org/wiki/Progressive_Web_Apps) to allow new users besides the Telegram user base
+* Cachear as requisições mais feitas
+* Melhorar métrica no tempo assistido:
+    * Prover ao usuário opções de _"o que fazer"_ na vida real baseado no que ele gosta. Como assistir um vídeo de um canal do [YouTube](https://youtube.com/) caso o usuário goste de [Bakuman](https://anilist.co/anime/7674/Bakuman/), como exemplo
+* Adicionar um identificador de padrão como _"Você quis dizer"_ do Google. Provavelmente irei utilizar o pacote [didyoumean](https://www.npmjs.com/package/didyoumean)
+* Conexão com o Anilist
+* Escrever reviews de animes e mangás
+* Suporte para notícias de animes e mangás além do ANN -- para melhorar acesso a notícias
+* Processamento de Linguagem Natural -- Você pode realmente conversar com este bot
+* Recomendações de animes e mangás -- Criar um motor para isso:
+    * Criar outro servidor para armazenar esse processamento -- Comunicação com o bot através de uma API em GraphQL e provavlemente utilizar [Rust](http://rust-lang.org/) para processar tal informações e [GO](https://golang.org/) para dar conta da API
+    * Buscar utilizar um servidor que permite uso de GPU
+    * Melhorar esse motor através de processamento de imagens, vídeo e audio
+* Criar um site para disponilizar informações sobre:
+    * Animes e mangás em foco
+    * Um grafo que mostra a distancia dos animes e mangás de acordo com os gostos dos usuários
+* O site deve ser um [PWA](https://en.wikipedia.org/wiki/Progressive_Web_Apps) para permitir novos usuários além da base de usuários do Telegram
 
 # Deployment
-This bot is up and running at [Heroku](http://heroku.com/) in a [Docker](https://www.docker.com/) container. You can also deploy yourself this bot into Heroku through:
+Este bot está em funcionamento no [Heroku](http://heroku.com/) em um conteiner do [Docker](https://www.docker.com/). Todavia você pode ter uma versão sua deste projeto rodando também:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Fazendaaa/AnilistBot)
 
-But if you use [Azure](https://azure.microsoft.com/):
+Caso se você utilizar o [Azure](https://azure.microsoft.com/):
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repository=https://github.com/Fazendaaa/AnilistBot/tree/master)
 
-Or even deploy it in [Docker Cloud](https://cloud.docker.com/):
+Ou até mesmo o [Docker Cloud](https://cloud.docker.com/):
 
 [![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/Fazendaaa/AnilistBot/tree/master)
 
-> Note: You must be logged in to Docker Cloud for the button to work Otherwise, the link results in a 404 error.
+> Obs: Você deve estar logado no Docker Cloud para o botão de deploy funcionar. Caso contrário, o link resultará em um erro 404.
 
-# Versioning
-I would love to say that [SemVer](https://semver.org/) or anything like that is used but, in my personal experience, this kind of approach doesn't work very well with me, the guy who could be committing in this project for two weeks in a roll and leave it for almost one year with no simple ```npm update```. So, no versioning system is used. 
+# Versionamento
+Eu adoraria dizer que é utilizado o [SemVer](https://semver.org/) ou coisa do tipo mas, devido a minha experiência pessoal, do cara que pode commitar por duas semanas seguidas neste projeo e deixá-lo por quase um ano sem rodar um simples ```npm update```... Nenhum sistema será utilizado.
 
-# How does it work?
-You can build yourself a bot similar to this one, I've wrote a tutorial about it in my [Podesearch Bot](https://github.com/Fazendaaa/podsearch_bot) just follow the procedures listed in [BUILDING.md](https://github.com/Fazendaaa/podsearch_bot/blob/master/docs/building/BUILDING.md).
+# Como funciona?
+Você pode construir um bot similar a este, Eu escrevi um tutoria sobre no meu [Podesearch Bot](https://github.com/Fazendaaa/podsearch_bot), apenas siga os procedimentos listados em [BUILDING.md](https://github.com/Fazendaaa/podsearch_bot/blob/master/docs/building/BUILDING_PT.md).
 
-# Code
-Plain and simple [Typescript](http://typescriptlang.org/) and the [Microsoft linter standards](https://github.com/Microsoft/tslint-microsoft-contrib) for it.
+# Código
+Puro e simples [Typescript](http://typescriptlang.org/) com os padrões de linter da [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib) para ele.
 
 ## Webpack
-> _"JUST WHY???"_ -- everybody
+> _"POR QUÊ???"_ -- todo mundo
 
-As the [Anilist API V2](https://github.com/AniList/ApiV2-GraphQL-Docs) was written with [GraphQL](https://graphql.org/), as I was using it, the needed queries as JS ```imports``` was a option but only with [Webpack](http://webpack.js.org/) and the [webpack-graphql-loader](https://github.com/samsarahq/graphql-loader). And since this makes the code more cleaner and easier to maintain that's why it was used; that's the GREAT difference and could seen a little bit off to see this kind of decision and that's the answer.
+Como a segunda versão da [API Anilist](https://github.com/AniList/ApiV2-GraphQL-Docs) foi escrita em [GraphQL](https://graphql.org/), e como eu fui utilizando, a necessidade de utilizar as queries como ```imports``` de JS era uma opção apenas com [Webpack](http://webpack.js.org/) e o [webpack-graphql-loader](https://github.com/samsarahq/graphql-loader). Como isso deixa o código mais limpo e fácil de ler e manter, este foi o motivo de ser utilizado; isso permite uma GRANDE diferença e pode ser um pouco estranho tomar tal tipo de ceissão e aqui está a respota para.
 
-## Build with
+## Construído Com
 * [city-timezones](https://github.com/kevinroberts/city-timezones)
 * [dotenv](https://github.com/motdotla/dotenv)
 * [endeavor](https://github.com/Fazendaaa/endeavor)
@@ -237,30 +237,30 @@ As the [Anilist API V2](https://github.com/AniList/ApiV2-GraphQL-Docs) was writt
 * [telegraf-i18n](https://github.com/telegraf/telegraf-i18n)
 * [telegraf-session-redis](https://github.com/telegraf/telegraf-session-redis)
 
-## Testing
-Since there's a [Travis CI](http://travis-ci.org/) integration and [Codecov](https://codecov.io/). All of the tests were written with [Jest](https://facebook.github.io/jest/) with the help of [ts-jest](https://github.com/kulshekhar/ts-jest).
+## Testando
+Como há uma integração com o [Travis CI](http://travis-ci.org/) e o [Codecov](https://codecov.io/). Todos os testes foram escritos para o [Jest](https://facebook.github.io/jest/) com a ajuda do [ts-jest](https://github.com/kulshekhar/ts-jest).
 
-To run all tests just:
+Para rodar todos os testes, basta:
 
 ```bash
 npm test
 ```
 
-If you ran into some errors related to package dependencies and want to know how to handle it, read the [Security](##security) info.
+Se você encontrar alguns erros relacionados a dependencias de pacotes e gostaria de saber como resolvê-los, leia [Segurança](##segurança) sobre isso.
 
-### Unneeded Code
-There's a pattern to do testing based on using JSON files describing the tests to be done. That being said, the [```doTesting```](./ci/doTesting.ts) function has a unneeded argument, the name of the function to be tested.
+### Código Desnecessário
+Há um padrão para testar código baseado em um arquivo descritivo em JSON. Dito isto, a função [```doTesting```](./ci/doTesting.ts) tem um argumento desncessário, o nome da função a ser testado.
 
-Node runs using [V8](https://github.com/v8/v8) engine, but since this project uses TS, the compiled code doesn't have the _name_ property in the anonymous function. The problem is a [known issue](https://github.com/Microsoft/TypeScript/issues/6433); the folks at [Jest](https://github.com/facebook/jest/issues/6824#event-1787524124) and [ts-jest](https://github.com/kulshekhar/ts-jest/issues/677#issuecomment-412893575) helped a lot to understand this -- once this issue is fixed there won't be this anymore.
+Node roda usando o motor [V8](https://github.com/v8/v8), mas como este projeto utiliza TS, o código compilado não tem a propriedade _name_ na função anonima. Isto é um [problema reportado](https://github.com/Microsoft/TypeScript/issues/6433); o pessoal do [Jest](https://github.com/facebook/jest/issues/6824#event-1787524124) e do [ts-jest](https://github.com/kulshekhar/ts-jest/issues/677#issuecomment-412893575) me ajudaram a entender isso -- uma vez fixado, não haverá mas isso.
 
-## Security
-I've added a integration with [Snyk](https://snyk.io/) to ensure the Continuos Development (CD).
+## Segurança
+Foi adicionado uma integração com [Snyk](https://snyk.io/) para garantir do Desenvolvimento Contínuo.
 
-### Errors/Bugs in Dependencies
-When Snyk report some errors or bugs that can be fixed, just follow the CLI command to fix them before running -- more info at their [docs](https://github.com/snyk/snyk#cli).
+### Erros ou Bugs em dependências
+Quando Snyk reporta algum erro ou bugs que podem ser corrigidos, apenas siga o comando do terminal para corrigí-los antes de rodar -- mais informação na [documentação](https://github.com/snyk/snyk#cli) deles.
 
-# Authors
-* Only [me](https://github.com/Fazendaaa) for now.
+# Autores
+* Apenas [eu](https://github.com/Fazendaaa) até agora.
 
-# License
-Like many Open-Source Software (OSS) the MIT license is used, more about it in [LICENSE](../../LICENSE).
+# Lisença
+Como vários projetos Open-Source, a lisença do MIT é utilizad. Mais informações em [LICENSE](../../LICENSE).

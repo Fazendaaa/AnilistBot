@@ -9,7 +9,7 @@
 [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg?longCache=true&style=for-the-badge)](https://saythanks.io/to/Fazendaaa)
 
 [![English README](https://img.shields.io/badge/Language-EN-blue.svg?longCache=true&style=for-the-badge)](./README.md)
-[![Portuguese README](https://img.shields.io/badge/Linguagem-PT-green.svg?longCache=true&style=for-the-badge)](./docs/readme/README_PT.md)
+[![Portuguese README](https://img.shields.io/badge/Linguagem-PT-green.svg?longCache=true&style=for-the-badge)](./docs/readme/README.PT.md)
 
 [![Build Status](https://img.shields.io/travis/Fazendaaa/AnilistBot.svg?style=flat-square)](https://travis-ci.org/Fazendaaa/AnilistBot)
 [![codecov](https://img.shields.io/codecov/c/github/Fazendaaa/AnilistBot.svg?style=flat-square)](https://codecov.io/gh/Fazendaaa/AnilistBot)
@@ -88,7 +88,7 @@ Example:
 </div>
 
 ## Descriptions & Genres
-Shows info about anime/manga.
+Shows info about anime, manga, characters and staff.
 
 <div align="center">
     <img src="./others/gif/buttons.gif"/>
@@ -177,7 +177,7 @@ Since I will be keeping this README up to date with any major change and I don't
 
 * Caching most requested requisitions
 * Improve metric in time watching Anime:
-    * Provide to user options to _"what to do"_ in real life what he likes. Like showing a YouTube drawing channel if the users likes [Bakuman](https://anilist.co/anime/7674/Bakuman/) as one example
+    * Provide to user options to _"what to do"_ in real life what he likes. Like showing a [YouTube](https://youtube.com/) drawing channel if the users likes [Bakuman](https://anilist.co/anime/7674/Bakuman/) as one example
 * Add a pattern matching like _"Did you mean?"_ of Google. Probably I will use it [didyoumean](https://www.npmjs.com/package/didyoumean) package
 * Anilist connection
 * Anime/manga review
@@ -205,10 +205,10 @@ Or even deploy it in [Docker Cloud](https://cloud.docker.com/):
 
 [![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/Fazendaaa/AnilistBot/tree/master)
 
-> Note: You must be logged in to Docker Cloud for the button to work Otherwise, the link results in a 404 error.
+> Note: You must be logged in to Docker Cloud for the button to work. Otherwise, the link results in a 404 error.
 
 # Versioning
-I would love to say that [SemVer](https://semver.org/) or anything like that is used but, in my personal experience, this kind of approach doesn't work very well with me, the guy who could be committing in this project for two weeks in a roll and leave it for almost one year with no simple ```npm update```. So, no versioning system is used. 
+I would love to say that [SemVer](https://semver.org/) or anything like that is used but, in my personal experience, this kind of approach doesn't work very well with me, the guy who could be committing in this project for two weeks in a roll and leave it for almost one year with no simple ```npm update```... No versioning system is used. 
 
 # How does it work?
 You can build yourself a bot similar to this one, I've wrote a tutorial about it in my [Podesearch Bot](https://github.com/Fazendaaa/podsearch_bot) just follow the procedures listed in [BUILDING.md](https://github.com/Fazendaaa/podsearch_bot/blob/master/docs/building/BUILDING.md).
