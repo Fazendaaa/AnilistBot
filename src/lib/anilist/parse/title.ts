@@ -1,11 +1,11 @@
 import { ICharactersNameContext, IStaffNameContext, IStudiosNameContext, ITitleContext } from '.';
 
 export const mediaTitle = ({ title, translation }: ITitleContext): string => {
-    if (null !== title.english) {
+    if (null !== title.english && '' !== title.english) {
         return title.english;
-    } if (null !== title.romaji) {
+    } if (null !== title.romaji && '' !== title.romaji) {
         return title.romaji;
-    } if (null !== title.native) {
+    } if (null !== title.native && '' !== title.native) {
         return title.native;
     }
 
@@ -13,11 +13,11 @@ export const mediaTitle = ({ title, translation }: ITitleContext): string => {
 };
 
 export const charactersTitle = ({ name, translation }: ICharactersNameContext): string => {
-    if (null !== name.first) {
+    if (null !== name.first && '' !== name.first) {
         return name.first;
-    } if (null !== name.last) {
+    } if (null !== name.last && '' !== name.last) {
         return name.last;
-    } if (null !== name.native) {
+    } if (null !== name.native && '' !== name.native) {
         return name.native;
     }
 
@@ -25,11 +25,11 @@ export const charactersTitle = ({ name, translation }: ICharactersNameContext): 
 };
 
 export const staffTitle = ({ name, translation }: IStaffNameContext): string => {
-    if (null !== name.first) {
+    if (null !== name.first && '' !== name.first) {
         return name.first;
-    } if (null !== name.last) {
+    } if (null !== name.last && '' !== name.last) {
         return name.last;
-    } if (null !== name.native) {
+    } if (null !== name.native && '' !== name.native) {
         return name.native;
     }
 
@@ -37,7 +37,7 @@ export const staffTitle = ({ name, translation }: IStaffNameContext): string => 
 };
 
 export const studiosTitle = ({ name, translation }: IStudiosNameContext): string => {
-    if (null !== name) {
+    if (null !== name && '' !== name) {
         return name;
     }
 
