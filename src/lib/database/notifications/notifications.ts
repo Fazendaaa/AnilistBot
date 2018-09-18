@@ -67,13 +67,17 @@ export const fetchAllAnimesNotifications = async (): Promise<IDBNotificationsInf
 };
 
 export const fetchMediaNotifications = async ({ kind }: IMediaNotifications): Promise<IDBNotificationsInfo[]> => {
-    return Notifications.find({ kind }).where('time').lte(Date.now()).then(async (response: IDBNotifications[]) => {
+    const serverTime = new Date(Date.now());
+
+    return Notifications.find({ kind }).where('time').lte(serverTime).then(async (response: IDBNotifications[]) => {
         return Promise.all(response.map(handleInfo));
     }).catch(() => []);
 };
 
 export const updateMediaNotifications = async ({ kind }: IMediaNotifications): Promise<IDBNotificationsInfo[] | {}> => {
-    return Notifications.find({ kind }).where('time').lte(Date.now()).then(async (response: IDBNotifications[]) => {
+    const serverTime = new Date(Date.now());
+
+    return Notifications.find({ kind }).where('time').lte(serverTime).then(async (response: IDBNotifications[]) => {
         return Promise.all(response.map(handleMediaNotify));
     }).catch(() => []);
 };
