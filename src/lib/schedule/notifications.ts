@@ -23,7 +23,7 @@ const eachHour = '00 59 * * * *';
 const eachHalfHour = '00 00,30 * * * *';
 
 const reduceLanguage = async (reduce: IReduceLanguage, acc: Promise<IUsersLanguage>, cur: number): Promise<IUsersLanguage> => {
-    return acc.then(async(newAcc) => {
+    return acc.then(async (newAcc) => {
         const { content_id, kind } = reduce;
         const { _id, time, language } = <IDBUserInfo> await userInfo(cur);
         const toNotifyLanguage = ('' !== language) ? language : 'en';
@@ -87,11 +87,9 @@ export const mediaSchedule = (): Job => scheduleJob('Sending content upon releas
     const released = await fetchMediaNotifications({ kind });
     const mediaSubscribers = await Promise.all(released.map(async ({ _id }) => fetchNotifySubscribers({ kind, content_id: _id })));
 
-    updateMediaNotifications({ kind });
+    mediaSubscribers.map(sendMedia);
 
-    if ([{}] !== mediaSubscribers) {
-        mediaSubscribers.map(sendMedia);
-    }
+    updateMediaNotifications({ kind });
 });
 
 export const userSchedule = (): Job => scheduleJob('Sending content to the user desired time.', eachHour, async () => {
