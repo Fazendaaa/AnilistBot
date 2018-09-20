@@ -6,7 +6,7 @@ import Telegram from 'telegraf/telegram';
 import { IReduceLanguage, IUserMessage, IUsersLanguage } from '.';
 import { fetchNewRelease } from '../anilist/requests/newRelease';
 import { IContentInfo, IDBLaterNotificationsInfo } from '../database/notifications';
-import { addLaterNotifications, fetchLaterNotifications, fetchMediaNotifications, updateMediaNotifications
+import { addLaterNotifications, fetchLaterNotifications, fetchMediaNotifications, updateMediaNotifications, updateMissingMediaNotifications
 } from '../database/notifications/notifications';
 import { INotifySubscribersResponse } from '../database/subscriptions';
 import { fetchNotifySubscribers } from '../database/subscriptions/subscription';
@@ -94,6 +94,9 @@ export const mediaSchedule = (): Job => scheduleJob('Sending content upon releas
 
 export const userSchedule = (): Job => scheduleJob('Sending content to the user desired time.', eachHour, async () => {
     const kind = true;
+
+    await updateMissingMediaNotifications({ kind });
+
     const usersToNotify = await fetchLaterNotifications({ kind });
 
     usersToNotify.map(sendUser);

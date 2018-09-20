@@ -56,10 +56,7 @@ const handleMediaNotify = async (notification: IDBNotifications): Promise<IDBNot
 };
 
 export const addNotifications = async ({ id, kind, time }: INotificationsContext): Promise<IDBNotificationsInfo | {}> => {
-    // This handles retrocompatibility.
-    const update = { $rename: { type: 'kind' } };
-
-    return Notifications.findOneAndUpdate({ _id: id, kind, time }, update, options).then(handleInfo).catch(emptyReturn);
+    return Notifications.findOneAndUpdate({ _id: id, kind, time }, {}, options).then(handleInfo).catch(emptyReturn);
 };
 
 export const fetchAllAnimesNotifications = async (): Promise<IDBNotificationsInfo[]> => {
@@ -74,6 +71,12 @@ export const fetchMediaNotifications = async ({ kind }: IMediaNotifications): Pr
 
 export const updateMediaNotifications = async ({ kind }: IMediaNotifications): Promise<IDBNotificationsInfo[] | {}> => {
     return Notifications.find({ kind }).where('time').lte(new Date(Date.now())).then(async (response: IDBNotifications[]) => {
+        return Promise.all(response.map(handleMediaNotify));
+    }).catch(() => []);
+};
+
+export const updateMissingMediaNotifications = async ({ kind }: IMediaNotifications): Promise<IDBNotificationsInfo[] | {}> => {
+    return Notifications.find({ kind }).where('time').equals(null).then(async (response: IDBNotifications[]) => {
         return Promise.all(response.map(handleMediaNotify));
     }).catch(() => []);
 };
