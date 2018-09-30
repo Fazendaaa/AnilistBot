@@ -1,4 +1,4 @@
-import { fetchData } from 'endeavor';
+import { queryAnilist } from 'endeavor';
 import striptags from 'striptags';
 import { IDataContext, ISelectQuery } from '.';
 import { ICharacterDescription, IMediaDescription, IRequestsDescription, IStaffDescription } from '../queries';
@@ -11,15 +11,15 @@ const selectQuery = async ({ id, content }: ISelectQuery): Promise<string> => {
     let result: IRequestsDescription;
 
     if ('ANIME' === content || 'MANGA' === content) {
-        result = <IRequestsDescription> await fetchData({ query: media, variables: { type: content, id } });
+        result = <IRequestsDescription> await queryAnilist({ query: media, variables: { type: content, id } });
 
         return (<IMediaDescription> result.data).Media.description;
     } if ('CHARACTER' === content) {
-        result = <IRequestsDescription>await fetchData({ query: character, variables: { id } });
+        result = <IRequestsDescription>await queryAnilist({ query: character, variables: { id } });
 
         return (<ICharacterDescription> result.data).Character.description;
     }
-    result = <IRequestsDescription>await fetchData({ query: staff, variables: { id } });
+    result = <IRequestsDescription>await queryAnilist({ query: staff, variables: { id } });
 
     return (<IStaffDescription> result.data).Staff.description;
 };

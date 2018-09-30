@@ -1,4 +1,4 @@
-import { fetchData } from 'endeavor';
+import { queryAnilist } from 'endeavor';
 import { IDataContext } from '.';
 import { IRequestsGenres } from '../queries';
 import query from '../queries/genres.gql';
@@ -15,7 +15,7 @@ const parseGenres = (input: string | string []): string => {
 };
 
 export const fetchGenres = async ({ id, content, translation }: IDataContext): Promise<string> => {
-    const fetch = <IRequestsGenres> await fetchData({ query, variables: { type: content, id } });
+    const fetch = <IRequestsGenres> await queryAnilist({ query, variables: { type: content, id } });
     const message = fetch.data.Media.genres;
     const to = translation.locale().split('-')[0];
 

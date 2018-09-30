@@ -1,4 +1,4 @@
-import { fetchData } from 'endeavor';
+import { queryAnilist } from 'endeavor';
 import { IAnilistContext, INotFoundContext, ISearchContext } from '.';
 import { IMinimumInline } from '../../telegram/';
 import { ICharacters, ICharactersQueryPage, IMedia, IMediaQueryPage, IStaff, IStaffQueryPage, IStudios, IStudiosQueryPage
@@ -9,7 +9,7 @@ import staff from '../queries/staffSearch.gql';
 import studio from '../queries/studioSearch.gql';
 import { charactersInfo, mediaInfo, notFoundInfo, staffInfo, studiosInfo } from './info';
 
-const searchAnilist = async ({ search, query, page, perPage }: IAnilistContext): Promise<Object | Error> => fetchData({
+const searchAnilist = async ({ search, query, page, perPage }: IAnilistContext): Promise<Object | Error> => queryAnilist({
     query,
     variables: { page, perPage, search: ('' !== search) ? search : null  }
 });
