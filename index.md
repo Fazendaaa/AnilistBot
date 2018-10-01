@@ -108,9 +108,9 @@ If you have any other questions about it just use it the help command in a bot c
 
 # Supporting
 
-Right now, this project has the following total lines:
+Right now, this project has the following total lines of code:
 
-![Lines](https://img.shields.io/badge/dynamic/json.svg?style=for-the-badge&label=Lines&url=https%3A%2F%2Fraw.githubusercontent.com%2FFazendaaa%2FAnilistBot%2Fmaster%2Fstats.json&query=%24.TOTAL.lines&colorB=red)
+![Lines](https://img.shields.io/badge/dynamic/json.svg?label=LOC&url=https%3A%2F%2Fraw.githubusercontent.com%2FFazendaaa%2FAnilistBot%2Fmaster%2Fstats.json&query=%24.SUM.code&colorB=red&prefix=loc)
 
 And this bot uses four paid services:
 1. [Heroku](http://heroku.com/)

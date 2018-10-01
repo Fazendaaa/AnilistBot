@@ -139,9 +139,9 @@ Você pode ver mais na pasta [img](../../others/img).
 
 # Ajudando
 
-Agora, este projeto tem o seguinte total de linhas:
+Agora, este projeto tem o seguinte total de linhas de código:
 
-![Lines](https://img.shields.io/badge/dynamic/json.svg?style=for-the-badge&label=Lines&url=https%3A%2F%2Fraw.githubusercontent.com%2FFazendaaa%2FAnilistBot%2Fmaster%2Fstats.json&query=%24.TOTAL.lines&colorB=red)
+![Linhas](https://img.shields.io/badge/dynamic/json.svg?label=LOC&url=https%3A%2F%2Fraw.githubusercontent.com%2FFazendaaa%2FAnilistBot%2Fmaster%2Fstats.json&query=%24.SUM.code&colorB=red&prefix=loc)
 
 E utiliza quatro serviços pagos:
 1. [Heroku](http://heroku.com/)

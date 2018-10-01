@@ -1,1 +1,24 @@
-{"TOTAL":{"lines":20375,"files":190},".md":{"files":5,"lines":801},"PLAIN":{"files":1,"lines":13},".json":{"files":14,"lines":213},".ts":{"files":114,"lines":5517},".info":{"files":1,"lines":22},".css":{"files":2,"lines":226},".js":{"files":4,"lines":294},".html":{"files":15,"lines":2044},".MD":{"files":2,"lines":2},".bson":{"files":4,"lines":834},".rdb":{"files":1,"lines":7},".yaml":{"files":12,"lines":9710},".kdenlive":{"files":1,"lines":409},".map":{"files":1,"lines":1},".gql":{"files":13,"lines":282}}
+
+{"header" : {
+  "cloc_url"           : "github.com/AlDanial/cloc",
+  "cloc_version"       : "1.78",
+  "elapsed_seconds"    : 0.0537958145141602,
+  "n_files"            : 107,
+  "n_lines"            : 5451,
+  "files_per_second"   : 1989.00232232445,
+  "lines_per_second"   : 101327.585598043},
+"TypeScript" :{
+  "nFiles": 94,
+  "blank": 950,
+  "comment": 32,
+  "code": 4200},
+"GraphQL" :{
+  "nFiles": 13,
+  "blank": 0,
+  "comment": 0,
+  "code": 269},
+"SUM": {
+  "blank": 950,
+  "comment": 32,
+  "code": 4469,
+  "nFiles": 107} }
