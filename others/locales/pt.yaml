@@ -1,6 +1,6 @@
 start:
   "*Olá*, _${from.username}!_\n\n\
-  Eu sou AnilistBot, o seu bot the pesquisas sobre o mundo dos animes/mangas!\n\n\
+  Eu sou AnilistBot, o seu bot de pesquisas sobre o mundo dos animes/mangas!\n\n\
   Porém, eu posso fazer muito mais, para saber apenas clique no botão de Ajuda.\n\n\
   Quer saber mais sobre mim? Gostaria de ver como é meu código ou ajudar no projeto? Vá na opção Sobre no Guia do Menu :)"
 
@@ -71,13 +71,13 @@ notifyOptions:
   *Notícias*\n\
   Quando notícias sobre os animes que acompanha forem liberadas — de animes em lançamento ou não —, você será notificado sobre. Esta opção está somente disponível para notícias em Inglês.\n\n\
   *Casos Especificos*\n\
-  Caso queria ativar ou desativar notificações para animes/mangas especificos, você pode fazer isso indo diretamente no conteudo em si nas listas.\n\n\
+  Caso queria ativar ou desativar notificações para animes/mangas específicos, você pode fazer isso indo diretamente no conteudo em si nas listas.\n\n\
   Você gostaria mesmo de desativar *TODAS* as notificações dos __episódios__ e __notícias__?"
 
 timeOptions:
   "⏰ *HORÁRIO*\n\n\
   Mude aqui o horário das suas notificações.\n\n\
-  Você pode fazer isso por configurando o tempo por você mesmo — só se lembre que meu relógio é o UTC — ou você pode me mandar sua localização nas configurações para o usuário para que, dessa maneira, eu possa lhe notificar no seu horário local."
+  Você pode fazer isso configurando o tempo você mesmo — só se lembre que meu relógio é o UTC — ou você pode me mandar sua localização nas configurações para o usuário para que, dessa maneira, eu possa lhe notificar no seu horário local."
 
 timePeriodOptions:
   "⏰ *PERÍODO*\n\n\
@@ -106,7 +106,7 @@ removeLocationOptions:
 
 removeLocationNoOptions:
   "🌎 *LOCALIZAÇÃO*\n\n\
-  Sua localização permanesce a mesma. Nada mudou."
+  Sua localização permanece a mesma. Nada mudou."
 
 guideOptions:
   "🗺️ *GUIA*\n\n\
@@ -312,7 +312,7 @@ animeNotifyError:
   Por favor, avise @famry sobre isto."
 
 mangaNotifyEnabled:
-  "Você receberá notificações sobre este mangá noticias sobre ele"
+  "Você receberá notificações sobre este mangá com noticias sobre ele"
 
 mangaNotifyDisabled:
   "Você não irá mais receber nenhuma notificação sobre este mangá"
@@ -801,7 +801,7 @@ locationMask:
 
 locationNotFoundMask:
   "🛰️ *NADA ENCONTRADO*\n\n\
-  Nada encontrado enquanto pesquisquei por _${city}_. Verifique se é ou não um error de digitação ou procure enviar sua localização."
+  Nada encontrado enquanto pesquisquei por _${city}_. Verifique se é ou não um erro de digitação ou procure enviar sua localização."
 
 episode:
   "*Episódio*: _${episode}_\n"
