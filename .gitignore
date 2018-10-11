@@ -4,3 +4,5 @@ coverage
 node_modules
 .env
 dump.rdb
+.vscode
+.idea
