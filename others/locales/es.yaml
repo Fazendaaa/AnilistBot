@@ -5,7 +5,7 @@ start:
   ¿Quieres saber más acerca de mí? ¿Le gustaría ver cuál es mi código o ayudar con el proyecto? Vaya a Acerca de en la Guía de menús :)"
 
 dbDown:
-  "Desafortunadamente, la base de datos está inactiva en este momento, por favor, informe a @farmy sobre esto, ¡para que pueda arreglarlo!"
+  "Desafortunadamente, la base de datos está inactiva en este momento. Por favor, informe a @farmy sobre esto, ¡para que pueda arreglarlo!"
 
 dbDownPrivate:
   "🤔 *ADVERTENCIA*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/db_down/db_down.png)\n\n\
@@ -227,7 +227,7 @@ setLanguage:
 
 errorSetLanguage:
   "🚫 *ERROR DE IDIOMAS*\n\n\
-  Ocurrió un error al intentar cambiar tu lenguaje, porfavor informe a @farmy about it"
+  Ocurrió un error al intentar cambiar tu lenguaje. Por favor informe a @farmy about it"
 
 setNotify:
   "👌 *NOTIFICACIONES CONFIGURADAS*\n\n\
