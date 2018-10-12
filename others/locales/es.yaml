@@ -1,16 +1,16 @@
 start:
   "*Bienvenido*, _${from.username}!_\n\n\
-  ¡Soy AnilistBot, es el bot sobre el mundo de anime/manga!\n\n\
-  Sin embargo, puedo hacer mucho más. Para mas información haz clic en el botón Ayuda.\n\n\
-  ¿Quieres saber más acerca de mí? ¿Le gustaría ver mi código o ayudar con el proyecto? Ve a la pagina Acerca De en la Guía de menús :)"
+  ¡Soy AnilistBot, el bot del mundo anime/manga!\n\n\
+  Sin embargo, puedo hacer mucho más, para saber como, haz clic en el botón Ayuda.\n\n\
+  ¿Quieres saber más acerca de mí? ¿Le gustaría ver cuál es mi código o ayudar con el proyecto? Vaya a Acerca de en la Guía de menús :)"
 
 dbDown:
-  "Desafortunadamente, la base de datos está actualmente inactiva. Por favor, informa a @farmy sobre esto, ¡para que pueda arreglarlo!"
+  "Desafortunadamente, la base de datos está inactiva en este momento. Por favor, informe a @farmy sobre esto, ¡para que pueda arreglarlo!"
 
 dbDownPrivate:
   "🤔 *ADVERTENCIA*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/db_down/db_down.png)\n\n\
-  Desafortunadamente, la base de datos está actualmente inactiva. Por favor, informa a @farmy sobre esto, ¡para que pueda arreglarlo!\n\n\
-  Es posible que algunas de las opciones de bot funcionen y otras no."
+  Desafortunadamente, la base de datos está inactiva en este momento. Por favor, informe a @farmy sobre esto, ¡para que pueda arreglarlo!\n\n\
+  Algunas de las opciones de bot pueden funcionar y otras no."
 
 deprecated:
   "Este botón es de mi versión anterior, busca este contenido nuevamente."
@@ -51,9 +51,9 @@ helpOptions:
   - *Notificaciones cuando empiezan nuevos episodios*\n\
   - *Noticias sobre tus mangas y animes*\n\
   - *Calcula tu tiempo viendo anime*\n\
-  - *Countdown for episodes*\n\
+  - *Cuenta regresiva para episodios*\n\
   - *Tu propia lista para ver y leer*\n\n\
-  Para recibir notificaciones, simplemente agregue el anime en su lista para ver después de buscarlo, hay un botón para eso en los resultados despues de buscar.\n\n\
+  Para recibir notificaciones, simplemente agregue el anime en su lista de seguimiento después de buscarlo, hay un botón para eso en el contenido buscado.\n\n\
   ¿Alguna otra pregunta?\n\n\
   Presione Menú y vea la información de la guía para obtener más información y configuraciones sobre este bot."
 
@@ -201,8 +201,8 @@ counterOptions:
 
 recommendationOptions:
   "⚖️ *RECOMENDACIONES*\n\n\
-  Debido a su historial de lectura y lectura, estamos trabajando en un sistema para darle recomendaciones sobre lo que debe mirar o leer.\n\n\
-  Y puedes ayudarme con esto ... Solo ve a la sección Acerca en la pestaña Guía pare ver cómo puedes ayudarme :)"
+  En base a tus intereses en manga y anime, denotados en tu historial, estamos trabajando en un sistema para brindarle recomendaciones sobre lo que debería ver o leer.\n\n\
+  Y puedes ayudarme con esto ... Solo dirígete a la sección Acerca de en la pestaña Guía cómo puedes ayudarme :)"
 
 languageOptions:
   "Por favor, elija una de las siguientes opciones de idioma:"
@@ -227,7 +227,7 @@ setLanguage:
 
 errorSetLanguage:
   "🚫 *ERROR DE IDIOMAS*\n\n\
-  An error occurred when trying to change your language, please warn @farmy about it"
+  Ocurrió un error al intentar cambiar tu lenguaje. Por favor informe a @farmy about it"
 
 setNotify:
   "👌 *NOTIFICACIONES CONFIGURADAS*\n\n\
@@ -280,7 +280,7 @@ alreadyRemovedWatchlist:
 
 errorWatchlist:
   "¡Ocurrió un error!\n\
-  Por favor, advierte @farmy al respecto."
+  Por favor, advierte a @farmy al respecto."
 
 addedReadlist:
   "¡Este manga fue agregado a tu lista para leer!\n\
@@ -297,7 +297,7 @@ alreadyRemovedReadlist:
 
 errorReadlist:
   "¡Ocurrió un error!\n\
-  Por favor, advierte @farmy al respecto."
+  Por favor, advierte a @farmy al respecto."
 
 animeNotifyEnabled:
   "Recibirás una notificación sobre este anime cuando haya nuevos episodios y noticias"
@@ -307,7 +307,7 @@ animeNotifyDisabled:
 
 animeNotifyError:
   "¡Ocurrió un error!\n\
-  Por favor, advierte @farmy al respecto."
+  Por favor, advierte a @farmy al respecto."
 
 mangaNotifyEnabled:
   "Recibirás una notificación sobre este manga como noticias al respecto"
@@ -317,7 +317,7 @@ mangaNotifyDisabled:
 
 mangaNotifyError:
   "¡Ocurrió un error!\n\
-  Por favor, advierte @farmy al respecto."
+  Por favor, advierte a @farmy al respecto."
 
 languageDefault:
   "El idioma predeterminado de Telegram"
@@ -326,7 +326,7 @@ timeNotSet:
   "Sobre los episodios y las noticias"
 
 timezoneNotSet:
-  "Not set, you will be notified at the bot time clock"
+  "No configurado, seras notificado en horario del bot"
 
 enabled:
   "Encendido"
@@ -347,7 +347,7 @@ pt:
   "Portugués"
 
 id:
-  "Pndonesio"
+  "Indonesio"
 
 nl:
   "Holandés"
@@ -395,7 +395,7 @@ itButton:
   "🇮🇹 Italiano"
 
 deButton:
-  "🇩🇪 Alemàn"
+  "🇩🇪 Alemán"
 
 frButton:
   "🇫🇷 Francés"
@@ -470,7 +470,7 @@ airingButton:
   "Publicación"
 
 soonButton:
-  "Luego"
+  "Pronto"
 
 completedButton:
   "Terminado"
@@ -497,7 +497,7 @@ watchlistButton:
   "Lista de seguimiento"
 
 readlistButton:
-  "Readlist"
+  "Lista de lectura"
 
 aboutButton:
   "Acerca"
@@ -602,7 +602,7 @@ isAdult:
   "⚠️ Contenido Adulto\n"
 
 lightNovel:
-  "🔲 Light Novel"
+  "🔲 Novela ligera"
 
 visualNovel:
   "🔳 Visual Novel"
@@ -805,4 +805,4 @@ episode:
   "*Episodio*: _${episode}_\n"
 
 timeUntilAiring:
-  "*Tiempo hasta que se transmite*: _${timeUntilAiring}_\n"
+  "*Tiempo hasta la emisión*: _${timeUntilAiring}_\n"
