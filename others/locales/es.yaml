@@ -1,15 +1,15 @@
 start:
   "*Bienvenido*, _${from.username}!_\n\n\
-  ¡Soy AnilistBot, es el bot en el mundo del anime/manga!\n\n\
-  Sin embargo, puedo hacer mucho más, solo para saber cómo hacer clic en el botón Ayuda.\n\n\
+  ¡Soy AnilistBot, el bot del mundo anime/manga!\n\n\
+  Sin embargo, puedo hacer mucho más, para saber como, haz clic en el botón Ayuda.\n\n\
   ¿Quieres saber más acerca de mí? ¿Le gustaría ver cuál es mi código o ayudar con el proyecto? Vaya a Acerca de en la Guía de menús :)"
 
 dbDown:
-  "Desafortunadamente, la base de datos está actualmente inactiva. Por favor, informa a @farmy sobre esto, ¡para que pueda arreglarlo!"
+  "Desafortunadamente, la base de datos está inactiva en este momento, por favor, informe a @farmy sobre esto, ¡para que pueda arreglarlo!"
 
 dbDownPrivate:
   "🤔 *ADVERTENCIA*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/db_down/db_down.png)\n\n\
-  Desafortunadamente, la base de datos está actualmente inactiva. Por favor, informa a @farmy sobre esto, ¡para que pueda arreglarlo!\n\n\
+  Desafortunadamente, la base de datos está inactiva en este momento. Por favor, informe a @farmy sobre esto, ¡para que pueda arreglarlo!\n\n\
   Algunas de las opciones de bot pueden funcionar y otras no."
 
 deprecated:
@@ -51,7 +51,7 @@ helpOptions:
   - *Notificaciones cuando se lanzan nuevos episodios*\n\
   - *Noticias sobre tus mangas y animes*\n\
   - *Tiempo viendo en la calculadora de anime*\n\
-  - *Countdown for episodes*\n\
+  - *Cuenta regresiva para episodios*\n\
   - *Tu propia lista de seguimiento y lista de lectura*\n\n\
   Para recibir notificaciones, simplemente agregue el anime en su lista de seguimiento después de buscarlo, hay un botón para eso en el contenido buscado.\n\n\
   ¿Alguna otra pregunta?\n\n\
@@ -201,7 +201,7 @@ counterOptions:
 
 recommendationOptions:
   "⚖️ *RECOMENDACIONES*\n\n\
-  Debido a su historial de lectura y lectura, actualmente estamos trabajando en un sistema para darle recomendaciones sobre lo que debe mirar o leer.\n\n\
+  Debido a su historial de vistos y lectura, actualmente estamos trabajando en un sistema para darle recomendaciones sobre lo que debe ver o leer.\n\n\
   Y puedes ayudarme con esto ... Solo ve a la sección Acerca de en la pestaña Guía cómo puedes ayudarme :)"
 
 languageOptions:
@@ -227,7 +227,7 @@ setLanguage:
 
 errorSetLanguage:
   "🚫 *ERROR DE IDIOMAS*\n\n\
-  An error occurred when trying to change your language, please warn @farmy about it"
+  Ocurrió un error al intentar cambiar tu lenguaje, porfavor informe a @farmy about it"
 
 setNotify:
   "👌 *NOTIFICACIONES CONFIGURADAS*\n\n\
@@ -280,7 +280,7 @@ alreadyRemovedWatchlist:
 
 errorWatchlist:
   "¡Ocurrió un error!\n\
-  Por favor, advierte @farmy al respecto."
+  Por favor, advierte a @farmy al respecto."
 
 addedReadlist:
   "¡Este manga fue agregado a tu lista de lectura!\n\
@@ -297,7 +297,7 @@ alreadyRemovedReadlist:
 
 errorReadlist:
   "¡Ocurrió un error!\n\
-  Por favor, advierte @farmy al respecto."
+  Por favor, advierte a @farmy al respecto."
 
 animeNotifyEnabled:
   "Recibirás una notificación sobre este anime como nuevos episodios y noticias al respecto"
@@ -307,7 +307,7 @@ animeNotifyDisabled:
 
 animeNotifyError:
   "¡Ocurrió un error!\n\
-  Por favor, advierte @farmy al respecto."
+  Por favor, advierte a @farmy al respecto."
 
 mangaNotifyEnabled:
   "Recibirás una notificación sobre este manga como noticias al respecto"
@@ -317,16 +317,16 @@ mangaNotifyDisabled:
 
 mangaNotifyError:
   "¡Ocurrió un error!\n\
-  Por favor, advierte @farmy al respecto."
+  Por favor, advierte a @farmy al respecto."
 
 languageDefault:
   "El idioma predeterminado de Telegram"
 
 timeNotSet:
-  "Sobre los episodios y el lanzamiento de las noticias"
+  "Sobre episodios y lanzamiento de noticias"
 
 timezoneNotSet:
-  "Not set, you will be notified at the bot time clock"
+  "No configurado, seras notificado en horario del bot"
 
 enabled:
   "Habilitado"
@@ -344,34 +344,34 @@ en:
   "Inglés"
 
 pt:
-  "portugués"
+  "Portugués"
 
 id:
-  "indonesio"
+  "Indonesio"
 
 nl:
-  "holandés"
+  "Holandés"
 
 es:
   "Español"
 
 it:
-  "italiano"
+  "Italiano"
 
 de:
   "Deutsch"
 
 fr:
-  "francés"
+  "Francés"
 
 ru:
-  "ruso"
+  "Ruso"
 
 zh:
-  "chino"
+  "Chino"
 
 jp:
-  "japonés"
+  "Japonés"
 
 ar:
   "Arábica"
@@ -380,34 +380,34 @@ enButton:
   "🇬🇧 Inglés"
 
 ptButton:
-  "🇧🇷 portugués"
+  "🇧🇷 Portugués"
 
 idButton:
-  "🇮🇩 indonesio"
+  "🇮🇩 Indonesio"
 
 nlButton:
-  "🇳🇱 holandés"
+  "🇳🇱 Holandés"
 
 esButton:
   "🇪🇸 Español"
 
 itButton:
-  "🇮🇹 italiano"
+  "🇮🇹 Italiano"
 
 deButton:
-  "🇩🇪 Deutsch"
+  "🇩🇪 Alemán"
 
 frButton:
-  "🇫🇷 francés"
+  "🇫🇷 Francés"
 
 ruButton:
-  "🇷🇺 ruso"
+  "🇷🇺 Ruso"
 
 zhButton:
-  "🇨🇳 chino"
+  "🇨🇳 Chino"
 
 jpButton:
-  "🇯🇵 japonés"
+  "🇯🇵 Japonés"
 
 arButton:
   "🇦🇪 Arábica"
@@ -470,7 +470,7 @@ airingButton:
   "Publicación"
 
 soonButton:
-  "Luego"
+  "Pronto"
 
 completedButton:
   "Terminado"
@@ -488,7 +488,7 @@ userButton:
   "Usuario"
 
 countdownButton:
-  "cuenta regresiva"
+  "Cuenta regresiva"
 
 guideButton:
   "Guía"
@@ -497,7 +497,7 @@ watchlistButton:
   "Lista de seguimiento"
 
 readlistButton:
-  "Readlist"
+  "Lista de lectura"
 
 aboutButton:
   "Acerca de"
@@ -506,7 +506,7 @@ sourceButton:
   "Fuente"
 
 notAvailable:
-  "Not Available"
+  "No Disponible"
 
 finished:
   "Terminado"
@@ -599,10 +599,10 @@ officialSite:
   "Sitio oficial"
 
 isAdult:
-  "⚠️ Adult content\n"
+  "⚠️ Contenido adulto\n"
 
 lightNovel:
-  "🔲 Light Novel"
+  "🔲 Novela ligera"
 
 visualNovel:
   "🔳 Visual Novel"
@@ -617,7 +617,7 @@ notFoundDescription:
   "No hay resultados sobre: ${search}"
 
 notFoundMessageText:
-  "Busqué sobre _${search}_ en [Anilist](https://anilist.co/) y se le ocurrió nada. Por favor, intente buscar nuevamente o verifique si hay algún tipo de error de tipo incorrecto.\n\n\
+  "Busqué sobre _${search}_ en [Anilist](https://anilist.co/) y no encontré nada. Por favor, intente buscar nuevamente o verifique si hay algún tipo de error de tipo incorrecto.\n\n\
   Solo un recordatorio amigable: busca solo en INGLÉS, JAPONÉS y contenido LENGUAJE NATIVO"
 
 english:
@@ -805,4 +805,4 @@ episode:
   "*Episodio*: _${episode}_\n"
 
 timeUntilAiring:
-  "*Tiempo hasta que se transmite*: _${timeUntilAiring}_\n"
+  "*Tiempo hasta la emisión*: _${timeUntilAiring}_\n"
