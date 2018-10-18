@@ -1,16 +1,16 @@
 start:
   "*Bienvenido*, _${from.username}!_\n\n\
   ¡Soy AnilistBot, el bot del mundo anime/manga!\n\n\
-  Sin embargo, puedo hacer mucho más, para saber como, haz clic en el botón Ayuda.\n\n\
-  ¿Quieres saber más acerca de mí? ¿Le gustaría ver cuál es mi código o ayudar con el proyecto? Vaya a Acerca de en la Guía de menús :)"
+  Sin embargo, puedo hacer mucho más: para saber cómo, haz clic en el botón Ayuda.\n\n\
+  ¿Quieres saber más acerca de mí? ¿Te gustaría ver cuál es mi código o ayudar con el proyecto? Ve a "Acerca" de en la Guía de menúes :)"
 
 dbDown:
-  "Desafortunadamente, la base de datos está inactiva en este momento. Por favor, informe a @farmy sobre esto, ¡para que pueda arreglarlo!"
+  "Desafortunadamente, la base de datos está inactiva en este momento. Por favor, informa a @farmy sobre esto, ¡para que pueda arreglarlo!"
 
 dbDownPrivate:
   "🤔 *ADVERTENCIA*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/db_down/db_down.png)\n\n\
-  Desafortunadamente, la base de datos está inactiva en este momento. Por favor, informe a @farmy sobre esto, ¡para que pueda arreglarlo!\n\n\
-  Algunas de las opciones de bot pueden funcionar y otras no."
+  Desafortunadamente, la base de datos está inactiva en este momento. Por favor, informa a @farmy sobre esto, ¡para que pueda arreglarlo!\n\n\
+  Algunas de las opciones del bot pueden funcionar y otras no."
 
 deprecated:
   "Este botón es de mi versión anterior, busca este contenido nuevamente."
@@ -37,7 +37,7 @@ menuOptions:
   "📕\t*MENÚ*\n\n\
   *Usuario*: _info about: notifications, language, time and location_\n\
   *Mostrador*: _cuanto tiempo en ver anime_\n\
-  *cuenta regresiva*: _hora hasta que empiecen nuevos episodios_\n\
+  *cuenta regresiva*: _horas hasta que empiecen nuevos episodios_\n\
   *Lista de seguimiento*: _animes guardados_\n\
   *Readlist*: _mangas guardados_\n\
   *Recomendaciones*: _contenido que pueda interesarte_\n\
@@ -61,7 +61,7 @@ userOptions:
   "😀 *USUARIO*\n\n\
   - *Idioma del usuario*: _${language}_\n\
   - *Notificaciones*: _${notify}_\n\
-  - *Hora de notificaciones*: _${time}_\n\
+  - *Horario de notificaciones*: _${time}_\n\
   - *Ubicación del usuario*: _${timezone}_"
 
 notifyOptions:
@@ -98,7 +98,7 @@ askLocationOptions:
 sendLocationOptions:
   "🌎 *UBICACIÓN*\n\n\
   Por favor, ahora envíame tu ubicación haciendo clic en el botón.\n\n\
-  nota: solo un recordatorio amigable, NO PUEDE enviar su ubicación en Telegram Desktop. Si ese es tu caso, retrocede y sigue los pasos de los demás."
+  nota: solo un recordatorio amigable, NO PUEDES enviar tu ubicación en Telegram Desktop. Si ese es tu caso, retrocede y sigue los pasos de los demás."
 
 removeLocationOptions:
   "🌎 *UBICACIÓN*\n\n\
@@ -446,13 +446,13 @@ sendLocationButton:
   "Envía tu ubicación"
 
 dataLocationButton:
-  "Haga clic para enviar su ubicación"
+  "Haga clic para enviar tu ubicación"
 
 askLocationButton:
-  "Busque su ubicación"
+  "Busque tu ubicación"
 
 removeLocationButton:
-  "Eliminar su ubicación"
+  "Eliminar tu ubicación"
 
 yesButton:
   "Sí"
@@ -572,7 +572,7 @@ special:
   "📼 Especial"
 
 tvShort:
-  "🏮 Tv Short"
+  "🏮 Corto Televisivo"
 
 oneShot:
   "📜 One Shot"
