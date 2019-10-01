@@ -1,8 +1,8 @@
 start:
-  "*Bienvenido*, _${from.username}!_\n\n\
+  "¡*Bienvenido*, _${from.username}!_\n\n\
   ¡Soy AnilistBot, el bot del mundo anime/manga!\n\n\
-  Sin embargo, puedo hacer mucho más: para saber cómo, haz clic en el botón Ayuda.\n\n\
-  ¿Quieres saber más acerca de mí? ¿Te gustaría ver cuál es mi código o ayudar con el proyecto? Ve a "Acerca" de en la Guía de menúes :)"
+  Puedo hacer mucho por ti, si quieres saber cómo, has clic en el botón Ayuda.\n\n\
+  ¿Quieres saber más acerca de mí? ¿Te gustaría ver mi código o ayudar con el proyecto? Ve a Acerca de en el menú Guía :)"
 
 dbDown:
   "Desafortunadamente, la base de datos está inactiva en este momento. Por favor, informa a @farmy sobre esto, ¡para que pueda arreglarlo!"
@@ -16,10 +16,10 @@ deprecated:
   "Este botón es de mi versión anterior, busca este contenido nuevamente."
 
 menu:
-  "menú"
+  "Menú"
 
 help:
-  "ayuda"
+  "Ayuda"
 
 loading:
   "Cargando..."
@@ -35,27 +35,27 @@ menuGreetings:
 
 menuOptions:
   "📕\t*MENÚ*\n\n\
-  *Usuario*: _info about: notifications, language, time and location_\n\
-  *Mostrador*: _cuanto tiempo en ver anime_\n\
-  *cuenta regresiva*: _horas hasta que empiecen nuevos episodios_\n\
-  *Lista de seguimiento*: _animes guardados_\n\
-  *Readlist*: _mangas guardados_\n\
-  *Recomendaciones*: _contenido que pueda interesarte_\n\
-  *Guía*: _tutorial, acerca, informacion, noticias, cómo puedes ayudar a este bot, cómo solicitar algo, etc..._"
+  *Usuario*: _info about: notificaciones, idioma, horario y ubicación_\n\
+  *Contador*: _cuanto tiempo viendo anime_\n\
+  *Cuenta regresiva*: _horas hasta que se transmitan nuevos episodios_\n\
+  *Lista de anime por ver*: _animes guardados_\n\
+  *Lista de manga por leer*: _mangas guardados_\n\
+  *Recomendaciones*: _contenido que puede interesarte_\n\
+  *Guía*: _tutorial, información, noticias, cómo puedes ayudar a este bot, cómo solicitar algo, etc..._"
 
 helpOptions:
-  "¿Cómo puedo ser útil para ti hoy, _${from.username}_?\n\n\
-  Permítanos probar un ejemplo, escriba lo siguiente en CUALQUIER chat y luego haga clic en el resultado deseado:\n\n\
+  "¿Cómo puedo ayudarte hoy, _${from.username}_?\n\n\
+  Probemos un ejemplo, escribe lo siguiente en CUALQUIER chat y luego has clic en el resultado deseado:\n\n\
   ``` @ANILISTbot Pokemon```\n\n\
   Este bot tiene características especiales para ti:\n\
-  - *Notificaciones cuando empiezan nuevos episodios*\n\
+  - *Notificaciones cuando se transmiten nuevos episodios*\n\
   - *Noticias sobre tus mangas y animes*\n\
-  - *Calcula tu tiempo viendo anime*\n\
-  - *Cuenta regresiva para episodios*\n\
-  - *Tu propia lista para ver y leer*\n\n\
-  Para recibir notificaciones, simplemente agregue el anime en su lista de seguimiento después de buscarlo, hay un botón para eso en el contenido buscado.\n\n\
+  - *Registro de tu tiempo viendo anime*\n\
+  - *Cuenta regresiva para nuevos episodios*\n\
+  - *Tus propias listas de anime por ver y manga por leer*\n\n\
+  Para recibir notificaciones, simplemente agrega el anime en tu lista de anime por ver después de buscarlo, hay un botón para eso en el contenido buscado.\n\n\
   ¿Alguna otra pregunta?\n\n\
-  Presione Menú y vea la información de la guía para obtener más información y configuraciones sobre este bot."
+  Presiona Menú y leé la guía para obtener más información y aprender sobre las configuraciones sobre este bot."
 
 userOptions:
   "😀 *USUARIO*\n\n\
@@ -67,38 +67,38 @@ userOptions:
 notifyOptions:
   "✉️ *NOTIFICACIONES*\n\n\
   *Episodios*\n\
-  Cuando se publiquen nuevos episodios de anime, se le notificará.\n\n\
+  Serás notificado cuando se publiquen nuevos episodios de anime.\n\n\
   *Noticias*\n\
-  Cuando se publiquen las noticias sobre sus animes, incluso si no se esta produciendo actualmente, se lo notificará. Esto solo funciona para noticias en inglés.\n\n\
+  Cuando se publiquen noticias sobre tus animes, incluso si no se esta produciendo actualmente, se te notificará. Esto solo funciona con noticias en inglés.\n\n\
   *Casos específicos*\n\
-  Si desea prender o apagar la notificación para ciertos animes / mangas, puede hacerlo directamente a través de los medios en sus listas.\n\n\
-  ¿Realmente desea deshabilitar TODAS las notificaciones de episodios y noticias?"
+  Si deseas activar o desactivar las notificaciones para ciertos animes / mangas, puedes hacerlo directamente a través de los medios en tus listas.\n\n\
+  ¿Realmente deseas deshabilitar TODAS las notificaciones de episodios y noticias?"
 
 timeOptions:
-  "⏰ *HORA*\n\n\
+  "⏰ *HORARIO*\n\n\
   Cambia aquí el tiempo para tus notificaciones.\n\n\
-  Puede ajustar la hora usted mismo - recuerde que mi reloj es el reloj UTC - o envíeme su ubicación en las opciones de usuario para que pueda enviarle las notificaciones a su hora local."
+  Puedes ajustar la hora por ti mismo - recuerda que mi reloj es el reloj UTC - o enviarme tu ubicación en las opciones de usuario para que pueda enviarte las notificaciones en tu horario local."
 
 timePeriodOptions:
   "⏰ *PERÍODO*\n\n\
-  ¿Le gustaría ser notificado en la mañana o en la tarde?"
+  ¿Te gustaría ser notificado en la mañana o en la tarde?"
 
 timeHourOptions:
   "⏰ *HORA*\n\n\
-  Seleccione su tiempo deseado para recibir notificaciones."
+  Selecciona tu hora deseada para recibir notificaciones."
 
 locationOptions:
   "🌎 *UBICACIÓN*\n\n\
-  Infórmeme su ubicación para que pueda enviar notificaciones a su hora local."
+  Infórmame tu ubicación para que pueda enviarte notificaciones a tu hora local."
 
 askLocationOptions:
   "🌎 *UBICACIÓN*\n\n\
-  Por favor, responda este mensaje *EN INGLÉS* con el nombre de su ciudad. Voy a hacer una búsqueda y guardar aquí como su ubicación."
+  Por favor, responde este mensaje *EN INGLÉS* con el nombre de tu ciudad. Voy a hacer una búsqueda y guardar tu ubicación."
 
 sendLocationOptions:
   "🌎 *UBICACIÓN*\n\n\
   Por favor, ahora envíame tu ubicación haciendo clic en el botón.\n\n\
-  nota: solo un recordatorio amigable, NO PUEDES enviar tu ubicación en Telegram Desktop. Si ese es tu caso, retrocede y sigue los pasos de los demás."
+  nota: solo un recordatorio amigable, NO PUEDES enviar tu ubicación en Telegram Desktop. Si este es tu caso, retrocede y sigue los otros pasos."
 
 removeLocationOptions:
   "🌎 *UBICACIÓN*\n\n\
@@ -113,35 +113,35 @@ guideOptions:
   *Funciones de búsqueda*\n\n\
   En modo en línea:\n\n\
   ``` @ANILISTbot Pokemon```\n\n\
-  *Calculadora de tiempo anime*\n\n\
-  Solo una calculadora de cuánto tiempo has pasado viendo el anime.\n\n\
+  *Medidor de tiempo viendo anime*\n\n\
+  Solo un medidor de cuánto tiempo has pasado viendo anime.\n\n\
   *Idioma del usuario*\n\n\
-  Normalmente trabajo con su idioma de Telegram, y si no esta disponible, mi idioma predeterminado es el inglés. Si quieres cambiar eso, ve a la pagina de Usuario y cámbialo.\n\n\
+  Normalmente trabajo con tu idioma de Telegram, y si no esta disponible, mi idioma predeterminado es el inglés. Si quieres cambiarlo, ve a la pagina de Usuario para hacerlo.\n\n\
   *Ubicación del usuario*\n\n\
-  _\"POR QUÉ PREGUNTAR MI UBICACIÓN???\"_ — Tú\n\n\
-  No te seguiré ni nada, es simple: en este momento me estoy ejecutando en un servidor, si quieres cambiar tu hora para notificaciones y eliges que se te notifique 13h, serán 13 h en el tiempo del servidor, que usa el UTC estándar.\n\
-  Si desea recibir notificaciones en 13h en su país, necesito saber qué país es el primero.\n\
-  O también puede calcular su tiempo en horas UTC; solo un pequeño recordatorio, de su país, como el de mi propio creador, que tiene horario de verano, también debe tenerlo en cuenta.\n\n\
+  _\"¿¿¿POR QUÉ PREGUNTAR MI UBICACIÓN???\"_ — Tú\n\n\
+  No te seguiré ni nada, es simple: en este momento me estoy ejecutando en un servidor, si quieres cambiar tu horario de notificaciones y eliges que se te notifique a la 1pm, será a la 1pm en el tiempo del servidor, que será UTC.\n\
+  Si quieres recibir notificaciones a la 1pm en tu país, necesito saber en qué país vives.\n\
+  También puedes establecer tu tiempo en UTC; solo un pequeño recordatorio, ten en cuenta el horario de verano (si en tu país se usa).\n\n\
   *Lista para ver / Lista para leer*\n\n\
   Para ver más información sobre tu anime / manga solo presiona el botón Más Información.\n\n\
   *Notificaciones*\n\n\
-  Las notificaciones normalmente están habilitadas para todos los animes que estan al aire. Si desea deshabilitarlo, abra la pagina Usuario y luego haga clic en Notificar.\n\
-  Si desea prender o apager las notificaciones para animes específicos, ábralo y luego haga clic en más información.\n\
-  O si desea establecer una hora del día para recibir todas las notificaciones, haga clic en Tiempo en la pestaña Usuario."
+  Las notificaciones normalmente están habilitadas para todos los animes que están al aire. Si deseas deshabilitarlas, abre la página Usuario y luego has clic en Notificar.\n\
+  Si deseas activar o desactivar las notificaciones para animes específicos, ábrelo y luego has clic en Más información.\n\
+  O si deseas establecer una hora del día para recibir todas las notificaciones, has clic en Horario en el menú Usuario."
 
 aboutOptions:
-  "⚙️ *ACERCA*\n\n\
-  [‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/about/about.png)Las noticias de Bot y encuestas sobre nuevas características se lanzan en mi [canal](https://t.me/ANILISTbotchannel) — *solo inglés*.\n\n\
+  "⚙️ *ACERCA DE*\n\n\
+  [‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/about/about.png)Las noticias del Bot y encuestas sobre nuevas características se lanzan en mi [canal](https://t.me/ANILISTbotchannel) — *sólo inglés*.\n\n\
   Ver más sobre mí en:\n\
   🤖 [Mi sitio web](https://fazendaaa.github.io/AnilistBot) — La historia detrás de mí.\n\
   ⭐ [Github](https://github.com/Fazendaaa/AnilistBot) — Ponle estrella a este proyecto, ¡ES GRATIS!\n\
   😀 [Sitio web del creador](http://fazendaaa.me) — Échale un vistazo a otros bots.\n\n\
-  O incluso considerar que apoya a mi creador:\n\
+  O incluso considera que apoyar a mi creador:\n\
   📅 [Patreon](https://www.patreon.com/Fazenda/overview) — Suscripción.\n\
-  ☕ [Buy me a coffee](https://www.buymeacoffee.com/Fazenda) — Solo una vez.\n\
-  ❓ [¿Por qué apoyarlo?](https://fazendaaa.github.io/AnilistBot) — Lea más sobre por qué marca la diferencia en la parte de Soporte. ¡Puedes ayudarme a mantenerme con vida con solo un dólar por mes!\n\n\
-  *¿Tiene alguna sugerencia, errores para informarlo o incluso solicitar una traducción para poder trabajar en su lengua materna?*\n\n\
-  Digale a mi creador: @farmy."
+  ☕ [Buy me a coffee](https://www.buymeacoffee.com/Fazenda) — Sólo una vez.\n\
+  ❓ [¿Por qué apoyarlo?](https://fazendaaa.github.io/AnilistBot) — Lee como puedes marcar la diferencia en la sección de Soporte. ¡Puedes ayudar a mantenerme con vida con solo un dólar al mes!\n\n\
+  *¿Tienes alguna sugerencia, errores para informar o incluso solicitar una traducción para poder trabajar en tu lengua materna?*\n\n\
+  Dile a mi creador: @farmy."
 
 readlistOptions:
   "🔖 *TODAS*[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/all/all.png)\n\n\
@@ -196,38 +196,38 @@ countdownOptions:
   ${anime}"
 
 counterOptions:
-  "⌛ *TIEMPO QUE MIRA*\n\n\
-  Esto es cuanto has visto anime: _${counter} horas_"
+  "⌛ *REGISTRO DE ANIME VISTO*\n\n\
+  Esto es cuanto tiempo has visto anime: _${counter} horas_"
 
 recommendationOptions:
   "⚖️ *RECOMENDACIONES*\n\n\
-  En base a tus intereses en manga y anime, denotados en tu historial, estamos trabajando en un sistema para brindarle recomendaciones sobre lo que debería ver o leer.\n\n\
-  Y puedes ayudarme con esto ... Solo dirígete a la sección Acerca de en la pestaña Guía cómo puedes ayudarme :)"
+  Con base en tus intereses en manga y anime, denotados en tu historial, estamos trabajando en un sistema para brindarte recomendaciones sobre lo que deberías ver o leer.\n\n\
+  Y puedes ayudarme con esto ... Solo dirígete a la sección Acerca de en la sección Guía para ver cómo puedes ayudarme :)"
 
 languageOptions:
-  "Por favor, elija una de las siguientes opciones de idioma:"
+  "Por favor, elije una de las siguientes opciones de idioma:"
 
 sourceOptions:
   "📋 *VER MÁS*\n\n\
-  Solo estoy aquí gracias a los que están detrás [Anilist](http://anilist.co/).\n\
-  No soy un robot oficial ni nada. Pero gracias a aquellos que hicieron de este sitio increíble, estoy disponible. Por favor, considere echarle un vistazo!\n\n\
+  Sólo estoy aquí gracias a las personas detrás de [Anilist](http://anilist.co/).\n\
+  No soy un bot oficial ni nada. Pero gracias a aquellos que hicieron este increíble sitio, estoy disponible. Por favor, considera echarle un vistazo!\n\n\
   O cualquier otro contenido relevante como:\n\n\
-  - [ANN](https://www.animenewsnetwork.com/) — Actualmente estamos trabajando en una forma de agregar las noticias de anime / manga aquí\n\
+  - [ANN](https://www.animenewsnetwork.com/) — actualmente estamos trabajando en una forma de agregar las noticias de anime / manga aquí\n\
   - [Reddit](https://www.reddit.com/r/anime/) — si te gusta compartir tu opinión\n\
-  - [Gigguk](https://www.youtube.com/channel/UC7dF9qfBMXrSlaaFFDvV_Yg) — si te gusta ver comentarios\n\n\
-  En un nuevo futuro, mi creador desea crear un grupo aquí para que pueda escucharlos y tomar su opinión sobre las nuevas funciones y cómo mejorarme.\n\n\
-  En este momento, si puedes ayudarme:\n\
-  - [revisión](https://storebot.me/bot/anilistbot) — revisame en la tienda de Telegram Bot\n\
-  - [Apoyarme](https://fazendaaa.github.io/AnilistBot) — Lea cómo y por qué marca la diferencia en la sección de Soporte\n\
+  - [Gigguk](https://www.youtube.com/channel/UC7dF9qfBMXrSlaaFFDvV_Yg) — si te gusta ver análisis\n\n\
+  En un futuro cercano, mi creador desea crear un grupo aquí para que pueda escuchar tu opinión sobre nuevas funciones y cómo mejorarme.\n\n\
+  En este momento puedes ayudarme:\n\
+  - [Puntuación](https://storebot.me/bot/anilistbot) — puntúame en la tienda de bots de Telegram\n\
+  - [Apóyame](https://fazendaaa.github.io/AnilistBot) — Leé cómo puedes marcar la diferencia en la sección de Soporte\n\
   Cualquier otra duda, habla con mi creador: @farmy :)"
 
 setLanguage:
   "👌 *IDIOMA CONFIGURADO*\n\n\
-  Espere unos segundos hasta que esta configuración funcione."
+  Espera unos segundos hasta que esta configuración funcione."
 
 errorSetLanguage:
-  "🚫 *ERROR DE IDIOMAS*\n\n\
-  Ocurrió un error al intentar cambiar tu lenguaje. Por favor informe a @farmy about it"
+  "🚫 *ERROR DE IDIOMA*\n\n\
+  Ocurrió un error al intentar establecer tu idioma. Por favor informa a @farmy al respecto"
 
 setNotify:
   "👌 *NOTIFICACIONES CONFIGURADAS*\n\n\
@@ -235,69 +235,69 @@ setNotify:
 
 setHour:
   "👌 *HORA CONFIGURADA*\n\n\
-  A partir de ahora, recibirás una notificación cada día sobre tus episodios de anime, manga y noticias de anime en: _${hour}h_"
+  A partir de ahora, recibirás una notificación diario sobre tus episodios de anime, manga y noticias de anime a las: _${hour}h_"
 
 setTimezone:
   "👌 *TIMEZONE CONFIGURADO*\n\n\
-  A partir de ahora, recibirás una notificación cada día sobre tus episodios de anime, manga y noticias de anime en tu zona horaria.: _${timezone}_"
+  A partir de ahora, recibirás una notificación diaria sobre tus episodios de anime, manga y noticias de anime en tu zona horaria: _${timezone}_"
 
 setRemoveLocation:
   "👌 *UBICACIÓN ELIMINADA*\n\n\
   Tu ubicación se eliminó correctamente."
 
 errorSetRemoveLocation:
-  "🚫 *UBICACIÓN EL ERROR RETIRADO*\n\n\
-  Se produjo un error al eliminar su ubicación, advierta a @farmy sobre eso."
+  "🚫 *ERROR AL ELIMINAR UBICACIÓN*\n\n\
+  Se produjo un error al eliminar TU ubicación, informa a @farmy sobre eso."
 
 errorSetTimezone:
-  "🚫 *ERROR DE TIMEZONE*\n\n\
-  Se produjo un error al configurar su zona horaria, advierta a @farmy sobre eso."
+  "🚫 *ERROR DE ZONA HORARIA*\n\n\
+  Se produjo un error al configurar tu zona horaria, informa a @farmy sobre esto."
 
 errorSetHour:
-  "🚫 *HOUR ERROR*\n\n\
-  Se produjo un error al cambiar la hora, por favor advierta a @farmy sobre eso."
+  "🚫 *ERROR DE HORARIO*\n\n\
+  Se produjo un error al cambiar tu horario, por favor informa a @farmy sobre esto."
 
 errorNotify:
-  "🚫 *NOTIFICACIONES ERROR*\n\n\
-  Se produjo un error al cambiar el estado de su notificación, advierta a @farmy sobre eso."
+  "🚫 *ERROR DE NOTIFICACIONES*\n\n\
+  Se produjo un error al cambiar el estado de tus notificaciones, informa a @farmy sobre esto."
 
 errorUserInfo:
   "🚫 *ERROR DE USUARIO*\n\n\
-  Se produjo un error al obtener su información de usuario, advierta a @farmy sobre eso."
+  Se produjo un error al obtener tu información de usuario, informa a @farmy sobre esto."
 
 addedWatchlist:
-  "¡Este anime fue agregado a tu lista para ver!\n\
+  "¡Este anime fue agregado a tu lista de anime por ver!\n\
   Para verlo, solo háblame en privado. Y también te daré notificación sobre nuevos episodios."
 
 alreadyWatchlist:
-  "¡Este anime ya está en tu lista para ver!"
+  "¡Este anime ya está en tu lista de anime por ver!"
 
 removedWatchlist:
-  "¡Este anime fue eliminado de tu lista para ver!"
+  "¡Este anime fue eliminado de tu lista de anime por ver!"
 
 alreadyRemovedWatchlist:
-  "¡Este anime ya fue eliminado de tu lista para ver!"
+  "¡Este anime ya fue eliminado de tu lista de anime por ver!"
 
 errorWatchlist:
   "¡Ocurrió un error!\n\
-  Por favor, advierte a @farmy al respecto."
+  Por favor, informa a @farmy al respecto."
 
 addedReadlist:
-  "¡Este manga fue agregado a tu lista para leer!\n\
+  "¡Este manga fue agregado a tu lista de manga por leer!\n\
   Para verlo, solo háblame en privado."
 
 alreadyReadlist:
-  "¡Este manga ya está en tu lista para leer!"
+  "¡Este manga ya está en tu lista de manga por leer!"
 
 removedReadlist:
-  "¡Este manga fue eliminado de tu lista para leer!"
+  "¡Este manga fue eliminado de tu lista de manga por leer!"
 
 alreadyRemovedReadlist:
-  "¡Este anime ya fue eliminado de tu lista para leer!"
+  "¡Este manga ya fue eliminado de tu lista de manga por leer!"
 
 errorReadlist:
   "¡Ocurrió un error!\n\
-  Por favor, advierte a @farmy al respecto."
+  Por favor informa a @farmy al respecto."
 
 animeNotifyEnabled:
   "Recibirás una notificación sobre este anime cuando haya nuevos episodios y noticias"
@@ -307,17 +307,17 @@ animeNotifyDisabled:
 
 animeNotifyError:
   "¡Ocurrió un error!\n\
-  Por favor, advierte a @farmy al respecto."
+  Por favor, informa a @farmy al respecto."
 
 mangaNotifyEnabled:
-  "Recibirás una notificación sobre este manga como noticias al respecto"
+  "Recibirás una notificación sobre este manga y recibirás noticias al respecto"
 
 mangaNotifyDisabled:
   "No recibirás más notificaciones sobre este manga"
 
 mangaNotifyError:
   "¡Ocurrió un error!\n\
-  Por favor, advierte a @farmy al respecto."
+  Por favor, informa a @farmy al respecto."
 
 languageDefault:
   "El idioma predeterminado de Telegram"
@@ -326,19 +326,19 @@ timeNotSet:
   "Sobre los episodios y las noticias"
 
 timezoneNotSet:
-  "No configurado, seras notificado en horario del bot"
+  "Zona horaria no configurada, serás notificado en el horario del bot"
 
 enabled:
-  "Encendido"
+  "Habilitado"
 
 disabled:
-  "Apagado"
+  "Deshabilitado"
 
 enableButton:
-  "Enciende"
+  "Habilitar"
 
 disableButton:
-  "Apaga"
+  "Deshabilitar"
 
 en:
   "Inglés"
@@ -359,7 +359,7 @@ it:
   "Italiano"
 
 de:
-  "Deutsch"
+  "Aleman"
 
 fr:
   "Francés"
@@ -374,7 +374,7 @@ jp:
   "Japonés"
 
 ar:
-  "Arábica"
+  "Arábe"
 
 enButton:
   "🇬🇧 Inglés"
@@ -410,7 +410,7 @@ jpButton:
   "🇯🇵 Japonés"
 
 arButton:
-  "🇦🇪 Arábica"
+  "🇦🇪 Árabe"
 
 counterButton:
   "¿Cuánto tiempo he visto Anime?"
@@ -425,7 +425,7 @@ notifyButton:
   "Notificaciones"
 
 timeButton:
-  "Hora"
+  "Horario"
 
 timePeriodButton:
   "Período"
@@ -446,10 +446,10 @@ sendLocationButton:
   "Envía tu ubicación"
 
 dataLocationButton:
-  "Haga clic para enviar tu ubicación"
+  "Has clic para enviar tu ubicación"
 
 askLocationButton:
-  "Busque tu ubicación"
+  "Buscar tu ubicación"
 
 removeLocationButton:
   "Eliminar tu ubicación"
@@ -467,7 +467,7 @@ allButton:
   "Todas"
 
 airingButton:
-  "Publicación"
+  "En emisión"
 
 soonButton:
   "Pronto"
@@ -479,7 +479,7 @@ cancelledButton:
   "Cancelado"
 
 publishingButton:
-  "Publicación"
+  "En publicación"
 
 moreInfoButton:
   "Más información"
@@ -494,13 +494,13 @@ guideButton:
   "Guía"
 
 watchlistButton:
-  "Lista de seguimiento"
+  "Lista de anime por ver"
 
 readlistButton:
-  "Lista de lectura"
+  "Lista de manga por leer"
 
 aboutButton:
-  "Acerca"
+  "Acerca de"
 
 sourceButton:
   "Fuente"
@@ -512,7 +512,7 @@ finished:
   "Terminado"
 
 releasing:
-  "En Aire"
+  "En emisión"
 
 notYetReleased:
   "Aún no publicado"
@@ -533,7 +533,7 @@ winter:
   "Invierno"
 
 rated:
-  "Calificación"
+  "Puntuación"
 
 popular:
   "Popular"
@@ -605,7 +605,7 @@ lightNovel:
   "🔲 Novela ligera"
 
 visualNovel:
-  "🔳 Visual Novel"
+  "🔳 Novela visual"
 
 seeMore:
   "[ver más](${siteUrl})\n"
@@ -617,8 +617,8 @@ notFoundDescription:
   "No hay resultados sobre: ${search}"
 
 notFoundMessageText:
-  "Busqué sobre _${search}_ en [Anilist](https://anilist.co/) y no encontré nada. Por favor, intente buscar nuevamente o verifique si hay algún tipo de error de tipo.\n\n\
-  Solo un recordatorio amigable: busca solo en INGLÉS, JAPONÉS y contenido LENGUAJE NATIVO"
+  "Busqué sobre _${search}_ en [Anilist](https://anilist.co/) y no encontré nada. Por favor, intenta buscar nuevamente o revisa si hay algún error en tu búsqueda.\n\n\
+  Solo un recordatorio amigable: busca sólo en INGLÉS, JAPONÉS o el LENGUAJE NATIVO del contenido"
 
 english:
   "🇬🇧 *${english}*\n"
@@ -670,11 +670,11 @@ studiosLinks:
   ${studios}"
 
 externalLinks:
-  "- *External links*:\n\
+  "- *Enlaces externos*:\n\
   ${externalLinks}"
 
 trailer:
-  "🍿 [Remolque](${trailer})\n"
+  "🍿 [Avance](${trailer})\n"
 
 countdown:
   "Cuenta regresiva: "
@@ -732,7 +732,7 @@ newRelease:
 userReleaseHeader:
   "[‍](https://raw.githubusercontent.com/Fazendaaa/AnilistBot/master/others/img/notification/notification.png)\
   🔔 *RESUMEN DIARIO*\n\n\
-  Estas son sus notificaciones diarias de resumen:\n\n"
+  Este es tu resumen diario:\n\n"
 
 userRelease:
   "${newContent}\
@@ -779,13 +779,13 @@ buttonUsers:
   "Usuarios"
 
 buttonWatchlist:
-  "Lista de seguimiento"
+  "Lista de anime por ver"
 
 buttonReadlist:
-  "Readlist"
+  "Lista de manga por leer"
 
 buttonRemove:
-  "retirar"
+  "Eliminar"
 
 buttonNotify:
   "Notificaciones"
