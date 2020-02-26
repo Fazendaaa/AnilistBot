@@ -2,7 +2,7 @@ start:
   "*Bienvenido*, _${from.username}!_\n\n\
   ¡Soy AnilistBot, el bot del mundo anime/manga!\n\n\
   Sin embargo, puedo hacer mucho más: para saber cómo, haz clic en el botón Ayuda.\n\n\
-  ¿Quieres saber más acerca de mí? ¿Te gustaría ver cuál es mi código o ayudar con el proyecto? Ve a "Acerca" de en la Guía de menúes :)"
+  ¿Quieres saber más acerca de mí? ¿Te gustaría ver cuál es mi código o ayudar con el proyecto? Ve a 'Acerca' de en la Guía de menúes :)"
 
 dbDown:
   "Desafortunadamente, la base de datos está inactiva en este momento. Por favor, informa a @farmy sobre esto, ¡para que pueda arreglarlo!"
