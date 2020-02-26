@@ -15,7 +15,7 @@
         "url": "git+https://github.com/Fazendaaa/AnilistBot.git"
     },
     "scripts": {
-        "build": "webpack",
+        "build": "webpack --config ./webpack.config.ts",
         "test": "npm run jest",
         "start": "npm run build && npm run bot",
         "doc": "typedoc --out ./docs/API/ ./src/",
