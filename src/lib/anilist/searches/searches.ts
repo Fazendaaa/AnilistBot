@@ -43,7 +43,7 @@ const mediaSearch = async ({ search, page, perPage, translation }: ISearchContex
 };
 
 export const allSearch = async ({ search, page, perPage, translation }: ISearchContext): Promise<IMinimumInline[]> => {
-    const divided = perPage / 4;
+    const divided = parseInt(perPage / 4);
 
     return [
         ...await mediaSearch({ search, translation, page, perPage: divided }),

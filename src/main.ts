@@ -88,7 +88,7 @@ bot.help(async ({ i18n, replyWithMarkdown, replyWithVideo }: IBotContext) => {
 });
 
 bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotContext) => {
-    const perPage = 20;
+    const perPage = 10;
     const translation = i18n;
     const page = fetchPage(inlineQuery.offset);
     const search = sanitize(inlineQuery.query);
