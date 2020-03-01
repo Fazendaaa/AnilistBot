@@ -27,7 +27,7 @@
         "heroku": "npm run build && npm run ps && npm run deploy && npm run release",
         "bot": "node --optimize_for_size --max_old_space_size=460 --gc_interval=100 ./dist/main.js",
         "jest": "jest --config jest.config.json --ci --runInBand --detectOpenHandles --forceExit --no-cache",
-        "docker": "npm run build && npm run bot"
+        "docker": "npm run bot"
     },
     "dependencies": {
         "ajv": "^6.5.4",
