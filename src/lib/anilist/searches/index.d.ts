@@ -5,14 +5,12 @@ import { DocumentNode } from 'graphql';
 export interface IAnilistContext {
     readonly page: number;
     readonly search: string;
-    readonly perPage: number;
     readonly query: DocumentNode;
 }
 
 export interface ISearchContext {
     readonly page: number;
     readonly search: string;
-    readonly perPage: number;
     readonly translation: I18n;
 }
 

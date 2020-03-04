@@ -88,19 +88,21 @@ bot.help(async ({ i18n, replyWithMarkdown, replyWithVideo }: IBotContext) => {
 });
 
 bot.on('inline_query', async ({ i18n, answerInlineQuery, inlineQuery }: IBotContext) => {
-    const perPage = 10;
     const translation = i18n;
     const page = fetchPage(inlineQuery.offset);
     const search = sanitize(inlineQuery.query);
-    let next_offset = (page + 1).toString();
-    let results = await allSearch({ translation, search, page, perPage });
+    const next_offset = (page + 1).toString();
 
-    if (0 === results.length && '1' === next_offset) {
-        next_offset = null;
-        results = notFoundSearch({ translation, search });
-    }
+    allSearch({ translation, search, page })
+        .then(toInlineArticle)
+        .catch(() => {
+            if ('1' === next_offset) {
+                return toInlineArticle(notFoundSearch({ translation, search }));
+            }
 
-    return answerInlineQuery(toInlineArticle(results), { next_offset });
+            return null;
+        })
+        .then(async (results) => answerInlineQuery(results, { next_offset }));
 });
 
 bot.on('callback_query', async ({ i18n, from, scene, answerCbQuery, callbackQuery, replyWithMarkdown }: IBotContext) => {
