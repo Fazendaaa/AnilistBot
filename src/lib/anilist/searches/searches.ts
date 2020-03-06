@@ -11,7 +11,7 @@ import { charactersInfo, mediaInfo, notFoundInfo, staffInfo, studiosInfo } from 
 
 const searchAnilist = async ({ search, query, page }: IAnilistContext): Promise<Object | Error> => queryAnilist({
     query,
-    variables: { page, perPage: 5,  search: ('' !== search) ? search : null  }
+    variables: { page, perPage: 2,  search: ('' !== search) ? search : null  }
 });
 
 const staffSearch = async ({ search, page, translation }: ISearchContext): Promise<IMinimumInline[]> => {
