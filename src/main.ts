@@ -45,7 +45,10 @@ const userCache = new UserCache();
 
 let dbStatus = false;
 
-connect(process.env.MONGODB_URI).then(() => {
+connect(<string> process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
     // https://stackoverflow.com/a/51918795/7092954
     set('useCreateIndex', true);
     set('useFindAndModify', false);

@@ -45,7 +45,7 @@ const allSubscribers = async (subscriptions: ISubscription[]): Promise<IAllSubsc
 
 const notifySubscribers = async (subscriptions: ISubscription[]): Promise<INotifySubscribersResponse | {}> => {
     if (null === subscriptions) {
-        return {};
+        return [];
     }
 
     return {
@@ -64,9 +64,11 @@ export const fetchAllSubscribers = async ({ kind, notify, content_id }: IAllSubs
 };
 
 export const fetchNotifySubscribers = async ({ kind, content_id }: INotifySubscribers): Promise<INotifySubscribersResponse | {}> => {
-    return Subscription.find({ notify: true, kind, content_id }).then(notifySubscribers).catch(() => {
-        return {};
-    });
+    return Subscription.find({ notify: true, kind, content_id })
+        .then(notifySubscribers)
+        .catch(() => {
+            return [];
+        });
 };
 
 export const toogleSubscription = async ({ user, kind, content_id }: ISubscriptionContext): Promise<boolean> => {
