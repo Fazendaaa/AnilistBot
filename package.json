@@ -46,7 +46,7 @@
         "redis": "^2.8.0",
         "roman-numerals": "^0.3.2",
         "socks": "^2.2.1",
-        "striptags": "^3.1.1",
+        "striptags": "^3.2.0",
         "telegraf": "^3.24.0",
         "telegraf-i18n": "^6.3.0",
         "telegraf-session-redis": "^5.0.0"
