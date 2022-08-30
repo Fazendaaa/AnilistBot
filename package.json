@@ -39,7 +39,7 @@
         "google-translate": "^2.2.0",
         "google-translate-open-api": "^1.3.2",
         "moment": "^2.22.2",
-        "moment-timezone": "^0.5.21",
+        "moment-timezone": "^0.5.35",
         "mongoose": "^5.9.2",
         "node-google-timezone": "^0.1.1",
         "node-schedule": "^1.3.0",
