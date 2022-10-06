@@ -69,7 +69,7 @@
         "jest": "^23.6.0",
         "mime": "^2.3.1",
         "qs": "^6.5.2",
-        "snyk": "^1.297.3",
+        "snyk": "^1.996.0",
         "superagent": "^3.8.3",
         "telegram-typings": "^4.0.0-beta",
         "ts-jest": "^23.10.3",
