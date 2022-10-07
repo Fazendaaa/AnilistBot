@@ -1,4 +1,10 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.12.0
+version: v1.25.0
 ignore: {}
-patch: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - city-timezones > lodash:
+        patched: '2022-10-07T21:08:24.840Z'
+    - google-translate > async > lodash:
+        patched: '2022-10-07T21:08:24.840Z'
